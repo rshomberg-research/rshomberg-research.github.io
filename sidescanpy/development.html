@@ -6,9 +6,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="noindex, nofollow" />
 
-    <title>Development &#8212; sidescanpy 0.8.0</title>
+    <title>Development &#8212; sidescanpy 0.9.0</title>
   
   
   
@@ -43,7 +42,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
 
-    <script src="_static/documentation_options.js?v=486e5634"></script>
+    <script src="_static/documentation_options.js?v=39bb1c6d"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -53,12 +52,12 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Pre-release status" href="prerelease.html" />
+    <link rel="next" title="Project status" href="status.html" />
     <link rel="prev" title="sidescanpy.viz.waterfall" href="reference/generated/sidescanpy.viz.waterfall.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.8.0" />
+  <meta name="docsearch:version" content="0.9.0" />
   
     
     <script src="_static/searchtools.js"></script>
@@ -126,7 +125,7 @@
   
   
   
-    <p class="title logo__title">sidescanpy 0.8.0</p>
+    <p class="title logo__title">sidescanpy 0.9.0</p>
   
 </a></div>
     
@@ -197,8 +196,8 @@
 
 
 <li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="prerelease.html">
-    Pre-release status
+  <a class="nav-link dropdown-item nav-internal" href="status.html">
+    Project status
   </a>
 </li>
 
@@ -238,6 +237,21 @@
     <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
   </ul>
 </div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/rshomberg-research/sidescanpy" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
       
     </div>
     
@@ -335,8 +349,8 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="prerelease.html">
-    Pre-release status
+  <a class="nav-link nav-internal" href="status.html">
+    Project status
   </a>
 </li>
 
@@ -364,6 +378,21 @@
     <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
   </ul>
 </div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/rshomberg-research/sidescanpy" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
         
       </div>
     
@@ -548,32 +577,14 @@ with the module path as scope: <code class="docutils literal notranslate"><span 
 API or the <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> format; <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code> lists every break.</p></li>
 </ul>
 </section>
-<section id="sharing-before-release">
-<h2>Sharing before release<a class="headerlink" href="#sharing-before-release" title="Link to this heading">#</a></h2>
-<p>Until the public release the repository is private and shared by
-invitation. <a class="reference internal" href="prerelease.html"><span class="std std-doc">Pre-release status</span></a> is the page for the
-people invited; this section is the maintainer’s side.</p>
-<p><strong>Repository.</strong> It lives in the <code class="docutils literal notranslate"><span class="pre">rshomberg-research</span></code> organization
-(moved from a personal account, where collaborators always get write
-access). Add people as outside collaborators with the <strong>Read</strong> role:
-Settings → Collaborators and teams. If it moves again, update <code class="docutils literal notranslate"><span class="pre">origin</span></code>
-in each clone, <code class="docutils literal notranslate"><span class="pre">[project.urls]</span></code> in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">github_url</span></code> in
-<code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code> (once set), and the links in <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and <code class="docutils literal notranslate"><span class="pre">docs/</span></code>
-(<code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-rn</span> <span class="pre">&quot;github.com/&quot;</span> <span class="pre">README.md</span> <span class="pre">docs</span> <span class="pre">pyproject.toml</span></code>).</p>
-<p>Before inviting anyone, everything on GitHub (every branch, tag and
-commit message) is visible to them. Check it holds nothing that should
-stay private, with the names to look for in place of the placeholders:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>origin<span class="w"> </span>--tags<span class="w"> </span>--force
-git<span class="w"> </span>log<span class="w"> </span>--remotes<span class="o">=</span>origin<span class="w"> </span>--tags<span class="w"> </span>-p<span class="w"> </span>-i<span class="w"> </span>-G<span class="s2">&quot;&lt;name&gt;|&lt;other name&gt;&quot;</span><span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%h %s&quot;</span>
-git<span class="w"> </span>log<span class="w"> </span>--remotes<span class="o">=</span>origin<span class="w"> </span>--tags<span class="w"> </span>-i<span class="w"> </span>--grep<span class="o">=</span><span class="s2">&quot;&lt;name&gt;&quot;</span><span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%h %s&quot;</span>
-</pre></div>
-</div>
-<p><strong>Docs.</strong> The site is public at
-<a class="reference external" href="https://rshomberg-research.github.io/sidescanpy/">https://rshomberg-research.github.io/sidescanpy/</a> while the code stays
-private. GitHub Pages can’t serve a private repository on the
-organization’s free plan, so the <code class="docutils literal notranslate"><span class="pre">docs</span></code> workflow pushes each build of
-<code class="docutils literal notranslate"><span class="pre">main</span></code> into the <code class="docutils literal notranslate"><span class="pre">sidescanpy/</span></code> folder of the public repository
-<code class="docutils literal notranslate"><span class="pre">rshomberg-research/rshomberg-research.github.io</span></code>, which Pages serves.
+<section id="publishing">
+<h2>Publishing<a class="headerlink" href="#publishing" title="Link to this heading">#</a></h2>
+<p><strong>Docs.</strong> The site is at
+<a class="reference external" href="https://rshomberg-research.github.io/sidescanpy/">https://rshomberg-research.github.io/sidescanpy/</a>. The <code class="docutils literal notranslate"><span class="pre">docs</span></code> workflow
+pushes each build of <code class="docutils literal notranslate"><span class="pre">main</span></code> into the <code class="docutils literal notranslate"><span class="pre">sidescanpy/</span></code> folder of the
+repository <code class="docutils literal notranslate"><span class="pre">rshomberg-research/rshomberg-research.github.io</span></code>, which
+GitHub Pages serves. (This setup dates from when the code repository
+was private; Pages on this repository at the same URL would replace it.)
 The workflow also keeps every build of <code class="docutils literal notranslate"><span class="pre">main</span></code> and of <code class="docutils literal notranslate"><span class="pre">v*</span></code> tags as the
 <code class="docutils literal notranslate"><span class="pre">sidescanpy-docs</span></code> artifact (90 days).</p>
 <p>One-time setup, as an organization owner:</p>
@@ -594,13 +605,6 @@ rm<span class="w"> </span>docs_deploy_key<span class="w"> </span>docs_deploy_key
 gh<span class="w"> </span>variable<span class="w"> </span><span class="nb">set</span><span class="w"> </span>PUBLISH_DOCS<span class="w"> </span>--body<span class="w"> </span><span class="nb">true</span><span class="w"> </span>-R<span class="w"> </span>rshomberg-research/sidescanpy
 </pre></div>
 </div>
-<p>Everything on the site is public, including the API reference built
-from the docstrings (signatures and docstrings, not source), the example
-scripts and the development guide. Until the release the pages carry a
-<code class="docutils literal notranslate"><span class="pre">noindex</span></code> tag, so the link works for the people it is given to but
-search engines leave it out. At the public release, enable Pages on
-this repository instead (same URL), remove <code class="docutils literal notranslate"><span class="pre">sidescanpy/</span></code> from the site
-repository, and set <code class="docutils literal notranslate"><span class="pre">sidescanpy_noindex</span> <span class="pre">=</span> <span class="pre">False</span></code> in <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>.</p>
 <p><strong>Gallery.</strong> The example pages are built by
 <a class="reference external" href="https://sphinx-gallery.github.io/">sphinx-gallery</a>, which runs every
 <code class="docutils literal notranslate"><span class="pre">examples/gallery/plot_*.py</span></code> script during the docs build, locally and
@@ -609,9 +613,9 @@ download real data; CI caches it between runs. The README shows two of
 the figures from <code class="docutils literal notranslate"><span class="pre">docs/assets/gallery/</span></code>; <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">readme-images</span></code> refreshes
 them from the last <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs</span></code>. The unit suite checks offline that every
 dataset name a script fetches is registered.</p>
-<p><strong>Test data.</strong> The public fixtures are shared as one zip, through a
-link-shared folder that each invited person
-is added to. Rebuild it whenever a fixture or <code class="docutils literal notranslate"><span class="pre">SOURCES.md</span></code> changes:</p>
+<p><strong>Test data.</strong> The public fixtures are kept outside the repository and
+handed out as one zip. Rebuild it whenever a fixture or <code class="docutils literal notranslate"><span class="pre">SOURCES.md</span></code>
+changes:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/fixtures/..<span class="w">       </span><span class="c1"># the directory holding the fixtures folder</span>
 mkdir<span class="w"> </span>sidescanpy-public-fixtures
 cp<span class="w"> </span>fixtures/*.jsf<span class="w"> </span>fixtures/*.xtf<span class="w"> </span>/path/to/sidescanpy/tests/data/public/SOURCES.md<span class="w"> </span><span class="se">\</span>
@@ -621,10 +625,9 @@ rm<span class="w"> </span>-r<span class="w"> </span>sidescanpy-public-fixtures
 </pre></div>
 </div>
 <p>Then run <code class="docutils literal notranslate"><span class="pre">test_public_fixtures.py</span></code> against the unzipped copy before
-uploading it. Only openly licensed data goes in the zip (see
-<code class="docutils literal notranslate"><span class="pre">SOURCES.md</span></code>). Don’t mint a Zenodo DOI for the data before the public
-release: a published Zenodo record can’t be withdrawn, and even a
-restricted one shows its metadata publicly.</p>
+sharing it. Only openly licensed data goes in the zip (see
+<code class="docutils literal notranslate"><span class="pre">SOURCES.md</span></code>). A published Zenodo record can’t be withdrawn, so check
+the zip before archiving it there.</p>
 </section>
 <section id="releasing">
 <h2>Releasing<a class="headerlink" href="#releasing" title="Link to this heading">#</a></h2>
@@ -660,11 +663,11 @@ environment and run <a class="reference internal" href="getting_started.html"><s
       </div>
     </a>
     <a class="right-next"
-       href="prerelease.html"
+       href="status.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Pre-release status</p>
+        <p class="prev-next-title">Project status</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -690,7 +693,7 @@ environment and run <a class="reference internal" href="getting_started.html"><s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout">Layout</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventions">Conventions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-before-release">Sharing before release</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing">Publishing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#releasing">Releasing</a></li>
 </ul>
   </nav></div>

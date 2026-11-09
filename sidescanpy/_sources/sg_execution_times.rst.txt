@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**02:28.768** total execution time for 4 files **from all galleries**:
+**01:45.068** total execution time for 4 files **from all galleries**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_examples_plot_grid_to_a_map.py` (``../examples/gallery/plot_grid_to_a_map.py``)
-     - 01:08.063
+     - 00:42.659
      - 0.0
    * - :ref:`sphx_glr_examples_plot_correct_a_line.py` (``../examples/gallery/plot_correct_a_line.py``)
-     - 00:37.184
-     - 0.0
-   * - :ref:`sphx_glr_examples_plot_three_formats.py` (``../examples/gallery/plot_three_formats.py``)
-     - 00:25.156
+     - 00:27.907
      - 0.0
    * - :ref:`sphx_glr_examples_plot_read_a_file.py` (``../examples/gallery/plot_read_a_file.py``)
-     - 00:18.365
+     - 00:18.360
+     - 0.0
+   * - :ref:`sphx_glr_examples_plot_three_formats.py` (``../examples/gallery/plot_three_formats.py``)
+     - 00:16.142
      - 0.0

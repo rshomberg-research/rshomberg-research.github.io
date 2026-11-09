@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>sidescanpy.processing.correct &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../../_static/documentation_options.js?v=486e5634"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/generated/sidescanpy.processing.correct';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sidescanpy.processing.farrange" href="sidescanpy.processing.farrange.html" />
+    <link rel="prev" title="sidescanpy.processing.bottom" href="sidescanpy.processing.bottom.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="sidescanpy.html">sidescanpy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.analysis.html">analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.beam.html">beam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.characterize.html">characterize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.geometry.html">geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.nadir.html">nadir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.core.html">core</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.history.html">history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.schema.html">schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.survey.html">survey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.target.html">target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.units.html">units</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.datasets.html">datasets</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.export.html">export</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.augment.html">augment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.geometric_window.html">geometric_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.georef_window.html">georef_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.image.html">image</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.ml.html">ml</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.coco.html">coco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.dataset.html">dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.yolo.html">yolo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.orientation.html">orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.target_window.html">target_window</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.windows.html">windows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.background.html">background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.geo.html">geo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.levels.html">levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.native.html">native</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.neighborhood.html">neighborhood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.pixel.html">pixel</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.grids.html">grids</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.definition.html">definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.geotiff.html">geotiff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.raster.html">raster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resample.html">resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resolution.html">resolution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.io.html">io</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.io.dispatch.html">dispatch</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.hdf5.html">hdf5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.survey_dir.html">survey_dir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.jsf.html">jsf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.messages.html">messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.subset.html">subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.netcdf.html">netcdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.sdf.html">sdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.pages.html">pages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.xtf.html">xtf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.structs.html">structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.subset.html">subset</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.log.html">log</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="sidescanpy.processing.html">processing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.aux_fixes.html">aux_fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.bottom.html">bottom</a></li>
+<li class="toctree-l3 current active"><a aria-current="page" class="current reference internal" href="#">correct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.farrange.html">farrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.geometric.html">geometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.radiometric.html">radiometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.range_correction.html">range_correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.sample_axis.html">sample_axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.segments.html">segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.slicing.html">slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.track.html">track</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.targets.html">targets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.correlate.html">correlate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.viz.html">viz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.analysis.html">analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.basemap.html">basemap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.contact_sheet.html">contact_sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.gridded.html">gridded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.scalebar.html">scalebar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.targets.html">targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.track.html">track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.html" class="nav-link">sidescanpy</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.processing.html" class="nav-link">sidescanpy.processing</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sidescanpy.processing.correct</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-sidescanpy.processing.correct">
+<span id="sidescanpy-processing-correct"></span><h1>sidescanpy.processing.correct<a class="headerlink" href="#module-sidescanpy.processing.correct" title="Link to this heading">#</a></h1>
+<p>One correction API: apply an ordered list of steps, each skippable and
+replaceable, recording every applied step in <code class="docutils literal notranslate"><span class="pre">processing_history</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sidescanpy.processing.correct.correct" title="sidescanpy.processing.correct.correct"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct()</span></code></a> – one frequency channel dataset.</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.correct.correct_survey" title="sidescanpy.processing.correct.correct_survey"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct_survey()</span></code></a> – every channel of a survey (supplies the survey’s
+aux records to the <code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code> step).</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.correct.correct_file" title="sidescanpy.processing.correct.correct_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct_file()</span></code></a> – read a <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file, correct it, write it
+atomically (in place by default), optionally in ping chunks to bound memory.</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.correct.correction_steps" title="sidescanpy.processing.correct.correction_steps"><code class="xref py py-func docutils literal notranslate"><span class="pre">correction_steps()</span></code></a> – a set of requested built-in steps in canonical
+order, with <code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code> added when a step needs it.</p></li>
+</ul>
+<section id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Link to this heading">#</a></h2>
+<p>A step is a built-in name, a <a class="reference internal" href="#sidescanpy.processing.correct.Step" title="sidescanpy.processing.correct.Step"><code class="xref py py-class docutils literal notranslate"><span class="pre">Step</span></code></a> (custom name + function) or any
+callable <code class="docutils literal notranslate"><span class="pre">fn(ds,</span> <span class="pre">**params)</span> <span class="pre">-&gt;</span> <span class="pre">ds</span></code>. Built-in steps, in canonical order:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;crop_farrange&quot;</span></code></dt><dd><p><a class="reference internal" href="sidescanpy.processing.farrange.html#sidescanpy.processing.farrange.crop_far_range" title="sidescanpy.processing.farrange.crop_far_range"><code class="xref py py-func docutils literal notranslate"><span class="pre">crop_far_range()</span></code></a>. Params:
+<code class="docutils literal notranslate"><span class="pre">cutoff_sample,</span> <span class="pre">n_bins,</span> <span class="pre">min_valid_fraction,</span> <span class="pre">rise_threshold_db,</span> <span class="pre">margin_bins</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code></dt><dd><p><a class="reference internal" href="sidescanpy.processing.interpolate.html#sidescanpy.processing.interpolate.interpolate_aux_onto_dataset" title="sidescanpy.processing.interpolate.interpolate_aux_onto_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">interpolate_aux_onto_dataset()</span></code></a>;
+needs the survey’s aux records (<code class="docutils literal notranslate"><span class="pre">aux=</span></code> / <a class="reference internal" href="#sidescanpy.processing.correct.correct_survey" title="sidescanpy.processing.correct.correct_survey"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct_survey()</span></code></a>);
+<a class="reference internal" href="#sidescanpy.processing.correct.correct" title="sidescanpy.processing.correct.correct"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct()</span></code></a> skips it when no <code class="docutils literal notranslate"><span class="pre">aux</span></code> is given.
+Params: <code class="docutils literal notranslate"><span class="pre">fields,</span> <span class="pre">method,</span> <span class="pre">extrapolation,</span> <span class="pre">drop_invalid,</span> <span class="pre">held_values,</span>
+<span class="pre">max_hold_s,</span> <span class="pre">per_ping_fallback,</span> <span class="pre">groups,</span> <span class="pre">merge_window_s</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;bottom_track&quot;</span></code></dt><dd><p><a class="reference internal" href="sidescanpy.processing.bottom.html#sidescanpy.processing.bottom.altitude_from_bottom_track" title="sidescanpy.processing.bottom.altitude_from_bottom_track"><code class="xref py py-func docutils literal notranslate"><span class="pre">altitude_from_bottom_track()</span></code></a>: set
+<code class="docutils literal notranslate"><span class="pre">altitude_m</span></code> from the first bottom return where it is missing (NaN or
+&lt;= 0), before the geometric step needs it. Not in <a class="reference internal" href="#sidescanpy.processing.correct.DEFAULT_STEPS" title="sidescanpy.processing.correct.DEFAULT_STEPS"><code class="xref py py-data docutils literal notranslate"><span class="pre">DEFAULT_STEPS</span></code></a>.
+Params: <code class="docutils literal notranslate"><span class="pre">replace,</span> <span class="pre">max_diff_m,</span> <span class="pre">min_altitude_m,</span> <span class="pre">min_return_m,</span>
+<span class="pre">min_return_fraction,</span> <span class="pre">smooth_window,</span>
+<span class="pre">threshold_fraction,</span> <span class="pre">min_run,</span> <span class="pre">smooth_pings</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;tvg&quot;</span></code></dt><dd><p><a class="reference internal" href="sidescanpy.processing.radiometric.html#sidescanpy.processing.radiometric.apply_tvg" title="sidescanpy.processing.radiometric.apply_tvg"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_tvg()</span></code></a>. Params:
+<code class="docutils literal notranslate"><span class="pre">spreading_loss_db,</span> <span class="pre">absorption_db_per_m,</span> <span class="pre">min_range_m,</span> <span class="pre">sound_velocity_ms</span></code>,
+plus <code class="docutils literal notranslate"><span class="pre">temperature_c,</span> <span class="pre">salinity_psu,</span> <span class="pre">depth_m,</span> <span class="pre">ph</span></code> (Francois-Garrison
+inputs, used only when <code class="docutils literal notranslate"><span class="pre">absorption_db_per_m</span></code> is None; model of Francois &amp;
+Garrison, J. Acoust. Soc. Am. 72(3) 896-907 and 72(6) 1879-1890, 1982).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;geometric&quot;</span></code></dt><dd><p><a class="reference internal" href="sidescanpy.processing.geometric.html#sidescanpy.processing.geometric.compute_geometric_ranges" title="sidescanpy.processing.geometric.compute_geometric_ranges"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_geometric_ranges()</span></code></a>.
+Params: <code class="docutils literal notranslate"><span class="pre">expose_unmasked_z</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;range_correction&quot;</span></code></dt><dd><p><a class="reference internal" href="sidescanpy.processing.range_correction.html#sidescanpy.processing.range_correction.apply_empirical_range_correction" title="sidescanpy.processing.range_correction.apply_empirical_range_correction"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_empirical_range_correction()</span></code></a>
+(needs tvg + geometric). Params: <code class="docutils literal notranslate"><span class="pre">table</span></code> (required: a
+<code class="docutils literal notranslate"><span class="pre">RangeCorrectionTable</span></code> or the path of a saved one; no built-in default).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;georef&quot;</span></code></dt><dd><p><a class="reference internal" href="sidescanpy.processing.georeferencing.html#sidescanpy.processing.georeferencing.compute_georeferencing" title="sidescanpy.processing.georeferencing.compute_georeferencing"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_georeferencing()</span></code></a>
+(needs geometric). Params: <code class="docutils literal notranslate"><span class="pre">ellipsoid</span></code>.</p>
+</dd>
+</dl>
+<p>Steps run in the order given; dependencies are the caller’s to respect.
+<a class="reference internal" href="#sidescanpy.processing.correct.DEFAULT_STEPS" title="sidescanpy.processing.correct.DEFAULT_STEPS"><code class="xref py py-data docutils literal notranslate"><span class="pre">DEFAULT_STEPS</span></code></a> is interpolate_aux -&gt; tvg -&gt; geometric -&gt; georef.</p>
+</section>
+<section id="conventions">
+<h2>Conventions<a class="headerlink" href="#conventions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Skip</strong> a step by leaving it out of <code class="docutils literal notranslate"><span class="pre">steps</span></code>. <code class="docutils literal notranslate"><span class="pre">params</span></code> may only name
+steps that are in <code class="docutils literal notranslate"><span class="pre">steps</span></code> (a typo raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>); a parameter
+the step does not accept raises <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>. Both are checked before
+anything runs.</p></li>
+<li><p><strong>Idempotent</strong>: a step already applied (see
+<a class="reference internal" href="sidescanpy.core.history.html#sidescanpy.core.history.has_step" title="sidescanpy.core.history.has_step"><code class="xref py py-func docutils literal notranslate"><span class="pre">sidescanpy.core.history.has_step()</span></code></a>) is skipped with a DEBUG log, so
+re-running is a no-op. Custom steps are matched by name, so give each one
+a distinct name (lambdas are rejected for that reason).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">force=True</span></code> re-applies already-applied steps. A radiometric step
+(<code class="docutils literal notranslate"><span class="pre">tvg</span></code>/<code class="docutils literal notranslate"><span class="pre">range_correction</span></code>) is first inverted – together with every
+radiometric step applied after it, all of which must then be in
+<code class="docutils literal notranslate"><span class="pre">steps</span></code> – so its new parameters replace, not stack on, the old ones.</p></li>
+<li><p><strong>History</strong>: every applied step appends one record
+<code class="docutils literal notranslate"><span class="pre">{&quot;step&quot;,</span> <span class="pre">&quot;params&quot;,</span> <span class="pre">&quot;function&quot;,</span> <span class="pre">&quot;version&quot;,</span> <span class="pre">&quot;timestamp_utc&quot;}</span></code> with the
+parameters actually used (defaults resolved). Built-in steps write their
+own record; custom steps are recorded here with the bound arguments.</p></li>
+<li><p>No uncorrected copy is kept: <a class="reference internal" href="sidescanpy.processing.inversion.html#sidescanpy.processing.inversion.invert" title="sidescanpy.processing.inversion.invert"><code class="xref py py-func docutils literal notranslate"><span class="pre">sidescanpy.processing.inversion.invert()</span></code></a>
+undoes recorded steps.</p></li>
+</ul>
+<p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
+</section>
+<p class="rubric">Contents</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.correct.DEFAULT_STEPS" title="sidescanpy.processing.correct.DEFAULT_STEPS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEFAULT_STEPS</span></code></a></p></td>
+<td><p>Built-in immutable sequence.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.correct.Step" title="sidescanpy.processing.correct.Step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Step</span></code></a></p></td>
+<td><p>A caller-supplied correction step with an explicit history name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.correct.correction_steps" title="sidescanpy.processing.correct.correction_steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correction_steps</span></code></a></p></td>
+<td><p>Built-in step names in canonical order, adding <code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code> when needed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.correct.correct" title="sidescanpy.processing.correct.correct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correct</span></code></a></p></td>
+<td><p>Apply correction <code class="docutils literal notranslate"><span class="pre">steps</span></code> to one frequency channel dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.correct.correct_survey" title="sidescanpy.processing.correct.correct_survey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correct_survey</span></code></a></p></td>
+<td><p><a class="reference internal" href="#sidescanpy.processing.correct.correct" title="sidescanpy.processing.correct.correct"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct()</span></code></a> every frequency channel of <code class="docutils literal notranslate"><span class="pre">survey</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.correct.estimate_correct_disk_bytes" title="sidescanpy.processing.correct.estimate_correct_disk_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_correct_disk_bytes</span></code></a></p></td>
+<td><p>Free disk space <a class="reference internal" href="#sidescanpy.processing.correct.correct_file" title="sidescanpy.processing.correct.correct_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct_file()</span></code></a> needs to correct <code class="docutils literal notranslate"><span class="pre">path</span></code> with <code class="docutils literal notranslate"><span class="pre">steps</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.correct.correct_file" title="sidescanpy.processing.correct.correct_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correct_file</span></code></a></p></td>
+<td><p>Correct a <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file and write it atomically.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.processing.correct.DEFAULT_STEPS">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.correct.</span></span><span class="sig-name descname"><span class="pre">DEFAULT_STEPS</span></span><a class="headerlink" href="#sidescanpy.processing.correct.DEFAULT_STEPS" title="Link to this definition">#</a></dt>
+<dd><p>Built-in immutable sequence.</p>
+<p>If no argument is given, the constructor returns an empty tuple.
+If iterable is specified the tuple is initialized from iterable’s items.</p>
+<p>If the argument is a tuple, the return value is the same object.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.processing.correct.Step">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.correct.</span></span><span class="sig-name descname"><span class="pre">Step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.correct.Step" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A caller-supplied correction step with an explicit history name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">fn(ds,</span> <span class="pre">**params)</span> <span class="pre">-&gt;</span> <span class="pre">xr.Dataset</span></code>. The name is what <code class="docutils literal notranslate"><span class="pre">processing_history</span></code>
+records and what idempotency matches on; it must not be a built-in name.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.correct.correction_steps">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.correct.</span></span><span class="sig-name descname"><span class="pre">correction_steps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requested</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.correct.correction_steps" title="Link to this definition">#</a></dt>
+<dd><p>Built-in step names in canonical order, adding <code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code> when needed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code> is added whenever any of tvg / geometric /
+range_correction / georef is requested, since each reads per-ping
+navigation/attitude fields. Duplicates collapse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>A name that is not a built-in step.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.correct.correct">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.correct.</span></span><span class="sig-name descname"><span class="pre">correct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('interpolate_aux',</span> <span class="pre">'tvg',</span> <span class="pre">'geometric',</span> <span class="pre">'georef')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.correct.correct" title="Link to this definition">#</a></dt>
+<dd><p>Apply correction <code class="docutils literal notranslate"><span class="pre">steps</span></code> to one frequency channel dataset.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>ds</strong><span class="classifier">xr.Dataset</span></dt><dd><p>Frequency channel dataset (not modified).</p>
+</dd>
+<dt><strong>steps</strong><span class="classifier">sequence of str / Step / callable, default <a class="reference internal" href="#sidescanpy.processing.correct.DEFAULT_STEPS" title="sidescanpy.processing.correct.DEFAULT_STEPS"><code class="xref py py-data docutils literal notranslate"><span class="pre">DEFAULT_STEPS</span></code></a></span></dt><dd><p>Applied in order; see the module docstring for built-ins.</p>
+</dd>
+<dt><strong>params</strong><span class="classifier">mapping, optional</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">{step_name:</span> <span class="pre">{param:</span> <span class="pre">value}}</span></code> overrides for steps in <code class="docutils literal notranslate"><span class="pre">steps</span></code>.</p>
+</dd>
+<dt><strong>aux</strong><span class="classifier">SideScanSurvey, optional</span></dt><dd><p>Supplies navigation/attitude records to <code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code>. When
+omitted, that step is skipped (DEBUG log) unless <code class="docutils literal notranslate"><span class="pre">params</span></code> gives it
+parameters, which is an error.</p>
+</dd>
+<dt><strong>force</strong><span class="classifier">bool, default False</span></dt><dd><p>Re-apply steps that were already applied (see module docstring).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>xr.Dataset</dt><dd><p>Corrected dataset with one history record per applied step.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>Unknown step name, params for a step not in <code class="docutils literal notranslate"><span class="pre">steps</span></code>,
+<code class="docutils literal notranslate"><span class="pre">params[&quot;interpolate_aux&quot;]</span></code> given without <code class="docutils literal notranslate"><span class="pre">aux</span></code>, or an
+impossible <code class="docutils literal notranslate"><span class="pre">force</span></code> request.</p>
+</dd>
+<dt>TypeError</dt><dd><p>A parameter the step does not accept.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.correct.correct_survey">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.correct.</span></span><span class="sig-name descname"><span class="pre">correct_survey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">survey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('interpolate_aux',</span> <span class="pre">'tvg',</span> <span class="pre">'geometric',</span> <span class="pre">'georef')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.correct.correct_survey" title="Link to this definition">#</a></dt>
+<dd><p><a class="reference internal" href="#sidescanpy.processing.correct.correct" title="sidescanpy.processing.correct.correct"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct()</span></code></a> every frequency channel of <code class="docutils literal notranslate"><span class="pre">survey</span></code>.</p>
+<p>The survey’s own aux records feed <code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code>. <code class="docutils literal notranslate"><span class="pre">params</span></code> apply
+to every channel; <code class="docutils literal notranslate"><span class="pre">frequency_params</span></code> (<code class="docutils literal notranslate"><span class="pre">{freq_key:</span> <span class="pre">{step:</span> <span class="pre">{param:</span>
+<span class="pre">value}}}</span></code>) overrides them for one frequency, e.g. a per-frequency
+<code class="docutils literal notranslate"><span class="pre">absorption_db_per_m</span></code> or range-correction table. Returns a new
+(shallow-copied) survey; <code class="docutils literal notranslate"><span class="pre">survey</span></code> is not modified. <code class="docutils literal notranslate"><span class="pre">progress</span></code>, if
+given, is called with <code class="docutils literal notranslate"><span class="pre">&quot;&lt;freq_key&gt;:</span> <span class="pre">&lt;step&gt;&quot;</span></code> before each step.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.correct.estimate_correct_disk_bytes">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.correct.</span></span><span class="sig-name descname"><span class="pre">estimate_correct_disk_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('interpolate_aux',</span> <span class="pre">'tvg',</span> <span class="pre">'geometric',</span> <span class="pre">'georef')</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_pings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.correct.estimate_correct_disk_bytes" title="Link to this definition">#</a></dt>
+<dd><p>Free disk space <a class="reference internal" href="#sidescanpy.processing.correct.correct_file" title="sidescanpy.processing.correct.correct_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct_file()</span></code></a> needs to correct <code class="docutils literal notranslate"><span class="pre">path</span></code> with <code class="docutils literal notranslate"><span class="pre">steps</span></code>.</p>
+<p>Output size is estimated as <code class="docutils literal notranslate"><span class="pre">size</span> <span class="pre">*</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">sum(growth[step]))</span></code> (growth
+per step in <code class="docutils literal notranslate"><span class="pre">_DISK_GROWTH</span></code>, measured on real data: tvg + geometric +
+georef takes a converted file to ~9.2x), times a 1.2 safety factor. The
+original file stays until the atomic replace, so the full output size is
+needed. With <code class="docutils literal notranslate"><span class="pre">chunk_pings</span></code> the uncompressed per-chunk temp files are
+added (<code class="docutils literal notranslate"><span class="pre">n_cells</span> <span class="pre">*</span> <span class="pre">bytes</span> <span class="pre">per</span> <span class="pre">cell</span></code>). Deliberately conservative: it
+assumes every requested step will run.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.correct.correct_file">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.correct.</span></span><span class="sig-name descname"><span class="pre">correct_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('interpolate_aux',</span> <span class="pre">'tvg',</span> <span class="pre">'geometric',</span> <span class="pre">'georef')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_pings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.correct.correct_file" title="Link to this definition">#</a></dt>
+<dd><p>Correct a <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file and write it atomically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">path</span></dt><dd><p>Input <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file.</p>
+</dd>
+<dt><strong>steps, params, force</strong></dt><dd><p>As for <a class="reference internal" href="#sidescanpy.processing.correct.correct" title="sidescanpy.processing.correct.correct"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct()</span></code></a>; applied to every frequency channel, with the
+file’s aux records feeding <code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code>.</p>
+</dd>
+<dt><strong>frequency_params</strong><span class="classifier">mapping, optional</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">{freq_key:</span> <span class="pre">{step:</span> <span class="pre">{param:</span> <span class="pre">value}}}</span></code> overrides of <code class="docutils literal notranslate"><span class="pre">params</span></code> for one
+frequency (see <a class="reference internal" href="#sidescanpy.processing.correct.correct_survey" title="sidescanpy.processing.correct.correct_survey"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct_survey()</span></code></a>).</p>
+</dd>
+<dt><strong>out_path</strong><span class="classifier">path, optional</span></dt><dd><p>Output file. Default: <code class="docutils literal notranslate"><span class="pre">path</span></code> (in place, via a temp file + rename, so
+a failure never corrupts the original).</p>
+</dd>
+<dt><strong>chunk_pings</strong><span class="classifier">int, optional</span></dt><dd><p>Process each channel in chunks of this many pings, bounding peak
+memory to roughly one chunk’s worth of derived arrays. Results are
+identical to the unchunked path: channel-wide parameters (TVG sound
+velocity, far-range cutoff) are resolved once per channel first.
+Custom steps must be ping-independent to be used this way.</p>
+</dd>
+<dt><strong>progress</strong><span class="classifier">callable, optional</span></dt><dd><p>Called with a short status string per step / chunk / write.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>Path</dt><dd><p>The written file (<code class="docutils literal notranslate"><span class="pre">path</span></code> unchanged and not rewritten when every
+requested step was already applied and <code class="docutils literal notranslate"><span class="pre">out_path</span></code> is not given).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>A legacy <code class="docutils literal notranslate"><span class="pre">backscatter_raw</span></code> variable is dropped when the file is
+rewritten. Free space is checked first (<a class="reference internal" href="#sidescanpy.processing.correct.estimate_correct_disk_bytes" title="sidescanpy.processing.correct.estimate_correct_disk_bytes"><code class="xref py py-func docutils literal notranslate"><span class="pre">estimate_correct_disk_bytes()</span></code></a>);
+<code class="docutils literal notranslate"><span class="pre">OSError</span></code> if it is insufficient.</p>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sidescanpy.processing.bottom.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">sidescanpy.processing.bottom</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sidescanpy.processing.farrange.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">sidescanpy.processing.farrange</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventions">Conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.correct.DEFAULT_STEPS"><code class="docutils literal notranslate"><span class="pre">DEFAULT_STEPS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.correct.Step"><code class="docutils literal notranslate"><span class="pre">Step</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.correct.correction_steps"><code class="docutils literal notranslate"><span class="pre">correction_steps()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.correct.correct"><code class="docutils literal notranslate"><span class="pre">correct()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.correct.correct_survey"><code class="docutils literal notranslate"><span class="pre">correct_survey()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.correct.estimate_correct_disk_bytes"><code class="docutils literal notranslate"><span class="pre">estimate_correct_disk_bytes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.correct.correct_file"><code class="docutils literal notranslate"><span class="pre">correct_file()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

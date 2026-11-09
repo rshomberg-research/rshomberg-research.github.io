@@ -1,0 +1,24 @@
+sidescanpy.io.sdf.reader
+========================
+
+.. automodule:: sidescanpy.io.sdf.reader
+
+.. currentmodule:: sidescanpy.io.sdf.reader
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   MAX_MARKER_SCAN_BYTES
+   read_sdf_header
+   read_sdf
+   read_sdf_iter
+
+.. autodata:: sidescanpy.io.sdf.reader.MAX_MARKER_SCAN_BYTES
+
+.. autofunction:: sidescanpy.io.sdf.reader.read_sdf_header
+
+.. autofunction:: sidescanpy.io.sdf.reader.read_sdf
+
+.. autofunction:: sidescanpy.io.sdf.reader.read_sdf_iter

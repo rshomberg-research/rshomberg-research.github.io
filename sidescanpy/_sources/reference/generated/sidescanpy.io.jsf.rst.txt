@@ -1,0 +1,15 @@
+sidescanpy.io.jsf
+=================
+
+.. automodule:: sidescanpy.io.jsf
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   converter <sidescanpy.io.jsf.converter>
+   messages <sidescanpy.io.jsf.messages>
+   reader <sidescanpy.io.jsf.reader>
+   subset <sidescanpy.io.jsf.subset>
+   targets <sidescanpy.io.jsf.targets>

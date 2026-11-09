@@ -1,0 +1,48 @@
+sidescanpy.viz.analysis
+=======================
+
+.. automodule:: sidescanpy.viz.analysis
+
+.. currentmodule:: sidescanpy.viz.analysis
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   plot_value_histograms
+   plot_units_distribution
+   plot_sample_ping
+   plot_outlier_comparison
+   plot_cross_track_profile
+   plot_nadir_zoom
+   plot_nadir_waterfall
+   plot_beam_geometry
+   plot_usable_range
+   plot_segments_overview
+   plot_navigation_summary
+   plot_shadow_proposals
+
+.. autofunction:: sidescanpy.viz.analysis.plot_value_histograms
+
+.. autofunction:: sidescanpy.viz.analysis.plot_units_distribution
+
+.. autofunction:: sidescanpy.viz.analysis.plot_sample_ping
+
+.. autofunction:: sidescanpy.viz.analysis.plot_outlier_comparison
+
+.. autofunction:: sidescanpy.viz.analysis.plot_cross_track_profile
+
+.. autofunction:: sidescanpy.viz.analysis.plot_nadir_zoom
+
+.. autofunction:: sidescanpy.viz.analysis.plot_nadir_waterfall
+
+.. autofunction:: sidescanpy.viz.analysis.plot_beam_geometry
+
+.. autofunction:: sidescanpy.viz.analysis.plot_usable_range
+
+.. autofunction:: sidescanpy.viz.analysis.plot_segments_overview
+
+.. autofunction:: sidescanpy.viz.analysis.plot_navigation_summary
+
+.. autofunction:: sidescanpy.viz.analysis.plot_shadow_proposals

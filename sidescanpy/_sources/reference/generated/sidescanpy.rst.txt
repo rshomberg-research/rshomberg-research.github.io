@@ -1,0 +1,20 @@
+sidescanpy
+==========
+
+.. automodule:: sidescanpy
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   analysis <sidescanpy.analysis>
+   core <sidescanpy.core>
+   datasets <sidescanpy.datasets>
+   export <sidescanpy.export>
+   grids <sidescanpy.grids>
+   io <sidescanpy.io>
+   log <sidescanpy.log>
+   processing <sidescanpy.processing>
+   targets <sidescanpy.targets>
+   viz <sidescanpy.viz>

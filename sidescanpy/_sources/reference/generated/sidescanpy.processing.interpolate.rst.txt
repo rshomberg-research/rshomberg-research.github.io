@@ -1,0 +1,28 @@
+sidescanpy.processing.interpolate
+=================================
+
+.. automodule:: sidescanpy.processing.interpolate
+
+.. currentmodule:: sidescanpy.processing.interpolate
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   DEFAULT_FIELD_SOURCES
+   CIRCULAR_FIELDS
+   interpolate_aux_onto_pings
+   interpolate_aux_onto_dataset
+   interpolate_onto_channel
+
+.. autodata:: sidescanpy.processing.interpolate.DEFAULT_FIELD_SOURCES
+   :no-value:
+
+.. autodata:: sidescanpy.processing.interpolate.CIRCULAR_FIELDS
+
+.. autofunction:: sidescanpy.processing.interpolate.interpolate_aux_onto_pings
+
+.. autofunction:: sidescanpy.processing.interpolate.interpolate_aux_onto_dataset
+
+.. autofunction:: sidescanpy.processing.interpolate.interpolate_onto_channel

@@ -1,0 +1,15 @@
+sidescanpy.io.netcdf.writer
+===========================
+
+.. automodule:: sidescanpy.io.netcdf.writer
+
+.. currentmodule:: sidescanpy.io.netcdf.writer
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   write_frequency_channel
+
+.. autofunction:: sidescanpy.io.netcdf.writer.write_frequency_channel

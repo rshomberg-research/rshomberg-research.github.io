@@ -1,0 +1,29 @@
+sidescanpy.analysis.navigation
+==============================
+
+.. automodule:: sidescanpy.analysis.navigation
+
+.. currentmodule:: sidescanpy.analysis.navigation
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   NAV_ATTITUDE_VARS
+   FieldStats
+   NavigationSummary
+   summarize_navigation
+
+.. autodata:: sidescanpy.analysis.navigation.NAV_ATTITUDE_VARS
+   :no-value:
+
+.. autoclass:: sidescanpy.analysis.navigation.FieldStats
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.analysis.navigation.NavigationSummary
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.navigation.summarize_navigation

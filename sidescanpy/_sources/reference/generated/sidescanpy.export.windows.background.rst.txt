@@ -1,0 +1,36 @@
+sidescanpy.export.windows.background
+====================================
+
+.. automodule:: sidescanpy.export.windows.background
+
+.. currentmodule:: sidescanpy.export.windows.background
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   BackgroundCandidate
+   WindowFootprint
+   BackgroundWindow
+   nan_fraction
+   sample_background_candidates
+   sample_background_windows
+
+.. autoclass:: sidescanpy.export.windows.background.BackgroundCandidate
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.export.windows.background.WindowFootprint
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.export.windows.background.BackgroundWindow
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.export.windows.background.nan_fraction
+
+.. autofunction:: sidescanpy.export.windows.background.sample_background_candidates
+
+.. autofunction:: sidescanpy.export.windows.background.sample_background_windows

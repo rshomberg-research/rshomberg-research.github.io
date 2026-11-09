@@ -1,0 +1,15 @@
+sidescanpy.viz.scalebar
+=======================
+
+.. automodule:: sidescanpy.viz.scalebar
+
+.. currentmodule:: sidescanpy.viz.scalebar
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   add_scale_bar
+
+.. autofunction:: sidescanpy.viz.scalebar.add_scale_bar

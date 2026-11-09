@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>XTF &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="_static/documentation_options.js?v=486e5634"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'io_xtf';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="HDF5 (.ss.h5)" href="io_hdf5.html" />
+    <link rel="prev" title="Klein SDF" href="io_sdf.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="development.html">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="development.html">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="io_jsf.html">JSF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsf_aux_source_selection.html">JSF navigation sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_sdf.html">SDF</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">XTF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_hdf5.html">HDF5 (.ss.h5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_netcdf.html">NetCDF</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="formats.html" class="nav-link">Formats</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">XTF</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="xtf">
+<h1>XTF<a class="headerlink" href="#xtf" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">.xtf</span></code> (eXtended Triton Format) is the most common vendor-neutral
+sidescan format: Klein, EdgeTech and others can record or export it. The
+reader follows the specification’s revision 42 (Exail) and has been
+checked against EdgeTech 4200 files recorded by Isis, and against public
+files written by EdgeTech Discover 7.22, Isis 7.0.41 (Benthos SIS-1624)
+and KleinXlt 4.0 (small cuts of them are the fixtures in
+<code class="docutils literal notranslate"><span class="pre">tests/data/public/</span></code>). Only sonar packets are read; other packet types are
+counted and skipped.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_and_convert</span><span class="p">,</span> <span class="n">read_and_convert_segments</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy.io.xtf</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span><span class="p">,</span> <span class="n">read_xtf</span><span class="p">,</span> <span class="n">split_by_sample_rate</span>
+
+<span class="c1"># One survey per run of constant range (see &quot;Range changes&quot; below):</span>
+<span class="k">for</span> <span class="n">stem</span><span class="p">,</span> <span class="n">survey</span> <span class="ow">in</span> <span class="n">read_and_convert_segments</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="o">...</span>
+<span class="c1"># or, step by step:</span>
+<span class="n">surveys</span> <span class="o">=</span> <span class="p">[</span><span class="n">convert</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span> <span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="n">split_by_sample_rate</span><span class="p">(</span><span class="n">read_xtf</span><span class="p">(</span><span class="n">path</span><span class="p">))]</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">read_and_convert</span><span class="p">([</span><span class="n">path</span><span class="p">],</span> <span class="s2">&quot;xtf&quot;</span><span class="p">)</span>      <span class="c1"># whole file, one survey</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">read_xtf_header</span></code>, <code class="docutils literal notranslate"><span class="pre">iter_packets</span></code>, <code class="docutils literal notranslate"><span class="pre">count_packets</span></code> and <code class="docutils literal notranslate"><span class="pre">read_xtf_pings</span></code>
+give the file header, the raw packets and the recorded pings (samples in
+their recorded dtype) for inspection. <code class="docutils literal notranslate"><span class="pre">write_subset(src,</span> <span class="pre">dst,</span> <span class="pre">n_pings=,</span> <span class="pre">start_ping=)</span></code> copies the header and a run of pings to a new file, byte for
+byte (for making small test files).</p>
+<section id="file-structure">
+<h2>File structure<a class="headerlink" href="#file-structure" title="Link to this heading">#</a></h2>
+<p>A 1024-byte file header (system, recording program, sonar name,
+navigation units, and one 128-byte <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> per channel; more than six
+channels spill into further 1024-byte blocks), then packets. Every packet
+starts with the magic <code class="docutils literal notranslate"><span class="pre">0xFACE</span></code>, a header type and its total byte count,
+which the reader uses to step from packet to packet. A sonar packet is a
+256-byte ping header followed, per channel, by a 64-byte channel header
+and that channel’s samples.</p>
+</section>
+<section id="mapping-to-the-standard-model">
+<h2>Mapping to the standard model<a class="headerlink" href="#mapping-to-the-standard-model" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Survey</p></th>
+<th class="head"><p>XTF source</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>frequency key <code class="docutils literal notranslate"><span class="pre">hz_&lt;Hz&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ChanInfo.Frequency</span></code> (kHz) of a port/starboard pair</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> (ping, channel, sample)</p></td>
+<td><p>port (<code class="docutils literal notranslate"><span class="pre">TypeOfChannel</span></code> 1) and starboard (2) samples, float32; sample 0 nearest the sonar on both sides (XTF stores port far -&gt; near, so port is reversed)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">valid_samples</span></code></p></td>
+<td><p>per-ping <code class="docutils literal notranslate"><span class="pre">NumSamples</span></code>; padding beyond it is NaN</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SensorYcoordinate</span></code>, <code class="docutils literal notranslate"><span class="pre">SensorXcoordinate</span></code> (degrees, <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 3)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">heading_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">pitch_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">roll_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">heave_m</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SensorHeading</span></code>, <code class="docutils literal notranslate"><span class="pre">SensorPitch</span></code> (nose up +), <code class="docutils literal notranslate"><span class="pre">SensorRoll</span></code> (port up +), <code class="docutils literal notranslate"><span class="pre">Heave</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">depth_m</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SensorDepth</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">altitude_m</span></code>, <code class="docutils literal notranslate"><span class="pre">fathometer_reading_m</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SensorPrimaryAltitude</span></code>; 0 is NaN</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sound_vel_ms</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SoundVelocity</span></code>, doubled when below 1000 m/s (see below)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sample_rate_hz</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NumSamples</span> <span class="pre">/</span> <span class="pre">TimeDuration</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">time</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Year</span></code> … <code class="docutils literal notranslate"><span class="pre">Second</span></code> + <code class="docutils literal notranslate"><span class="pre">HSeconds</span></code> (10 ms resolution)</p></td>
+</tr>
+<tr class="row-even"><td><p>navigation / attitude records</p></td>
+<td><p>every ping header (<code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">=</span> <span class="pre">extracted_from_xtf_ping_headers</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pulse_length_us</span></code> is not in the XTF headers and is 0.0. Gain codes are
+not interpreted. Dataset attributes prefixed <code class="docutils literal notranslate"><span class="pre">xtf_</span></code> record the recording
+program, sonar, channel numbers and names, and counts of reader
+anomalies.</p>
+</section>
+<section id="conventions-and-caveats">
+<h2>Conventions and caveats<a class="headerlink" href="#conventions-and-caveats" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Sound velocity may be halved.</strong> Some recorders store <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">/</span> <span class="pre">2</span></code> in
+<code class="docutils literal notranslate"><span class="pre">SoundVelocity</span></code> (750 for 1500 m/s). Values below 1000 m/s are doubled,
+and the result is cross-checked against <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">SlantRange</span> <span class="pre">/</span> <span class="pre">TimeDuration</span></code>; a disagreement over 5 % is logged at WARNING.</p></li>
+<li><p><strong>Range changes.</strong> The model has one <code class="docutils literal notranslate"><span class="pre">sample_rate_hz</span></code> per frequency,
+but some recorders change the range setting mid-file while keeping the
+sample count, so the sample interval changes. <code class="docutils literal notranslate"><span class="pre">split_by_sample_rate</span></code>
+cuts a file’s pings into consecutive runs within which every
+port/starboard channel keeps its rate (<code class="docutils literal notranslate"><span class="pre">NumSamples</span> <span class="pre">/</span> <span class="pre">TimeDuration</span></code>,
+relative tolerance <code class="docutils literal notranslate"><span class="pre">rtol</span></code>, default 1 %, measured against the run’s
+first ping); pings where a channel is absent never cause a cut. Runs
+shorter than <code class="docutils literal notranslate"><span class="pre">min_pings</span></code> (default 50) are dropped, since a change often
+leaves a few pings at an intermediate setting. Each run is a view of
+the file’s arrays and converts to its own survey, with attributes
+<code class="docutils literal notranslate"><span class="pre">xtf_segment_index</span></code>, <code class="docutils literal notranslate"><span class="pre">xtf_segment_count</span></code>, <code class="docutils literal notranslate"><span class="pre">xtf_segment_ping_start</span></code>,
+<code class="docutils literal notranslate"><span class="pre">xtf_segment_ping_stop</span></code>, <code class="docutils literal notranslate"><span class="pre">xtf_file_pings</span></code>, <code class="docutils literal notranslate"><span class="pre">xtf_runs_dropped_short</span></code>
+and <code class="docutils literal notranslate"><span class="pre">xtf_pings_dropped_short_runs</span></code>. <code class="docutils literal notranslate"><span class="pre">read_and_convert_segments</span></code> and
+<code class="docutils literal notranslate"><span class="pre">sidescan-convert</span> <span class="pre">survey</span></code> do this for every XTF file and name the
+outputs <code class="docutils literal notranslate"><span class="pre">&lt;stem&gt;</span></code> (one run) or <code class="docutils literal notranslate"><span class="pre">&lt;stem&gt;_seg01</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;stem&gt;_seg02</span></code>, …
+(several). Converting an unsplit file with mixed rates still works:
+the most common rate is used, the other pings are counted in
+<code class="docutils literal notranslate"><span class="pre">xtf_pings_other_sample_rate</span></code> and a WARNING is logged, since their
+ranges are scaled wrongly by the ratio of the rates.</p></li>
+<li><p><strong>Pings with fewer channels than declared.</strong> Some EdgeTech files begin
+with pings that hold only the low-frequency pair while declaring all
+four channels. The reader walks channel blocks by the packet byte
+count; those pings are left out of the high frequency (which keeps its
+own ping axis) and counted in <code class="docutils literal notranslate"><span class="pre">xtf_pings_absent</span></code>.</p></li>
+<li><p><strong>Projected coordinates</strong> (<code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0) are not supported and raise
+<code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><strong>Sample scaling.</strong> Samples are scaled by <code class="docutils literal notranslate"><span class="pre">2**-Weight</span></code> from the channel
+header. Some older files carry meaningless <code class="docutils literal notranslate"><span class="pre">Weight</span></code> values (for example
+-8408), which make every sample unusable. If a converted file’s samples
+are all infinite, NaN or zero, check <code class="docutils literal notranslate"><span class="pre">xtf_weight_min</span></code> and
+<code class="docutils literal notranslate"><span class="pre">xtf_weight_max</span></code> in the dataset attributes.</p></li>
+<li><p><strong>Older KleinXlt files.</strong> Some KleinXlt 3.0 files leave the channel
+<code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> at 255, which the reader rejects with <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
+<li><p><strong>Recorder gain.</strong> Gain codes are read but not interpreted, and nothing
+in the file says whether the recorder applied TVG. Measure it with
+<code class="docutils literal notranslate"><span class="pre">analysis.fit_range_decay</span></code> before correcting
+(<a class="reference internal" href="limitations.html#radiometric-correction"><span class="std std-ref">Limitations</span></a>).</p></li>
+</ul>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
+<p>Exail (formerly Triton Imaging), <em>XTF File Format</em>, revision 42.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="io_sdf.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Klein SDF</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="io_hdf5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HDF5 (.ss.h5)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-structure">File structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-to-the-standard-model">Mapping to the standard model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventions-and-caveats">Conventions and caveats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

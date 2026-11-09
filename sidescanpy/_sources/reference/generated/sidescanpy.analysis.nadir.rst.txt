@@ -1,0 +1,20 @@
+sidescanpy.analysis.nadir
+=========================
+
+.. automodule:: sidescanpy.analysis.nadir
+
+.. currentmodule:: sidescanpy.analysis.nadir
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   NadirResult
+   analyze_nadir
+
+.. autoclass:: sidescanpy.analysis.nadir.NadirResult
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.nadir.analyze_nadir

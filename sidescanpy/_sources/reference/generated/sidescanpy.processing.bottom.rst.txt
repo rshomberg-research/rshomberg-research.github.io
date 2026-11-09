@@ -1,0 +1,42 @@
+sidescanpy.processing.bottom
+============================
+
+.. automodule:: sidescanpy.processing.bottom
+
+.. currentmodule:: sidescanpy.processing.bottom
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   detect_first_bottom_return
+   smooth_boundary_across_pings
+   detect_nadir_noise_extent
+   blank_nadir_noise
+   mask_before_sample
+   altitude_sample_index
+   uniform_exclusion_boundary
+   mask_nadir_gap
+   BOTTOM_TRACK_REPLACE
+   altitude_from_bottom_track
+
+.. autofunction:: sidescanpy.processing.bottom.detect_first_bottom_return
+
+.. autofunction:: sidescanpy.processing.bottom.smooth_boundary_across_pings
+
+.. autofunction:: sidescanpy.processing.bottom.detect_nadir_noise_extent
+
+.. autofunction:: sidescanpy.processing.bottom.blank_nadir_noise
+
+.. autofunction:: sidescanpy.processing.bottom.mask_before_sample
+
+.. autofunction:: sidescanpy.processing.bottom.altitude_sample_index
+
+.. autofunction:: sidescanpy.processing.bottom.uniform_exclusion_boundary
+
+.. autofunction:: sidescanpy.processing.bottom.mask_nadir_gap
+
+.. autodata:: sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE
+
+.. autofunction:: sidescanpy.processing.bottom.altitude_from_bottom_track

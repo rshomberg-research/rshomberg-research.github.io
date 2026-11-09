@@ -1,0 +1,21 @@
+sidescanpy.viz.waterfall
+========================
+
+.. automodule:: sidescanpy.viz.waterfall
+
+.. currentmodule:: sidescanpy.viz.waterfall
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   plot_waterfall
+   resolve_waterfall_axes
+   plot_survey_overview
+
+.. autofunction:: sidescanpy.viz.waterfall.plot_waterfall
+
+.. autofunction:: sidescanpy.viz.waterfall.resolve_waterfall_axes
+
+.. autofunction:: sidescanpy.viz.waterfall.plot_survey_overview

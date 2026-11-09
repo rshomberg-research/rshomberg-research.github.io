@@ -1,0 +1,45 @@
+sidescanpy.io.dispatch
+======================
+
+.. automodule:: sidescanpy.io.dispatch
+
+.. currentmodule:: sidescanpy.io.dispatch
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   detect_format
+   read_and_convert
+   segment_stem
+   read_and_convert_segments
+   SONAR_FORMATS
+   CATALOG_JSF_DISCOVER
+   CATALOG_SDF_KLEIN
+   find_sonar_files
+   load_survey
+   detect_catalog_format
+   read_target_catalog
+
+.. autofunction:: sidescanpy.io.dispatch.detect_format
+
+.. autofunction:: sidescanpy.io.dispatch.read_and_convert
+
+.. autofunction:: sidescanpy.io.dispatch.segment_stem
+
+.. autofunction:: sidescanpy.io.dispatch.read_and_convert_segments
+
+.. autodata:: sidescanpy.io.dispatch.SONAR_FORMATS
+
+.. autodata:: sidescanpy.io.dispatch.CATALOG_JSF_DISCOVER
+
+.. autodata:: sidescanpy.io.dispatch.CATALOG_SDF_KLEIN
+
+.. autofunction:: sidescanpy.io.dispatch.find_sonar_files
+
+.. autofunction:: sidescanpy.io.dispatch.load_survey
+
+.. autofunction:: sidescanpy.io.dispatch.detect_catalog_format
+
+.. autofunction:: sidescanpy.io.dispatch.read_target_catalog

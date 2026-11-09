@@ -1,0 +1,15 @@
+sidescanpy.viz.track
+====================
+
+.. automodule:: sidescanpy.viz.track
+
+.. currentmodule:: sidescanpy.viz.track
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   plot_track_and_scanlines
+
+.. autofunction:: sidescanpy.viz.track.plot_track_and_scanlines

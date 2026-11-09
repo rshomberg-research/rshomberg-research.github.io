@@ -1,0 +1,18 @@
+sidescanpy.io.jsf.targets
+=========================
+
+.. automodule:: sidescanpy.io.jsf.targets
+
+.. currentmodule:: sidescanpy.io.jsf.targets
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   read_discover_targets
+   decode_target_window
+
+.. autofunction:: sidescanpy.io.jsf.targets.read_discover_targets
+
+.. autofunction:: sidescanpy.io.jsf.targets.decode_target_window

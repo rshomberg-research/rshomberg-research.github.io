@@ -1,0 +1,15 @@
+sidescanpy.grids
+================
+
+.. automodule:: sidescanpy.grids
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   definition <sidescanpy.grids.definition>
+   geotiff <sidescanpy.grids.geotiff>
+   raster <sidescanpy.grids.raster>
+   resample <sidescanpy.grids.resample>
+   resolution <sidescanpy.grids.resolution>

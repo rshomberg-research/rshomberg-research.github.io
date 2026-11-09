@@ -1,0 +1,27 @@
+sidescanpy.processing
+=====================
+
+.. automodule:: sidescanpy.processing
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   aux_fixes <sidescanpy.processing.aux_fixes>
+   bottom <sidescanpy.processing.bottom>
+   correct <sidescanpy.processing.correct>
+   farrange <sidescanpy.processing.farrange>
+   geometric <sidescanpy.processing.geometric>
+   georeferencing <sidescanpy.processing.georeferencing>
+   interpolate <sidescanpy.processing.interpolate>
+   inversion <sidescanpy.processing.inversion>
+   navigation <sidescanpy.processing.navigation>
+   outliers <sidescanpy.processing.outliers>
+   profiles <sidescanpy.processing.profiles>
+   radiometric <sidescanpy.processing.radiometric>
+   range_correction <sidescanpy.processing.range_correction>
+   sample_axis <sidescanpy.processing.sample_axis>
+   segments <sidescanpy.processing.segments>
+   slicing <sidescanpy.processing.slicing>
+   track <sidescanpy.processing.track>

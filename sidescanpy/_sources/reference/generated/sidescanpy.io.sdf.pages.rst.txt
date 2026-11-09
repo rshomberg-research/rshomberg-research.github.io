@@ -1,0 +1,46 @@
+sidescanpy.io.sdf.pages
+=======================
+
+.. automodule:: sidescanpy.io.sdf.pages
+
+.. currentmodule:: sidescanpy.io.sdf.pages
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   MARKER
+   MARKER_BYTES
+   PAGE_HEADER_BYTES
+   HEADER_TOTAL_BYTES
+   PAGE_VERSIONS_SONAR
+   PAGE_VERSIONS_TOWFISH_TYPE
+   SDFPageHeader
+   SDFSonarPage
+   SDFUnknownPage
+
+.. autodata:: sidescanpy.io.sdf.pages.MARKER
+
+.. autodata:: sidescanpy.io.sdf.pages.MARKER_BYTES
+
+.. autodata:: sidescanpy.io.sdf.pages.PAGE_HEADER_BYTES
+
+.. autodata:: sidescanpy.io.sdf.pages.HEADER_TOTAL_BYTES
+
+.. autodata:: sidescanpy.io.sdf.pages.PAGE_VERSIONS_SONAR
+
+.. autodata:: sidescanpy.io.sdf.pages.PAGE_VERSIONS_TOWFISH_TYPE
+   :no-value:
+
+.. autoclass:: sidescanpy.io.sdf.pages.SDFPageHeader
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.sdf.pages.SDFSonarPage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.sdf.pages.SDFUnknownPage
+   :members:
+   :show-inheritance:

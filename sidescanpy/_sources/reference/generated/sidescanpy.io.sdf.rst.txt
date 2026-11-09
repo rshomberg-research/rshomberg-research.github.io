@@ -1,0 +1,15 @@
+sidescanpy.io.sdf
+=================
+
+.. automodule:: sidescanpy.io.sdf
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   converter <sidescanpy.io.sdf.converter>
+   pages <sidescanpy.io.sdf.pages>
+   reader <sidescanpy.io.sdf.reader>
+   split <sidescanpy.io.sdf.split>
+   targets <sidescanpy.io.sdf.targets>

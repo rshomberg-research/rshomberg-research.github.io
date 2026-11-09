@@ -1,0 +1,15 @@
+sidescanpy.processing.georeferencing
+====================================
+
+.. automodule:: sidescanpy.processing.georeferencing
+
+.. currentmodule:: sidescanpy.processing.georeferencing
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   compute_georeferencing
+
+.. autofunction:: sidescanpy.processing.georeferencing.compute_georeferencing

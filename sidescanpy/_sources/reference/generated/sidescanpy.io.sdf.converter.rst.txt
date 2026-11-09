@@ -1,0 +1,15 @@
+sidescanpy.io.sdf.converter
+===========================
+
+.. automodule:: sidescanpy.io.sdf.converter
+
+.. currentmodule:: sidescanpy.io.sdf.converter
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   convert
+
+.. autofunction:: sidescanpy.io.sdf.converter.convert

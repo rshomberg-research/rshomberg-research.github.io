@@ -1,0 +1,26 @@
+sidescanpy.processing.aux_fixes
+===============================
+
+.. automodule:: sidescanpy.processing.aux_fixes
+
+.. currentmodule:: sidescanpy.processing.aux_fixes
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   POSITION_GROUP
+   held_value_fixes
+   AuxUpdateStats
+   aux_update_events
+
+.. autodata:: sidescanpy.processing.aux_fixes.POSITION_GROUP
+
+.. autofunction:: sidescanpy.processing.aux_fixes.held_value_fixes
+
+.. autoclass:: sidescanpy.processing.aux_fixes.AuxUpdateStats
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.processing.aux_fixes.aux_update_events

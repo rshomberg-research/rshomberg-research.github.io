@@ -1,0 +1,17 @@
+sidescanpy.grids.raster
+=======================
+
+.. automodule:: sidescanpy.grids.raster
+
+.. currentmodule:: sidescanpy.grids.raster
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   SideScanGriddedRaster
+
+.. autoclass:: sidescanpy.grids.raster.SideScanGriddedRaster
+   :members:
+   :show-inheritance:

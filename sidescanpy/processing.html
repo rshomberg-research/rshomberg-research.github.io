@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>Processing &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="_static/documentation_options.js?v=486e5634"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'processing';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Gridding" href="grids.html" />
+    <link rel="prev" title="Data model" href="core.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="development.html">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="development.html">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Building a workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Data model</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grids.html">Gridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Targets and datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viz.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_data.html">Example data</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="guide.html" class="nav-link">Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Processing</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="processing">
+<h1>Processing<a class="headerlink" href="#processing" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">sidescanpy.processing</span></code> corrects, slices and measures frequency-channel
+datasets. Every function takes and returns an <code class="docutils literal notranslate"><span class="pre">xr.Dataset</span></code> (the corrections also
+take a whole survey); the input is never modified. <a class="reference internal" href="getting_started.html"><span class="std std-doc">Getting started</span></a> runs the default
+correction on a public line, and <a class="reference internal" href="examples/plot_correct_a_line.html"><span class="std std-doc">Correct a line</span></a>
+adds the bottom track.</p>
+<section id="corrections">
+<h2>Corrections<a class="headerlink" href="#corrections" title="Link to this heading">#</a></h2>
+<p>Each correction is a function. Call them in order on a whole survey
+(every frequency is corrected and a new survey returned) or on one
+frequency dataset:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy.processing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">altitude_from_bottom_track</span><span class="p">,</span>
+    <span class="n">apply_tvg</span><span class="p">,</span>
+    <span class="n">compute_geometric_ranges</span><span class="p">,</span>
+    <span class="n">compute_georeferencing</span><span class="p">,</span>
+    <span class="n">interpolate_aux_onto_pings</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">interpolate_aux_onto_pings</span><span class="p">(</span><span class="n">survey</span><span class="p">)</span>        <span class="c1"># navigation and attitude onto pings</span>
+<span class="n">survey</span> <span class="o">=</span> <span class="n">altitude_from_bottom_track</span><span class="p">(</span><span class="n">survey</span><span class="p">)</span>        <span class="c1"># only if the file has no altitude</span>
+<span class="n">survey</span> <span class="o">=</span> <span class="n">apply_tvg</span><span class="p">(</span><span class="n">survey</span><span class="p">,</span> <span class="n">spreading_loss_db</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>   <span class="c1"># spreading and absorption</span>
+<span class="n">survey</span> <span class="o">=</span> <span class="n">compute_geometric_ranges</span><span class="p">(</span><span class="n">survey</span><span class="p">)</span>          <span class="c1"># slant and ground range</span>
+<span class="n">survey</span> <span class="o">=</span> <span class="n">compute_georeferencing</span><span class="p">(</span><span class="n">survey</span><span class="p">)</span>            <span class="c1"># latitude and longitude per sample</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Does</p></th>
+<th class="head"><p>Needs first</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">crop_far_range</span></code></p></td>
+<td><p>crops far-range noise past a detected cutoff</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">interpolate_aux_onto_pings</span></code></p></td>
+<td><p>interpolates the survey’s navigation and attitude records onto every ping (<code class="docutils literal notranslate"><span class="pre">interpolate_aux_onto_dataset</span></code> for one dataset)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">altitude_from_bottom_track</span></code></p></td>
+<td><p>fills missing altitude from the first bottom return</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">apply_tvg</span></code></p></td>
+<td><p>time-varying gain, linear amplitude to dB</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compute_geometric_ranges</span></code></p></td>
+<td><p>slant range, ground range, across- and along-track distance per sample</p></td>
+<td><p>altitude</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">range_correction.apply_empirical_range_correction</span></code></p></td>
+<td><p>subtracts a fitted range curve</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apply_tvg</span></code>, <code class="docutils literal notranslate"><span class="pre">compute_geometric_ranges</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compute_georeferencing</span></code></p></td>
+<td><p>latitude and longitude per sample</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compute_geometric_ranges</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Every call records itself in the dataset’s <code class="docutils literal notranslate"><span class="pre">processing_history</span></code> with the
+parameters it used, and the input is never modified. Leave a call out to
+skip that correction, or put your own function in the chain. The
+radiometric corrections (<code class="docutils literal notranslate"><span class="pre">apply_tvg</span></code>, the range correction) refuse to run
+twice on the same data, because their gains would stack; to change a TVG
+recipe, <code class="docutils literal notranslate"><span class="pre">invert</span></code> the dataset first. The other functions recompute when
+called again.</p>
+<section id="running-steps-by-name">
+<h3>Running steps by name<a class="headerlink" href="#running-steps-by-name" title="Link to this heading">#</a></h3>
+<p>The same corrections can be run from a list of step names, which suits a
+config file or the command line (<code class="docutils literal notranslate"><span class="pre">sidescan-correct</span> <span class="pre">--steps</span></code>):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Applies steps to</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">correct(ds,</span> <span class="pre">steps,</span> <span class="pre">params,</span> <span class="pre">aux=None,</span> <span class="pre">force=False)</span></code></p></td>
+<td><p>one frequency channel</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">correct_survey(survey,</span> <span class="pre">steps,</span> <span class="pre">params,</span> <span class="pre">frequency_params=None,</span> <span class="pre">force=False)</span></code></p></td>
+<td><p>every channel of a survey (feeds the survey’s navigation/attitude records to <code class="docutils literal notranslate"><span class="pre">interpolate_aux</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">correct_file(path,</span> <span class="pre">steps,</span> <span class="pre">params,</span> <span class="pre">out_path=None,</span> <span class="pre">chunk_pings=None)</span></code></p></td>
+<td><p>a <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file, written atomically (in place by default), optionally in ping chunks to bound memory</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy.processing</span><span class="w"> </span><span class="kn">import</span> <span class="n">correct_survey</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">correct_survey</span><span class="p">(</span><span class="n">survey</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;interpolate_aux&quot;</span><span class="p">,</span> <span class="s2">&quot;tvg&quot;</span><span class="p">,</span> <span class="s2">&quot;geometric&quot;</span><span class="p">,</span> <span class="s2">&quot;georef&quot;</span><span class="p">],</span>
+                        <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;tvg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;spreading_loss_db&quot;</span><span class="p">:</span> <span class="mf">30.0</span><span class="p">}})</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">correct_file</span></code> for files too large for memory, and for adding
+several steps to a file: it applies them in one pass, which is much
+faster than writing the file after each step.</p>
+</section>
+<section id="built-in-steps">
+<h3>Built-in steps<a class="headerlink" href="#built-in-steps" title="Link to this heading">#</a></h3>
+<p>In canonical order. <code class="docutils literal notranslate"><span class="pre">DEFAULT_STEPS</span></code> is <code class="docutils literal notranslate"><span class="pre">interpolate_aux</span> <span class="pre">→</span> <span class="pre">tvg</span> <span class="pre">→</span> <span class="pre">geometric</span> <span class="pre">→</span> <span class="pre">georef</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Function</p></th>
+<th class="head"><p>Parameters</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">crop_farrange</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">crop_far_range</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cutoff_sample</span></code>, <code class="docutils literal notranslate"><span class="pre">n_bins</span></code>, <code class="docutils literal notranslate"><span class="pre">min_valid_fraction</span></code>, <code class="docutils literal notranslate"><span class="pre">rise_threshold_db</span></code>, <code class="docutils literal notranslate"><span class="pre">margin_bins</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">interpolate_aux</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">interpolate_aux_onto_dataset</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fields</span></code>, <code class="docutils literal notranslate"><span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">extrapolation</span></code>, <code class="docutils literal notranslate"><span class="pre">drop_invalid</span></code>, <code class="docutils literal notranslate"><span class="pre">held_values</span></code>, <code class="docutils literal notranslate"><span class="pre">max_hold_s</span></code>, <code class="docutils literal notranslate"><span class="pre">per_ping_fallback</span></code>, <code class="docutils literal notranslate"><span class="pre">groups</span></code>, <code class="docutils literal notranslate"><span class="pre">merge_window_s</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bottom_track</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">altitude_from_bottom_track</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">replace</span></code>, <code class="docutils literal notranslate"><span class="pre">max_diff_m</span></code>, <code class="docutils literal notranslate"><span class="pre">min_altitude_m</span></code>, <code class="docutils literal notranslate"><span class="pre">min_return_m</span></code>, <code class="docutils literal notranslate"><span class="pre">min_return_fraction</span></code>, <code class="docutils literal notranslate"><span class="pre">smooth_window</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold_fraction</span></code>, <code class="docutils literal notranslate"><span class="pre">min_run</span></code>, <code class="docutils literal notranslate"><span class="pre">smooth_pings</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tvg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apply_tvg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">spreading_loss_db</span></code>, <code class="docutils literal notranslate"><span class="pre">absorption_db_per_m</span></code>, <code class="docutils literal notranslate"><span class="pre">min_range_m</span></code>, <code class="docutils literal notranslate"><span class="pre">sound_velocity_ms</span></code>, <code class="docutils literal notranslate"><span class="pre">temperature_c</span></code>, <code class="docutils literal notranslate"><span class="pre">salinity_psu</span></code>, <code class="docutils literal notranslate"><span class="pre">depth_m</span></code>, <code class="docutils literal notranslate"><span class="pre">ph</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">geometric</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compute_geometric_ranges</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">expose_unmasked_z</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">range_correction</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apply_empirical_range_correction</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">table</span></code> (required)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">georef</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compute_georeferencing</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ellipsoid</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Steps run in the order given; respecting dependencies is the caller’s job
+(<code class="docutils literal notranslate"><span class="pre">georef</span></code> and <code class="docutils literal notranslate"><span class="pre">range_correction</span></code> need <code class="docutils literal notranslate"><span class="pre">geometric</span></code>; <code class="docutils literal notranslate"><span class="pre">bottom_track</span></code> must run
+before <code class="docutils literal notranslate"><span class="pre">geometric</span></code> to affect it). <code class="docutils literal notranslate"><span class="pre">bottom_track</span></code> is not in <code class="docutils literal notranslate"><span class="pre">DEFAULT_STEPS</span></code>.</p>
+</section>
+<section id="rules">
+<h3>Rules<a class="headerlink" href="#rules" title="Link to this heading">#</a></h3>
+<p>These apply to step lists (<code class="docutils literal notranslate"><span class="pre">correct</span></code>, <code class="docutils literal notranslate"><span class="pre">correct_survey</span></code>, <code class="docutils literal notranslate"><span class="pre">correct_file</span></code>).</p>
+<ul class="simple">
+<li><p><strong>Skip</strong> a step by leaving it out. <code class="docutils literal notranslate"><span class="pre">params</span></code> may only name steps that
+are in <code class="docutils literal notranslate"><span class="pre">steps</span></code>; a typo raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>, and an unknown parameter
+raises <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>. Both are checked before anything runs.</p></li>
+<li><p><strong>Custom steps.</strong> Any callable <code class="docutils literal notranslate"><span class="pre">fn(ds,</span> <span class="pre">**params)</span> <span class="pre">-&gt;</span> <span class="pre">ds</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">Step(name,</span> <span class="pre">fn)</span></code>, can be a step. It is recorded in history like a
+built-in. Give each one a distinct name; lambdas are rejected.</p></li>
+<li><p><strong>Idempotent.</strong> A step already recorded in <code class="docutils literal notranslate"><span class="pre">processing_history</span></code> is
+skipped, so re-running is a no-op. <code class="docutils literal notranslate"><span class="pre">force=True</span></code> re-applies it; a
+radiometric step is inverted first, so new parameters replace the old
+ones instead of stacking.</p></li>
+<li><p><strong>History.</strong> Each applied step appends
+<code class="docutils literal notranslate"><span class="pre">{&quot;step&quot;,</span> <span class="pre">&quot;params&quot;,</span> <span class="pre">&quot;function&quot;,</span> <span class="pre">&quot;version&quot;,</span> <span class="pre">&quot;timestamp_utc&quot;}</span></code> with the
+parameters actually used.</p></li>
+<li><p><strong>No raw copy.</strong> Corrections modify <code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> in place.
+<code class="docutils literal notranslate"><span class="pre">invert(ds)</span></code> undoes recorded steps, and <code class="docutils literal notranslate"><span class="pre">uncorrected_backscatter(ds)</span></code>
+returns the signal with every radiometric step undone.
+<code class="docutils literal notranslate"><span class="pre">processing_level(ds)</span></code> reports the latest applied level (<code class="docutils literal notranslate"><span class="pre">raw</span></code>, <code class="docutils literal notranslate"><span class="pre">tvg</span></code>,
+<code class="docutils literal notranslate"><span class="pre">geometric</span></code>, <code class="docutils literal notranslate"><span class="pre">range_correction</span></code>, <code class="docutils literal notranslate"><span class="pre">georef</span></code>).</p></li>
+</ul>
+</section>
+<section id="tvg">
+<h3>TVG<a class="headerlink" href="#tvg" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">apply_tvg</span></code> adds the two-way propagation loss back:</p>
+<ul class="simple">
+<li><p><strong>Spreading:</strong> <code class="docutils literal notranslate"><span class="pre">spreading_loss_db</span> <span class="pre">*</span> <span class="pre">log10(R)</span></code>. The default, 30, models
+the insonified seafloor patch growing in proportion to range: two-way
+spherical spreading (40) less 10 log R (e.g.
+<a class="reference external" href="https://www.mdpi.com/2077-1312/5/4/54">J. Mar. Sci. Eng. 2017, 5(4), 54</a>).
+Which fits real data varies; measure it per survey with
+<code class="docutils literal notranslate"><span class="pre">analysis.fit_range_decay</span></code> (pass the same <code class="docutils literal notranslate"><span class="pre">spreading_loss_db</span></code>) and set the
+coefficient in the config. 40 was the default in 0.7.0-0.7.5 and 20
+(one-way spreading) before 0.7.0; files corrected with either record the
+value in their history, so <code class="docutils literal notranslate"><span class="pre">invert()</span></code> still undoes them exactly.</p></li>
+<li><p><strong>Absorption:</strong> <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">alpha</span> <span class="pre">*</span> <span class="pre">R</span></code>. When <code class="docutils literal notranslate"><span class="pre">absorption_db_per_m</span></code> is not given,
+alpha comes from the Francois-Garrison model for the channel’s
+frequency (<code class="docutils literal notranslate"><span class="pre">francois_garrison_absorption_db_per_m</span></code>), using
+<code class="docutils literal notranslate"><span class="pre">temperature_c</span></code>, <code class="docutils literal notranslate"><span class="pre">salinity_psu</span></code>, <code class="docutils literal notranslate"><span class="pre">depth_m</span></code> and <code class="docutils literal notranslate"><span class="pre">ph</span></code> (defaults 10 °C,
+35 psu, 10 m, pH 8). The resolved value is recorded in history.</p></li>
+</ul>
+<p>Linear amplitude is converted to dB as <code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">*</span> <span class="pre">log10(clip(x,</span> <span class="pre">1e-6))</span></code> first,
+so exact zeros map to about -120 dB. A zero or missing sound velocity
+falls back to 1500 m/s. Setting a term to 0 turns it off, which is how to
+avoid correcting a loss the hardware already compensated.</p>
+<p>References:</p>
+<ul class="simple">
+<li><p>R. E. Francois and G. R. Garrison, “Sound absorption based on ocean
+measurements: Part I: Pure water and magnesium sulfate contributions,”
+J. Acoust. Soc. Am. 72(3), 896-907 (1982).</p></li>
+<li><p>R. E. Francois and G. R. Garrison, “Sound absorption based on ocean
+measurements: Part II: Boric acid contribution and equation for total
+absorption,” J. Acoust. Soc. Am. 72(6), 1879-1890 (1982).</p></li>
+</ul>
+</section>
+<section id="geometric-ranges">
+<h3>Geometric ranges<a class="headerlink" href="#geometric-ranges" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">compute_geometric_ranges</span></code> adds per-sample <code class="docutils literal notranslate"><span class="pre">slant_range_m</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ground_range_m</span></code>, <code class="docutils literal notranslate"><span class="pre">across_track_m</span></code> (port negative, starboard positive,
+pitch-corrected) and related variables:</p>
+<ul class="simple">
+<li><p>Slant range: <code class="docutils literal notranslate"><span class="pre">sample</span> <span class="pre">*</span> <span class="pre">sound_vel</span> <span class="pre">/</span> <span class="pre">(2</span> <span class="pre">*</span> <span class="pre">sample_rate)</span></code>, from the absolute
+<code class="docutils literal notranslate"><span class="pre">sample</span></code> coordinate, so a dataset trimmed of leading samples keeps its
+true ranges.</p></li>
+<li><p>Ground range (flat bottom): <code class="docutils literal notranslate"><span class="pre">sqrt(slant²</span> <span class="pre">-</span> <span class="pre">altitude²)</span></code> where
+<code class="docutils literal notranslate"><span class="pre">slant</span> <span class="pre">&gt;</span> <span class="pre">altitude</span></code>, NaN in the water column. A ping with NaN altitude
+gets NaN ground range (and no georeferenced position); altitude 0 gives
+ground range equal to slant range. Both are logged at WARNING.</p></li>
+</ul>
+</section>
+<section id="altitude-from-the-bottom-track">
+<h3>Altitude from the bottom track<a class="headerlink" href="#altitude-from-the-bottom-track" title="Link to this heading">#</a></h3>
+<p>Some recordings have no usable altitude: no altimeter, no bottom lock, or
+a recorder that writes 0. <code class="docutils literal notranslate"><span class="pre">altitude_from_bottom_track</span></code> (the
+<code class="docutils literal notranslate"><span class="pre">bottom_track</span></code> step) measures it from the data: the onset of the bottom
+return on each channel (<code class="docutils literal notranslate"><span class="pre">detect_first_bottom_return</span></code> on the uncorrected
+amplitude, refined to the half-rise sample), the nearer channel, in
+metres of slant range. By default it fills only pings whose <code class="docutils literal notranslate"><span class="pre">altitude_m</span></code>
+is NaN or &lt;= 0; <code class="docutils literal notranslate"><span class="pre">max_diff_m</span></code> also replaces recorded values that disagree
+with the track by more than that (a lost lock that still writes a value),
+and <code class="docutils literal notranslate"><span class="pre">replace=&quot;all&quot;</span></code> replaces every ping.</p>
+<p>The return must stay above threshold for <code class="docutils literal notranslate"><span class="pre">min_return_m</span></code> (default 5 m) of
+slant range, of which <code class="docutils literal notranslate"><span class="pre">min_return_fraction</span></code> (default 70 %) must be above:
+a transmit burst lasts a metre or two, a seabed return tens of metres, and
+the fraction lets shadows in a rough seabed through. On public test files
+with a recorded altimeter (Benthos SIS-1624, about 30 m altitude) the
+tracked value agreed to within 0.2 m for 90 % of pings. The first return
+comes from the beam’s near edge, so on sloping or very shallow seabed the
+tracked value is the slant range to the nearest bottom point, a little
+above the true altitude (+0.6 m at 1.7 m altitude on a Klein 3000 file).</p>
+</section>
+<section id="georeferencing">
+<h3>Georeferencing<a class="headerlink" href="#georeferencing" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">compute_georeferencing</span></code> adds <code class="docutils literal notranslate"><span class="pre">latitude_per_sample</span></code> and
+<code class="docutils literal notranslate"><span class="pre">longitude_per_sample</span></code> from the per-ping position, heading and across-track
+offset on the WGS84 ellipsoid.</p>
+</section>
+<section id="navigation-interpolation">
+<h3>Navigation interpolation<a class="headerlink" href="#navigation-interpolation" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">interpolate_aux_onto_pings</span></code> (and the <code class="docutils literal notranslate"><span class="pre">interpolate_aux</span></code> step) replaces
+per-ping latitude, longitude, heading, roll, pitch and heave with values
+interpolated from the survey’s navigation and attitude records
+(<code class="docutils literal notranslate"><span class="pre">DEFAULT_FIELD_SOURCES</span></code>). Altitude, depth and sound velocity are live
+sensor readings and are not interpolated by default; see
+<a class="reference internal" href="jsf_aux_source_selection.html"><span class="std std-doc">JSF aux source selection</span></a>.
+<code class="docutils literal notranslate"><span class="pre">interpolate_onto_channel</span></code> takes any external <code class="docutils literal notranslate"><span class="pre">xr.Dataset</span></code> with a <code class="docutils literal notranslate"><span class="pre">time</span></code>
+coordinate, such as a separate GPS log.</p>
+<p><strong>Sample-and-hold aux streams.</strong> Recorders commonly log the latest GPS fix
+or attitude value at every ping or packet, so a value repeats until the
+sensor updates (a ~1 Hz GPS under ~10 Hz pings repeats each position about
+ten times; attitude streams repeat on their own schedules). Interpolating
+those entries as logged keeps the stair-steps: consecutive pings stack on
+one position, then jump, which shows up in ground-range and georeferenced
+output. By default (<code class="docutils literal notranslate"><span class="pre">held_values=&quot;fixes&quot;</span></code>) each aux record is first reduced
+with <code class="docutils literal notranslate"><span class="pre">held_value_fixes</span></code>:</p>
+<ul class="simple">
+<li><p>every variable is its own group, latitude and longitude included, since
+some recorders log the two coordinates of one fix in separate entries
+(<code class="docutils literal notranslate"><span class="pre">groups=[POSITION_GROUP]</span></code> joins them);</p></li>
+<li><p>an entry is a fix when its group’s value differs from the previous
+finite entry; NaN entries are never fixes;</p></li>
+<li><p>a fix that ends a held run is placed midway between the last held entry
+and the changed one (the update arrived in between); a fix right after
+another fix keeps its own time, so a stream with no repeats is unchanged;</p></li>
+<li><p>duplicate timestamps collapse to the last entry logged at that time;</p></li>
+<li><p>a value held for longer than <code class="docutils literal notranslate"><span class="pre">max_hold_s</span></code> (default 2 s) also keeps an
+anchor at its last entry, so the track stays flat across a real stop or
+a sensor dropout instead of ramping through it.</p></li>
+</ul>
+<p>Some recorders also spread one sensor update over consecutive entries:
+the bulk change, then a small follow-up (a few cm) one entry later, then
+nothing until the next update. Every change then becomes a fix, two fixes
+land one entry apart, and the interpolated speed swings between a fraction
+of and several times the true speed. <code class="docutils literal notranslate"><span class="pre">merge_window_s</span></code> (default <code class="docutils literal notranslate"><span class="pre">None</span></code>, no
+merging) collapses changes of one group that are at most that many
+seconds apart (chained) into one update event:</p>
+<ul class="simple">
+<li><p>the event carries the group’s value after its last change;</p></li>
+<li><p>it is timed like a fix at its <em>first</em> change (the midpoint after a
+hold): the update started reaching the log there, and the follow-ups
+complete it rather than report new motion. This gives every event the
+same latency, whereas timing at the last change would add a delay that
+depends on how many entries the update spread over;</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">max_hold_s</span></code> hold is measured from the event’s last change;</p></li>
+<li><p>groups merge independently, and the record’s first entry is never
+merged.</p></li>
+</ul>
+<p>Choose the window longer than the follow-up delay (one entry) and
+shorter than the gap from the follow-up to the next update; about two log
+intervals usually fits. Too long a window chains successive updates into
+one event, which is far worse than no merging.</p>
+<p>A float applies to every
+group of every record, so a window sized for a ~3 Hz GPS also chains the
+changes of a ~10 Hz roll sensor; a mapping by variable name, such as
+<code class="docutils literal notranslate"><span class="pre">merge_window_s={&quot;latitude&quot;:</span> <span class="pre">0.15,</span> <span class="pre">&quot;longitude&quot;:</span> <span class="pre">0.15}</span></code>, merges only the
+groups holding those variables (a group takes the smallest window of its
+variables). A WARNING is logged when an event combines more than five
+changes.</p>
+<p>To choose the window, <code class="docutils literal notranslate"><span class="pre">aux_update_events(record,</span> <span class="pre">groups=...,</span> <span class="pre">merge_window_s=...)</span></code>
+reports, per group, the entries, raw changes, events after merging, the
+percentiles (p5–p95) of the gaps between changes and between events, in
+entries and seconds, and the fraction of changes that fall within the
+window of the previous one. Split updates show as bimodal change gaps
+(a peak at 1 entry and one at the update interval) that become unimodal
+event gaps once merged. On a line running mostly north–south one
+coordinate barely changes, so per-coordinate change counts say little
+about how updates are split; check the joint group
+(<code class="docutils literal notranslate"><span class="pre">groups=[POSITION_GROUP]</span></code>) too.</p>
+<p>The step’s <code class="docutils literal notranslate"><span class="pre">groups</span></code> parameter is passed to <code class="docutils literal notranslate"><span class="pre">held_value_fixes</span></code> for each
+record, applying a group only where all its variables exist, so
+<code class="docutils literal notranslate"><span class="pre">groups=[POSITION_GROUP]</span></code> joins latitude and longitude in the navigation
+record and leaves attitude alone.</p>
+<p>When a field has no usable aux source (record absent or empty, variable
+missing or all NaN), <code class="docutils literal notranslate"><span class="pre">per_ping_fallback=True</span></code> (default) reduces the
+channel’s own per-ping values the same way and interpolates those. The
+step’s history record carries <code class="docutils literal notranslate"><span class="pre">held_values</span></code>, <code class="docutils literal notranslate"><span class="pre">max_hold_s</span></code>,
+<code class="docutils literal notranslate"><span class="pre">per_ping_fallback</span></code>, <code class="docutils literal notranslate"><span class="pre">per_ping_fallback_fields</span></code>, <code class="docutils literal notranslate"><span class="pre">groups</span></code> and
+<code class="docutils literal notranslate"><span class="pre">merge_window_s</span></code>. <code class="docutils literal notranslate"><span class="pre">held_values=&quot;raw&quot;</span></code>
+interpolates the entries as logged, as in 0.7.2 and earlier.</p>
+<p>The step is skipped on files whose history already records it; re-convert,
+or correct with <code class="docutils literal notranslate"><span class="pre">force=True</span></code>, to apply the reduction to a file corrected
+before.</p>
+</section>
+</section>
+<section id="slicing">
+<h2>Slicing<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Keeps</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slice_by_pings(ds,</span> <span class="pre">start=,</span> <span class="pre">stop=)</span></code></p></td>
+<td><p>a ping index range</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slice_by_samples(ds,</span> <span class="pre">start=,</span> <span class="pre">stop=)</span></code></p></td>
+<td><p>a range of the absolute <code class="docutils literal notranslate"><span class="pre">sample</span></code> coordinate</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slice_by_range(ds,</span> <span class="pre">min_m,</span> <span class="pre">max_m)</span></code></p></td>
+<td><p>samples within a slant-range window</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slice_by_ground_range(ds,</span> <span class="pre">range_max_m=)</span></code></p></td>
+<td><p>samples within a ground range (needs <code class="docutils literal notranslate"><span class="pre">geometric</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slice_by_time(ds,</span> <span class="pre">start=,</span> <span class="pre">stop=)</span></code></p></td>
+<td><p>a time window</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slice_by_bbox(ds,</span> <span class="pre">lat_min=,</span> <span class="pre">lat_max=,</span> <span class="pre">lon_min=,</span> <span class="pre">lon_max=)</span></code></p></td>
+<td><p>pings (or, with <code class="docutils literal notranslate"><span class="pre">use_per_sample=True</span></code>, samples) inside a lat/lon box</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slice_survey(survey,</span> <span class="pre">fn,</span> <span class="pre">**kwargs)</span></code></p></td>
+<td><p>applies any slicer to every frequency of a survey</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Slicing keeps <code class="docutils literal notranslate"><span class="pre">processing_history</span></code>.</p>
+</section>
+<section id="bottom-nadir-and-noise">
+<h2>Bottom, nadir and noise<a class="headerlink" href="#bottom-nadir-and-noise" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>What it does</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">detect_first_bottom_return</span></code></p></td>
+<td><p>per-(ping, channel) sample where the bottom echo starts</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">altitude_from_bottom_track</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">altitude_m</span></code> from the first bottom return (the <code class="docutils literal notranslate"><span class="pre">bottom_track</span></code> step)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mask_nadir_gap</span></code></p></td>
+<td><p>NaN everything before the first bottom return</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">detect_nadir_noise_extent</span></code>, <code class="docutils literal notranslate"><span class="pre">blank_nadir_noise</span></code></p></td>
+<td><p>find and zero an electronic noise burst at nadir</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">smooth_boundary_across_pings</span></code></p></td>
+<td><p>rolling median of a per-ping boundary</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">crop_far_range</span></code>, <code class="docutils literal notranslate"><span class="pre">detect_far_range_cutoff_sample</span></code></p></td>
+<td><p>find and crop far-range noise that rises above the floor</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reject_range_outliers</span></code></p></td>
+<td><p>per-range-bin median/MAD outlier rejection</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mask_bright_ping_rows</span></code></p></td>
+<td><p>mask pings much brighter than their neighbours</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="segments">
+<h2>Segments<a class="headerlink" href="#segments" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">find_segments</span></code> splits a file into contiguous segments and labels each one
+clean or excluded, from gaps in time or position (<code class="docutils literal notranslate"><span class="pre">detect_gaps</span></code>), hardware
+setting changes (<code class="docutils literal notranslate"><span class="pre">detect_setting_changes</span></code>), dropout or garbage runs
+(<code class="docutils literal notranslate"><span class="pre">detect_garbage_runs</span></code>) and attitude instability (<code class="docutils literal notranslate"><span class="pre">detect_unstable_spans</span></code>).
+<code class="docutils literal notranslate"><span class="pre">split_by_segments</span></code> returns one sub-survey per clean segment, and
+<code class="docutils literal notranslate"><span class="pre">write_segments</span></code> writes each clean segment to its own <code class="docutils literal notranslate"><span class="pre">&lt;label&gt;.ss.h5</span></code>.</p>
+</section>
+<section id="profiles-and-tracks">
+<h2>Profiles and tracks<a class="headerlink" href="#profiles-and-tracks" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">backscatter_vs_range</span></code> / <code class="docutils literal notranslate"><span class="pre">backscatter_vs_sample</span></code>: per-bin mean, median,
+std, percentiles and count.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">along_track_distance_m(ds,</span> <span class="pre">fill_nav_stalls=False)</span></code>: cumulative
+geodesic distance along the track; <code class="docutils literal notranslate"><span class="pre">fill_nav_stalls</span></code> spreads pings that
+repeat a navigation fix.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">build_survey_track(surveys,</span> <span class="pre">freq_key,</span> <span class="pre">scanline_stride=)</span></code>: nadir track
+and strided scan-line endpoints as a <code class="docutils literal notranslate"><span class="pre">SurveyTrack</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="core.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data model</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="grids.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Gridding</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corrections">Corrections</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-steps-by-name">Running steps by name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-steps">Built-in steps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tvg">TVG</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-ranges">Geometric ranges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#altitude-from-the-bottom-track">Altitude from the bottom track</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#georeferencing">Georeferencing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation-interpolation">Navigation interpolation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bottom-nadir-and-noise">Bottom, nadir and noise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segments">Segments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiles-and-tracks">Profiles and tracks</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

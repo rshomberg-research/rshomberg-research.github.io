@@ -1,0 +1,24 @@
+sidescanpy.targets.io
+=====================
+
+.. automodule:: sidescanpy.targets.io
+
+.. currentmodule:: sidescanpy.targets.io
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   write_targets_json
+   read_targets_json
+   write_targets_csv
+   read_targets_csv
+
+.. autofunction:: sidescanpy.targets.io.write_targets_json
+
+.. autofunction:: sidescanpy.targets.io.read_targets_json
+
+.. autofunction:: sidescanpy.targets.io.write_targets_csv
+
+.. autofunction:: sidescanpy.targets.io.read_targets_csv

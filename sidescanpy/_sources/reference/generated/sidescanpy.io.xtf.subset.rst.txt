@@ -1,0 +1,15 @@
+sidescanpy.io.xtf.subset
+========================
+
+.. automodule:: sidescanpy.io.xtf.subset
+
+.. currentmodule:: sidescanpy.io.xtf.subset
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   write_subset
+
+.. autofunction:: sidescanpy.io.xtf.subset.write_subset

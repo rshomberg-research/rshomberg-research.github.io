@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>Read a file &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../_static/documentation_options.js?v=486e5634"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/plot_read_a_file';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Three formats, one model" href="plot_three_formats.html" />
+    <link rel="prev" title="Grid to a map" href="plot_grid_to_a_map.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Read a file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_three_formats.html">Three formats, one model</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Read a file</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-examples-plot-read-a-file-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="read-a-file">
+<span id="sphx-glr-examples-plot-read-a-file-py"></span><h1>Read a file<a class="headerlink" href="#read-a-file" title="Link to this heading">#</a></h1>
+<p>Convert one raw EdgeTech JSF line to sidescanpy’s data model, save it as
+<code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code>, and look at it. <a class="reference internal" href="../reference/generated/sidescanpy.io.dispatch.html#sidescanpy.io.dispatch.read_and_convert" title="sidescanpy.io.dispatch.read_and_convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_and_convert()</span></code></a> reads JSF,
+Klein SDF and XTF into the same structure: a
+<a class="reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.survey.SideScanSurvey"><code class="xref py py-class docutils literal notranslate"><span class="pre">SideScanSurvey</span></code></a> holding one <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v2026.9.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a>
+per frequency, with backscatter shaped <code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel,</span> <span class="pre">sample)</span></code>
+(channel 0 is port, 1 starboard) plus the navigation and attitude
+records.</p>
+<p>Data: JNCC Wight-Barfleur Reef, Open Government Licence v3.0 (see
+<a class="reference internal" href="../example_data.html"><span class="doc">Example data</span></a>).</p>
+<p>Usage: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/gallery/plot_read_a_file.py</span> <span class="pre">[output_dir]</span></code></p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="c1"># 2026 rshomberg&#64;uri.edu</span><span class="w">
+</span><span class="w">
+</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path"><span class="n">Path</span></a><span class="w">
+</span><span class="w">
+</span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="nn">.</span><span class="nn">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="w">
+</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy</span><span class="nn">.</span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_and_convert</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy</span><span class="nn">.</span><span class="nn">io</span><span class="nn">.</span><span class="nn">hdf5</span><span class="w"> </span><span class="kn">import</span> <span class="n">write_survey</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy</span><span class="nn">.</span><span class="nn">log</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-sidescanpy-log sphx-glr-backref-type-py-function reference internal" href="../reference/generated/sidescanpy.log.html#sidescanpy.log.configure_logging" title="sidescanpy.log.configure_logging"><span class="n">configure_logging</span></a><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy</span><span class="nn">.</span><span class="nn">processing</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_geometric_ranges</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy</span><span class="nn">.</span><span class="nn">viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_waterfall</span><span class="w">
+</span><span class="w">
+</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path"><span class="n">Path</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">sys</span><span class="o">.</span><span class="n">argv</span></a><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">sys</span><span class="o">.</span><span class="n">argv</span></a><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;</span><span class="s2">.</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-method reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir" title="pathlib.Path.mkdir"><span class="n">out</span><span class="o">.</span><span class="n">mkdir</span></a><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-sidescanpy-log sphx-glr-backref-type-py-function reference internal" href="../reference/generated/sidescanpy.log.html#sidescanpy.log.configure_logging" title="sidescanpy.log.configure_logging"><span class="n">configure_logging</span></a><span class="p">(</span><span class="s2">&quot;</span><span class="s2">INFO</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+<p>Download (once) and convert. The reader logs two warnings worth knowing
+about: this file records no sound velocity (1500 m/s is used) and no
+altitude. <a class="reference internal" href="plot_correct_a_line.html#sphx-glr-examples-plot-correct-a-line-py"><span class="std std-ref">Correct a line</span></a> fills the
+altitude in.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">path</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-sidescanpy-datasets sphx-glr-backref-type-py-function reference internal" href="../reference/generated/sidescanpy.datasets.html#sidescanpy.datasets.fetch" title="sidescanpy.datasets.fetch"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch</span></a><span class="p">(</span><span class="s2">&quot;</span><span class="s2">jncc_wight_barfleur_20130321174522.jsf</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a> <span class="o">=</span> <span class="n">read_and_convert</span><span class="p">(</span><span class="p">[</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">path</span></a><span class="p">]</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">jsf</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="n">write_survey</span><span class="p">(</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">wight_barfleur.ss.h5</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>21:15:05 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+21:15:05 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
+</pre></div>
+</div>
+<p>One xarray Dataset per frequency: backscatter is (ping, channel, sample),
+channel 0 = port, 1 = starboard.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="k">for</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">freq_key</span></a> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="o">.</span><span class="n">frequencies</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="o">.</span><span class="n">get_frequency</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">freq_key</span></a><span class="p">)</span><span class="o">.</span><span class="n">dataset</span><span class="w">
+</span>    <span class="nb">print</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">freq_key</span></a><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><a class="sphx-glr-backref-module-xarray sphx-glr-backref-type-py-property reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.sizes.html#xarray.Dataset.sizes" title="xarray.Dataset.sizes"><span class="n">ds</span><span class="o">.</span><span class="n">sizes</span></a><span class="p">)</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>hz_218740 {&#39;ping&#39;: 287, &#39;channel&#39;: 2, &#39;sample&#39;: 11568}
+hz_521000 {&#39;ping&#39;: 288, &#39;channel&#39;: 2, &#39;sample&#39;: 23140}
+</pre></div>
+</div>
+<p>The two frequencies of the same pings, raw amplitude against slant
+range. The dark band in the middle is the water column under the
+towfish; the seabed starts where it ends, about 18 m out on each side.
+A linear seabed feature runs along the starboard side at about 50 m.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">axes</span></a> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="w">
+</span><span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">freq_key</span></a> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">axes</span></a><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="o">.</span><span class="n">frequencies</span><span class="p">)</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a> <span class="o">=</span> <span class="n">compute_geometric_ranges</span><span class="p">(</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="o">.</span><span class="n">get_frequency</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">freq_key</span></a><span class="p">)</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span><span class="w">
+</span>    <span class="n">plot_waterfall</span><span class="p">(</span><a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">slant_range</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="w">
+</span>                   <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">freq_key</span></a><span class="si">}</span><span class="s2">: raw, slant range</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">read_a_file.png</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+<img src="../_images/sphx_glr_plot_read_a_file_001.png" srcset="../_images/sphx_glr_plot_read_a_file_001.png" alt="hz_218740: raw, slant range, hz_521000: raw, slant range" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>21:15:07 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+21:15:07 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m &lt;= 0 (ground range = slant range); the &#39;bottom_track&#39; step can fill them from the first bottom return
+21:15:08 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+21:15:08 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m &lt;= 0 (ground range = slant range); the &#39;bottom_track&#39; step can fill them from the first bottom return
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 18.365 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-read-a-file-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/b6f9ec46024886295ad1491e8f3fc077/plot_read_a_file.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_read_a_file.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/60a98df7759152724c61d699eb567ce5/plot_read_a_file.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_read_a_file.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/a92ccdce7fa7dd22bd55f9745ccc66cf/plot_read_a_file.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_read_a_file.zip</span></code></a></p>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="plot_grid_to_a_map.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Grid to a map</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="plot_three_formats.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Three formats, one model</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

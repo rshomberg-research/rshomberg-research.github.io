@@ -1,0 +1,29 @@
+sidescanpy.processing.range_correction
+======================================
+
+.. automodule:: sidescanpy.processing.range_correction
+
+.. currentmodule:: sidescanpy.processing.range_correction
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   STEP_NAME
+   RangeCorrectionTable
+   fit_range_correction
+   apply_empirical_range_correction
+   range_correction_db
+
+.. autodata:: sidescanpy.processing.range_correction.STEP_NAME
+
+.. autoclass:: sidescanpy.processing.range_correction.RangeCorrectionTable
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.processing.range_correction.fit_range_correction
+
+.. autofunction:: sidescanpy.processing.range_correction.apply_empirical_range_correction
+
+.. autofunction:: sidescanpy.processing.range_correction.range_correction_db

@@ -1,0 +1,39 @@
+sidescanpy.export.windows.levels
+================================
+
+.. automodule:: sidescanpy.export.windows.levels
+
+.. currentmodule:: sidescanpy.export.windows.levels
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   CHIP_STYLES
+   RENDER_LEVELS
+   PIXEL_LEVELS
+   LEVEL_VARS
+   mask_nadir_gap_with_uncorrected
+   with_db_var
+   nominal_sample_interval_m
+   WindowSpec
+
+.. autodata:: sidescanpy.export.windows.levels.CHIP_STYLES
+
+.. autodata:: sidescanpy.export.windows.levels.RENDER_LEVELS
+
+.. autodata:: sidescanpy.export.windows.levels.PIXEL_LEVELS
+
+.. autodata:: sidescanpy.export.windows.levels.LEVEL_VARS
+   :no-value:
+
+.. autofunction:: sidescanpy.export.windows.levels.mask_nadir_gap_with_uncorrected
+
+.. autofunction:: sidescanpy.export.windows.levels.with_db_var
+
+.. autofunction:: sidescanpy.export.windows.levels.nominal_sample_interval_m
+
+.. autoclass:: sidescanpy.export.windows.levels.WindowSpec
+   :members:
+   :show-inheritance:

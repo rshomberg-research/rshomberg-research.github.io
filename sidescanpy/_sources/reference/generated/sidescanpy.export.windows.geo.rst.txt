@@ -1,0 +1,30 @@
+sidescanpy.export.windows.geo
+=============================
+
+.. automodule:: sidescanpy.export.windows.geo
+
+.. currentmodule:: sidescanpy.export.windows.geo
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   SWATH_FILL_PCT
+   RESAMPLE_METHODS
+   swath_fill_extent
+   geo_targets_within_window
+   georef_targets_within_window
+   extract_geo_style_window
+
+.. autodata:: sidescanpy.export.windows.geo.SWATH_FILL_PCT
+
+.. autodata:: sidescanpy.export.windows.geo.RESAMPLE_METHODS
+
+.. autofunction:: sidescanpy.export.windows.geo.swath_fill_extent
+
+.. autofunction:: sidescanpy.export.windows.geo.geo_targets_within_window
+
+.. autofunction:: sidescanpy.export.windows.geo.georef_targets_within_window
+
+.. autofunction:: sidescanpy.export.windows.geo.extract_geo_style_window

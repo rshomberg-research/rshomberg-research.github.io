@@ -1,0 +1,38 @@
+sidescanpy.export.ml.dataset
+============================
+
+.. automodule:: sidescanpy.export.ml.dataset
+
+.. currentmodule:: sidescanpy.export.ml.dataset
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   LAYOUTS
+   DatasetSpec
+   SkippedTarget
+   StyleResult
+   DatasetResult
+   build_target_dataset
+
+.. autodata:: sidescanpy.export.ml.dataset.LAYOUTS
+
+.. autoclass:: sidescanpy.export.ml.dataset.DatasetSpec
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.export.ml.dataset.SkippedTarget
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.export.ml.dataset.StyleResult
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.export.ml.dataset.DatasetResult
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.export.ml.dataset.build_target_dataset

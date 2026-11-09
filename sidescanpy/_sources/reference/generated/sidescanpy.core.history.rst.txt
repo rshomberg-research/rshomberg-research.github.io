@@ -1,0 +1,76 @@
+sidescanpy.core.history
+=======================
+
+.. automodule:: sidescanpy.core.history
+
+.. currentmodule:: sidescanpy.core.history
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   STEP_CROP_FARRANGE
+   STEP_INTERPOLATE_AUX
+   STEP_BOTTOM_TRACK
+   STEP_TVG
+   STEP_GEOMETRIC
+   STEP_RANGE_CORRECTION
+   STEP_GEOREF
+   BUILTIN_STEPS
+   RADIOMETRIC_STEPS
+   STEP_OUTPUT_VARS
+   LEGACY_STEP_NAMES
+   LEVEL_STEPS
+   PROCESSING_LEVELS
+   canonical_step
+   read_history
+   applied_steps
+   has_step
+   processing_level
+   append_history
+   remove_history_records
+
+.. autodata:: sidescanpy.core.history.STEP_CROP_FARRANGE
+
+.. autodata:: sidescanpy.core.history.STEP_INTERPOLATE_AUX
+
+.. autodata:: sidescanpy.core.history.STEP_BOTTOM_TRACK
+
+.. autodata:: sidescanpy.core.history.STEP_TVG
+
+.. autodata:: sidescanpy.core.history.STEP_GEOMETRIC
+
+.. autodata:: sidescanpy.core.history.STEP_RANGE_CORRECTION
+
+.. autodata:: sidescanpy.core.history.STEP_GEOREF
+
+.. autodata:: sidescanpy.core.history.BUILTIN_STEPS
+   :no-value:
+
+.. autodata:: sidescanpy.core.history.RADIOMETRIC_STEPS
+
+.. autodata:: sidescanpy.core.history.STEP_OUTPUT_VARS
+   :no-value:
+
+.. autodata:: sidescanpy.core.history.LEGACY_STEP_NAMES
+   :no-value:
+
+.. autodata:: sidescanpy.core.history.LEVEL_STEPS
+   :no-value:
+
+.. autodata:: sidescanpy.core.history.PROCESSING_LEVELS
+
+.. autofunction:: sidescanpy.core.history.canonical_step
+
+.. autofunction:: sidescanpy.core.history.read_history
+
+.. autofunction:: sidescanpy.core.history.applied_steps
+
+.. autofunction:: sidescanpy.core.history.has_step
+
+.. autofunction:: sidescanpy.core.history.processing_level
+
+.. autofunction:: sidescanpy.core.history.append_history
+
+.. autofunction:: sidescanpy.core.history.remove_history_records

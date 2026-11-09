@@ -1,0 +1,21 @@
+sidescanpy.io.xtf.converter
+===========================
+
+.. automodule:: sidescanpy.io.xtf.converter
+
+.. currentmodule:: sidescanpy.io.xtf.converter
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   HALVED_SOUND_VELOCITY_BELOW_MS
+   SAMPLE_RATE_RTOL
+   convert
+
+.. autodata:: sidescanpy.io.xtf.converter.HALVED_SOUND_VELOCITY_BELOW_MS
+
+.. autodata:: sidescanpy.io.xtf.converter.SAMPLE_RATE_RTOL
+
+.. autofunction:: sidescanpy.io.xtf.converter.convert

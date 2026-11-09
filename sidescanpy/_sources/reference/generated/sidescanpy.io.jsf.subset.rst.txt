@@ -1,0 +1,15 @@
+sidescanpy.io.jsf.subset
+========================
+
+.. automodule:: sidescanpy.io.jsf.subset
+
+.. currentmodule:: sidescanpy.io.jsf.subset
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   write_subset
+
+.. autofunction:: sidescanpy.io.jsf.subset.write_subset

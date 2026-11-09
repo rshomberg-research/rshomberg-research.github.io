@@ -1,0 +1,39 @@
+sidescanpy.viz.tvg
+==================
+
+.. automodule:: sidescanpy.viz.tvg
+
+.. currentmodule:: sidescanpy.viz.tvg
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   plot_mean_vs_range
+   plot_tvg_gain_curve
+   plot_per_ping_profiles
+   plot_multi_frequency_comparison
+   plot_altitude_bin_comparison
+   plot_candidate_fit
+   plot_range_decay_fit
+   set_fit_window_limits
+   plot_range_decay_residuals
+
+.. autofunction:: sidescanpy.viz.tvg.plot_mean_vs_range
+
+.. autofunction:: sidescanpy.viz.tvg.plot_tvg_gain_curve
+
+.. autofunction:: sidescanpy.viz.tvg.plot_per_ping_profiles
+
+.. autofunction:: sidescanpy.viz.tvg.plot_multi_frequency_comparison
+
+.. autofunction:: sidescanpy.viz.tvg.plot_altitude_bin_comparison
+
+.. autofunction:: sidescanpy.viz.tvg.plot_candidate_fit
+
+.. autofunction:: sidescanpy.viz.tvg.plot_range_decay_fit
+
+.. autofunction:: sidescanpy.viz.tvg.set_fit_window_limits
+
+.. autofunction:: sidescanpy.viz.tvg.plot_range_decay_residuals

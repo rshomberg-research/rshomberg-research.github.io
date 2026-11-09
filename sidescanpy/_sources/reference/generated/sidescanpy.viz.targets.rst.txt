@@ -1,0 +1,18 @@
+sidescanpy.viz.targets
+======================
+
+.. automodule:: sidescanpy.viz.targets
+
+.. currentmodule:: sidescanpy.viz.targets
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   plot_target_position_scatter
+   plot_track_with_targets
+
+.. autofunction:: sidescanpy.viz.targets.plot_target_position_scatter
+
+.. autofunction:: sidescanpy.viz.targets.plot_track_with_targets

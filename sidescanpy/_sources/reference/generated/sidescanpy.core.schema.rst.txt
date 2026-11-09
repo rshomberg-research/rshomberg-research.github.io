@@ -1,0 +1,156 @@
+sidescanpy.core.schema
+======================
+
+.. automodule:: sidescanpy.core.schema
+
+.. currentmodule:: sidescanpy.core.schema
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   REQUIRED_DIMS
+   REQUIRED_COORDS
+   REQUIRED_VARS
+   REQUIRED_ATTRS
+   KNOWN_PROCESSING_LEVELS
+   LEGACY_PROCESSING_LEVEL_VALUES
+   HDF5_GROUP_AUX_STREAMS
+   HDF5_GROUP_NAVIGATION
+   HDF5_GROUP_ATTITUDE
+   HDF5_GROUP_DVL
+   HDF5_GROUP_SENSORS
+   HDF5_GROUP_FREQUENCIES
+   HDF5_FREQ_PREFIX
+   SS_FORMAT_NAME
+   SS_FORMAT_VERSION
+   HDF5_CHUNK_PING
+   HDF5_COMPRESSION
+   HDF5_COMPRESSION_LEVEL
+   SideScanAccessor
+   REQUIRED_NAV_DIMS
+   REQUIRED_NAV_COORDS
+   REQUIRED_NAV_VARS
+   REQUIRED_NAV_ATTRS
+   NavigationRecordAccessor
+   REQUIRED_ATT_DIMS
+   REQUIRED_ATT_COORDS
+   REQUIRED_ATT_VARS
+   OPTIONAL_ATT_VARS
+   REQUIRED_ATT_ATTRS
+   AttitudeRecordAccessor
+   REQUIRED_DVL_DIMS
+   REQUIRED_DVL_COORDS
+   REQUIRED_DVL_VARS
+   REQUIRED_DVL_ATTRS
+   DVLRecordAccessor
+   REQUIRED_GEN_DIMS
+   REQUIRED_GEN_COORDS
+   REQUIRED_GEN_VARS
+   REQUIRED_GEN_ATTRS
+   SensorRecordAccessor
+   make_empty_navigation_record
+   make_empty_attitude_record
+   make_empty_dvl_record
+   make_empty_sensor_record
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_DIMS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_COORDS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_VARS
+   :no-value:
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_ATTRS
+   :no-value:
+
+.. autodata:: sidescanpy.core.schema.KNOWN_PROCESSING_LEVELS
+
+.. autodata:: sidescanpy.core.schema.LEGACY_PROCESSING_LEVEL_VALUES
+
+.. autodata:: sidescanpy.core.schema.HDF5_GROUP_AUX_STREAMS
+
+.. autodata:: sidescanpy.core.schema.HDF5_GROUP_NAVIGATION
+
+.. autodata:: sidescanpy.core.schema.HDF5_GROUP_ATTITUDE
+
+.. autodata:: sidescanpy.core.schema.HDF5_GROUP_DVL
+
+.. autodata:: sidescanpy.core.schema.HDF5_GROUP_SENSORS
+
+.. autodata:: sidescanpy.core.schema.HDF5_GROUP_FREQUENCIES
+
+.. autodata:: sidescanpy.core.schema.HDF5_FREQ_PREFIX
+
+.. autodata:: sidescanpy.core.schema.SS_FORMAT_NAME
+
+.. autodata:: sidescanpy.core.schema.SS_FORMAT_VERSION
+
+.. autodata:: sidescanpy.core.schema.HDF5_CHUNK_PING
+
+.. autodata:: sidescanpy.core.schema.HDF5_COMPRESSION
+
+.. autodata:: sidescanpy.core.schema.HDF5_COMPRESSION_LEVEL
+
+.. autoclass:: sidescanpy.core.schema.SideScanAccessor
+   :members:
+   :show-inheritance:
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_NAV_DIMS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_NAV_COORDS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_NAV_VARS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_NAV_ATTRS
+
+.. autoclass:: sidescanpy.core.schema.NavigationRecordAccessor
+   :members:
+   :show-inheritance:
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_ATT_DIMS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_ATT_COORDS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_ATT_VARS
+
+.. autodata:: sidescanpy.core.schema.OPTIONAL_ATT_VARS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_ATT_ATTRS
+
+.. autoclass:: sidescanpy.core.schema.AttitudeRecordAccessor
+   :members:
+   :show-inheritance:
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_DVL_DIMS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_DVL_COORDS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_DVL_VARS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_DVL_ATTRS
+
+.. autoclass:: sidescanpy.core.schema.DVLRecordAccessor
+   :members:
+   :show-inheritance:
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_GEN_DIMS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_GEN_COORDS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_GEN_VARS
+
+.. autodata:: sidescanpy.core.schema.REQUIRED_GEN_ATTRS
+
+.. autoclass:: sidescanpy.core.schema.SensorRecordAccessor
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.core.schema.make_empty_navigation_record
+
+.. autofunction:: sidescanpy.core.schema.make_empty_attitude_record
+
+.. autofunction:: sidescanpy.core.schema.make_empty_dvl_record
+
+.. autofunction:: sidescanpy.core.schema.make_empty_sensor_record

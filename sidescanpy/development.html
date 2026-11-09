@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>Development &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="_static/documentation_options.js?v=486e5634"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'development';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pre-release status" href="prerelease.html" />
+    <link rel="prev" title="sidescanpy.viz.waterfall" href="reference/generated/sidescanpy.viz.waterfall.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#" aria-current="page">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#" aria-current="page">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Development</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="development">
+<h1>Development<a class="headerlink" href="#development" title="Link to this heading">#</a></h1>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
+<p>You need Python 3.12 or newer, <a class="reference external" href="https://docs.astral.sh/uv/">uv</a> and git.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rshomberg-research/sidescanpy.git
+<span class="nb">cd</span><span class="w"> </span>sidescanpy
+uv<span class="w"> </span>sync<span class="w"> </span>--all-extras
+make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">sync</span> <span class="pre">--all-extras</span></code> builds <code class="docutils literal notranslate"><span class="pre">.venv/</span></code> with every optional dependency,
+so the plotting, GeoTIFF and docs code is tested too.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Runs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code></p></td>
+<td><p>the unit tests, with <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> cleared</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">lint</span></code></p></td>
+<td><p>ruff</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs</span></code></p></td>
+<td><p>this site in <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code>, running the example scripts (downloads about 140 MB the first time); any warning, such as a malformed docstring or a broken cross-reference, fails the build</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-fast</span></code></p></td>
+<td><p>the same without running the example scripts (no figures)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-serve</span></code></p></td>
+<td><p>builds the site, then serves it at <a class="reference external" href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-clean</span></code></p></td>
+<td><p>removes the build and the generated API and example pages</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span> <span class="pre">pytest</span> <span class="pre">tests/integration</span> <span class="pre">--slow</span></code> runs the integration tests,
+which need real survey files that are not in the repository and skip
+without them. The public test fixtures are listed in
+<code class="docutils literal notranslate"><span class="pre">tests/data/public/SOURCES.md</span></code>; set <code class="docutils literal notranslate"><span class="pre">SIDESCANPY_PUBLIC_DATA</span></code> to the
+folder holding them to run <code class="docutils literal notranslate"><span class="pre">tests/unit/io/test_public_fixtures.py</span></code>.</p>
+</section>
+<section id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Holds</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">core</span></code></p></td>
+<td><p>the data model, schema accessors, processing history</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">io</span></code></p></td>
+<td><p>the JSF, SDF and XTF readers, <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> and NetCDF I/O, target catalogs</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">processing</span></code></p></td>
+<td><p>correction steps, slicing, bottom and noise detection, segments</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">analysis</span></code></p></td>
+<td><p>measurements that return result dataclasses</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">grids</span></code></p></td>
+<td><p>gridding and GeoTIFF output</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">targets</span></code></p></td>
+<td><p>target catalogs and matching targets to pings</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">export</span></code></p></td>
+<td><p>image windows, chips and COCO/YOLO datasets</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">viz</span></code></p></td>
+<td><p>plotting helpers</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cli</span></code></p></td>
+<td><p>the <code class="docutils literal notranslate"><span class="pre">sidescan-*</span></code> commands</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Imports go one way, <code class="docutils literal notranslate"><span class="pre">core</span> <span class="pre">←</span> <span class="pre">io</span> <span class="pre">←</span> <span class="pre">processing</span> <span class="pre">←</span> <span class="pre">analysis</span> <span class="pre">←</span> <span class="pre">grids</span> <span class="pre">←</span> <span class="pre">targets</span> <span class="pre">←</span> <span class="pre">export</span> <span class="pre">←</span> <span class="pre">viz</span> <span class="pre">←</span> <span class="pre">cli</span></code>, and only <code class="docutils literal notranslate"><span class="pre">viz</span></code> imports matplotlib. A unit test
+(<code class="docutils literal notranslate"><span class="pre">tests/unit/test_layering.py</span></code>) enforces this.</p>
+</section>
+<section id="conventions">
+<h2>Conventions<a class="headerlink" href="#conventions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Library, not workflow.</strong> Library functions take and return datasets
+and do one thing. Orchestration, run-everything scripts and multi-panel
+figures belong in <code class="docutils literal notranslate"><span class="pre">examples/</span></code> or in your own project.</p></li>
+<li><p><strong>Tests first</strong> for new behaviour, on synthetic data with real shapes
+(three dimensions, two channels, realistic sample counts);
+<code class="docutils literal notranslate"><span class="pre">tests/unit/synthetic.py</span></code> has the builders. Never commit survey data.</p></li>
+<li><p><strong>Docstrings</strong> are numpydoc and are the API reference.</p></li>
+<li><p><strong>Logging.</strong> Every module has <code class="docutils literal notranslate"><span class="pre">logger</span> <span class="pre">=</span> <span class="pre">logging.getLogger(__name__)</span></code>
+and logs only at DEBUG and WARNING. No <code class="docutils literal notranslate"><span class="pre">print()</span></code> in library code.</p></li>
+<li><p><strong>New schema variables</strong> go in <code class="docutils literal notranslate"><span class="pre">core/schema.py</span></code> before a step produces
+them.</p></li>
+<li><p><strong>Commits</strong> follow <a class="reference external" href="https://www.conventionalcommits.org/">Conventional Commits</a>
+with the module path as scope: <code class="docutils literal notranslate"><span class="pre">feat(io/sdf):</span> <span class="pre">...</span></code>,
+<code class="docutils literal notranslate"><span class="pre">fix(grids/resample):</span> <span class="pre">...</span></code>, <code class="docutils literal notranslate"><span class="pre">docs(processing):</span> <span class="pre">...</span></code>.</p></li>
+<li><p><strong>Versions</strong> follow SemVer. Until 1.0, a minor release may break the
+API or the <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> format; <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code> lists every break.</p></li>
+</ul>
+</section>
+<section id="sharing-before-release">
+<h2>Sharing before release<a class="headerlink" href="#sharing-before-release" title="Link to this heading">#</a></h2>
+<p>Until the public release the repository is private and shared by
+invitation. <a class="reference internal" href="prerelease.html"><span class="std std-doc">Pre-release status</span></a> is the page for the
+people invited; this section is the maintainer’s side.</p>
+<p><strong>Repository.</strong> It lives in the <code class="docutils literal notranslate"><span class="pre">rshomberg-research</span></code> organization
+(moved from a personal account, where collaborators always get write
+access). Add people as outside collaborators with the <strong>Read</strong> role:
+Settings → Collaborators and teams. If it moves again, update <code class="docutils literal notranslate"><span class="pre">origin</span></code>
+in each clone, <code class="docutils literal notranslate"><span class="pre">[project.urls]</span></code> in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">github_url</span></code> in
+<code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code> (once set), and the links in <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and <code class="docutils literal notranslate"><span class="pre">docs/</span></code>
+(<code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-rn</span> <span class="pre">&quot;github.com/&quot;</span> <span class="pre">README.md</span> <span class="pre">docs</span> <span class="pre">pyproject.toml</span></code>).</p>
+<p>Before inviting anyone, everything on GitHub (every branch, tag and
+commit message) is visible to them. Check it holds nothing that should
+stay private, with the names to look for in place of the placeholders:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>origin<span class="w"> </span>--tags<span class="w"> </span>--force
+git<span class="w"> </span>log<span class="w"> </span>--remotes<span class="o">=</span>origin<span class="w"> </span>--tags<span class="w"> </span>-p<span class="w"> </span>-i<span class="w"> </span>-G<span class="s2">&quot;&lt;name&gt;|&lt;other name&gt;&quot;</span><span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%h %s&quot;</span>
+git<span class="w"> </span>log<span class="w"> </span>--remotes<span class="o">=</span>origin<span class="w"> </span>--tags<span class="w"> </span>-i<span class="w"> </span>--grep<span class="o">=</span><span class="s2">&quot;&lt;name&gt;&quot;</span><span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%h %s&quot;</span>
+</pre></div>
+</div>
+<p><strong>Docs.</strong> The site is public at
+<a class="reference external" href="https://rshomberg-research.github.io/sidescanpy/">https://rshomberg-research.github.io/sidescanpy/</a> while the code stays
+private. GitHub Pages can’t serve a private repository on the
+organization’s free plan, so the <code class="docutils literal notranslate"><span class="pre">docs</span></code> workflow pushes each build of
+<code class="docutils literal notranslate"><span class="pre">main</span></code> into the <code class="docutils literal notranslate"><span class="pre">sidescanpy/</span></code> folder of the public repository
+<code class="docutils literal notranslate"><span class="pre">rshomberg-research/rshomberg-research.github.io</span></code>, which Pages serves.
+The workflow also keeps every build of <code class="docutils literal notranslate"><span class="pre">main</span></code> and of <code class="docutils literal notranslate"><span class="pre">v*</span></code> tags as the
+<code class="docutils literal notranslate"><span class="pre">sidescanpy-docs</span></code> artifact (90 days).</p>
+<p>One-time setup, as an organization owner:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. The public site repository: a redirect to the docs, served by Pages.</span>
+gh<span class="w"> </span>repo<span class="w"> </span>create<span class="w"> </span>rshomberg-research/rshomberg-research.github.io<span class="w"> </span>--public<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--description<span class="w"> </span><span class="s2">&quot;Public site of rshomberg-research (sidescanpy docs)&quot;</span>
+<span class="c1">#    push an index.html that redirects to sidescanpy/ and an empty .nojekyll,</span>
+<span class="c1">#    then: Settings -&gt; Pages -&gt; Deploy from a branch -&gt; main, / (root)</span>
+
+<span class="c1"># 2. A deploy key the docs workflow pushes with.</span>
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;sidescanpy docs deploy&quot;</span><span class="w"> </span>-f<span class="w"> </span>docs_deploy_key
+gh<span class="w"> </span>repo<span class="w"> </span>deploy-key<span class="w"> </span>add<span class="w"> </span>docs_deploy_key.pub<span class="w"> </span>--allow-write<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-R<span class="w"> </span>rshomberg-research/rshomberg-research.github.io<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;sidescanpy docs&quot;</span>
+gh<span class="w"> </span>secret<span class="w"> </span><span class="nb">set</span><span class="w"> </span>DOCS_DEPLOY_KEY<span class="w"> </span>-R<span class="w"> </span>rshomberg-research/sidescanpy<span class="w"> </span>&lt;<span class="w"> </span>docs_deploy_key
+rm<span class="w"> </span>docs_deploy_key<span class="w"> </span>docs_deploy_key.pub
+
+<span class="c1"># 3. Turn publishing on; the next push to main publishes.</span>
+gh<span class="w"> </span>variable<span class="w"> </span><span class="nb">set</span><span class="w"> </span>PUBLISH_DOCS<span class="w"> </span>--body<span class="w"> </span><span class="nb">true</span><span class="w"> </span>-R<span class="w"> </span>rshomberg-research/sidescanpy
+</pre></div>
+</div>
+<p>Everything on the site is public, including the API reference built
+from the docstrings (signatures and docstrings, not source), the example
+scripts and the development guide. Until the release the pages carry a
+<code class="docutils literal notranslate"><span class="pre">noindex</span></code> tag, so the link works for the people it is given to but
+search engines leave it out. At the public release, enable Pages on
+this repository instead (same URL), remove <code class="docutils literal notranslate"><span class="pre">sidescanpy/</span></code> from the site
+repository, and set <code class="docutils literal notranslate"><span class="pre">sidescanpy_noindex</span> <span class="pre">=</span> <span class="pre">False</span></code> in <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>.</p>
+<p><strong>Gallery.</strong> The example pages are built by
+<a class="reference external" href="https://sphinx-gallery.github.io/">sphinx-gallery</a>, which runs every
+<code class="docutils literal notranslate"><span class="pre">examples/gallery/plot_*.py</span></code> script during the docs build, locally and
+in CI, and shows its code, printed output and figures. The scripts
+download real data; CI caches it between runs. The README shows two of
+the figures from <code class="docutils literal notranslate"><span class="pre">docs/assets/gallery/</span></code>; <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">readme-images</span></code> refreshes
+them from the last <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs</span></code>. The unit suite checks offline that every
+dataset name a script fetches is registered.</p>
+<p><strong>Test data.</strong> The public fixtures are shared as one zip, through a
+link-shared folder that each invited person
+is added to. Rebuild it whenever a fixture or <code class="docutils literal notranslate"><span class="pre">SOURCES.md</span></code> changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/fixtures/..<span class="w">       </span><span class="c1"># the directory holding the fixtures folder</span>
+mkdir<span class="w"> </span>sidescanpy-public-fixtures
+cp<span class="w"> </span>fixtures/*.jsf<span class="w"> </span>fixtures/*.xtf<span class="w"> </span>/path/to/sidescanpy/tests/data/public/SOURCES.md<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>sidescanpy-public-fixtures/
+zip<span class="w"> </span>-qrX<span class="w"> </span>sidescanpy-public-fixtures-<span class="k">$(</span>date<span class="w"> </span>+%F<span class="k">)</span>.zip<span class="w"> </span>sidescanpy-public-fixtures
+rm<span class="w"> </span>-r<span class="w"> </span>sidescanpy-public-fixtures
+</pre></div>
+</div>
+<p>Then run <code class="docutils literal notranslate"><span class="pre">test_public_fixtures.py</span></code> against the unzipped copy before
+uploading it. Only openly licensed data goes in the zip (see
+<code class="docutils literal notranslate"><span class="pre">SOURCES.md</span></code>). Don’t mint a Zenodo DOI for the data before the public
+release: a published Zenodo record can’t be withdrawn, and even a
+restricted one shows its metadata publicly.</p>
+</section>
+<section id="releasing">
+<h2>Releasing<a class="headerlink" href="#releasing" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code> with a dated section and the version in
+<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code>, <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">lint</span></code>, <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs</span></code> and the integration tests
+on real data; all pass.</p></li>
+<li><p>Build and check the wheel: <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">build</span></code>, then install it in a fresh
+environment and run <a class="reference internal" href="getting_started.html"><span class="std std-doc">Getting started</span></a>.</p></li>
+<li><p>Merge to <code class="docutils literal notranslate"><span class="pre">main</span></code>, tag <code class="docutils literal notranslate"><span class="pre">vX.Y.Z</span></code> and push the tag.</p></li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reference/generated/sidescanpy.viz.waterfall.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">sidescanpy.viz.waterfall</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="prerelease.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pre-release status</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout">Layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventions">Conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-before-release">Sharing before release</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#releasing">Releasing</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

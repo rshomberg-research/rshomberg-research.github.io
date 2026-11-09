@@ -1,0 +1,26 @@
+sidescanpy.core.target
+======================
+
+.. automodule:: sidescanpy.core.target
+
+.. currentmodule:: sidescanpy.core.target
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   Target
+   CONFIDENCE_RANK
+   clip_bbox
+   bbox_from_center
+
+.. autoclass:: sidescanpy.core.target.Target
+   :members:
+   :show-inheritance:
+
+.. autodata:: sidescanpy.core.target.CONFIDENCE_RANK
+
+.. autofunction:: sidescanpy.core.target.clip_bbox
+
+.. autofunction:: sidescanpy.core.target.bbox_from_center

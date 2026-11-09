@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>sidescanpy.io.sdf.pages &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../../_static/documentation_options.js?v=486e5634"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/generated/sidescanpy.io.sdf.pages';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sidescanpy.io.sdf.reader" href="sidescanpy.io.sdf.reader.html" />
+    <link rel="prev" title="sidescanpy.io.sdf.converter" href="sidescanpy.io.sdf.converter.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="sidescanpy.html">sidescanpy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.analysis.html">analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.beam.html">beam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.characterize.html">characterize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.geometry.html">geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.nadir.html">nadir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.core.html">core</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.history.html">history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.schema.html">schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.survey.html">survey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.target.html">target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.units.html">units</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.datasets.html">datasets</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.export.html">export</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.augment.html">augment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.geometric_window.html">geometric_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.georef_window.html">georef_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.image.html">image</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.ml.html">ml</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.coco.html">coco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.dataset.html">dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.yolo.html">yolo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.orientation.html">orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.target_window.html">target_window</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.windows.html">windows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.background.html">background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.geo.html">geo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.levels.html">levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.native.html">native</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.neighborhood.html">neighborhood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.pixel.html">pixel</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.grids.html">grids</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.definition.html">definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.geotiff.html">geotiff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.raster.html">raster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resample.html">resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resolution.html">resolution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="sidescanpy.io.html">io</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.io.dispatch.html">dispatch</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.hdf5.html">hdf5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.survey_dir.html">survey_dir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.jsf.html">jsf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.messages.html">messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.subset.html">subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.netcdf.html">netcdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="sidescanpy.io.sdf.html">sdf</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.converter.html">converter</a></li>
+<li class="toctree-l4 current active"><a aria-current="page" class="current reference internal" href="#">pages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.xtf.html">xtf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.structs.html">structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.subset.html">subset</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.log.html">log</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.processing.html">processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.aux_fixes.html">aux_fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.bottom.html">bottom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.correct.html">correct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.farrange.html">farrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.geometric.html">geometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.radiometric.html">radiometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.range_correction.html">range_correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.sample_axis.html">sample_axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.segments.html">segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.slicing.html">slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.track.html">track</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.targets.html">targets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.correlate.html">correlate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.viz.html">viz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.analysis.html">analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.basemap.html">basemap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.contact_sheet.html">contact_sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.gridded.html">gridded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.scalebar.html">scalebar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.targets.html">targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.track.html">track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.html" class="nav-link">sidescanpy</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.io.html" class="nav-link">sidescanpy.io</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.io.sdf.html" class="nav-link">sidescanpy.io.sdf</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sidescanpy.io.sdf.pages</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-sidescanpy.io.sdf.pages">
+<span id="sidescanpy-io-sdf-pages"></span><h1>sidescanpy.io.sdf.pages<a class="headerlink" href="#module-sidescanpy.io.sdf.pages" title="Link to this heading">#</a></h1>
+<p>Klein SDF page types and parser.</p>
+<p>A Klein SDF file is a sequence of pages. Each page has:
+- A 4-byte sync marker (always 0xFFFFFFFF)
+- A 512-byte typed header (described by SDFPageHeader)
+- Variable-length data section (sonar samples for sonar page versions)</p>
+<p>The header is a binary structure of 128 uint32-equivalent slots.
+Most fields are uint32 or float32 (4 bytes); seven fields are
+float64 (8 bytes, taking 2 slots). All values are little-endian.</p>
+<p>Spec source: Klein SDF/SDFX Data Page Definitions Specification.</p>
+<p>Conventions encoded here:</p>
+<ul class="simple">
+<li><p>Latitude/longitude stored as float64 in radians; converted to
+degrees via &#64;property</p></li>
+<li><p>Heading/pitch/roll stored as float32 in degrees; no conversion</p></li>
+<li><p>speedFish stored as cm/s; converted to m/s via &#64;property</p></li>
+<li><p>speedSound stored as cm/s; converted to m/s via &#64;property</p></li>
+<li><p>sonarFreq stored in kHz; converted to Hz via &#64;property</p></li>
+<li><p>Year normally 4-digit; older firmware uses offset-from-1900,
+auto-detected via &lt; 200 check</p></li>
+<li><p>Time fractional component (<code class="docutils literal notranslate"><span class="pre">fseconds</span></code> field 51) preferred over
+hSecond field 24 when both are valid</p></li>
+</ul>
+<p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
+<p class="rubric">Contents</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.sdf.pages.MARKER" title="sidescanpy.io.sdf.pages.MARKER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MARKER</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.sdf.pages.MARKER_BYTES" title="sidescanpy.io.sdf.pages.MARKER_BYTES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MARKER_BYTES</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.sdf.pages.PAGE_HEADER_BYTES" title="sidescanpy.io.sdf.pages.PAGE_HEADER_BYTES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PAGE_HEADER_BYTES</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.sdf.pages.HEADER_TOTAL_BYTES" title="sidescanpy.io.sdf.pages.HEADER_TOTAL_BYTES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HEADER_TOTAL_BYTES</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.sdf.pages.PAGE_VERSIONS_SONAR" title="sidescanpy.io.sdf.pages.PAGE_VERSIONS_SONAR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PAGE_VERSIONS_SONAR</span></code></a></p></td>
+<td><p>frozenset() -&gt; empty frozenset object frozenset(iterable) -&gt; frozenset object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.sdf.pages.PAGE_VERSIONS_TOWFISH_TYPE" title="sidescanpy.io.sdf.pages.PAGE_VERSIONS_TOWFISH_TYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PAGE_VERSIONS_TOWFISH_TYPE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.sdf.pages.SDFPageHeader" title="sidescanpy.io.sdf.pages.SDFPageHeader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDFPageHeader</span></code></a></p></td>
+<td><p>Klein SDF page header (512 bytes after the 4-byte marker).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.sdf.pages.SDFSonarPage" title="sidescanpy.io.sdf.pages.SDFSonarPage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDFSonarPage</span></code></a></p></td>
+<td><p>A parsed Klein SDF sonar data page (versions 3501/3502).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.sdf.pages.SDFUnknownPage" title="sidescanpy.io.sdf.pages.SDFUnknownPage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SDFUnknownPage</span></code></a></p></td>
+<td><p>A parsed Klein SDF page of unknown/unsupported version.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.MARKER">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.sdf.pages.</span></span><span class="sig-name descname"><span class="pre">MARKER</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4294967295</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.MARKER" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.MARKER_BYTES">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.sdf.pages.</span></span><span class="sig-name descname"><span class="pre">MARKER_BYTES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.MARKER_BYTES" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.PAGE_HEADER_BYTES">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.sdf.pages.</span></span><span class="sig-name descname"><span class="pre">PAGE_HEADER_BYTES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">512</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.PAGE_HEADER_BYTES" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.HEADER_TOTAL_BYTES">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.sdf.pages.</span></span><span class="sig-name descname"><span class="pre">HEADER_TOTAL_BYTES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">516</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.HEADER_TOTAL_BYTES" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.PAGE_VERSIONS_SONAR">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.sdf.pages.</span></span><span class="sig-name descname"><span class="pre">PAGE_VERSIONS_SONAR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({3501,</span> <span class="pre">3502})</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.PAGE_VERSIONS_SONAR" title="Link to this definition">#</a></dt>
+<dd><p>frozenset() -&gt; empty frozenset object
+frozenset(iterable) -&gt; frozenset object</p>
+<p>Build an immutable unordered collection of unique elements.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.PAGE_VERSIONS_TOWFISH_TYPE">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.sdf.pages.</span></span><span class="sig-name descname"><span class="pre">PAGE_VERSIONS_TOWFISH_TYPE</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.PAGE_VERSIONS_TOWFISH_TYPE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.sdf.pages.</span></span><span class="sig-name descname"><span class="pre">SDFPageHeader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_page_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_page_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_beams_to_display</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_error_flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_speed_cms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_sound_speed_cms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_res_mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_tx_waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_responder_divisor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_responder_frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_manual_speed_switch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_despeckle_switch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_speed_filter_switch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_month</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_day</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_hour</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_minute</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_second</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_hsecond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_fix_time_hour</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_fix_time_minute</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_fix_time_second</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heading_deg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pitch_deg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roll_deg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth_volts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altitude_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_ship_speed_ms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_ship_heading_deg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_ship_magnetic_variation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_ship_latitude_rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_ship_longitude_rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_fish_latitude_rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_fish_longitude_rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_tvg_page</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_header_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_time_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_time_month</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_time_day</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_pitch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_roll</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_altitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cable_out_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_fseconds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altimeter_on</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_freq_hz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depressor_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cable_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shieve_x_offset_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shieve_y_offset_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shieve_z_offset_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gps_height_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_raw_data_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_header_3_extension_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp_tx_waveform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp_preamp_gain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp_data_raw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp_sample_frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp_tx_waveform_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wing_angle_deg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emergency_switch_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layback_method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_layback_fish_latitude_rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_layback_fish_longitude_rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fish_heading_offset_deg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure_sensor_offset_psi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tpu_sw_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capability_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples_extra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_processing_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">motion_sensor_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_time_ref_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext_trig_time_ref_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one_pps_time_ref_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_ref_count_weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altitude_bathy_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_interval_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdf_extension_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seconds_of_week</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sound_speed_source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure_sensor_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure_sensor_voltage_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure_sensor_voltage_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature_ambient_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation_detect_threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_sonar_freq_khz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_reserved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Klein SDF page header (512 bytes after the 4-byte marker).</p>
+<p>All fields are little-endian. The dataclass holds the raw spec values;
+transformed (unit-converted) versions are exposed via &#64;property.</p>
+<p>Field numbers in comments correspond to the Klein spec table
+(1-100 named, 101-126 reserved). Fields prefixed with underscore
+are internal raw forms with corresponding public properties.</p>
+<p>Note on uint16 fields (80-83): the spec says U16 but Klein stores
+them in 32-bit slots with values fitting in the lower 16 bits.
+They’re parsed as uint32 here for layout purity.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.from_bytes">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.from_bytes" title="Link to this definition">#</a></dt>
+<dd><p>Parse 512 bytes of header data into an SDFPageHeader.</p>
+<p>The 4-byte marker is NOT included; caller should validate and
+consume it separately.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.to_bytes">
+<span class="sig-name descname"><span class="pre">to_bytes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.to_bytes" title="Link to this definition">#</a></dt>
+<dd><p>Pack the dataclass back into 512 bytes.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.page_size">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">page_size</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.page_size" title="Link to this definition">#</a></dt>
+<dd><p>Page size in bytes (excludes the 4-byte marker).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.speed_ms">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">speed_ms</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.speed_ms" title="Link to this definition">#</a></dt>
+<dd><p>Towfish speed in m/s (converted from cm/s).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.sound_speed_ms">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">sound_speed_ms</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.sound_speed_ms" title="Link to this definition">#</a></dt>
+<dd><p>Speed of sound at transducer in m/s (converted from cm/s).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.ship_speed_ms">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ship_speed_ms</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.ship_speed_ms" title="Link to this definition">#</a></dt>
+<dd><p>Ship speed from NMEA in m/s (already in m/s in spec).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.ship_heading_deg">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ship_heading_deg</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.ship_heading_deg" title="Link to this definition">#</a></dt>
+<dd><p>Ship Course Over Ground from NMEA, degrees.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.ship_magnetic_variation_deg">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ship_magnetic_variation_deg</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.ship_magnetic_variation_deg" title="Link to this definition">#</a></dt>
+<dd><p>Magnetic variation from NMEA $–RMC, degrees.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.ship_latitude_deg">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ship_latitude_deg</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.ship_latitude_deg" title="Link to this definition">#</a></dt>
+<dd><p>Ship latitude in degrees (converted from radians).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.ship_longitude_deg">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ship_longitude_deg</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.ship_longitude_deg" title="Link to this definition">#</a></dt>
+<dd><p>Ship longitude in degrees (converted from radians).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.fish_latitude_deg">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fish_latitude_deg</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.fish_latitude_deg" title="Link to this definition">#</a></dt>
+<dd><p>Towfish latitude in degrees (converted from radians).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.fish_longitude_deg">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fish_longitude_deg</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.fish_longitude_deg" title="Link to this definition">#</a></dt>
+<dd><p>Towfish longitude in degrees (converted from radians).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.layback_fish_latitude_deg">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">layback_fish_latitude_deg</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.layback_fish_latitude_deg" title="Link to this definition">#</a></dt>
+<dd><p>Layback-corrected towfish latitude in degrees.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.layback_fish_longitude_deg">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">layback_fish_longitude_deg</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.layback_fish_longitude_deg" title="Link to this definition">#</a></dt>
+<dd><p>Layback-corrected towfish longitude in degrees.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.sonar_freq_hz">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">sonar_freq_hz</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.sonar_freq_hz" title="Link to this definition">#</a></dt>
+<dd><p>Operating frequency in Hz (converted from kHz).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.sonar_freq_khz">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">sonar_freq_khz</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.sonar_freq_khz" title="Link to this definition">#</a></dt>
+<dd><p>Operating frequency in kHz (raw spec value).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.fix_time_second">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fix_time_second</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.fix_time_second" title="Link to this definition">#</a></dt>
+<dd><p>NMEA fix second.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.hsecond">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">hsecond</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.hsecond" title="Link to this definition">#</a></dt>
+<dd><p>Hundredths of second from <code class="docutils literal notranslate"><span class="pre">hSecond</span></code> field (legacy; prefer <code class="docutils literal notranslate"><span class="pre">fseconds</span></code>).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.fseconds">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fseconds</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.fseconds" title="Link to this definition">#</a></dt>
+<dd><p>TPU fractional seconds (preferred over <code class="docutils literal notranslate"><span class="pre">hSecond</span></code>).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.error_flags">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">error_flags</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.error_flags" title="Link to this definition">#</a></dt>
+<dd><p>Raw error flags bit field.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFPageHeader.has_error">
+<span class="sig-name descname"><span class="pre">has_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFPageHeader.has_error" title="Link to this definition">#</a></dt>
+<dd><p>Check if a specific error flag bit is set.</p>
+<dl class="simple">
+<dt>Bits per spec:</dt><dd><p>0: Invalid speed
+1: GPS data error
+2: Telemetry error
+3: Sensor checksum error
+4: Towfish leak
+5: Bad data
+6: Watchdog
+7: Compass error
+8: No GPS Lat/Lon sentence input
+9: No GPS speed sentence input
+10: No GPS ZDA sentence input
+11: No data from MRU or MRU error
+12: No 1 PPS input</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFSonarPage">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.sdf.pages.</span></span><span class="sig-name descname"><span class="pre">SDFSonarPage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stbd_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFSonarPage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A parsed Klein SDF sonar data page (versions 3501/3502).</p>
+<p>Wraps the SDFPageHeader plus the per-channel sample arrays.
+The reader populates port_data, stbd_data, and extension_bytes
+after parsing the header.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFSonarPage.latitude">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">latitude</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFSonarPage.latitude" title="Link to this definition">#</a></dt>
+<dd><p>Towfish latitude (degrees), preferring fish_latitude over ship.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFSonarPage.longitude">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">longitude</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFSonarPage.longitude" title="Link to this definition">#</a></dt>
+<dd><p>Towfish longitude (degrees).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFSonarPage.depth_m">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">depth_m</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFSonarPage.depth_m" title="Link to this definition">#</a></dt>
+<dd><p>Depth in meters. Note: spec stores as Volts; needs INI calibration.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFSonarPage.fathometer_reading_m">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fathometer_reading_m</span></span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFSonarPage.fathometer_reading_m" title="Link to this definition">#</a></dt>
+<dd><p>Raw altimeter reading from towfish.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.sdf.pages.SDFUnknownPage">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.sdf.pages.</span></span><span class="sig-name descname"><span class="pre">SDFUnknownPage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.sdf.pages.SDFUnknownPage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A parsed Klein SDF page of unknown/unsupported version.</p>
+<p>The header is fully parsed (since all SDF pages share the same
+header structure), but the body is preserved as raw bytes for
+later analysis. Use the page version to identify what kind of
+page it is and decide whether to add typed parsing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>header</strong><span class="classifier">SDFPageHeader</span></dt><dd><p>Parsed page header (always valid).</p>
+</dd>
+<dt><strong>body_bytes</strong><span class="classifier">bytes</span></dt><dd><p>Raw body content (size = header.page_size - PAGE_HEADER_BYTES).
+Includes everything between the header and the next page’s marker.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sidescanpy.io.sdf.converter.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">sidescanpy.io.sdf.converter</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sidescanpy.io.sdf.reader.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">sidescanpy.io.sdf.reader</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.MARKER"><code class="docutils literal notranslate"><span class="pre">MARKER</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.MARKER_BYTES"><code class="docutils literal notranslate"><span class="pre">MARKER_BYTES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.PAGE_HEADER_BYTES"><code class="docutils literal notranslate"><span class="pre">PAGE_HEADER_BYTES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.HEADER_TOTAL_BYTES"><code class="docutils literal notranslate"><span class="pre">HEADER_TOTAL_BYTES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.PAGE_VERSIONS_SONAR"><code class="docutils literal notranslate"><span class="pre">PAGE_VERSIONS_SONAR</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.PAGE_VERSIONS_TOWFISH_TYPE"><code class="docutils literal notranslate"><span class="pre">PAGE_VERSIONS_TOWFISH_TYPE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.from_bytes"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.from_bytes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.to_bytes"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.to_bytes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.page_size"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.page_size</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.speed_ms"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.speed_ms</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.sound_speed_ms"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.sound_speed_ms</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.ship_speed_ms"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.ship_speed_ms</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.ship_heading_deg"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.ship_heading_deg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.ship_magnetic_variation_deg"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.ship_magnetic_variation_deg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.ship_latitude_deg"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.ship_latitude_deg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.ship_longitude_deg"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.ship_longitude_deg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.fish_latitude_deg"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.fish_latitude_deg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.fish_longitude_deg"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.fish_longitude_deg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.layback_fish_latitude_deg"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.layback_fish_latitude_deg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.layback_fish_longitude_deg"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.layback_fish_longitude_deg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.sonar_freq_hz"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.sonar_freq_hz</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.sonar_freq_khz"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.sonar_freq_khz</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.fix_time_second"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.fix_time_second</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.hsecond"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.hsecond</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.fseconds"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.fseconds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.error_flags"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.error_flags</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFPageHeader.has_error"><code class="docutils literal notranslate"><span class="pre">SDFPageHeader.has_error()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFSonarPage"><code class="docutils literal notranslate"><span class="pre">SDFSonarPage</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFSonarPage.latitude"><code class="docutils literal notranslate"><span class="pre">SDFSonarPage.latitude</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFSonarPage.longitude"><code class="docutils literal notranslate"><span class="pre">SDFSonarPage.longitude</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFSonarPage.depth_m"><code class="docutils literal notranslate"><span class="pre">SDFSonarPage.depth_m</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFSonarPage.fathometer_reading_m"><code class="docutils literal notranslate"><span class="pre">SDFSonarPage.fathometer_reading_m</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.sdf.pages.SDFUnknownPage"><code class="docutils literal notranslate"><span class="pre">SDFUnknownPage</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

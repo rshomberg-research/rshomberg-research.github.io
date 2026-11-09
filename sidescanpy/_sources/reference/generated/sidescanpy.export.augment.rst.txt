@@ -1,0 +1,24 @@
+sidescanpy.export.augment
+=========================
+
+.. automodule:: sidescanpy.export.augment
+
+.. currentmodule:: sidescanpy.export.augment
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   random_flip
+   jitter_offset_m
+   jitter_latlon
+   augmented_file_name
+
+.. autofunction:: sidescanpy.export.augment.random_flip
+
+.. autofunction:: sidescanpy.export.augment.jitter_offset_m
+
+.. autofunction:: sidescanpy.export.augment.jitter_latlon
+
+.. autofunction:: sidescanpy.export.augment.augmented_file_name

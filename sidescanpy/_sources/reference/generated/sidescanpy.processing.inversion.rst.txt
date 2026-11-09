@@ -1,0 +1,31 @@
+sidescanpy.processing.inversion
+===============================
+
+.. automodule:: sidescanpy.processing.inversion
+
+.. currentmodule:: sidescanpy.processing.inversion
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   INVERTIBLE_STEPS
+   UNCORRECTED_VAR
+   LEGACY_RAW_VAR
+   uncorrected_backscatter
+   with_uncorrected_var
+   invert
+
+.. autodata:: sidescanpy.processing.inversion.INVERTIBLE_STEPS
+   :no-value:
+
+.. autodata:: sidescanpy.processing.inversion.UNCORRECTED_VAR
+
+.. autodata:: sidescanpy.processing.inversion.LEGACY_RAW_VAR
+
+.. autofunction:: sidescanpy.processing.inversion.uncorrected_backscatter
+
+.. autofunction:: sidescanpy.processing.inversion.with_uncorrected_var
+
+.. autofunction:: sidescanpy.processing.inversion.invert

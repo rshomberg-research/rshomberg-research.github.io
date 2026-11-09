@@ -1,0 +1,13 @@
+sidescanpy.export.ml
+====================
+
+.. automodule:: sidescanpy.export.ml
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   coco <sidescanpy.export.ml.coco>
+   dataset <sidescanpy.export.ml.dataset>
+   yolo <sidescanpy.export.ml.yolo>

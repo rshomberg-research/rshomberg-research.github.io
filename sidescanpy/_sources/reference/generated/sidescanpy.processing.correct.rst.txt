@@ -1,0 +1,36 @@
+sidescanpy.processing.correct
+=============================
+
+.. automodule:: sidescanpy.processing.correct
+
+.. currentmodule:: sidescanpy.processing.correct
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   DEFAULT_STEPS
+   Step
+   correction_steps
+   correct
+   correct_survey
+   estimate_correct_disk_bytes
+   correct_file
+
+.. autodata:: sidescanpy.processing.correct.DEFAULT_STEPS
+   :no-value:
+
+.. autoclass:: sidescanpy.processing.correct.Step
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.processing.correct.correction_steps
+
+.. autofunction:: sidescanpy.processing.correct.correct
+
+.. autofunction:: sidescanpy.processing.correct.correct_survey
+
+.. autofunction:: sidescanpy.processing.correct.estimate_correct_disk_bytes
+
+.. autofunction:: sidescanpy.processing.correct.correct_file

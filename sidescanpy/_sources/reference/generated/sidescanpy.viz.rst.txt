@@ -1,0 +1,30 @@
+sidescanpy.viz
+==============
+
+.. automodule:: sidescanpy.viz
+
+.. currentmodule:: sidescanpy.viz
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   resolve_cmap
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   analysis <sidescanpy.viz.analysis>
+   basemap <sidescanpy.viz.basemap>
+   contact_sheet <sidescanpy.viz.contact_sheet>
+   gridded <sidescanpy.viz.gridded>
+   scalebar <sidescanpy.viz.scalebar>
+   targets <sidescanpy.viz.targets>
+   track <sidescanpy.viz.track>
+   tvg <sidescanpy.viz.tvg>
+   waterfall <sidescanpy.viz.waterfall>
+
+.. autofunction:: sidescanpy.viz.resolve_cmap

@@ -1,0 +1,15 @@
+sidescanpy.io.xtf
+=================
+
+.. automodule:: sidescanpy.io.xtf
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   converter <sidescanpy.io.xtf.converter>
+   reader <sidescanpy.io.xtf.reader>
+   split <sidescanpy.io.xtf.split>
+   structs <sidescanpy.io.xtf.structs>
+   subset <sidescanpy.io.xtf.subset>

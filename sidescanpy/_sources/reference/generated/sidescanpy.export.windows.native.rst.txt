@@ -1,0 +1,26 @@
+sidescanpy.export.windows.native
+================================
+
+.. automodule:: sidescanpy.export.windows.native
+
+.. currentmodule:: sidescanpy.export.windows.native
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   along_track_spacing_m
+   NativeWindow
+   native_chip
+   swath_tiles
+
+.. autofunction:: sidescanpy.export.windows.native.along_track_spacing_m
+
+.. autoclass:: sidescanpy.export.windows.native.NativeWindow
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.export.windows.native.native_chip
+
+.. autofunction:: sidescanpy.export.windows.native.swath_tiles

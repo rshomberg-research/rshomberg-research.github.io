@@ -1,0 +1,20 @@
+sidescanpy.analysis.usable_range
+================================
+
+.. automodule:: sidescanpy.analysis.usable_range
+
+.. currentmodule:: sidescanpy.analysis.usable_range
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   UsableRangeResult
+   estimate_usable_range
+
+.. autoclass:: sidescanpy.analysis.usable_range.UsableRangeResult
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.usable_range.estimate_usable_range

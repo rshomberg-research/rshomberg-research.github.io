@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>sidescanpy.processing.bottom &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../../_static/documentation_options.js?v=486e5634"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/generated/sidescanpy.processing.bottom';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sidescanpy.processing.correct" href="sidescanpy.processing.correct.html" />
+    <link rel="prev" title="sidescanpy.processing.aux_fixes" href="sidescanpy.processing.aux_fixes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="sidescanpy.html">sidescanpy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.analysis.html">analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.beam.html">beam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.characterize.html">characterize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.geometry.html">geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.nadir.html">nadir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.core.html">core</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.history.html">history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.schema.html">schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.survey.html">survey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.target.html">target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.units.html">units</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.datasets.html">datasets</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.export.html">export</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.augment.html">augment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.geometric_window.html">geometric_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.georef_window.html">georef_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.image.html">image</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.ml.html">ml</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.coco.html">coco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.dataset.html">dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.yolo.html">yolo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.orientation.html">orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.target_window.html">target_window</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.windows.html">windows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.background.html">background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.geo.html">geo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.levels.html">levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.native.html">native</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.neighborhood.html">neighborhood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.pixel.html">pixel</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.grids.html">grids</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.definition.html">definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.geotiff.html">geotiff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.raster.html">raster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resample.html">resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resolution.html">resolution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.io.html">io</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.io.dispatch.html">dispatch</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.hdf5.html">hdf5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.survey_dir.html">survey_dir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.jsf.html">jsf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.messages.html">messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.subset.html">subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.netcdf.html">netcdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.sdf.html">sdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.pages.html">pages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.xtf.html">xtf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.structs.html">structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.subset.html">subset</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.log.html">log</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="sidescanpy.processing.html">processing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.aux_fixes.html">aux_fixes</a></li>
+<li class="toctree-l3 current active"><a aria-current="page" class="current reference internal" href="#">bottom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.correct.html">correct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.farrange.html">farrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.geometric.html">geometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.radiometric.html">radiometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.range_correction.html">range_correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.sample_axis.html">sample_axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.segments.html">segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.slicing.html">slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.track.html">track</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.targets.html">targets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.correlate.html">correlate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.viz.html">viz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.analysis.html">analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.basemap.html">basemap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.contact_sheet.html">contact_sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.gridded.html">gridded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.scalebar.html">scalebar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.targets.html">targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.track.html">track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.html" class="nav-link">sidescanpy</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.processing.html" class="nav-link">sidescanpy.processing</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sidescanpy.processing.bottom</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-sidescanpy.processing.bottom">
+<span id="sidescanpy-processing-bottom"></span><h1>sidescanpy.processing.bottom<a class="headerlink" href="#module-sidescanpy.processing.bottom" title="Link to this heading">#</a></h1>
+<p>Nadir and first-bottom-return detection, and the masks built on them.</p>
+<p>Along each ping, a sidescan record runs through three zones: a leading
+nadir-noise burst (transmit ring-down; some hardware zeros it before
+writing the file, some doesn’t), a quiet span the beam never
+illuminates, and the real bottom return. The functions here find those
+boundaries per (ping, channel) and blank or mask the data before them.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sidescanpy.processing.bottom.detect_nadir_noise_extent" title="sidescanpy.processing.bottom.detect_nadir_noise_extent"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_nadir_noise_extent()</span></code></a> / <a class="reference internal" href="#sidescanpy.processing.bottom.blank_nadir_noise" title="sidescanpy.processing.bottom.blank_nadir_noise"><code class="xref py py-func docutils literal notranslate"><span class="pre">blank_nadir_noise()</span></code></a> — find
+and zero the leading noise burst (a processing step).</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.bottom.detect_first_bottom_return" title="sidescanpy.processing.bottom.detect_first_bottom_return"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_first_bottom_return()</span></code></a> — amplitude-based onset of the real
+bottom return, optionally floored at the altitude sample.</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.bottom.smooth_boundary_across_pings" title="sidescanpy.processing.bottom.smooth_boundary_across_pings"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth_boundary_across_pings()</span></code></a> — rolling median of a per-ping
+boundary.</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.bottom.uniform_exclusion_boundary" title="sidescanpy.processing.bottom.uniform_exclusion_boundary"><code class="xref py py-func docutils literal notranslate"><span class="pre">uniform_exclusion_boundary()</span></code></a> — collapse a per-ping boundary to
+one conservative value for aggregate binning.</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.bottom.mask_nadir_gap" title="sidescanpy.processing.bottom.mask_nadir_gap"><code class="xref py py-func docutils literal notranslate"><span class="pre">mask_nadir_gap()</span></code></a> — NaN everything before the first bottom
+return (display/export copy).</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.bottom.mask_before_sample" title="sidescanpy.processing.bottom.mask_before_sample"><code class="xref py py-func docutils literal notranslate"><span class="pre">mask_before_sample()</span></code></a>, <a class="reference internal" href="#sidescanpy.processing.bottom.altitude_sample_index" title="sidescanpy.processing.bottom.altitude_sample_index"><code class="xref py py-func docutils literal notranslate"><span class="pre">altitude_sample_index()</span></code></a> — helpers.</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.bottom.altitude_from_bottom_track" title="sidescanpy.processing.bottom.altitude_from_bottom_track"><code class="xref py py-func docutils literal notranslate"><span class="pre">altitude_from_bottom_track()</span></code></a> — fill missing <code class="docutils literal notranslate"><span class="pre">altitude_m</span></code> from
+the first bottom return (the <code class="docutils literal notranslate"><span class="pre">&quot;bottom_track&quot;</span></code> correction step).</p></li>
+</ul>
+<p>All detectors are vectorized over <code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel,</span> <span class="pre">sample)</span></code> arrays and
+return <code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel)</span></code> float sample indices (NaN = not found).</p>
+<p class="rubric">Contents</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.detect_first_bottom_return" title="sidescanpy.processing.bottom.detect_first_bottom_return"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detect_first_bottom_return</span></code></a></p></td>
+<td><p>Per-(ping, channel) sample index where the real bottom return starts.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.smooth_boundary_across_pings" title="sidescanpy.processing.bottom.smooth_boundary_across_pings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smooth_boundary_across_pings</span></code></a></p></td>
+<td><p>NaN-aware rolling median of a <code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel)</span></code> boundary along pings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.detect_nadir_noise_extent" title="sidescanpy.processing.bottom.detect_nadir_noise_extent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detect_nadir_noise_extent</span></code></a></p></td>
+<td><p>Per-(ping, channel) sample index where the leading nadir-noise burst ends.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.blank_nadir_noise" title="sidescanpy.processing.bottom.blank_nadir_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">blank_nadir_noise</span></code></a></p></td>
+<td><p>Return a copy of <code class="docutils literal notranslate"><span class="pre">ds</span></code> with each ping's leading nadir-noise burst set to 0.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.mask_before_sample" title="sidescanpy.processing.bottom.mask_before_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask_before_sample</span></code></a></p></td>
+<td><p>Copy of <code class="docutils literal notranslate"><span class="pre">values</span></code> <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">sample)</span></code> with samples before <code class="docutils literal notranslate"><span class="pre">boundary</span></code> set to <code class="docutils literal notranslate"><span class="pre">fill_value</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.altitude_sample_index" title="sidescanpy.processing.bottom.altitude_sample_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">altitude_sample_index</span></code></a></p></td>
+<td><p>First finite sample of <code class="docutils literal notranslate"><span class="pre">range_var</span></code> per (ping, channel), as float.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.uniform_exclusion_boundary" title="sidescanpy.processing.bottom.uniform_exclusion_boundary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uniform_exclusion_boundary</span></code></a></p></td>
+<td><p>Collapse a per-(ping, channel) boundary to one conservative value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.mask_nadir_gap" title="sidescanpy.processing.bottom.mask_nadir_gap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask_nadir_gap</span></code></a></p></td>
+<td><p>Return a copy of <code class="docutils literal notranslate"><span class="pre">ds</span></code> with the whole nadir gap set to NaN.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE" title="sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BOTTOM_TRACK_REPLACE</span></code></a></p></td>
+<td><p>Accepted <code class="docutils literal notranslate"><span class="pre">replace</span></code> values of <a class="reference internal" href="#sidescanpy.processing.bottom.altitude_from_bottom_track" title="sidescanpy.processing.bottom.altitude_from_bottom_track"><code class="xref py py-func docutils literal notranslate"><span class="pre">altitude_from_bottom_track()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.altitude_from_bottom_track" title="sidescanpy.processing.bottom.altitude_from_bottom_track"><code class="xref py py-obj docutils literal notranslate"><span class="pre">altitude_from_bottom_track</span></code></a></p></td>
+<td><p>Set <code class="docutils literal notranslate"><span class="pre">altitude_m</span></code> from the first bottom return (the <code class="docutils literal notranslate"><span class="pre">&quot;bottom_track&quot;</span></code> step).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.detect_first_bottom_return">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">detect_first_bottom_return</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_arr</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_sample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_sample_buffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_run_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.detect_first_bottom_return" title="Link to this definition">#</a></dt>
+<dd><p>Per-(ping, channel) sample index where the real bottom return starts.</p>
+<p>Smooths each ping with a <code class="docutils literal notranslate"><span class="pre">smooth_window</span></code>-sample rolling mean, then
+finds the first point where the smoothed value stays at or above
+<code class="docutils literal notranslate"><span class="pre">threshold_fraction</span></code> of that ping’s own peak for <code class="docutils literal notranslate"><span class="pre">min_run</span></code>
+consecutive samples. The threshold is relative per ping and channel,
+since amplitude scale varies by channel and survey.</p>
+<p>This is not the altitude crossing (<code class="docutils literal notranslate"><span class="pre">slant_range_m</span> <span class="pre">&gt;</span> <span class="pre">altitude_m</span></code>):
+a real beam’s near edge is tilted away from vertical, so the first
+bottom return lands further out than altitude alone predicts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>value_arr</strong><span class="classifier">np.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel,</span> <span class="pre">sample)</span></code> linear amplitude (not dB).</p>
+</dd>
+<dt><strong>smooth_window</strong><span class="classifier">int, default 10</span></dt><dd></dd>
+<dt><strong>threshold_fraction</strong><span class="classifier">float, default 0.2</span></dt><dd><p>Fraction of the ping’s peak smoothed value.</p>
+</dd>
+<dt><strong>min_run</strong><span class="classifier">int, default 10</span></dt><dd><p>Samples the rise must be sustained for.</p>
+</dd>
+<dt><strong>min_sample</strong><span class="classifier">array-like or float, optional</span></dt><dd><p>Per-(ping, channel) or scalar floor. Samples before it are
+ignored for both the peak and the onset search. Normally the
+altitude sample: the bottom can’t return before it. NaN entries
+mean “no floor” for that row.</p>
+</dd>
+<dt><strong>min_sample_buffer</strong><span class="classifier">float, default 0.0</span></dt><dd><p>Added to <code class="docutils literal notranslate"><span class="pre">min_sample</span></code> before use, to step past residual
+near-nadir noise.</p>
+</dd>
+<dt><strong>peak_percentile</strong><span class="classifier">float, default 100.0</span></dt><dd><p>Percentile of the smoothed values used as the peak reference
+(100 = max). Lower it to stop one bright residual sample from
+setting the threshold.</p>
+</dd>
+<dt><strong>min_run_fraction</strong><span class="classifier">float, default 1.0</span></dt><dd><p>Fraction of the <code class="docutils literal notranslate"><span class="pre">min_run</span></code> samples that must be at or above the
+threshold (the onset sample itself always must be). Below 1 a long
+run tolerates gaps, such as shadows in a rough seabed return.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd><p><code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel)</span></code> float sample index, NaN where no sustained
+rise was found. Accurate to about <code class="docutils literal notranslate"><span class="pre">smooth_window</span></code> samples.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.smooth_boundary_across_pings">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">smooth_boundary_across_pings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boundary</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.smooth_boundary_across_pings" title="Link to this definition">#</a></dt>
+<dd><p>NaN-aware rolling median of a <code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel)</span></code> boundary along pings.</p>
+<p>Per-ping detection is independent, so occasional pings jump far from
+their neighbours. A median (not mean) removes those without smearing
+real multi-ping trends.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>boundary</strong><span class="classifier">np.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel)</span></code>.</p>
+</dd>
+<dt><strong>window</strong><span class="classifier">int, default 15</span></dt><dd><p>Window in pings, centred; an even value is bumped up by one.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd><p>Same shape. A ping whose whole window is NaN stays NaN.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.detect_nadir_noise_extent">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">detect_nadir_noise_extent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_arr</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_extent_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.detect_nadir_noise_extent" title="Link to this definition">#</a></dt>
+<dd><p>Per-(ping, channel) sample index where the leading nadir-noise burst ends.</p>
+<p>Mirror image of <a class="reference internal" href="#sidescanpy.processing.bottom.detect_first_bottom_return" title="sidescanpy.processing.bottom.detect_first_bottom_return"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_first_bottom_return()</span></code></a>: finds where an
+initially strong signal falls to a sustained low level. Some
+hardware (e.g. EdgeTech JSF) zeros this burst before writing the
+file; others (e.g. Klein SDF) leave it in, where it can fool the
+first-bottom-return detector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>value_arr</strong><span class="classifier">np.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel,</span> <span class="pre">sample)</span></code> linear amplitude.</p>
+</dd>
+<dt><strong>search_window</strong><span class="classifier">int, default 100</span></dt><dd><p>Only the first <code class="docutils literal notranslate"><span class="pre">search_window</span></code> samples set the burst’s peak
+reference, so a bright bottom return further out can’t inflate
+the threshold.</p>
+</dd>
+<dt><strong>smooth_window, threshold_fraction, min_run</strong></dt><dd><p>As in <a class="reference internal" href="#sidescanpy.processing.bottom.detect_first_bottom_return" title="sidescanpy.processing.bottom.detect_first_bottom_return"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_first_bottom_return()</span></code></a>, applied to a fall
+below the threshold.</p>
+</dd>
+<dt><strong>margin_samples</strong><span class="classifier">int, default 0</span></dt><dd><p>Added to each detected extent (NaN rows stay NaN).</p>
+</dd>
+<dt><strong>min_extent_samples</strong><span class="classifier">float, default 0.0</span></dt><dd><p>Hard floor on the result, applied last; unlike
+<code class="docutils literal notranslate"><span class="pre">margin_samples</span></code> it also replaces NaN rows.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd><p><code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel)</span></code> float sample index. 0 where the leading
+samples are already quiet. NaN for pings too short to evaluate
+or with no sustained drop (unless <code class="docutils literal notranslate"><span class="pre">min_extent_samples</span></code> is set).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.blank_nadir_noise">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">blank_nadir_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('backscatter_intensity',)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_value_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'backscatter_intensity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_extent_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.blank_nadir_noise" title="Link to this definition">#</a></dt>
+<dd><p>Return a copy of <code class="docutils literal notranslate"><span class="pre">ds</span></code> with each ping’s leading nadir-noise burst set to 0.</p>
+<p>Uses <a class="reference internal" href="#sidescanpy.processing.bottom.detect_nadir_noise_extent" title="sidescanpy.processing.bottom.detect_nadir_noise_extent"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_nadir_noise_extent()</span></code></a> on <code class="docutils literal notranslate"><span class="pre">detector_value_var</span></code> and
+zeros the same span in every <code class="docutils literal notranslate"><span class="pre">value_vars</span></code> entry present in <code class="docutils literal notranslate"><span class="pre">ds</span></code>
+(others are skipped). A no-op where the burst is already zero.
+Contrast <a class="reference internal" href="#sidescanpy.processing.bottom.mask_nadir_gap" title="sidescanpy.processing.bottom.mask_nadir_gap"><code class="xref py py-func docutils literal notranslate"><span class="pre">mask_nadir_gap()</span></code></a>, which NaNs the much larger span out
+to the first bottom return for display.</p>
+<p>The remaining parameters are passed to
+<a class="reference internal" href="#sidescanpy.processing.bottom.detect_nadir_noise_extent" title="sidescanpy.processing.bottom.detect_nadir_noise_extent"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_nadir_noise_extent()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.mask_before_sample">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">mask_before_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">nan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.mask_before_sample" title="Link to this definition">#</a></dt>
+<dd><p>Copy of <code class="docutils literal notranslate"><span class="pre">values</span></code> <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">sample)</span></code> with samples before <code class="docutils literal notranslate"><span class="pre">boundary</span></code> set to <code class="docutils literal notranslate"><span class="pre">fill_value</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">boundary</span></code> matches the leading dims of <code class="docutils literal notranslate"><span class="pre">values</span></code>. A NaN boundary
+entry masks nothing for that row. Returns float64.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.altitude_sample_index">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">altitude_sample_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ground_range_m'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.altitude_sample_index" title="Link to this definition">#</a></dt>
+<dd><p>First finite sample of <code class="docutils literal notranslate"><span class="pre">range_var</span></code> per (ping, channel), as float.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ground_range_m</span></code> goes finite where slant range first exceeds
+altitude, so this is altitude expressed in sample units. NaN where a
+row has no finite value.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.uniform_exclusion_boundary">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">uniform_exclusion_boundary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">per_ping_boundary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">90.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.uniform_exclusion_boundary" title="Link to this definition">#</a></dt>
+<dd><p>Collapse a per-(ping, channel) boundary to one conservative value.</p>
+<p>For aggregate range binning, a per-ping boundary biases the near
+bins: only the pings whose boundary is earliest (usually the
+shallowest, brightest ones) contribute there. A single cutoff keeps
+every bin’s contributing pings the same.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>per_ping_boundary</strong><span class="classifier">np.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel)</span></code>, e.g. a first-bottom-return array.</p>
+</dd>
+<dt><strong>percentile</strong><span class="classifier">float, default 90.0</span></dt><dd><p>Percentile across all finite entries.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd><p>Same shape, filled with that one value; all-NaN if the input has
+no finite entries.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.mask_nadir_gap">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">mask_nadir_gap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('backscatter_intensity',)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_value_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'backscatter_intensity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ground_range_m'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_sample_buffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_first_bottom_return_sample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_smoothing_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.mask_nadir_gap" title="Link to this definition">#</a></dt>
+<dd><p>Return a copy of <code class="docutils literal notranslate"><span class="pre">ds</span></code> with the whole nadir gap set to NaN.</p>
+<p>Everything before <a class="reference internal" href="#sidescanpy.processing.bottom.detect_first_bottom_return" title="sidescanpy.processing.bottom.detect_first_bottom_return"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_first_bottom_return()</span></code></a>’s per-ping
+boundary (noise burst plus un-illuminated span) is masked in each
+<code class="docutils literal notranslate"><span class="pre">value_vars</span></code> entry present. For display and export copies; uses
+the exact per-ping boundary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>value_vars</strong><span class="classifier">tuple of str, default (“backscatter_intensity”,)</span></dt><dd><p>Variables to mask; absent ones are skipped.</p>
+</dd>
+<dt><strong>detector_value_var</strong><span class="classifier">str, default “backscatter_intensity”</span></dt><dd><p>Variable the boundary is detected on (<code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code>
+is read uncorrected, so masking doesn’t depend on TVG state).</p>
+</dd>
+<dt><strong>range_var</strong><span class="classifier">str, default “ground_range_m”</span></dt><dd><p>If present, its altitude sample floors the detection (the bottom
+can’t return before altitude).</p>
+</dd>
+<dt><strong>smooth_window, threshold_fraction, min_run, min_sample_buffer, peak_percentile</strong></dt><dd><p>Passed to <a class="reference internal" href="#sidescanpy.processing.bottom.detect_first_bottom_return" title="sidescanpy.processing.bottom.detect_first_bottom_return"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_first_bottom_return()</span></code></a>.</p>
+</dd>
+<dt><strong>min_first_bottom_return_sample</strong><span class="classifier">float, optional</span></dt><dd><p>Extra scalar floor, combined with the altitude floor by
+element-wise max.</p>
+</dd>
+<dt><strong>boundary_smoothing_window</strong><span class="classifier">int, default 15</span></dt><dd><p><a class="reference internal" href="#sidescanpy.processing.bottom.smooth_boundary_across_pings" title="sidescanpy.processing.bottom.smooth_boundary_across_pings"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth_boundary_across_pings()</span></code></a> window; <code class="docutils literal notranslate"><span class="pre">&lt;=</span> <span class="pre">1</span></code> disables.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>xr.Dataset</dt><dd><p>Copy of <code class="docutils literal notranslate"><span class="pre">ds</span></code>; unmodified if none of <code class="docutils literal notranslate"><span class="pre">value_vars</span></code> are present.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">BOTTOM_TRACK_REPLACE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('missing',</span> <span class="pre">'all')</span></span><a class="headerlink" href="#sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE" title="Link to this definition">#</a></dt>
+<dd><p>Accepted <code class="docutils literal notranslate"><span class="pre">replace</span></code> values of <a class="reference internal" href="#sidescanpy.processing.bottom.altitude_from_bottom_track" title="sidescanpy.processing.bottom.altitude_from_bottom_track"><code class="xref py py-func docutils literal notranslate"><span class="pre">altitude_from_bottom_track()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.altitude_from_bottom_track">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">altitude_from_bottom_track</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'missing'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_diff_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_altitude_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_return_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_return_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_pings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.altitude_from_bottom_track" title="Link to this definition">#</a></dt>
+<dd><p>Set <code class="docutils literal notranslate"><span class="pre">altitude_m</span></code> from the first bottom return (the <code class="docutils literal notranslate"><span class="pre">&quot;bottom_track&quot;</span></code> step).</p>
+<p>Many recordings carry no usable altitude: no altimeter, no bottom lock,
+or a recorder that writes 0. Without it the geometric step cannot
+compute ground range (NaN altitude) or computes it as if the towfish
+sat on the seabed (altitude 0). This step measures altitude from the
+data instead: per ping and channel, the onset of the bottom return
+(<a class="reference internal" href="#sidescanpy.processing.bottom.detect_first_bottom_return" title="sidescanpy.processing.bottom.detect_first_bottom_return"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_first_bottom_return()</span></code></a> on the uncorrected amplitude,
+refined to the first sample reaching half the return level that
+follows it, since the detector’s rolling mean fires up to
+<code class="docutils literal notranslate"><span class="pre">smooth_window</span></code> samples early), the nearer of the two channels,
+converted to metres of slant range.</p>
+<p>The first return comes from the beam’s near edge, which is tilted away
+from vertical, so on sloping or rough seabed the tracked value is the
+slant range to the nearest bottom point, at or slightly above the true
+altitude. Recorded altitude, when valid, is the better value; the
+default only fills pings that lack it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ds</strong><span class="classifier">xr.Dataset or SideScanSurvey</span></dt><dd><p>One frequency channel. Radiometric steps already applied are undone
+for detection only; <code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> is not changed.
+A <a class="reference internal" href="sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.survey.SideScanSurvey"><code class="xref py py-class docutils literal notranslate"><span class="pre">SideScanSurvey</span></code></a> is corrected
+frequency by frequency with the same arguments; a new survey is
+returned and the input is not modified.</p>
+</dd>
+<dt><strong>replace</strong><span class="classifier">{“missing”, “all”}, default “missing”</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">&quot;missing&quot;</span></code>: replace pings whose <code class="docutils literal notranslate"><span class="pre">altitude_m</span></code> is NaN or &lt;= 0.
+<code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>: replace every ping with a detection.</p>
+</dd>
+<dt><strong>max_diff_m</strong><span class="classifier">float, optional</span></dt><dd><p>With <code class="docutils literal notranslate"><span class="pre">&quot;missing&quot;</span></code>, also replace pings whose recorded altitude
+differs from the tracked one by more than this (a lost bottom lock
+that still writes a value).</p>
+</dd>
+<dt><strong>min_altitude_m</strong><span class="classifier">float, default 0.5</span></dt><dd><p>Detection ignores samples nearer than this.</p>
+</dd>
+<dt><strong>min_return_m</strong><span class="classifier">float, default 5.0</span></dt><dd><p>Slant distance the return must stay above threshold, converted to
+samples and used as the detector’s <code class="docutils literal notranslate"><span class="pre">min_run</span></code> when longer. A
+transmit burst (some recorders keep it; it can start after a quiet
+lead-in and be as bright as the seabed) lasts a metre or two; the
+seabed return lasts tens of metres.</p>
+</dd>
+<dt><strong>min_return_fraction</strong><span class="classifier">float, default 0.7</span></dt><dd><p>Fraction of that distance that must be above threshold
+(<code class="docutils literal notranslate"><span class="pre">min_run_fraction</span></code> of the detector), so shadows and gaps in a
+rough seabed return do not push the onset further out.</p>
+</dd>
+<dt><strong>smooth_window, threshold_fraction, min_run</strong></dt><dd><p>Passed to <a class="reference internal" href="#sidescanpy.processing.bottom.detect_first_bottom_return" title="sidescanpy.processing.bottom.detect_first_bottom_return"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_first_bottom_return()</span></code></a> (<code class="docutils literal notranslate"><span class="pre">min_run</span></code> in
+samples, raised to <code class="docutils literal notranslate"><span class="pre">min_return_m</span></code> when that is longer).</p>
+</dd>
+<dt><strong>smooth_pings</strong><span class="classifier">int, default 1</span></dt><dd><p>Rolling median of the tracked altitude over this many pings
+(<a class="reference internal" href="#sidescanpy.processing.bottom.smooth_boundary_across_pings" title="sidescanpy.processing.bottom.smooth_boundary_across_pings"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth_boundary_across_pings()</span></code></a>); 1 = none. Smoothing looks
+across pings, so a chunked <a class="reference internal" href="sidescanpy.processing.correct.html#sidescanpy.processing.correct.correct_file" title="sidescanpy.processing.correct.correct_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct_file()</span></code></a>
+run can differ from an unchunked one within <code class="docutils literal notranslate"><span class="pre">smooth_pings</span> <span class="pre">//</span> <span class="pre">2</span></code>
+pings of each chunk edge.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>xr.Dataset or SideScanSurvey</dt><dd><p>Same type as <code class="docutils literal notranslate"><span class="pre">ds</span></code>: <code class="docutils literal notranslate"><span class="pre">ds</span></code> with <code class="docutils literal notranslate"><span class="pre">altitude_m</span></code> replaced where selected and a
+<code class="docutils literal notranslate"><span class="pre">&quot;bottom_track&quot;</span></code> history record. Pings with no detection keep
+their recorded value. <code class="docutils literal notranslate"><span class="pre">fathometer_reading_m</span></code> is not changed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sidescanpy.processing.aux_fixes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">sidescanpy.processing.aux_fixes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sidescanpy.processing.correct.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">sidescanpy.processing.correct</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.detect_first_bottom_return"><code class="docutils literal notranslate"><span class="pre">detect_first_bottom_return()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.smooth_boundary_across_pings"><code class="docutils literal notranslate"><span class="pre">smooth_boundary_across_pings()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.detect_nadir_noise_extent"><code class="docutils literal notranslate"><span class="pre">detect_nadir_noise_extent()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.blank_nadir_noise"><code class="docutils literal notranslate"><span class="pre">blank_nadir_noise()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.mask_before_sample"><code class="docutils literal notranslate"><span class="pre">mask_before_sample()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.altitude_sample_index"><code class="docutils literal notranslate"><span class="pre">altitude_sample_index()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.uniform_exclusion_boundary"><code class="docutils literal notranslate"><span class="pre">uniform_exclusion_boundary()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.mask_nadir_gap"><code class="docutils literal notranslate"><span class="pre">mask_nadir_gap()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE"><code class="docutils literal notranslate"><span class="pre">BOTTOM_TRACK_REPLACE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.altitude_from_bottom_track"><code class="docutils literal notranslate"><span class="pre">altitude_from_bottom_track()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

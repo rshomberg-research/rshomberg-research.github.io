@@ -1,0 +1,39 @@
+sidescanpy.analysis.tvg
+=======================
+
+.. automodule:: sidescanpy.analysis.tvg
+
+.. currentmodule:: sidescanpy.analysis.tvg
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   compare_before_after
+   bin_by_altitude
+   TVGCandidateFit
+   TVGCandidateFitResult
+   fit_tvg_curve
+   RangeDecayResult
+   fit_range_decay
+
+.. autofunction:: sidescanpy.analysis.tvg.compare_before_after
+
+.. autofunction:: sidescanpy.analysis.tvg.bin_by_altitude
+
+.. autoclass:: sidescanpy.analysis.tvg.TVGCandidateFit
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.analysis.tvg.TVGCandidateFitResult
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.tvg.fit_tvg_curve
+
+.. autoclass:: sidescanpy.analysis.tvg.RangeDecayResult
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.tvg.fit_range_decay

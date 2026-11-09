@@ -1,0 +1,15 @@
+sidescanpy.io.jsf.converter
+===========================
+
+.. automodule:: sidescanpy.io.jsf.converter
+
+.. currentmodule:: sidescanpy.io.jsf.converter
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   convert
+
+.. autofunction:: sidescanpy.io.jsf.converter.convert

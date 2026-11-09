@@ -1,0 +1,23 @@
+sidescanpy.grids.resample
+=========================
+
+.. automodule:: sidescanpy.grids.resample
+
+.. currentmodule:: sidescanpy.grids.resample
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   ResamplingMethod
+   resample_channel_to_grid
+   grid_channel
+
+.. autoclass:: sidescanpy.grids.resample.ResamplingMethod
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.grids.resample.resample_channel_to_grid
+
+.. autofunction:: sidescanpy.grids.resample.grid_channel

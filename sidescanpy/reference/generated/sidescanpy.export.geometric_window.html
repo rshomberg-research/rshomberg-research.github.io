@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>sidescanpy.export.geometric_window &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../../_static/documentation_options.js?v=486e5634"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/generated/sidescanpy.export.geometric_window';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sidescanpy.export.georef_window" href="sidescanpy.export.georef_window.html" />
+    <link rel="prev" title="sidescanpy.export.augment" href="sidescanpy.export.augment.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="sidescanpy.html">sidescanpy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.analysis.html">analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.beam.html">beam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.characterize.html">characterize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.geometry.html">geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.nadir.html">nadir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.core.html">core</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.history.html">history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.schema.html">schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.survey.html">survey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.target.html">target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.units.html">units</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.datasets.html">datasets</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="sidescanpy.export.html">export</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.augment.html">augment</a></li>
+<li class="toctree-l3 current active"><a aria-current="page" class="current reference internal" href="#">geometric_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.georef_window.html">georef_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.image.html">image</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.ml.html">ml</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.coco.html">coco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.dataset.html">dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.yolo.html">yolo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.orientation.html">orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.target_window.html">target_window</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.windows.html">windows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.background.html">background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.geo.html">geo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.levels.html">levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.native.html">native</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.neighborhood.html">neighborhood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.pixel.html">pixel</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.grids.html">grids</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.definition.html">definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.geotiff.html">geotiff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.raster.html">raster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resample.html">resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resolution.html">resolution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.io.html">io</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.io.dispatch.html">dispatch</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.hdf5.html">hdf5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.survey_dir.html">survey_dir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.jsf.html">jsf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.messages.html">messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.subset.html">subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.netcdf.html">netcdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.sdf.html">sdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.pages.html">pages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.xtf.html">xtf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.structs.html">structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.subset.html">subset</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.log.html">log</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.processing.html">processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.aux_fixes.html">aux_fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.bottom.html">bottom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.correct.html">correct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.farrange.html">farrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.geometric.html">geometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.radiometric.html">radiometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.range_correction.html">range_correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.sample_axis.html">sample_axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.segments.html">segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.slicing.html">slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.track.html">track</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.targets.html">targets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.correlate.html">correlate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.viz.html">viz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.analysis.html">analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.basemap.html">basemap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.contact_sheet.html">contact_sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.gridded.html">gridded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.scalebar.html">scalebar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.targets.html">targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.track.html">track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.html" class="nav-link">sidescanpy</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.export.html" class="nav-link">sidescanpy.export</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sidescanpy.export.geometric_window</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-sidescanpy.export.geometric_window">
+<span id="sidescanpy-export-geometric-window"></span><h1>sidescanpy.export.geometric_window<a class="headerlink" href="#module-sidescanpy.export.geometric_window" title="Link to this heading">#</a></h1>
+<p>Geometric (along-track x across-track meters) windowed export.</p>
+<p>Resamples a bounded region directly at an explicit <code class="docutils literal notranslate"><span class="pre">(resolution_m,</span>
+<span class="pre">size_px)</span></code>, centered on a given real-world point — a survey-local frame
+(no CRS/UTM projection, unlike <code class="docutils literal notranslate"><span class="pre">export.georef_window</span></code>), using the
+per-sample <code class="docutils literal notranslate"><span class="pre">across_track_m</span></code> that
+<code class="docutils literal notranslate"><span class="pre">processing/geometric.py::compute_geometric_ranges</span></code> already attaches,
+and the per-ping cumulative along-track distance from
+<code class="docutils literal notranslate"><span class="pre">processing.navigation.along_track_distance_m</span></code>.</p>
+<p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
+<p class="rubric">Contents</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="sidescanpy.export.geometric_window.extract_geometric_window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_geometric_window</span></code></a></p></td>
+<td><p>Resample a <code class="docutils literal notranslate"><span class="pre">size_px</span> <span class="pre">x</span> <span class="pre">size_px</span></code> square region, centered on <code class="docutils literal notranslate"><span class="pre">(center_along_m,</span> <span class="pre">center_across_m)</span></code>, at exactly <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> meters/pixel on both axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window_binned" title="sidescanpy.export.geometric_window.extract_geometric_window_binned"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_geometric_window_binned</span></code></a></p></td>
+<td><p>Same contract as <a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="sidescanpy.export.geometric_window.extract_geometric_window"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a> (same params, same <code class="docutils literal notranslate"><span class="pre">(grid,</span> <span class="pre">meta)</span></code> shape, same <code class="docutils literal notranslate"><span class="pre">meta</span></code> keys, drop-in interchangeable with <a class="reference internal" href="#sidescanpy.export.geometric_window.locate_point" title="sidescanpy.export.geometric_window.locate_point"><code class="xref py py-func docutils literal notranslate"><span class="pre">locate_point()</span></code></a>) but resamples via <code class="docutils literal notranslate"><span class="pre">scipy.stats.binned_statistic_2d</span></code> instead of a hand-written <code class="docutils literal notranslate"><span class="pre">cKDTree.query_ball_point</span></code> loop over every output cell.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window_griddata" title="sidescanpy.export.geometric_window.extract_geometric_window_griddata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_geometric_window_griddata</span></code></a></p></td>
+<td><p>Same contract as <a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="sidescanpy.export.geometric_window.extract_geometric_window"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a>/ <a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window_binned" title="sidescanpy.export.geometric_window.extract_geometric_window_binned"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window_binned()</span></code></a> (same params, same <code class="docutils literal notranslate"><span class="pre">(grid,</span> <span class="pre">meta)</span></code> shape, same <code class="docutils literal notranslate"><span class="pre">meta</span></code> keys, drop-in interchangeable with <a class="reference internal" href="#sidescanpy.export.geometric_window.locate_point" title="sidescanpy.export.geometric_window.locate_point"><code class="xref py py-func docutils literal notranslate"><span class="pre">locate_point()</span></code></a>) but resamples via <code class="docutils literal notranslate"><span class="pre">scipy.interpolate.griddata</span></code> -- full scattered-data interpolation across the whole requested grid, not a radius search (KDTree) or strict rectangle membership (binned).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.export.geometric_window.locate_point" title="sidescanpy.export.geometric_window.locate_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">locate_point</span></code></a></p></td>
+<td><p>Translate a real-world <code class="docutils literal notranslate"><span class="pre">(along_m,</span> <span class="pre">across_m)</span></code> point into pixel <code class="docutils literal notranslate"><span class="pre">(row,</span> <span class="pre">col)</span></code> coordinates within a grid produced by <a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="sidescanpy.export.geometric_window.extract_geometric_window"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a>, using that call's own returned <code class="docutils literal notranslate"><span class="pre">meta</span></code> — for marking a <em>different</em> point than the one the window was centered on (e.g. a second target sharing the same frame).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.export.geometric_window.extract_geometric_window">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.export.geometric_window.</span></span><span class="sig-name descname"><span class="pre">extract_geometric_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_px</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_along_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_across_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backscatter_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'backscatter_intensity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_radius_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">along_search_radius_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_search_radius_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid_edge_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">along_resolution_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_resolution_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">along_size_px</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_size_px</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="Link to this definition">#</a></dt>
+<dd><p>Resample a <code class="docutils literal notranslate"><span class="pre">size_px</span> <span class="pre">x</span> <span class="pre">size_px</span></code> square region, centered on
+<code class="docutils literal notranslate"><span class="pre">(center_along_m,</span> <span class="pre">center_across_m)</span></code>, at exactly <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code>
+meters/pixel on both axes.</p>
+<p>Both axes always share the same <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> and <code class="docutils literal notranslate"><span class="pre">size_px</span></code> by
+construction — no derived-from-extent resolution, no separate resize
+step, so the result is never stretched relative to the real world
+(a previous version computed <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> from the <em>larger</em> of
+the window’s own along/across extents but still forced <em>both</em> axes
+to <code class="docutils literal notranslate"><span class="pre">size_px</span></code> samples — the smaller-extent axis came out visibly
+stretched; fixed by making resolution and size the only inputs,
+extent purely a consequence of them). This is still the default —
+<code class="docutils literal notranslate"><span class="pre">along_resolution_m</span></code>/<code class="docutils literal notranslate"><span class="pre">across_resolution_m</span></code>/<code class="docutils literal notranslate"><span class="pre">along_size_px</span></code>/
+<code class="docutils literal notranslate"><span class="pre">across_size_px</span></code> below are opt-in, and every existing caller that
+doesn’t pass them gets byte-identical square-pixel output.</p>
+<p><code class="docutils literal notranslate"><span class="pre">channel_idx=None</span></code> pools samples from <em>both</em> channels into the
+same point cloud instead of one side only — unlike the raw-pixel
+<code class="docutils literal notranslate"><span class="pre">export.windows</span></code> primitives, this needs no explicit mirroring:
+<code class="docutils literal notranslate"><span class="pre">across_track_m</span></code> is already a real-world coordinate (port negative,
+starboard positive), so both sides combine correctly by construction,
+giving a single image spanning the full swath width with the nadir
+gap naturally in the middle (wherever <code class="docutils literal notranslate"><span class="pre">across_track_m</span></code> is NaN/near
+zero on both sides).</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>channel_ds</strong><span class="classifier">xr.Dataset</span></dt><dd><p>Already ping-sliced to a neighborhood comfortably containing the
+requested <code class="docutils literal notranslate"><span class="pre">size_px</span> <span class="pre">*</span> <span class="pre">resolution_m</span></code> extent around the center —
+this function does not itself bound how much source data it
+searches; a much wider slice than needed just costs more KDTree
+build time for no benefit.</p>
+</dd>
+<dt><strong>size_px</strong><span class="classifier">int</span></dt><dd><p>Output side length in pixels.</p>
+</dd>
+<dt><strong>resolution_m</strong><span class="classifier">float</span></dt><dd><p>Meters per pixel, both axes. Pick small (near the channel’s own
+sample interval) for a maximum-detail close-up; pick
+<code class="docutils literal notranslate"><span class="pre">real_swath_width_m</span> <span class="pre">/</span> <span class="pre">size_px</span></code> to fit an entire swath width
+(both channels) into the frame.</p>
+</dd>
+<dt><strong>center_along_m, center_across_m</strong><span class="classifier">float</span></dt><dd><p>Real-world center of the requested window, in the same
+along-track-distance / <code class="docutils literal notranslate"><span class="pre">across_track_m</span></code> units the survey’s own
+per-sample geometry uses (e.g. a target’s own position, read
+directly from <code class="docutils literal notranslate"><span class="pre">across_track_m</span></code> at its ping/sample/channel).</p>
+</dd>
+<dt><strong>channel_idx</strong><span class="classifier">int or None, default 0</span></dt><dd><p>Restrict to one physical channel (0=port, 1=starboard), or
+<code class="docutils literal notranslate"><span class="pre">None</span></code> to pool both.</p>
+</dd>
+<dt><strong>search_radius_m</strong><span class="classifier">float, optional</span></dt><dd><p>Isotropic KDTree query radius (same in both directions);
+defaults to <code class="docutils literal notranslate"><span class="pre">1.5</span> <span class="pre">*</span> <span class="pre">resolution_m</span></code>. A survey whose along-track
+position updates at a much lower rate than its ping rate (real
+case: a Klein SDF survey whose GPS fixes only every ~8 pings,
+jumping ~2m each time) has real gaps between along-track fixes
+wider than a resolution chosen from the <em>average</em> distance/ping
+can bridge at the default radius — the result grid shows
+periodic empty stripes at exactly the fix-to-fix interval,
+since most cells’ nearest real point sits outside
+<code class="docutils literal notranslate"><span class="pre">1.5</span> <span class="pre">*</span> <span class="pre">resolution_m</span></code>. Passing a wider radius (e.g. the real
+fix-to-fix jump distance) bridges those gaps without also
+needing a coarser (more zoomed-out) <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code>. Ignored
+if either of the two params below is given.</p>
+</dd>
+<dt><strong>along_search_radius_m, across_search_radius_m</strong><span class="classifier">float, optional</span></dt><dd><p>Independent along-track / across-track search radii — an
+ellipse instead of a circle, in real (along_m, across_m) space.
+Each axis is rescaled by its own radius before the <code class="docutils literal notranslate"><span class="pre">cKDTree</span></code>
+is built/queried (then queried with a unit ball), which is
+exactly equivalent to an elliptical search with no custom
+distance metric needed. Default (<code class="docutils literal notranslate"><span class="pre">None</span></code>) for either falls
+back to <code class="docutils literal notranslate"><span class="pre">search_radius_m</span></code> (or its own default) — fully
+backward compatible with every existing caller.</p>
+<p>Real motivation (2026-09-28): a swath’s along-track (ping
+spacing) and across-track (sample interval) native resolutions
+can differ by an order of magnitude or more. The single
+isotropic <code class="docutils literal notranslate"><span class="pre">search_radius_m</span></code> this function used to have had to
+be wide enough to bridge real along-track gaps — which meant
+<em>every</em> cell’s average also pooled far more across-track real
+detail than the data’s own resolution supports, regardless of
+how fine <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> was set. A caller requesting a finer
+<code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> for more real detail got more pixels of an
+equally over-smoothed image, not more detail — confirmed
+directly on real data as the cause of a “chips are blurry”
+report. Passing a narrow <code class="docutils literal notranslate"><span class="pre">across_search_radius_m</span></code> (sized to
+the real sample interval) alongside a wide
+<code class="docutils literal notranslate"><span class="pre">along_search_radius_m</span></code> (still sized to bridge real ping
+gaps) fixes this: real across-track texture is preserved
+instead of averaged away, without reintroducing along-track
+gaps.</p>
+</dd>
+<dt><strong>avoid_edge_gaps</strong><span class="classifier">bool, default False</span></dt><dd><p>When True and the requested center is close enough to the edge
+of this channel’s own recorded extent that the window would
+otherwise include genuine no-data cells (e.g. a target near the
+max-range edge of the swath), shift the center inward just
+enough to keep the full window inside real data instead – same
+tradeoff <code class="docutils literal notranslate"><span class="pre">extract_chip</span></code> already makes for raw-pixel windows
+near an array edge. The target itself is then no longer
+necessarily at the window’s exact center; <code class="docutils literal notranslate"><span class="pre">locate_point</span></code>
+against the <em>original</em> requested point still reports its true
+(now off-center) position correctly. Default <code class="docutils literal notranslate"><span class="pre">False</span></code> keeps
+the window exactly centered on the requested point regardless
+(this function’s original, unconditional behavior) – opt in
+per caller, since not every use of this function is a
+target-crop where “no data” is worse than “off-center”.</p>
+</dd>
+<dt><strong>along_resolution_m, across_resolution_m</strong><span class="classifier">float, optional</span></dt><dd><p>Independent along-track / across-track meters-per-pixel — real,
+non-square output pixels. Default (<code class="docutils literal notranslate"><span class="pre">None</span></code>) for either falls
+back to <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> — fully backward compatible, every
+existing caller gets exactly the prior square-pixel behavior.</p>
+<p>Real motivation (2026-09-29): even with anisotropic <em>search
+radii</em> (<code class="docutils literal notranslate"><span class="pre">along_search_radius_m</span></code>/<code class="docutils literal notranslate"><span class="pre">across_search_radius_m</span></code>
+above), a single shared <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> still forces the SAME
+pixel density on both axes. On a survey whose along-track
+native resolution is much coarser than across-track (ping
+spacing an order of magnitude or more wider than sample
+interval — one real survey measured at ~16:1), the
+along-track search radius floor (tied to real ping-to-ping
+gaps, independent of <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> — see
+<code class="docutils literal notranslate"><span class="pre">along_search_radius_m</span></code> above) ends up wide relative to a
+fine shared pixel spacing, visible in the output as elliptical
+averaging footprints — confirmed directly, real user report
+(“you can clearly see the ellipses which appear wide… that
+is not an issue w/ the radiometric”). No amount of tuning a
+single shared <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code>/search radius eliminates this,
+because a plain pixel-space resize (which is what “radiometric”
+looks like) never averages a real neighborhood at all, so it
+has no footprint to show — it isn’t solving the same problem.
+Setting <code class="docutils literal notranslate"><span class="pre">along_resolution_m</span></code> coarser than
+<code class="docutils literal notranslate"><span class="pre">across_resolution_m</span></code> (close to the real ping spacing) lets
+each axis’s pixel size match its OWN real resolving power,
+eliminating the visible-footprint artifact without averaging
+away real across-track detail that IS there to resolve.</p>
+</dd>
+<dt><strong>along_size_px, across_size_px</strong><span class="classifier">int, optional</span></dt><dd><p>Independent output row / column counts. Default (<code class="docutils literal notranslate"><span class="pre">None</span></code>) for
+either falls back to <code class="docutils literal notranslate"><span class="pre">size_px</span></code>. Combined with
+<code class="docutils literal notranslate"><span class="pre">along_resolution_m</span></code>/<code class="docutils literal notranslate"><span class="pre">across_resolution_m</span></code>, this is what
+actually makes the output array non-square in shape, not just
+in real-world meters-per-pixel — e.g. <code class="docutils literal notranslate"><span class="pre">along_size_px=20</span></code> at
+<code class="docutils literal notranslate"><span class="pre">along_resolution_m=0.4</span></code> covers the same real 8m as
+<code class="docutils literal notranslate"><span class="pre">across_size_px=320</span></code> at <code class="docutils literal notranslate"><span class="pre">across_resolution_m=0.025</span></code>, and
+the returned array is genuinely <code class="docutils literal notranslate"><span class="pre">(20,</span> <span class="pre">320)</span></code>, not square. A
+caller displaying this gets correct proportions for free from
+most plotting libraries’ default aspect handling (e.g.
+matplotlib <code class="docutils literal notranslate"><span class="pre">imshow</span></code>’s <code class="docutils literal notranslate"><span class="pre">aspect=&quot;equal&quot;</span></code>, driven by array
+shape alone, with no <code class="docutils literal notranslate"><span class="pre">extent</span></code> needed) — it is not a stretched
+square image, it is a genuinely shorter/narrower real array.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(grid, meta)</dt><dd><p><code class="docutils literal notranslate"><span class="pre">grid</span></code> : <code class="docutils literal notranslate"><span class="pre">(along_size_px,</span> <span class="pre">across_size_px)</span></code> array (both
+default to <code class="docutils literal notranslate"><span class="pre">size_px</span></code>, reproducing the prior square shape
+unless overridden). NaN where no sample fell within the search
+radius of a cell.
+<code class="docutils literal notranslate"><span class="pre">meta</span></code> : dict with <code class="docutils literal notranslate"><span class="pre">center_row</span></code>/<code class="docutils literal notranslate"><span class="pre">center_col</span></code> (the
+requested center’s own pixel position in <code class="docutils literal notranslate"><span class="pre">grid</span></code> — always the
+exact middle, since the grid is built centered on it by
+construction), the resolved <code class="docutils literal notranslate"><span class="pre">along_min</span></code>/<code class="docutils literal notranslate"><span class="pre">across_min</span></code>
+bounds, <code class="docutils literal notranslate"><span class="pre">along_resolution_m</span></code>/<code class="docutils literal notranslate"><span class="pre">across_resolution_m</span></code> (the
+resolved per-axis values, always present even when isotropic),
+and <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> — a legacy key kept for backward
+compatibility, equal to <code class="docutils literal notranslate"><span class="pre">along_resolution_m</span></code>; new code should
+read the per-axis keys instead, since this key is ambiguous
+once the two differ.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If no finite <code class="docutils literal notranslate"><span class="pre">across_track_m</span></code>/backscatter samples exist in
+<code class="docutils literal notranslate"><span class="pre">channel_ds</span></code> at all (e.g. entirely water column).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.export.geometric_window.extract_geometric_window_binned">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.export.geometric_window.</span></span><span class="sig-name descname"><span class="pre">extract_geometric_window_binned</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_px</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_along_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_across_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backscatter_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'backscatter_intensity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid_edge_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">along_resolution_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_resolution_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">along_size_px</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_size_px</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.export.geometric_window.extract_geometric_window_binned" title="Link to this definition">#</a></dt>
+<dd><p>Same contract as <a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="sidescanpy.export.geometric_window.extract_geometric_window"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a> (same params,
+same <code class="docutils literal notranslate"><span class="pre">(grid,</span> <span class="pre">meta)</span></code> shape, same <code class="docutils literal notranslate"><span class="pre">meta</span></code> keys, drop-in
+interchangeable with <a class="reference internal" href="#sidescanpy.export.geometric_window.locate_point" title="sidescanpy.export.geometric_window.locate_point"><code class="xref py py-func docutils literal notranslate"><span class="pre">locate_point()</span></code></a>) but resamples via
+<code class="docutils literal notranslate"><span class="pre">scipy.stats.binned_statistic_2d</span></code> instead of a hand-written
+<code class="docutils literal notranslate"><span class="pre">cKDTree.query_ball_point</span></code> loop over every output cell.</p>
+<p>2026-09-29, real user request, following this file’s own
+established-libraries-first convention (see the “Rules” section of
+<code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code>): once per-axis pixel resolution existed
+(<code class="docutils literal notranslate"><span class="pre">along_resolution_m</span></code>/<code class="docutils literal notranslate"><span class="pre">across_resolution_m</span></code> above), each output
+cell is really just “the mean of every real sample whose
+(along, across) position falls inside this cell’s rectangle” — an
+ordinary 2D histogram-style binning, not a radius search. scipy
+already ships exactly that as a single vectorized call, so a custom
+per-cell loop wasn’t buying anything.</p>
+<p><strong>Not a superset of the KDTree version — a genuinely different
+resampling philosophy, not just a faster implementation of the
+same one:</strong></p>
+<ul class="simple">
+<li><p>No <code class="docutils literal notranslate"><span class="pre">search_radius_m</span></code>/<code class="docutils literal notranslate"><span class="pre">along_search_radius_m</span></code>/
+<code class="docutils literal notranslate"><span class="pre">across_search_radius_m</span></code> — a point either falls inside a cell’s
+exact rectangle or it doesn’t, there is no overlap/gap-bridging
+radius to tune. A cell with zero real samples inside its own
+rectangle is NaN, even if a real sample sits just across the
+boundary in the neighboring cell. This means a coarse
+<code class="docutils literal notranslate"><span class="pre">along_resolution_m</span></code> chosen to bridge real ping-to-ping gaps
+(the KDTree version’s <code class="docutils literal notranslate"><span class="pre">along_search_radius_m</span></code> role) still works
+here — a wide-enough bin naturally contains the next ping’s
+point — but an <code class="docutils literal notranslate"><span class="pre">along_resolution_m</span></code> finer than the real
+ping-to-ping spacing will show real empty cells between pings
+instead of the KDTree version’s radius-bridged fill.</p></li>
+<li><p>Strictly faster on real data (one vectorized scipy call instead of
+one Python-level <code class="docutils literal notranslate"><span class="pre">query_ball_point</span></code> call per output pixel), but
+not chosen for speed — chosen because “one real neighborhood per
+pixel, no radius tuning” is a more direct match for what
+<code class="docutils literal notranslate"><span class="pre">along_resolution_m</span></code>/<code class="docutils literal notranslate"><span class="pre">across_resolution_m</span></code> were already
+designed to express once they exist per-axis. See
+<code class="docutils literal notranslate"><span class="pre">export/geometric_window.py</span></code>’s module tests
+(<code class="docutils literal notranslate"><span class="pre">TestExtractGeometricWindowBinned</span></code>) for a real-data comparison
+against the KDTree version at matching resolution.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If no finite <code class="docutils literal notranslate"><span class="pre">across_track_m</span></code>/backscatter samples exist in
+<code class="docutils literal notranslate"><span class="pre">channel_ds</span></code> at all (e.g. entirely water column).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.export.geometric_window.extract_geometric_window_griddata">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.export.geometric_window.</span></span><span class="sig-name descname"><span class="pre">extract_geometric_window_griddata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_px</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_along_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_across_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backscatter_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'backscatter_intensity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avoid_edge_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">along_resolution_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_resolution_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">along_size_px</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_size_px</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interp_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_fill_distance_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.export.geometric_window.extract_geometric_window_griddata" title="Link to this definition">#</a></dt>
+<dd><p>Same contract as <a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="sidescanpy.export.geometric_window.extract_geometric_window"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a>/
+<a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window_binned" title="sidescanpy.export.geometric_window.extract_geometric_window_binned"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window_binned()</span></code></a> (same params, same
+<code class="docutils literal notranslate"><span class="pre">(grid,</span> <span class="pre">meta)</span></code> shape, same <code class="docutils literal notranslate"><span class="pre">meta</span></code> keys, drop-in interchangeable
+with <a class="reference internal" href="#sidescanpy.export.geometric_window.locate_point" title="sidescanpy.export.geometric_window.locate_point"><code class="xref py py-func docutils literal notranslate"><span class="pre">locate_point()</span></code></a>) but resamples via
+<code class="docutils literal notranslate"><span class="pre">scipy.interpolate.griddata</span></code> – full scattered-data interpolation
+across the whole requested grid, not a radius search (KDTree) or
+strict rectangle membership (binned).</p>
+<p>2026-09-29, real user request/direction: an established-library
+resampling option with <strong>no NaN gaps by construction</strong> – unlike
+<a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window_binned" title="sidescanpy.export.geometric_window.extract_geometric_window_binned"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window_binned()</span></code></a>, every output cell gets a
+value regardless of how sparse the real along-track sampling is
+relative to <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code>, because <code class="docutils literal notranslate"><span class="pre">griddata</span></code> interpolates
+(and, for the small edge fraction outside the real data’s convex
+hull, nearest-neighbor-extrapolates – see below) rather than
+reporting “no real sample here.”</p>
+<p><strong>This is a genuinely different tradeoff than the other two
+functions, not a strict improvement — say so plainly:</strong> at a
+resolution much finer than the real along-track sampling, the large
+majority of a griddata window’s pixels are constructed by
+interpolation, not measured by the sensor. Real-data check (two
+real targets, <code class="docutils literal notranslate"><span class="pre">resolution_m=0.03m</span></code>, ~60-66% of cells with no real
+sample at that resolution): griddata never shows a gap, but most of
+what fills those gaps is triangulated from real points several real
+ping-widths away, not a resolved local measurement. Compare
+<a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="sidescanpy.export.geometric_window.extract_geometric_window"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a> (zero fabrication, real radius
+averaging) and <a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window_binned" title="sidescanpy.export.geometric_window.extract_geometric_window_binned"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window_binned()</span></code></a> (zero
+fabrication, real gaps shown honestly).</p>
+<p><code class="docutils literal notranslate"><span class="pre">interp_method</span></code> : <code class="docutils literal notranslate"><span class="pre">&quot;linear&quot;</span></code> (default), <code class="docutils literal notranslate"><span class="pre">&quot;cubic&quot;</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">&quot;nearest&quot;</span></code> – passed straight through to <code class="docutils literal notranslate"><span class="pre">scipy.interpolate.</span>
+<span class="pre">griddata</span></code>’s own <code class="docutils literal notranslate"><span class="pre">method</span></code>. <code class="docutils literal notranslate"><span class="pre">&quot;linear&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;cubic&quot;</span></code> leave NaN
+outside the real data’s convex hull (no point to triangulate
+against there); those cells are automatically filled with a second,
+<code class="docutils literal notranslate"><span class="pre">method=&quot;nearest&quot;</span></code> pass so this function never returns a gap
+regardless of <code class="docutils literal notranslate"><span class="pre">interp_method</span></code> – <code class="docutils literal notranslate"><span class="pre">&quot;nearest&quot;</span></code> itself is already
+gap-free after the first pass.
+<code class="docutils literal notranslate"><span class="pre">max_fill_distance_m</span></code> : cells farther than this from every real
+sample are NaN – outside the recorded swath (past max range, the
+nadir gap, the excluded channel of a single-channel window), where
+either pass above would otherwise extend the nearest edge sample
+into smeared wedges/streaks of invented seafloor (seen on
+chips wider than the swath).
+<code class="docutils literal notranslate"><span class="pre">None</span></code> (default) derives it from the data: 1.5x the larger of
+the 95th-percentile along-track ping gap, the median across-track
+sample step, and the output resolution – so gaps <em>between</em> real
+pings/samples still interpolate. <code class="docutils literal notranslate"><span class="pre">np.inf</span></code> restores the old
+never-NaN behavior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If no finite <code class="docutils literal notranslate"><span class="pre">across_track_m</span></code>/backscatter samples exist in
+<code class="docutils literal notranslate"><span class="pre">channel_ds</span></code> at all (e.g. entirely water column).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.export.geometric_window.locate_point">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.export.geometric_window.</span></span><span class="sig-name descname"><span class="pre">locate_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">along_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.export.geometric_window.locate_point" title="Link to this definition">#</a></dt>
+<dd><p>Translate a real-world <code class="docutils literal notranslate"><span class="pre">(along_m,</span> <span class="pre">across_m)</span></code> point into pixel
+<code class="docutils literal notranslate"><span class="pre">(row,</span> <span class="pre">col)</span></code> coordinates within a grid produced by
+<a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="sidescanpy.export.geometric_window.extract_geometric_window"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a>, using that call’s own returned
+<code class="docutils literal notranslate"><span class="pre">meta</span></code> — for marking a <em>different</em> point than the one the window
+was centered on (e.g. a second target sharing the same frame).</p>
+<p>Reads <code class="docutils literal notranslate"><span class="pre">meta</span></code>’s per-axis <code class="docutils literal notranslate"><span class="pre">along_resolution_m</span></code>/
+<code class="docutils literal notranslate"><span class="pre">across_resolution_m</span></code> (not the legacy <code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> key) —
+correct for both the isotropic/square case (where they’re equal
+anyway) and a real anisotropic-pixel window.</p>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sidescanpy.export.augment.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">sidescanpy.export.augment</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sidescanpy.export.georef_window.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">sidescanpy.export.georef_window</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.geometric_window.extract_geometric_window"><code class="docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.geometric_window.extract_geometric_window_binned"><code class="docutils literal notranslate"><span class="pre">extract_geometric_window_binned()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.geometric_window.extract_geometric_window_griddata"><code class="docutils literal notranslate"><span class="pre">extract_geometric_window_griddata()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.geometric_window.locate_point"><code class="docutils literal notranslate"><span class="pre">locate_point()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

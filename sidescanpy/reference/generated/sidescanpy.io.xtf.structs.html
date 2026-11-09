@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>sidescanpy.io.xtf.structs &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../../_static/documentation_options.js?v=486e5634"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/generated/sidescanpy.io.xtf.structs';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sidescanpy.io.xtf.subset" href="sidescanpy.io.xtf.subset.html" />
+    <link rel="prev" title="sidescanpy.io.xtf.split" href="sidescanpy.io.xtf.split.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="sidescanpy.html">sidescanpy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.analysis.html">analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.beam.html">beam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.characterize.html">characterize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.geometry.html">geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.nadir.html">nadir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.core.html">core</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.history.html">history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.schema.html">schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.survey.html">survey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.target.html">target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.units.html">units</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.datasets.html">datasets</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.export.html">export</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.augment.html">augment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.geometric_window.html">geometric_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.georef_window.html">georef_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.image.html">image</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.ml.html">ml</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.coco.html">coco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.dataset.html">dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.yolo.html">yolo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.orientation.html">orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.target_window.html">target_window</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.windows.html">windows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.background.html">background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.geo.html">geo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.levels.html">levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.native.html">native</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.neighborhood.html">neighborhood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.pixel.html">pixel</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.grids.html">grids</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.definition.html">definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.geotiff.html">geotiff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.raster.html">raster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resample.html">resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resolution.html">resolution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="sidescanpy.io.html">io</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.io.dispatch.html">dispatch</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.hdf5.html">hdf5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.survey_dir.html">survey_dir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.jsf.html">jsf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.messages.html">messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.subset.html">subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.netcdf.html">netcdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.sdf.html">sdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.pages.html">pages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="sidescanpy.io.xtf.html">xtf</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.split.html">split</a></li>
+<li class="toctree-l4 current active"><a aria-current="page" class="current reference internal" href="#">structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.subset.html">subset</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.log.html">log</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.processing.html">processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.aux_fixes.html">aux_fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.bottom.html">bottom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.correct.html">correct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.farrange.html">farrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.geometric.html">geometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.radiometric.html">radiometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.range_correction.html">range_correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.sample_axis.html">sample_axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.segments.html">segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.slicing.html">slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.track.html">track</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.targets.html">targets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.correlate.html">correlate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.viz.html">viz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.analysis.html">analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.basemap.html">basemap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.contact_sheet.html">contact_sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.gridded.html">gridded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.scalebar.html">scalebar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.targets.html">targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.track.html">track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.html" class="nav-link">sidescanpy</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.io.html" class="nav-link">sidescanpy.io</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.io.xtf.html" class="nav-link">sidescanpy.io.xtf</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sidescanpy.io.xtf.structs</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-sidescanpy.io.xtf.structs">
+<span id="sidescanpy-io-xtf-structs"></span><h1>sidescanpy.io.xtf.structs<a class="headerlink" href="#module-sidescanpy.io.xtf.structs" title="Link to this heading">#</a></h1>
+<p>XTF binary structures as numpy structured dtypes.</p>
+<p>Field names, order and sizes follow the eXtended Triton Format
+specification, revision 42 (Exail), and agree field for field with the
+ctypes structures in pyxtf 1.5.0 (checked by the unit tests). All
+structures are little-endian and packed (no alignment padding); each
+dtype’s <code class="docutils literal notranslate"><span class="pre">itemsize</span></code> is asserted at import.</p>
+<section id="structures">
+<h2>Structures<a class="headerlink" href="#structures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CHAN_INFO_DTYPE</span></code> (128 bytes): one channel description in the file
+header (<code class="docutils literal notranslate"><span class="pre">CHANINFO</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FILE_HEADER_DTYPE</span></code> (1024 bytes): the file header (<code class="docutils literal notranslate"><span class="pre">XTFFILEHEADER</span></code>)
+including its first six <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> blocks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PACKET_START_DTYPE</span></code> (14 bytes): the fields every packet starts with
+(magic <code class="docutils literal notranslate"><span class="pre">0xFACE</span></code>, header type, sub-channel, channels to follow,
+reserved, total packet byte count).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PING_HEADER_DTYPE</span></code> (256 bytes): the sonar ping header
+(<code class="docutils literal notranslate"><span class="pre">XTFPINGHEADER</span></code>); its first 14 bytes are the packet start fields.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PING_CHAN_HEADER_DTYPE</span></code> (64 bytes): the per-channel header
+(<code class="docutils literal notranslate"><span class="pre">XTFPINGCHANHEADER</span></code>) that precedes each channel’s samples.</p></li>
+</ul>
+<p>Units as given by the specification (the reader does not convert):
+times in seconds, ranges in metres, <code class="docutils literal notranslate"><span class="pre">SensorDepth</span></code> /
+<code class="docutils literal notranslate"><span class="pre">SensorPrimaryAltitude</span></code> in metres, angles in degrees,
+<code class="docutils literal notranslate"><span class="pre">ShipAltitude</span></code> / <code class="docutils literal notranslate"><span class="pre">ShipDepth</span></code> in decimetres, coordinates in the units
+named by the file header’s <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> (0 = projected metres,
+3 = degrees with X = longitude, Y = latitude). Sound-velocity fields may
+hold half the true value (some recorders store the one-way factor
+<code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">/</span> <span class="pre">2</span></code>).</p>
+<p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
+</section>
+<p class="rubric">Contents</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.PACKET_MAGIC" title="sidescanpy.io.xtf.structs.PACKET_MAGIC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PACKET_MAGIC</span></code></a></p></td>
+<td><p>Magic number at the start of every packet.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.FILE_FORMAT_XTF" title="sidescanpy.io.xtf.structs.FILE_FORMAT_XTF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FILE_FORMAT_XTF</span></code></a></p></td>
+<td><p>Value of <code class="docutils literal notranslate"><span class="pre">FileFormat</span></code> (first byte of the file) for XTF files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.FILE_HEADER_BLOCK_BYTES" title="sidescanpy.io.xtf.structs.FILE_HEADER_BLOCK_BYTES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FILE_HEADER_BLOCK_BYTES</span></code></a></p></td>
+<td><p>Size of one file-header block; files with more than six channels append further blocks holding the remaining <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> entries.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.CHAN_INFO_IN_FIRST_BLOCK" title="sidescanpy.io.xtf.structs.CHAN_INFO_IN_FIRST_BLOCK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CHAN_INFO_IN_FIRST_BLOCK</span></code></a></p></td>
+<td><p>Number of <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> entries inside the first file-header block.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.HEADER_TYPE_SONAR" title="sidescanpy.io.xtf.structs.HEADER_TYPE_SONAR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HEADER_TYPE_SONAR</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.HEADER_TYPE_NOTES" title="sidescanpy.io.xtf.structs.HEADER_TYPE_NOTES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HEADER_TYPE_NOTES</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.HEADER_TYPE_NAMES" title="sidescanpy.io.xtf.structs.HEADER_TYPE_NAMES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HEADER_TYPE_NAMES</span></code></a></p></td>
+<td><p>Names of the packet header types defined by the specification.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_SUBBOTTOM" title="sidescanpy.io.xtf.structs.CHANNEL_TYPE_SUBBOTTOM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CHANNEL_TYPE_SUBBOTTOM</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_PORT" title="sidescanpy.io.xtf.structs.CHANNEL_TYPE_PORT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CHANNEL_TYPE_PORT</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_STBD" title="sidescanpy.io.xtf.structs.CHANNEL_TYPE_STBD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CHANNEL_TYPE_STBD</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_BATHY" title="sidescanpy.io.xtf.structs.CHANNEL_TYPE_BATHY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CHANNEL_TYPE_BATHY</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.NAV_UNITS_METERS" title="sidescanpy.io.xtf.structs.NAV_UNITS_METERS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NAV_UNITS_METERS</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.NAV_UNITS_LATLON" title="sidescanpy.io.xtf.structs.NAV_UNITS_LATLON"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NAV_UNITS_LATLON</span></code></a></p></td>
+<td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.SAMPLE_FORMAT_DTYPES" title="sidescanpy.io.xtf.structs.SAMPLE_FORMAT_DTYPES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SAMPLE_FORMAT_DTYPES</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> (ChanInfo, added in X41) to sample dtype.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES" title="sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEGACY_SAMPLE_DTYPES</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code> to sample dtype for legacy (<code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> 0) data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE" title="sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CHAN_INFO_DTYPE</span></code></a></p></td>
+<td><p>VoidDType(length, /)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE" title="sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FILE_HEADER_DTYPE</span></code></a></p></td>
+<td><p>VoidDType(length, /)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.PACKET_START_DTYPE" title="sidescanpy.io.xtf.structs.PACKET_START_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PACKET_START_DTYPE</span></code></a></p></td>
+<td><p>VoidDType(length, /)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.PING_HEADER_DTYPE" title="sidescanpy.io.xtf.structs.PING_HEADER_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PING_HEADER_DTYPE</span></code></a></p></td>
+<td><p>VoidDType(length, /)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.PING_CHAN_HEADER_DTYPE" title="sidescanpy.io.xtf.structs.PING_CHAN_HEADER_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PING_CHAN_HEADER_DTYPE</span></code></a></p></td>
+<td><p>VoidDType(length, /)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.sample_dtype" title="sidescanpy.io.xtf.structs.sample_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_dtype</span></code></a></p></td>
+<td><p>Return the sample dtype described by one <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> record.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.PACKET_MAGIC">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">PACKET_MAGIC</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64206</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.PACKET_MAGIC" title="Link to this definition">#</a></dt>
+<dd><p>Magic number at the start of every packet.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.FILE_FORMAT_XTF">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">FILE_FORMAT_XTF</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">123</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.FILE_FORMAT_XTF" title="Link to this definition">#</a></dt>
+<dd><p>Value of <code class="docutils literal notranslate"><span class="pre">FileFormat</span></code> (first byte of the file) for XTF files.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.FILE_HEADER_BLOCK_BYTES">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">FILE_HEADER_BLOCK_BYTES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1024</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.FILE_HEADER_BLOCK_BYTES" title="Link to this definition">#</a></dt>
+<dd><p>Size of one file-header block; files with more than six channels
+append further blocks holding the remaining <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> entries.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.CHAN_INFO_IN_FIRST_BLOCK">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">CHAN_INFO_IN_FIRST_BLOCK</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.CHAN_INFO_IN_FIRST_BLOCK" title="Link to this definition">#</a></dt>
+<dd><p>Number of <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> entries inside the first file-header block.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.HEADER_TYPE_SONAR">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">HEADER_TYPE_SONAR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.HEADER_TYPE_SONAR" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.HEADER_TYPE_NOTES">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">HEADER_TYPE_NOTES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.HEADER_TYPE_NOTES" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.HEADER_TYPE_NAMES">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">HEADER_TYPE_NAMES</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.HEADER_TYPE_NAMES" title="Link to this definition">#</a></dt>
+<dd><p>Names of the packet header types defined by the specification.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.CHANNEL_TYPE_SUBBOTTOM">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">CHANNEL_TYPE_SUBBOTTOM</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_SUBBOTTOM" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.CHANNEL_TYPE_PORT">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">CHANNEL_TYPE_PORT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_PORT" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.CHANNEL_TYPE_STBD">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">CHANNEL_TYPE_STBD</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_STBD" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.CHANNEL_TYPE_BATHY">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">CHANNEL_TYPE_BATHY</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_BATHY" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.NAV_UNITS_METERS">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">NAV_UNITS_METERS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.NAV_UNITS_METERS" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.NAV_UNITS_LATLON">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">NAV_UNITS_LATLON</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.NAV_UNITS_LATLON" title="Link to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating-point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-’ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.SAMPLE_FORMAT_DTYPES">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">SAMPLE_FORMAT_DTYPES</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.SAMPLE_FORMAT_DTYPES" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> (ChanInfo, added in X41) to sample dtype. Format 0
+(“legacy”) means “use <code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code>”, see <code class="docutils literal notranslate"><span class="pre">LEGACY_SAMPLE_DTYPES</span></code>.
+Formats 1 (IBM float), 4, 6 and 7 are not supported.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">LEGACY_SAMPLE_DTYPES</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code> to sample dtype for legacy (<code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> 0) data.
+Samples are read as unsigned integers, as pyxtf does.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">CHAN_INFO_DTYPE</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE" title="Link to this definition">#</a></dt>
+<dd><p>VoidDType(length, /)
+–</p>
+<p>DType class corresponding to the <code class="docutils literal notranslate"><span class="pre">numpy.void</span></code> scalar type.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.dtypes.VoidDType</span></code> cannot be instantiated directly.
+Use <code class="docutils literal notranslate"><span class="pre">np.dtype(&quot;void[{unit}]&quot;)</span></code> instead.</p>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">numpy.dtype</span></code> for the typical way to create dtype instances
+and <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes" title="(in NumPy v2.5)"><span>Data type objects (dtype)</span></a> for additional information.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">FILE_HEADER_DTYPE</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE" title="Link to this definition">#</a></dt>
+<dd><p>VoidDType(length, /)
+–</p>
+<p>DType class corresponding to the <code class="docutils literal notranslate"><span class="pre">numpy.void</span></code> scalar type.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.dtypes.VoidDType</span></code> cannot be instantiated directly.
+Use <code class="docutils literal notranslate"><span class="pre">np.dtype(&quot;void[{unit}]&quot;)</span></code> instead.</p>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">numpy.dtype</span></code> for the typical way to create dtype instances
+and <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes" title="(in NumPy v2.5)"><span>Data type objects (dtype)</span></a> for additional information.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.PACKET_START_DTYPE">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">PACKET_START_DTYPE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">dtype([('MagicNumber',</span> <span class="pre">'&lt;u2'),</span> <span class="pre">('HeaderType',</span> <span class="pre">'u1'),</span> <span class="pre">('SubChannelNumber',</span> <span class="pre">'u1'),</span> <span class="pre">('NumChansToFollow',</span> <span class="pre">'&lt;u2'),</span> <span class="pre">('Reserved1',</span> <span class="pre">'&lt;u2',</span> <span class="pre">(2,)),</span> <span class="pre">('NumBytesThisRecord',</span> <span class="pre">'&lt;u4')])</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.PACKET_START_DTYPE" title="Link to this definition">#</a></dt>
+<dd><p>VoidDType(length, /)
+–</p>
+<p>DType class corresponding to the <code class="docutils literal notranslate"><span class="pre">numpy.void</span></code> scalar type.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.dtypes.VoidDType</span></code> cannot be instantiated directly.
+Use <code class="docutils literal notranslate"><span class="pre">np.dtype(&quot;void[{unit}]&quot;)</span></code> instead.</p>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">numpy.dtype</span></code> for the typical way to create dtype instances
+and <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes" title="(in NumPy v2.5)"><span>Data type objects (dtype)</span></a> for additional information.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.PING_HEADER_DTYPE">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">PING_HEADER_DTYPE</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.PING_HEADER_DTYPE" title="Link to this definition">#</a></dt>
+<dd><p>VoidDType(length, /)
+–</p>
+<p>DType class corresponding to the <code class="docutils literal notranslate"><span class="pre">numpy.void</span></code> scalar type.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.dtypes.VoidDType</span></code> cannot be instantiated directly.
+Use <code class="docutils literal notranslate"><span class="pre">np.dtype(&quot;void[{unit}]&quot;)</span></code> instead.</p>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">numpy.dtype</span></code> for the typical way to create dtype instances
+and <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes" title="(in NumPy v2.5)"><span>Data type objects (dtype)</span></a> for additional information.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.PING_CHAN_HEADER_DTYPE">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">PING_CHAN_HEADER_DTYPE</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.PING_CHAN_HEADER_DTYPE" title="Link to this definition">#</a></dt>
+<dd><p>VoidDType(length, /)
+–</p>
+<p>DType class corresponding to the <code class="docutils literal notranslate"><span class="pre">numpy.void</span></code> scalar type.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.dtypes.VoidDType</span></code> cannot be instantiated directly.
+Use <code class="docutils literal notranslate"><span class="pre">np.dtype(&quot;void[{unit}]&quot;)</span></code> instead.</p>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">numpy.dtype</span></code> for the typical way to create dtype instances
+and <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes" title="(in NumPy v2.5)"><span>Data type objects (dtype)</span></a> for additional information.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.sample_dtype">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">sample_dtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chan_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.structs.sample_dtype" title="Link to this definition">#</a></dt>
+<dd><p>Return the sample dtype described by one <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> record.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> (X41 and later) takes precedence; format 0 (legacy)
+falls back to <code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code>. A format that disagrees with
+<code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code> is used as given.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>chan_info</strong><span class="classifier">numpy.void</span></dt><dd><p>One record of <code class="docutils literal notranslate"><span class="pre">CHAN_INFO_DTYPE</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>numpy.dtype</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If the sample format or byte width is not supported (IBM float,
+reserved formats, or a legacy width other than 1, 2 or 4 bytes).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sidescanpy.io.xtf.split.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">sidescanpy.io.xtf.split</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sidescanpy.io.xtf.subset.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">sidescanpy.io.xtf.subset</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structures">Structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.PACKET_MAGIC"><code class="docutils literal notranslate"><span class="pre">PACKET_MAGIC</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.FILE_FORMAT_XTF"><code class="docutils literal notranslate"><span class="pre">FILE_FORMAT_XTF</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.FILE_HEADER_BLOCK_BYTES"><code class="docutils literal notranslate"><span class="pre">FILE_HEADER_BLOCK_BYTES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.CHAN_INFO_IN_FIRST_BLOCK"><code class="docutils literal notranslate"><span class="pre">CHAN_INFO_IN_FIRST_BLOCK</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.HEADER_TYPE_SONAR"><code class="docutils literal notranslate"><span class="pre">HEADER_TYPE_SONAR</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.HEADER_TYPE_NOTES"><code class="docutils literal notranslate"><span class="pre">HEADER_TYPE_NOTES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.HEADER_TYPE_NAMES"><code class="docutils literal notranslate"><span class="pre">HEADER_TYPE_NAMES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_SUBBOTTOM"><code class="docutils literal notranslate"><span class="pre">CHANNEL_TYPE_SUBBOTTOM</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_PORT"><code class="docutils literal notranslate"><span class="pre">CHANNEL_TYPE_PORT</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_STBD"><code class="docutils literal notranslate"><span class="pre">CHANNEL_TYPE_STBD</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.CHANNEL_TYPE_BATHY"><code class="docutils literal notranslate"><span class="pre">CHANNEL_TYPE_BATHY</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.NAV_UNITS_METERS"><code class="docutils literal notranslate"><span class="pre">NAV_UNITS_METERS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.NAV_UNITS_LATLON"><code class="docutils literal notranslate"><span class="pre">NAV_UNITS_LATLON</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.SAMPLE_FORMAT_DTYPES"><code class="docutils literal notranslate"><span class="pre">SAMPLE_FORMAT_DTYPES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES"><code class="docutils literal notranslate"><span class="pre">LEGACY_SAMPLE_DTYPES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE"><code class="docutils literal notranslate"><span class="pre">CHAN_INFO_DTYPE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE"><code class="docutils literal notranslate"><span class="pre">FILE_HEADER_DTYPE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.PACKET_START_DTYPE"><code class="docutils literal notranslate"><span class="pre">PACKET_START_DTYPE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.PING_HEADER_DTYPE"><code class="docutils literal notranslate"><span class="pre">PING_HEADER_DTYPE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.PING_CHAN_HEADER_DTYPE"><code class="docutils literal notranslate"><span class="pre">PING_CHAN_HEADER_DTYPE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.sample_dtype"><code class="docutils literal notranslate"><span class="pre">sample_dtype()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

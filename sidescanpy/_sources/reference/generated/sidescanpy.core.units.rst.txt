@@ -1,0 +1,33 @@
+sidescanpy.core.units
+=====================
+
+.. automodule:: sidescanpy.core.units
+
+.. currentmodule:: sidescanpy.core.units
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   MIN_LINEAR
+   FLOOR_DB
+   FLOOR_CLIP_VALUES
+   linear_to_db
+   db_to_linear
+   mask_floor_clip
+   mask_floor_db
+
+.. autodata:: sidescanpy.core.units.MIN_LINEAR
+
+.. autodata:: sidescanpy.core.units.FLOOR_DB
+
+.. autodata:: sidescanpy.core.units.FLOOR_CLIP_VALUES
+
+.. autofunction:: sidescanpy.core.units.linear_to_db
+
+.. autofunction:: sidescanpy.core.units.db_to_linear
+
+.. autofunction:: sidescanpy.core.units.mask_floor_clip
+
+.. autofunction:: sidescanpy.core.units.mask_floor_db

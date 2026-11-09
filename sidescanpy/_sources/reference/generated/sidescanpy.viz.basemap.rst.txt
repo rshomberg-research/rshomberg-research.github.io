@@ -1,0 +1,18 @@
+sidescanpy.viz.basemap
+======================
+
+.. automodule:: sidescanpy.viz.basemap
+
+.. currentmodule:: sidescanpy.viz.basemap
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   add_land_background
+   plot_locator_thumbnail
+
+.. autofunction:: sidescanpy.viz.basemap.add_land_background
+
+.. autofunction:: sidescanpy.viz.basemap.plot_locator_thumbnail

@@ -1,0 +1,41 @@
+sidescanpy.processing.segments
+==============================
+
+.. automodule:: sidescanpy.processing.segments
+
+.. currentmodule:: sidescanpy.processing.segments
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   Segment
+   detect_gaps
+   detect_setting_changes
+   detect_garbage_runs
+   score_stability
+   detect_unstable_spans
+   find_segments
+   split_by_segments
+   write_segments
+
+.. autoclass:: sidescanpy.processing.segments.Segment
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.processing.segments.detect_gaps
+
+.. autofunction:: sidescanpy.processing.segments.detect_setting_changes
+
+.. autofunction:: sidescanpy.processing.segments.detect_garbage_runs
+
+.. autofunction:: sidescanpy.processing.segments.score_stability
+
+.. autofunction:: sidescanpy.processing.segments.detect_unstable_spans
+
+.. autofunction:: sidescanpy.processing.segments.find_segments
+
+.. autofunction:: sidescanpy.processing.segments.split_by_segments
+
+.. autofunction:: sidescanpy.processing.segments.write_segments

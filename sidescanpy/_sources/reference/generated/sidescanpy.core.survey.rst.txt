@@ -1,0 +1,22 @@
+sidescanpy.core.survey
+======================
+
+.. automodule:: sidescanpy.core.survey
+
+.. currentmodule:: sidescanpy.core.survey
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   SideScanFrequencyChannel
+   SideScanSurvey
+
+.. autoclass:: sidescanpy.core.survey.SideScanFrequencyChannel
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.core.survey.SideScanSurvey
+   :members:
+   :show-inheritance:

@@ -1,0 +1,24 @@
+sidescanpy.io.sdf.split
+=======================
+
+.. automodule:: sidescanpy.io.sdf.split
+
+.. currentmodule:: sidescanpy.io.sdf.split
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   SPLIT_RTOL
+   SPLIT_MIN_PINGS
+   sample_rate_runs
+   split_by_sample_rate
+
+.. autodata:: sidescanpy.io.sdf.split.SPLIT_RTOL
+
+.. autodata:: sidescanpy.io.sdf.split.SPLIT_MIN_PINGS
+
+.. autofunction:: sidescanpy.io.sdf.split.sample_rate_runs
+
+.. autofunction:: sidescanpy.io.sdf.split.split_by_sample_rate

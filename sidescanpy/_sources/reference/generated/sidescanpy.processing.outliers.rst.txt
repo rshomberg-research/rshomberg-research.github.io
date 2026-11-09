@@ -1,0 +1,18 @@
+sidescanpy.processing.outliers
+==============================
+
+.. automodule:: sidescanpy.processing.outliers
+
+.. currentmodule:: sidescanpy.processing.outliers
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   reject_range_outliers
+   mask_bright_ping_rows
+
+.. autofunction:: sidescanpy.processing.outliers.reject_range_outliers
+
+.. autofunction:: sidescanpy.processing.outliers.mask_bright_ping_rows

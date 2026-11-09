@@ -1,0 +1,42 @@
+sidescanpy.io.jsf.reader
+========================
+
+.. automodule:: sidescanpy.io.jsf.reader
+
+.. currentmodule:: sidescanpy.io.jsf.reader
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   read_jsf
+   read_jsf_iter
+   get_messages_by_index
+   filter_messages_by_type
+   filter_messages_by_frequency
+   get_message_statistics
+   export_messages_to_json
+   export_messages_by_type_to_json
+   save_messages_to_pickle
+   load_messages_from_pickle
+
+.. autofunction:: sidescanpy.io.jsf.reader.read_jsf
+
+.. autofunction:: sidescanpy.io.jsf.reader.read_jsf_iter
+
+.. autofunction:: sidescanpy.io.jsf.reader.get_messages_by_index
+
+.. autofunction:: sidescanpy.io.jsf.reader.filter_messages_by_type
+
+.. autofunction:: sidescanpy.io.jsf.reader.filter_messages_by_frequency
+
+.. autofunction:: sidescanpy.io.jsf.reader.get_message_statistics
+
+.. autofunction:: sidescanpy.io.jsf.reader.export_messages_to_json
+
+.. autofunction:: sidescanpy.io.jsf.reader.export_messages_by_type_to_json
+
+.. autofunction:: sidescanpy.io.jsf.reader.save_messages_to_pickle
+
+.. autofunction:: sidescanpy.io.jsf.reader.load_messages_from_pickle

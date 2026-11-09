@@ -1,0 +1,15 @@
+sidescanpy.core
+===============
+
+.. automodule:: sidescanpy.core
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   history <sidescanpy.core.history>
+   schema <sidescanpy.core.schema>
+   survey <sidescanpy.core.survey>
+   target <sidescanpy.core.target>
+   units <sidescanpy.core.units>

@@ -1,0 +1,18 @@
+sidescanpy.io.sdf.targets
+=========================
+
+.. automodule:: sidescanpy.io.sdf.targets
+
+.. currentmodule:: sidescanpy.io.sdf.targets
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   read_klein_targets
+   decode_target_window
+
+.. autofunction:: sidescanpy.io.sdf.targets.read_klein_targets
+
+.. autofunction:: sidescanpy.io.sdf.targets.decode_target_window

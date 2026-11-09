@@ -1,0 +1,55 @@
+sidescanpy.targets.correlate
+============================
+
+.. automodule:: sidescanpy.targets.correlate
+
+.. currentmodule:: sidescanpy.targets.correlate
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   resolve_target_position
+   calibrate_clock_offset
+   resolve_targets_offset_corrected
+   resolve_targets_nearest_ping
+   resolve_targets_by_catalog_ping
+   project_target_to_frequency
+   PositionMatch
+   build_position_index
+   match_frequency
+   correlate_target
+   CatalogPlacement
+   correlate_catalog
+   place_catalog
+
+.. autofunction:: sidescanpy.targets.correlate.resolve_target_position
+
+.. autofunction:: sidescanpy.targets.correlate.calibrate_clock_offset
+
+.. autofunction:: sidescanpy.targets.correlate.resolve_targets_offset_corrected
+
+.. autofunction:: sidescanpy.targets.correlate.resolve_targets_nearest_ping
+
+.. autofunction:: sidescanpy.targets.correlate.resolve_targets_by_catalog_ping
+
+.. autofunction:: sidescanpy.targets.correlate.project_target_to_frequency
+
+.. autoclass:: sidescanpy.targets.correlate.PositionMatch
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.targets.correlate.build_position_index
+
+.. autofunction:: sidescanpy.targets.correlate.match_frequency
+
+.. autofunction:: sidescanpy.targets.correlate.correlate_target
+
+.. autoclass:: sidescanpy.targets.correlate.CatalogPlacement
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.targets.correlate.correlate_catalog
+
+.. autofunction:: sidescanpy.targets.correlate.place_catalog

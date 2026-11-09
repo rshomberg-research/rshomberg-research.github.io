@@ -1,0 +1,73 @@
+sidescanpy.io.xtf.reader
+========================
+
+.. automodule:: sidescanpy.io.xtf.reader
+
+.. currentmodule:: sidescanpy.io.xtf.reader
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   XtfFileHeader
+   header_size_for_channels
+   read_xtf_header
+   XtfPacket
+   PacketStats
+   iter_packets
+   count_packets
+   XtfChannel
+   XtfFrequencyGroup
+   ChannelBlockStats
+   XtfSegmentInfo
+   XtfPingData
+   ping_times
+   read_xtf_pings
+   read_xtf
+
+.. autoclass:: sidescanpy.io.xtf.reader.XtfFileHeader
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.io.xtf.reader.header_size_for_channels
+
+.. autofunction:: sidescanpy.io.xtf.reader.read_xtf_header
+
+.. autoclass:: sidescanpy.io.xtf.reader.XtfPacket
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.xtf.reader.PacketStats
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.io.xtf.reader.iter_packets
+
+.. autofunction:: sidescanpy.io.xtf.reader.count_packets
+
+.. autoclass:: sidescanpy.io.xtf.reader.XtfChannel
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.xtf.reader.XtfFrequencyGroup
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.xtf.reader.ChannelBlockStats
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.xtf.reader.XtfSegmentInfo
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.xtf.reader.XtfPingData
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.io.xtf.reader.ping_times
+
+.. autofunction:: sidescanpy.io.xtf.reader.read_xtf_pings
+
+.. autofunction:: sidescanpy.io.xtf.reader.read_xtf

@@ -1,0 +1,33 @@
+sidescanpy.io.hdf5.survey_dir
+=============================
+
+.. automodule:: sidescanpy.io.hdf5.survey_dir
+
+.. currentmodule:: sidescanpy.io.hdf5.survey_dir
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   concat_survey_frequency
+   read_survey_dir
+   available_frequencies
+   load_channel_dataset
+   read_survey_pings
+   check_disk_space
+   atomic_write_survey
+
+.. autofunction:: sidescanpy.io.hdf5.survey_dir.concat_survey_frequency
+
+.. autofunction:: sidescanpy.io.hdf5.survey_dir.read_survey_dir
+
+.. autofunction:: sidescanpy.io.hdf5.survey_dir.available_frequencies
+
+.. autofunction:: sidescanpy.io.hdf5.survey_dir.load_channel_dataset
+
+.. autofunction:: sidescanpy.io.hdf5.survey_dir.read_survey_pings
+
+.. autofunction:: sidescanpy.io.hdf5.survey_dir.check_disk_space
+
+.. autofunction:: sidescanpy.io.hdf5.survey_dir.atomic_write_survey

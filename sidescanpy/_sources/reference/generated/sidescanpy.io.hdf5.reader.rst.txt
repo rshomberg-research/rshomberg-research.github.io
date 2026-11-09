@@ -1,0 +1,18 @@
+sidescanpy.io.hdf5.reader
+=========================
+
+.. automodule:: sidescanpy.io.hdf5.reader
+
+.. currentmodule:: sidescanpy.io.hdf5.reader
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   check_format_version
+   read_survey
+
+.. autofunction:: sidescanpy.io.hdf5.reader.check_format_version
+
+.. autofunction:: sidescanpy.io.hdf5.reader.read_survey

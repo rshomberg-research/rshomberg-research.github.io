@@ -1,0 +1,13 @@
+sidescanpy.targets
+==================
+
+.. automodule:: sidescanpy.targets
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   correlate <sidescanpy.targets.correlate>
+   io <sidescanpy.targets.io>
+   waterfall <sidescanpy.targets.waterfall>

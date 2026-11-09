@@ -1,0 +1,20 @@
+sidescanpy.processing.track
+===========================
+
+.. automodule:: sidescanpy.processing.track
+
+.. currentmodule:: sidescanpy.processing.track
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   SurveyTrack
+   build_survey_track
+
+.. autoclass:: sidescanpy.processing.track.SurveyTrack
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.processing.track.build_survey_track

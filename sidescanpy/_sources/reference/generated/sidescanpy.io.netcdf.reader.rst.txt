@@ -1,0 +1,15 @@
+sidescanpy.io.netcdf.reader
+===========================
+
+.. automodule:: sidescanpy.io.netcdf.reader
+
+.. currentmodule:: sidescanpy.io.netcdf.reader
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   read_frequency_channel
+
+.. autofunction:: sidescanpy.io.netcdf.reader.read_frequency_channel

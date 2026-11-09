@@ -1,0 +1,24 @@
+sidescanpy.processing.sample_axis
+=================================
+
+.. automodule:: sidescanpy.processing.sample_axis
+
+.. currentmodule:: sidescanpy.processing.sample_axis
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   DEFAULT_SOUND_VEL_MS
+   invalid_sound_vel_warning_suppressed
+   sample_index
+   sample_interval_m
+
+.. autodata:: sidescanpy.processing.sample_axis.DEFAULT_SOUND_VEL_MS
+
+.. autofunction:: sidescanpy.processing.sample_axis.invalid_sound_vel_warning_suppressed
+
+.. autofunction:: sidescanpy.processing.sample_axis.sample_index
+
+.. autofunction:: sidescanpy.processing.sample_axis.sample_interval_m

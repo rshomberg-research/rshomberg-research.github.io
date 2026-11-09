@@ -1,0 +1,15 @@
+sidescanpy.grids.geotiff
+========================
+
+.. automodule:: sidescanpy.grids.geotiff
+
+.. currentmodule:: sidescanpy.grids.geotiff
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   to_geotiff
+
+.. autofunction:: sidescanpy.grids.geotiff.to_geotiff

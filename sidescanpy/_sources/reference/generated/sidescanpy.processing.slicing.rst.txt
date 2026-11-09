@@ -1,0 +1,36 @@
+sidescanpy.processing.slicing
+=============================
+
+.. automodule:: sidescanpy.processing.slicing
+
+.. currentmodule:: sidescanpy.processing.slicing
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   slice_by_pings
+   ping_windows
+   slice_by_samples
+   slice_by_range
+   slice_by_time
+   slice_by_bbox
+   slice_by_ground_range
+   slice_survey
+
+.. autofunction:: sidescanpy.processing.slicing.slice_by_pings
+
+.. autofunction:: sidescanpy.processing.slicing.ping_windows
+
+.. autofunction:: sidescanpy.processing.slicing.slice_by_samples
+
+.. autofunction:: sidescanpy.processing.slicing.slice_by_range
+
+.. autofunction:: sidescanpy.processing.slicing.slice_by_time
+
+.. autofunction:: sidescanpy.processing.slicing.slice_by_bbox
+
+.. autofunction:: sidescanpy.processing.slicing.slice_by_ground_range
+
+.. autofunction:: sidescanpy.processing.slicing.slice_survey

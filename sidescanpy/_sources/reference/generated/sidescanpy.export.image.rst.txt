@@ -1,0 +1,43 @@
+sidescanpy.export.image
+=======================
+
+.. automodule:: sidescanpy.export.image
+
+.. currentmodule:: sidescanpy.export.image
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   ReversalMetadata
+   ReferenceStats
+   compute_reference_stats
+   to_uint8
+   to_uint16
+   from_uint8
+   NORMALIZATION_SCOPES
+   reference_stats_for_scope
+   save_grayscale_png
+
+.. autoclass:: sidescanpy.export.image.ReversalMetadata
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.export.image.ReferenceStats
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.export.image.compute_reference_stats
+
+.. autofunction:: sidescanpy.export.image.to_uint8
+
+.. autofunction:: sidescanpy.export.image.to_uint16
+
+.. autofunction:: sidescanpy.export.image.from_uint8
+
+.. autodata:: sidescanpy.export.image.NORMALIZATION_SCOPES
+
+.. autofunction:: sidescanpy.export.image.reference_stats_for_scope
+
+.. autofunction:: sidescanpy.export.image.save_grayscale_png

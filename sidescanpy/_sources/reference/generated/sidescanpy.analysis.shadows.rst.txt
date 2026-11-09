@@ -1,0 +1,24 @@
+sidescanpy.analysis.shadows
+===========================
+
+.. automodule:: sidescanpy.analysis.shadows
+
+.. currentmodule:: sidescanpy.analysis.shadows
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   PROPOSAL_COLUMNS
+   ShadowProposals
+   detect_shadow_proposals
+
+.. autodata:: sidescanpy.analysis.shadows.PROPOSAL_COLUMNS
+   :no-value:
+
+.. autoclass:: sidescanpy.analysis.shadows.ShadowProposals
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.shadows.detect_shadow_proposals

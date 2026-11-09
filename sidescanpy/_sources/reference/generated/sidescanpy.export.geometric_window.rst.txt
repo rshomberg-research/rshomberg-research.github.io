@@ -1,0 +1,24 @@
+sidescanpy.export.geometric_window
+==================================
+
+.. automodule:: sidescanpy.export.geometric_window
+
+.. currentmodule:: sidescanpy.export.geometric_window
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   extract_geometric_window
+   extract_geometric_window_binned
+   extract_geometric_window_griddata
+   locate_point
+
+.. autofunction:: sidescanpy.export.geometric_window.extract_geometric_window
+
+.. autofunction:: sidescanpy.export.geometric_window.extract_geometric_window_binned
+
+.. autofunction:: sidescanpy.export.geometric_window.extract_geometric_window_griddata
+
+.. autofunction:: sidescanpy.export.geometric_window.locate_point

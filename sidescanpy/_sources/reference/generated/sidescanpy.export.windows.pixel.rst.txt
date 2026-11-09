@@ -1,0 +1,58 @@
+sidescanpy.export.windows.pixel
+===============================
+
+.. automodule:: sidescanpy.export.windows.pixel
+
+.. currentmodule:: sidescanpy.export.windows.pixel
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   WindowExtent
+   extract_chip
+   extract_full_channel
+   resize_to
+   sample_negative_window
+   targets_within_window
+   rescale_target_position
+   RenderedWindow
+   combine_channels_mirrored
+   target_combined_col
+   rescale_targets
+   with_bbox_size_px
+   place_targets_in_file
+   extract_pixel_style_window
+
+.. autoclass:: sidescanpy.export.windows.pixel.WindowExtent
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.export.windows.pixel.extract_chip
+
+.. autofunction:: sidescanpy.export.windows.pixel.extract_full_channel
+
+.. autofunction:: sidescanpy.export.windows.pixel.resize_to
+
+.. autofunction:: sidescanpy.export.windows.pixel.sample_negative_window
+
+.. autofunction:: sidescanpy.export.windows.pixel.targets_within_window
+
+.. autofunction:: sidescanpy.export.windows.pixel.rescale_target_position
+
+.. autoclass:: sidescanpy.export.windows.pixel.RenderedWindow
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.export.windows.pixel.combine_channels_mirrored
+
+.. autofunction:: sidescanpy.export.windows.pixel.target_combined_col
+
+.. autofunction:: sidescanpy.export.windows.pixel.rescale_targets
+
+.. autofunction:: sidescanpy.export.windows.pixel.with_bbox_size_px
+
+.. autofunction:: sidescanpy.export.windows.pixel.place_targets_in_file
+
+.. autofunction:: sidescanpy.export.windows.pixel.extract_pixel_style_window

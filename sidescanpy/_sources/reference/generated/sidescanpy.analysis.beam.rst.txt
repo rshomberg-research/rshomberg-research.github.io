@@ -1,0 +1,20 @@
+sidescanpy.analysis.beam
+========================
+
+.. automodule:: sidescanpy.analysis.beam
+
+.. currentmodule:: sidescanpy.analysis.beam
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   BeamGeometryResult
+   estimate_beam_geometry
+
+.. autoclass:: sidescanpy.analysis.beam.BeamGeometryResult
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.beam.estimate_beam_geometry

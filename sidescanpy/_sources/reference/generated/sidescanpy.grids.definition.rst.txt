@@ -1,0 +1,26 @@
+sidescanpy.grids.definition
+===========================
+
+.. automodule:: sidescanpy.grids.definition
+
+.. currentmodule:: sidescanpy.grids.definition
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   GridDefinition
+   utm_crs_for_lonlat
+   utm_grid_from_wgs84_bbox
+   bbox_from_channel_dataset
+
+.. autoclass:: sidescanpy.grids.definition.GridDefinition
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.grids.definition.utm_crs_for_lonlat
+
+.. autofunction:: sidescanpy.grids.definition.utm_grid_from_wgs84_bbox
+
+.. autofunction:: sidescanpy.grids.definition.bbox_from_channel_dataset

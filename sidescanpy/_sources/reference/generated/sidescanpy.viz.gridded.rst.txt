@@ -1,0 +1,15 @@
+sidescanpy.viz.gridded
+======================
+
+.. automodule:: sidescanpy.viz.gridded
+
+.. currentmodule:: sidescanpy.viz.gridded
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   plot_gridded_raster
+
+.. autofunction:: sidescanpy.viz.gridded.plot_gridded_raster

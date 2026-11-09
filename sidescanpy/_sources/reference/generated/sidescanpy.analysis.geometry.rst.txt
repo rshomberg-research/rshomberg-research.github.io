@@ -1,0 +1,20 @@
+sidescanpy.analysis.geometry
+============================
+
+.. automodule:: sidescanpy.analysis.geometry
+
+.. currentmodule:: sidescanpy.analysis.geometry
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   PingGeometry
+   measure_ping_geometry
+
+.. autoclass:: sidescanpy.analysis.geometry.PingGeometry
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.geometry.measure_ping_geometry

@@ -1,0 +1,24 @@
+sidescanpy.log
+==============
+
+.. automodule:: sidescanpy.log
+
+.. currentmodule:: sidescanpy.log
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   LOG_FORMAT
+   LOG_DATEFMT
+   configure_logging
+   log_timing
+
+.. autodata:: sidescanpy.log.LOG_FORMAT
+
+.. autodata:: sidescanpy.log.LOG_DATEFMT
+
+.. autofunction:: sidescanpy.log.configure_logging
+
+.. autofunction:: sidescanpy.log.log_timing

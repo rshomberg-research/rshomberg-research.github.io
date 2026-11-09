@@ -1,0 +1,20 @@
+sidescanpy.analysis.outliers
+============================
+
+.. automodule:: sidescanpy.analysis.outliers
+
+.. currentmodule:: sidescanpy.analysis.outliers
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   OutlierComparisonResult
+   compare_outlier_rejection
+
+.. autoclass:: sidescanpy.analysis.outliers.OutlierComparisonResult
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.outliers.compare_outlier_rejection

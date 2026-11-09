@@ -1,0 +1,15 @@
+sidescanpy.grids.resolution
+===========================
+
+.. automodule:: sidescanpy.grids.resolution
+
+.. currentmodule:: sidescanpy.grids.resolution
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   recommend_resolution
+
+.. autofunction:: sidescanpy.grids.resolution.recommend_resolution

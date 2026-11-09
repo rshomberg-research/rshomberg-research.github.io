@@ -1,0 +1,21 @@
+sidescanpy.processing.farrange
+==============================
+
+.. automodule:: sidescanpy.processing.farrange
+
+.. currentmodule:: sidescanpy.processing.farrange
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   detect_far_range_cutoff_sample
+   crop_far_range
+   crop_far_range_noise
+
+.. autofunction:: sidescanpy.processing.farrange.detect_far_range_cutoff_sample
+
+.. autofunction:: sidescanpy.processing.farrange.crop_far_range
+
+.. autofunction:: sidescanpy.processing.farrange.crop_far_range_noise

@@ -1,0 +1,15 @@
+sidescanpy.processing.geometric
+===============================
+
+.. automodule:: sidescanpy.processing.geometric
+
+.. currentmodule:: sidescanpy.processing.geometric
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   compute_geometric_ranges
+
+.. autofunction:: sidescanpy.processing.geometric.compute_geometric_ranges

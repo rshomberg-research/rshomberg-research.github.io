@@ -1,0 +1,42 @@
+sidescanpy.datasets
+===================
+
+.. automodule:: sidescanpy.datasets
+
+.. currentmodule:: sidescanpy.datasets
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   Source
+   RemoteFile
+   SOURCES
+   REGISTRY
+   list_datasets
+   data_dir
+   citation
+   fetch
+
+.. autoclass:: sidescanpy.datasets.Source
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.datasets.RemoteFile
+   :members:
+   :show-inheritance:
+
+.. autodata:: sidescanpy.datasets.SOURCES
+   :no-value:
+
+.. autodata:: sidescanpy.datasets.REGISTRY
+   :no-value:
+
+.. autofunction:: sidescanpy.datasets.list_datasets
+
+.. autofunction:: sidescanpy.datasets.data_dir
+
+.. autofunction:: sidescanpy.datasets.citation
+
+.. autofunction:: sidescanpy.datasets.fetch

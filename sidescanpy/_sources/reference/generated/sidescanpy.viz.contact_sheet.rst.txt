@@ -1,0 +1,18 @@
+sidescanpy.viz.contact_sheet
+============================
+
+.. automodule:: sidescanpy.viz.contact_sheet
+
+.. currentmodule:: sidescanpy.viz.contact_sheet
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   contact_sheet
+   render_target_context
+
+.. autofunction:: sidescanpy.viz.contact_sheet.contact_sheet
+
+.. autofunction:: sidescanpy.viz.contact_sheet.render_target_context

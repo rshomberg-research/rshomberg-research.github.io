@@ -1,0 +1,45 @@
+sidescanpy.export.windows.neighborhood
+======================================
+
+.. automodule:: sidescanpy.export.windows.neighborhood
+
+.. currentmodule:: sidescanpy.export.windows.neighborhood
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   SWATH_OVERSAMPLE
+   SWATH_LOAD_BLOCK_PINGS
+   SWATH_LOAD_VARS
+   neighborhood_ping_spacing_m
+   across_values
+   geo_decimation
+   load_swath_neighborhood
+   decimate_target
+   GeoNeighborhood
+   load_geo_neighborhood
+
+.. autodata:: sidescanpy.export.windows.neighborhood.SWATH_OVERSAMPLE
+
+.. autodata:: sidescanpy.export.windows.neighborhood.SWATH_LOAD_BLOCK_PINGS
+
+.. autodata:: sidescanpy.export.windows.neighborhood.SWATH_LOAD_VARS
+   :no-value:
+
+.. autofunction:: sidescanpy.export.windows.neighborhood.neighborhood_ping_spacing_m
+
+.. autofunction:: sidescanpy.export.windows.neighborhood.across_values
+
+.. autofunction:: sidescanpy.export.windows.neighborhood.geo_decimation
+
+.. autofunction:: sidescanpy.export.windows.neighborhood.load_swath_neighborhood
+
+.. autofunction:: sidescanpy.export.windows.neighborhood.decimate_target
+
+.. autoclass:: sidescanpy.export.windows.neighborhood.GeoNeighborhood
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.export.windows.neighborhood.load_geo_neighborhood

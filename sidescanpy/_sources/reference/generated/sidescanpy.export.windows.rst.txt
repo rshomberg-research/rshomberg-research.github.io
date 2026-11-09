@@ -1,0 +1,16 @@
+sidescanpy.export.windows
+=========================
+
+.. automodule:: sidescanpy.export.windows
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   background <sidescanpy.export.windows.background>
+   geo <sidescanpy.export.windows.geo>
+   levels <sidescanpy.export.windows.levels>
+   native <sidescanpy.export.windows.native>
+   neighborhood <sidescanpy.export.windows.neighborhood>
+   pixel <sidescanpy.export.windows.pixel>

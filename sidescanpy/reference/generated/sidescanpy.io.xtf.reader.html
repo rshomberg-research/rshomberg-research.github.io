@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>sidescanpy.io.xtf.reader &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../../_static/documentation_options.js?v=486e5634"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/generated/sidescanpy.io.xtf.reader';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sidescanpy.io.xtf.split" href="sidescanpy.io.xtf.split.html" />
+    <link rel="prev" title="sidescanpy.io.xtf.converter" href="sidescanpy.io.xtf.converter.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="sidescanpy.html">sidescanpy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.analysis.html">analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.beam.html">beam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.characterize.html">characterize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.geometry.html">geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.nadir.html">nadir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.core.html">core</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.history.html">history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.schema.html">schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.survey.html">survey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.target.html">target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.units.html">units</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.datasets.html">datasets</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.export.html">export</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.augment.html">augment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.geometric_window.html">geometric_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.georef_window.html">georef_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.image.html">image</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.ml.html">ml</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.coco.html">coco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.dataset.html">dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.yolo.html">yolo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.orientation.html">orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.target_window.html">target_window</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.windows.html">windows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.background.html">background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.geo.html">geo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.levels.html">levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.native.html">native</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.neighborhood.html">neighborhood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.pixel.html">pixel</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.grids.html">grids</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.definition.html">definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.geotiff.html">geotiff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.raster.html">raster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resample.html">resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resolution.html">resolution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="sidescanpy.io.html">io</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.io.dispatch.html">dispatch</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.hdf5.html">hdf5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.survey_dir.html">survey_dir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.jsf.html">jsf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.messages.html">messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.subset.html">subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.netcdf.html">netcdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.sdf.html">sdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.pages.html">pages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="sidescanpy.io.xtf.html">xtf</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.converter.html">converter</a></li>
+<li class="toctree-l4 current active"><a aria-current="page" class="current reference internal" href="#">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.structs.html">structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.subset.html">subset</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.log.html">log</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.processing.html">processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.aux_fixes.html">aux_fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.bottom.html">bottom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.correct.html">correct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.farrange.html">farrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.geometric.html">geometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.radiometric.html">radiometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.range_correction.html">range_correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.sample_axis.html">sample_axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.segments.html">segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.slicing.html">slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.track.html">track</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.targets.html">targets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.correlate.html">correlate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.viz.html">viz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.analysis.html">analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.basemap.html">basemap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.contact_sheet.html">contact_sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.gridded.html">gridded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.scalebar.html">scalebar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.targets.html">targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.track.html">track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.html" class="nav-link">sidescanpy</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.io.html" class="nav-link">sidescanpy.io</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.io.xtf.html" class="nav-link">sidescanpy.io.xtf</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sidescanpy.io.xtf.reader</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-sidescanpy.io.xtf.reader">
+<span id="sidescanpy-io-xtf-reader"></span><h1>sidescanpy.io.xtf.reader<a class="headerlink" href="#module-sidescanpy.io.xtf.reader" title="Link to this heading">#</a></h1>
+<p>Low-level XTF (eXtended Triton Format) reader.</p>
+<p>Reads the file header, frames packets, and parses sonar packets into
+per-ping header records and per-channel sample arrays. The converter to
+the standard survey model is <code class="docutils literal notranslate"><span class="pre">sidescanpy.io.xtf.converter</span></code>;
+<code class="docutils literal notranslate"><span class="pre">read_xtf</span></code> is the per-file entry point that feeds it.</p>
+<section id="file-layout">
+<h2>File layout<a class="headerlink" href="#file-layout" title="Link to this heading">#</a></h2>
+<p>A file starts with a 1024-byte header holding up to six <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code>
+channel descriptions; with more than six channels the remaining
+<code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> entries follow contiguously in further 1024-byte blocks.
+Packets follow. Each starts with the magic <code class="docutils literal notranslate"><span class="pre">0xFACE</span></code>, a header type and
+<code class="docutils literal notranslate"><span class="pre">NumBytesThisRecord</span></code>, the packet’s total size including any padding.
+That byte count is authoritative: the reader steps from packet to packet
+with it, never with sizes derived from the packet contents. A packet with
+a bad magic triggers a forward scan for the next <code class="docutils literal notranslate"><span class="pre">0xFACE</span></code> (counted, and
+logged at WARNING); a truncated final packet is logged at WARNING and
+ends the read.</p>
+<p>A sonar packet (header type 0) is a 256-byte ping header followed, for
+each channel, by a 64-byte channel header and <code class="docutils literal notranslate"><span class="pre">NumSamples</span></code> samples.
+The sample type comes from the file header’s <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> entry for that
+channel (<code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code>, else <code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code>).</p>
+</section>
+<section id="channel-blocks-are-walked-using-the-packet-byte-count">
+<h2>Channel blocks are walked using the packet byte count<a class="headerlink" href="#channel-blocks-are-walked-using-the-packet-byte-count" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">NumChansToFollow</span></code> in the ping header is treated as an upper bound.
+Channel blocks are parsed while at least a full 64-byte channel header
+remains inside the packet; a channel whose samples would run past the
+packet end is clipped to the samples that fit. Each mismatch kind is
+logged at WARNING once per file with a count.</p>
+<p>Evidence for this rule (EdgeTech 4200 files recorded by Isis, four
+channels declared in the file header: port/starboard at 120 kHz as
+channels 0/1 and at 410 kHz as channels 2/3, <code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code> 2):</p>
+<ul class="simple">
+<li><p>In two such files the first sonar packets (2976 of 25539 in one file,
+1680 of 20475 in the other, a single contiguous run at the start) are
+4480 bytes long while their ping headers say <code class="docutils literal notranslate"><span class="pre">NumChansToFollow</span> <span class="pre">=</span> <span class="pre">4</span></code>
+and the first two channel headers say <code class="docutils literal notranslate"><span class="pre">NumSamples</span> <span class="pre">=</span> <span class="pre">1024</span></code>. Normal
+packets are 8704 = 256 + 4 * (64 + 1024 * 2) bytes.</p></li>
+<li><p>4480 = 256 + 2 * (64 + 1024 * 2) exactly: the packet holds two
+complete channel blocks (channel numbers 0 and 1, the low-frequency
+pair) and nothing else. The “third channel header” a reader trusting
+<code class="docutils literal notranslate"><span class="pre">NumChansToFollow</span></code> would parse starts with <code class="docutils literal notranslate"><span class="pre">0xFACE</span></code>: it is the next
+packet.</p></li>
+<li><p>The samples are 16-bit, 1024 per channel as declared. Read as uint16,
+adjacent samples correlate (lag-1 r = 0.96 and 0.79 over the two
+runs, 0.86 and 0.80 in the same files’ normal pings), values stay
+within the normal pings’ 0..32767 range, and medians are comparable
+(1148 vs 1505, 285 vs 731). Read as 8-bit, adjacent samples do not
+correlate (r = -0.01 and -0.46). The first pings of each run are
+faint (high byte zero in 88-99.99 % of the first 200 pings), rising to
+the normal level. Ping numbers are continuous across the switch to
+four-channel packets, navigation is continuous, and the low-only
+pings repeat faster (0.08 s vs 0.14 s at 100 m range, 0.21 s vs
+0.42 s at 300 m).</p></li>
+</ul>
+<p>So those pings carry only the low-frequency pair; the high-frequency
+channels are absent, not empty. pyxtf 1.5.0 trusts <code class="docutils literal notranslate"><span class="pre">NumChansToFollow</span></code>
+and fails on such packets.</p>
+</section>
+<section id="sample-arrays">
+<h2>Sample arrays<a class="headerlink" href="#sample-arrays" title="Link to this heading">#</a></h2>
+<p>Samples keep their recorded dtype (uint8/uint16/uint32/float32), so
+values are bit-identical to the file. A channel’s array is
+<code class="docutils literal notranslate"><span class="pre">(n_ping,</span> <span class="pre">max_samples)</span></code> over all sonar pings of the file; pings where
+the channel is absent or shorter are zero-padded on the right, and the
+true length is in <code class="docutils literal notranslate"><span class="pre">num_samples</span></code> (0 where absent, with <code class="docutils literal notranslate"><span class="pre">present</span></code>
+False). The converter decides whether padding becomes NaN.</p>
+<p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
+</section>
+<p class="rubric">Contents</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.XtfFileHeader" title="sidescanpy.io.xtf.reader.XtfFileHeader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XtfFileHeader</span></code></a></p></td>
+<td><p>Parsed XTF file header.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.header_size_for_channels" title="sidescanpy.io.xtf.reader.header_size_for_channels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">header_size_for_channels</span></code></a></p></td>
+<td><p>Return the file-header size in bytes for <code class="docutils literal notranslate"><span class="pre">n_channels</span></code> channels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.read_xtf_header" title="sidescanpy.io.xtf.reader.read_xtf_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_xtf_header</span></code></a></p></td>
+<td><p>Read the file header of an XTF file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.XtfPacket" title="sidescanpy.io.xtf.reader.XtfPacket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XtfPacket</span></code></a></p></td>
+<td><p>One framed packet.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.PacketStats" title="sidescanpy.io.xtf.reader.PacketStats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PacketStats</span></code></a></p></td>
+<td><p>Counts gathered while framing packets.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.iter_packets" title="sidescanpy.io.xtf.reader.iter_packets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iter_packets</span></code></a></p></td>
+<td><p>Stream the packets of an XTF file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.count_packets" title="sidescanpy.io.xtf.reader.count_packets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count_packets</span></code></a></p></td>
+<td><p>Frame every packet of a file without parsing them.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.XtfChannel" title="sidescanpy.io.xtf.reader.XtfChannel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XtfChannel</span></code></a></p></td>
+<td><p>Samples and headers of one sonar channel over all pings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.XtfFrequencyGroup" title="sidescanpy.io.xtf.reader.XtfFrequencyGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XtfFrequencyGroup</span></code></a></p></td>
+<td><p>A port/starboard channel pair sharing one frequency.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.ChannelBlockStats" title="sidescanpy.io.xtf.reader.ChannelBlockStats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelBlockStats</span></code></a></p></td>
+<td><p>Mismatches between sonar packets' declared and actual channel blocks.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.XtfSegmentInfo" title="sidescanpy.io.xtf.reader.XtfSegmentInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XtfSegmentInfo</span></code></a></p></td>
+<td><p>Where a run of pings sits in its source file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.XtfPingData" title="sidescanpy.io.xtf.reader.XtfPingData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XtfPingData</span></code></a></p></td>
+<td><p>Sonar pings of one XTF file, as recorded.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.ping_times" title="sidescanpy.io.xtf.reader.ping_times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ping_times</span></code></a></p></td>
+<td><p>Compute ping times from ping header records.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.read_xtf_pings" title="sidescanpy.io.xtf.reader.read_xtf_pings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_xtf_pings</span></code></a></p></td>
+<td><p>Read every sonar ping of an XTF file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.reader.read_xtf" title="sidescanpy.io.xtf.reader.read_xtf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_xtf</span></code></a></p></td>
+<td><p>Read one XTF file for conversion.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.XtfFileHeader">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">XtfFileHeader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chan_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.XtfFileHeader" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Parsed XTF file header.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>record</strong><span class="classifier">numpy.void</span></dt><dd><p>The first 1024-byte header block as a <code class="docutils literal notranslate"><span class="pre">FILE_HEADER_DTYPE</span></code>
+record (its <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> field holds the first six slots).</p>
+</dd>
+<dt><strong>chan_info</strong><span class="classifier">numpy.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">CHAN_INFO_DTYPE</span></code> array with one entry per declared channel
+(the sum of the header’s channel counts), including entries
+from extra header blocks.</p>
+</dd>
+<dt><strong>size</strong><span class="classifier">int</span></dt><dd><p>Header size in bytes, i.e. the offset of the first packet.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.XtfFileHeader.n_channels">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">n_channels</span></span><a class="headerlink" href="#sidescanpy.io.xtf.reader.XtfFileHeader.n_channels" title="Link to this definition">#</a></dt>
+<dd><p>Number of channels declared in the header.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.header_size_for_channels">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">header_size_for_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_channels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.header_size_for_channels" title="Link to this definition">#</a></dt>
+<dd><p>Return the file-header size in bytes for <code class="docutils literal notranslate"><span class="pre">n_channels</span></code> channels.</p>
+<p>The first 1024-byte block holds six <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> entries; further
+entries follow contiguously from byte 1024, padded to whole
+1024-byte blocks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n_channels</strong><span class="classifier">int</span></dt><dd><p>Declared channel count.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>int</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.read_xtf_header">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">read_xtf_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.read_xtf_header" title="Link to this definition">#</a></dt>
+<dd><p>Read the file header of an XTF file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">str or Path</span></dt><dd><p>XTF file.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>XtfFileHeader</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>FileNotFoundError</dt><dd><p>If the file does not exist.</p>
+</dd>
+<dt>ValueError</dt><dd><p>If the file is too short or its first byte is not the XTF
+<code class="docutils literal notranslate"><span class="pre">FileFormat</span></code> value 0x7B.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.XtfPacket">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">XtfPacket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.XtfPacket" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>One framed packet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>header_type</strong><span class="classifier">int</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">HeaderType</span></code> from the packet start (see
+<code class="docutils literal notranslate"><span class="pre">structs.HEADER_TYPE_NAMES</span></code>).</p>
+</dd>
+<dt><strong>offset</strong><span class="classifier">int</span></dt><dd><p>Byte offset of the packet in the file.</p>
+</dd>
+<dt><strong>data</strong><span class="classifier">bytes</span></dt><dd><p>The whole packet, starting with its 14 packet-start bytes, of
+length <code class="docutils literal notranslate"><span class="pre">NumBytesThisRecord</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.XtfPacket.start">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">start</span></span><a class="headerlink" href="#sidescanpy.io.xtf.reader.XtfPacket.start" title="Link to this definition">#</a></dt>
+<dd><p>The packet start fields as a <code class="docutils literal notranslate"><span class="pre">PACKET_START_DTYPE</span></code> record.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.PacketStats">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">PacketStats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">counts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipped</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resyncs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resync_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncated</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.PacketStats" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Counts gathered while framing packets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>counts</strong><span class="classifier">collections.Counter</span></dt><dd><p>Packets framed, by header type (yielded or skipped).</p>
+</dd>
+<dt><strong>skipped</strong><span class="classifier">collections.Counter</span></dt><dd><p>Packets not yielded because of the <code class="docutils literal notranslate"><span class="pre">header_types</span></code> filter.</p>
+</dd>
+<dt><strong>unknown</strong><span class="classifier">collections.Counter</span></dt><dd><p>Packets whose header type the specification does not define.</p>
+</dd>
+<dt><strong>resyncs</strong><span class="classifier">int</span></dt><dd><p>Bad-magic events that needed a forward scan.</p>
+</dd>
+<dt><strong>resync_bytes</strong><span class="classifier">int</span></dt><dd><p>Bytes skipped by those scans.</p>
+</dd>
+<dt><strong>truncated</strong><span class="classifier">bool</span></dt><dd><p>True if the file ended inside a packet.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.iter_packets">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">iter_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.iter_packets" title="Link to this definition">#</a></dt>
+<dd><p>Stream the packets of an XTF file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">str or Path</span></dt><dd><p>XTF file.</p>
+</dd>
+<dt><strong>header_types</strong><span class="classifier">iterable of int, optional</span></dt><dd><p>Header types to yield. Others are skipped by their byte count
+without reading their body. Default: yield every packet.</p>
+</dd>
+<dt><strong>stats</strong><span class="classifier">PacketStats, optional</span></dt><dd><p>Filled in place with counts as packets are framed (useful because
+a generator has no return value to the caller).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>XtfPacket</dt><dd><p>Packets in file order.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Packets whose header type is not defined by the specification are
+counted in <code class="docutils literal notranslate"><span class="pre">stats.unknown</span></code> and logged at DEBUG; they are yielded
+like any other when no filter is given. A bad magic number or a byte
+count smaller than the packet start triggers a forward scan for the
+next <code class="docutils literal notranslate"><span class="pre">0xFACE</span></code> (logged at WARNING). A packet extending past the end
+of the file is logged at WARNING and ends iteration.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.count_packets">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">count_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.count_packets" title="Link to this definition">#</a></dt>
+<dd><p>Frame every packet of a file without parsing them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">str or Path</span></dt><dd><p>XTF file.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>PacketStats</dt><dd><p>Counts by header type, plus resync and truncation information.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.XtfChannel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">XtfChannel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chan_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">present</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.XtfChannel" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Samples and headers of one sonar channel over all pings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>channel_number</strong><span class="classifier">int</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">ChannelNumber</span></code> from the channel headers (index into the file
+header’s <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code>).</p>
+</dd>
+<dt><strong>chan_info</strong><span class="classifier">numpy.void</span></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> record for this channel.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">ChanInfo.ChannelName</span></code>.</p>
+</dd>
+<dt><strong>side</strong><span class="classifier">str</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">&quot;port&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;stbd&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code> (from <code class="docutils literal notranslate"><span class="pre">TypeOfChannel</span></code>).</p>
+</dd>
+<dt><strong>frequency</strong><span class="classifier">float</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">ChanInfo.Frequency</span></code>, or the most common nonzero per-ping
+channel-header <code class="docutils literal notranslate"><span class="pre">Frequency</span></code> when that is 0, else NaN. The unit is
+whatever the recorder wrote (kHz in the files seen so far).</p>
+</dd>
+<dt><strong>samples</strong><span class="classifier">numpy.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(n_ping,</span> <span class="pre">max_samples)</span></code> in the recorded sample dtype,
+zero-padded on the right.</p>
+</dd>
+<dt><strong>num_samples</strong><span class="classifier">numpy.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(n_ping,)</span></code> uint32, samples stored for each ping (0 where absent).</p>
+</dd>
+<dt><strong>present</strong><span class="classifier">numpy.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(n_ping,)</span></code> bool, whether the ping held this channel.</p>
+</dd>
+<dt><strong>headers</strong><span class="classifier">numpy.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(n_ping,)</span></code> <code class="docutils literal notranslate"><span class="pre">PING_CHAN_HEADER_DTYPE</span></code> records; all zero where
+the channel is absent.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.XtfFrequencyGroup">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">XtfFrequencyGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stbd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.XtfFrequencyGroup" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A port/starboard channel pair sharing one frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>frequency</strong><span class="classifier">float</span></dt><dd><p>Frequency as recorded (see <code class="docutils literal notranslate"><span class="pre">XtfChannel.frequency</span></code>); NaN when
+unknown, in which case channels were paired in channel order.</p>
+</dd>
+<dt><strong>port, stbd</strong><span class="classifier">XtfChannel or None</span></dt><dd><p>The two sides; one may be missing.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.ChannelBlockStats">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">ChannelBlockStats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fewer_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">declared</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">found</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clipped</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_chan_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legacy_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.ChannelBlockStats" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Mismatches between sonar packets’ declared and actual channel blocks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fewer_channels</strong><span class="classifier">int</span></dt><dd><p>Sonar packets holding fewer complete channel blocks than their
+<code class="docutils literal notranslate"><span class="pre">NumChansToFollow</span></code>.</p>
+</dd>
+<dt><strong>declared, found</strong><span class="classifier">collections.Counter</span></dt><dd><p>For those packets: declared channel counts, and the number of
+blocks actually found.</p>
+</dd>
+<dt><strong>clipped</strong><span class="classifier">int</span></dt><dd><p>Channel blocks declaring more samples than fit in their packet
+(clipped to what fits).</p>
+</dd>
+<dt><strong>no_chan_info</strong><span class="classifier">int</span></dt><dd><p>Channel blocks with no usable <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> entry (rest of the
+packet skipped).</p>
+</dd>
+<dt><strong>legacy_count</strong><span class="classifier">int</span></dt><dd><p>Channel blocks whose sample count came from <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> because
+<code class="docutils literal notranslate"><span class="pre">NumSamples</span></code> was 0 (pre-X41 files).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.XtfSegmentInfo">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">XtfSegmentInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pings_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_runs_dropped</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pings_dropped</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtol</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.XtfSegmentInfo" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Where a run of pings sits in its source file.</p>
+<p>Set by <a class="reference internal" href="sidescanpy.io.xtf.split.html#sidescanpy.io.xtf.split.split_by_sample_rate" title="sidescanpy.io.xtf.split.split_by_sample_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">sidescanpy.io.xtf.split_by_sample_rate()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>index</strong><span class="classifier">int</span></dt><dd><p>1-based position among the kept runs.</p>
+</dd>
+<dt><strong>count</strong><span class="classifier">int</span></dt><dd><p>Number of kept runs of the file.</p>
+</dd>
+<dt><strong>ping_start, ping_stop</strong><span class="classifier">int</span></dt><dd><p>The run’s pings are <code class="docutils literal notranslate"><span class="pre">[ping_start,</span> <span class="pre">ping_stop)</span></code> in the file’s
+sonar-ping order.</p>
+</dd>
+<dt><strong>n_pings_file</strong><span class="classifier">int</span></dt><dd><p>Sonar pings in the whole file.</p>
+</dd>
+<dt><strong>n_runs_dropped</strong><span class="classifier">int</span></dt><dd><p>Runs of the file shorter than <code class="docutils literal notranslate"><span class="pre">min_pings</span></code>, dropped.</p>
+</dd>
+<dt><strong>n_pings_dropped</strong><span class="classifier">int</span></dt><dd><p>Pings in those dropped runs.</p>
+</dd>
+<dt><strong>rtol</strong><span class="classifier">float</span></dt><dd><p>Relative tolerance used for the cuts.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.XtfPingData">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">XtfPingData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_headers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet_offsets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_stats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.XtfPingData" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Sonar pings of one XTF file, as recorded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">Path</span></dt><dd><p>Source file.</p>
+</dd>
+<dt><strong>file_header</strong><span class="classifier">XtfFileHeader</span></dt><dd><p>Parsed file header.</p>
+</dd>
+<dt><strong>ping_headers</strong><span class="classifier">numpy.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(n_ping,)</span></code> <code class="docutils literal notranslate"><span class="pre">PING_HEADER_DTYPE</span></code> records, in file order.</p>
+</dd>
+<dt><strong>packet_offsets</strong><span class="classifier">numpy.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(n_ping,)</span></code> int64 file offset of each sonar packet.</p>
+</dd>
+<dt><strong>channels</strong><span class="classifier">dict[int, XtfChannel]</span></dt><dd><p>Channels keyed by <code class="docutils literal notranslate"><span class="pre">ChannelNumber</span></code>.</p>
+</dd>
+<dt><strong>frequency_groups</strong><span class="classifier">list[XtfFrequencyGroup]</span></dt><dd><p>Port/starboard channels grouped by frequency, ascending
+(unknown frequencies last).</p>
+</dd>
+<dt><strong>stats</strong><span class="classifier">PacketStats</span></dt><dd><p>Packet counts from the read.</p>
+</dd>
+<dt><strong>block_stats</strong><span class="classifier">ChannelBlockStats</span></dt><dd><p>Channel-block mismatches found while parsing sonar packets.</p>
+</dd>
+<dt><strong>segment</strong><span class="classifier">XtfSegmentInfo or None</span></dt><dd><p>Set when these pings are one run of a file split at sample-rate
+changes (<a class="reference internal" href="sidescanpy.io.xtf.split.html#sidescanpy.io.xtf.split.split_by_sample_rate" title="sidescanpy.io.xtf.split.split_by_sample_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">sidescanpy.io.xtf.split_by_sample_rate()</span></code></a>); None
+for a whole file.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.XtfPingData.n_pings">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">n_pings</span></span><a class="headerlink" href="#sidescanpy.io.xtf.reader.XtfPingData.n_pings" title="Link to this definition">#</a></dt>
+<dd><p>Number of sonar pings.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.XtfPingData.times">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">times</span></span><a class="headerlink" href="#sidescanpy.io.xtf.reader.XtfPingData.times" title="Link to this definition">#</a></dt>
+<dd><p>Ping times as <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> (see <a class="reference internal" href="#sidescanpy.io.xtf.reader.ping_times" title="sidescanpy.io.xtf.reader.ping_times"><code class="xref py py-func docutils literal notranslate"><span class="pre">ping_times()</span></code></a>).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.ping_times">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">ping_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ping_headers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.ping_times" title="Link to this definition">#</a></dt>
+<dd><p>Compute ping times from ping header records.</p>
+<p>Uses <code class="docutils literal notranslate"><span class="pre">Year</span></code>, <code class="docutils literal notranslate"><span class="pre">Month</span></code>, <code class="docutils literal notranslate"><span class="pre">Day</span></code>, <code class="docutils literal notranslate"><span class="pre">Hour</span></code>, <code class="docutils literal notranslate"><span class="pre">Minute</span></code>, <code class="docutils literal notranslate"><span class="pre">Second</span></code>
+and <code class="docutils literal notranslate"><span class="pre">HSeconds</span></code> (hundredths). The time base is whatever the recorder
+used (normally UTC). Records with an invalid date give <code class="docutils literal notranslate"><span class="pre">NaT</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ping_headers</strong><span class="classifier">numpy.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">PING_HEADER_DTYPE</span></code> records.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p><code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code>, one per record.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.read_xtf_pings">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">read_xtf_pings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.read_xtf_pings" title="Link to this definition">#</a></dt>
+<dd><p>Read every sonar ping of an XTF file.</p>
+<p>Two passes over the file: the first frames sonar packets and records
+the ping and channel headers and where each channel’s samples are;
+the second reads the samples straight into preallocated arrays.
+Other packet types are counted and skipped.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">str or Path</span></dt><dd><p>XTF file.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>XtfPingData</dt><dd><p>Ping headers, per-channel sample arrays (recorded dtype,
+zero-padded) and port/starboard frequency groups.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If the file header is invalid or a channel uses an unsupported
+sample format.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.reader.read_xtf">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.reader.</span></span><span class="sig-name descname"><span class="pre">read_xtf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.reader.read_xtf" title="Link to this definition">#</a></dt>
+<dd><p>Read one XTF file for conversion.</p>
+<p>The XTF counterpart of <code class="docutils literal notranslate"><span class="pre">read_jsf</span></code> / <code class="docutils literal notranslate"><span class="pre">read_sdf</span></code>: returns what
+<a class="reference internal" href="sidescanpy.io.xtf.converter.html#sidescanpy.io.xtf.converter.convert" title="sidescanpy.io.xtf.converter.convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">sidescanpy.io.xtf.convert()</span></code></a> takes. Equivalent to
+<a class="reference internal" href="#sidescanpy.io.xtf.reader.read_xtf_pings" title="sidescanpy.io.xtf.reader.read_xtf_pings"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_xtf_pings()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">str or Path</span></dt><dd><p>XTF file.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>XtfPingData</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sidescanpy.io.xtf.converter.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">sidescanpy.io.xtf.converter</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sidescanpy.io.xtf.split.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">sidescanpy.io.xtf.split</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-layout">File layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-blocks-are-walked-using-the-packet-byte-count">Channel blocks are walked using the packet byte count</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-arrays">Sample arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.XtfFileHeader"><code class="docutils literal notranslate"><span class="pre">XtfFileHeader</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.XtfFileHeader.n_channels"><code class="docutils literal notranslate"><span class="pre">XtfFileHeader.n_channels</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.header_size_for_channels"><code class="docutils literal notranslate"><span class="pre">header_size_for_channels()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.read_xtf_header"><code class="docutils literal notranslate"><span class="pre">read_xtf_header()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.XtfPacket"><code class="docutils literal notranslate"><span class="pre">XtfPacket</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.XtfPacket.start"><code class="docutils literal notranslate"><span class="pre">XtfPacket.start</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.PacketStats"><code class="docutils literal notranslate"><span class="pre">PacketStats</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.iter_packets"><code class="docutils literal notranslate"><span class="pre">iter_packets()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.count_packets"><code class="docutils literal notranslate"><span class="pre">count_packets()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.XtfChannel"><code class="docutils literal notranslate"><span class="pre">XtfChannel</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.XtfFrequencyGroup"><code class="docutils literal notranslate"><span class="pre">XtfFrequencyGroup</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.ChannelBlockStats"><code class="docutils literal notranslate"><span class="pre">ChannelBlockStats</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.XtfSegmentInfo"><code class="docutils literal notranslate"><span class="pre">XtfSegmentInfo</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.XtfPingData"><code class="docutils literal notranslate"><span class="pre">XtfPingData</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.XtfPingData.n_pings"><code class="docutils literal notranslate"><span class="pre">XtfPingData.n_pings</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.XtfPingData.times"><code class="docutils literal notranslate"><span class="pre">XtfPingData.times</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.ping_times"><code class="docutils literal notranslate"><span class="pre">ping_times()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.read_xtf_pings"><code class="docutils literal notranslate"><span class="pre">read_xtf_pings()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.reader.read_xtf"><code class="docutils literal notranslate"><span class="pre">read_xtf()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

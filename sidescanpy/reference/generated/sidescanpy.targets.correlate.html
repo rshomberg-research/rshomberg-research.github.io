@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+    <title>sidescanpy.targets.correlate &#8212; sidescanpy 0.8.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../../_static/documentation_options.js?v=486e5634"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/generated/sidescanpy.targets.correlate';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sidescanpy.targets.io" href="sidescanpy.targets.io.html" />
+    <link rel="prev" title="sidescanpy.targets" href="sidescanpy.targets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.8.0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.8.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../formats.html">
+    Formats
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../development.html">
+    Development
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../prerelease.html">
+    Pre-release status
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="sidescanpy.html">sidescanpy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.analysis.html">analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.beam.html">beam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.characterize.html">characterize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.geometry.html">geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.nadir.html">nadir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.core.html">core</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.history.html">history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.schema.html">schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.survey.html">survey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.target.html">target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.core.units.html">units</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.datasets.html">datasets</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.export.html">export</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.augment.html">augment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.geometric_window.html">geometric_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.georef_window.html">georef_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.image.html">image</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.ml.html">ml</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.coco.html">coco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.dataset.html">dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.yolo.html">yolo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.orientation.html">orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.export.target_window.html">target_window</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.windows.html">windows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.background.html">background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.geo.html">geo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.levels.html">levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.native.html">native</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.neighborhood.html">neighborhood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.windows.pixel.html">pixel</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.grids.html">grids</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.definition.html">definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.geotiff.html">geotiff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.raster.html">raster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resample.html">resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.grids.resolution.html">resolution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.io.html">io</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.io.dispatch.html">dispatch</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.hdf5.html">hdf5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.survey_dir.html">survey_dir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.jsf.html">jsf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.messages.html">messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.subset.html">subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.netcdf.html">netcdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.netcdf.writer.html">writer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.sdf.html">sdf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.pages.html">pages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.sdf.targets.html">targets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.xtf.html">xtf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.split.html">split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.structs.html">structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.xtf.subset.html">subset</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="sidescanpy.log.html">log</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.processing.html">processing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.aux_fixes.html">aux_fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.bottom.html">bottom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.correct.html">correct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.farrange.html">farrange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.geometric.html">geometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.radiometric.html">radiometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.range_correction.html">range_correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.sample_axis.html">sample_axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.segments.html">segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.slicing.html">slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.track.html">track</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="sidescanpy.targets.html">targets</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a aria-current="page" class="current reference internal" href="#">correlate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.viz.html">viz</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.analysis.html">analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.basemap.html">basemap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.contact_sheet.html">contact_sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.gridded.html">gridded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.scalebar.html">scalebar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.targets.html">targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.track.html">track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.viz.waterfall.html">waterfall</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.html" class="nav-link">sidescanpy</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="sidescanpy.targets.html" class="nav-link">sidescanpy.targets</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sidescanpy.targets.correlate</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-sidescanpy.targets.correlate">
+<span id="sidescanpy-targets-correlate"></span><h1>sidescanpy.targets.correlate<a class="headerlink" href="#module-sidescanpy.targets.correlate" title="Link to this heading">#</a></h1>
+<p>Resolve target positions and clock offsets against converted <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> files.</p>
+<p>Catalog formats that store no absolute position (the Klein <code class="docutils literal notranslate"><span class="pre">.tgt</span></code> reader in
+<a class="reference internal" href="sidescanpy.io.sdf.targets.html#module-sidescanpy.io.sdf.targets" title="sidescanpy.io.sdf.targets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sidescanpy.io.sdf.targets</span></code></a>) are located here against per-ping times of
+converted surveys. For Klein catalogs use
+<a class="reference internal" href="#sidescanpy.targets.correlate.resolve_targets_by_catalog_ping" title="sidescanpy.targets.correlate.resolve_targets_by_catalog_ping"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_targets_by_catalog_ping()</span></code></a>, which matches the catalog’s own ping
+time and number exactly; the pick-timestamp functions (with optional
+constant clock-offset calibration) match the later save time and are only
+a fallback for catalogs without those fields. Also
+provides position-based correlation of any target to a ping in a directory of
+converted surveys, and projection of a target onto another frequency channel.</p>
+<p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
+<p class="rubric">Contents</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.resolve_target_position" title="sidescanpy.targets.correlate.resolve_target_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve_target_position</span></code></a></p></td>
+<td><p>Approximate <code class="docutils literal notranslate"><span class="pre">target</span></code>'s position from the nearest ping (by timestamp) in <code class="docutils literal notranslate"><span class="pre">survey</span></code>'s <code class="docutils literal notranslate"><span class="pre">freq_key</span></code> channel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.calibrate_clock_offset" title="sidescanpy.targets.correlate.calibrate_clock_offset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate_clock_offset</span></code></a></p></td>
+<td><p>Derive the constant epoch-shift between each <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code>'s (possibly corrupted) ping clock and its filename-embedded true local start time.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.resolve_targets_offset_corrected" title="sidescanpy.targets.correlate.resolve_targets_offset_corrected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve_targets_offset_corrected</span></code></a></p></td>
+<td><p>Resolve position (plus altitude/speed) for every target in <code class="docutils literal notranslate"><span class="pre">targets</span></code> using a known constant clock offset (see <a class="reference internal" href="#sidescanpy.targets.correlate.calibrate_clock_offset" title="sidescanpy.targets.correlate.calibrate_clock_offset"><code class="xref py py-func docutils literal notranslate"><span class="pre">calibrate_clock_offset()</span></code></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.resolve_targets_nearest_ping" title="sidescanpy.targets.correlate.resolve_targets_nearest_ping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve_targets_nearest_ping</span></code></a></p></td>
+<td><p>Resolve position for every target in <code class="docutils literal notranslate"><span class="pre">targets</span></code> via plain (no clock-offset) nearest-ping matching, checking every <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file and every frequency channel in <code class="docutils literal notranslate"><span class="pre">ss_h5_dir</span></code> and keeping whichever match lands closest in time.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.resolve_targets_by_catalog_ping" title="sidescanpy.targets.correlate.resolve_targets_by_catalog_ping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve_targets_by_catalog_ping</span></code></a></p></td>
+<td><p>Place targets at the ping their catalog names (Klein <code class="docutils literal notranslate"><span class="pre">.tgt</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.project_target_to_frequency" title="sidescanpy.targets.correlate.project_target_to_frequency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_target_to_frequency</span></code></a></p></td>
+<td><p>Re-express <code class="docutils literal notranslate"><span class="pre">target</span></code>'s position on a <em>different</em> frequency channel of the same survey, using the one thing both channels share exactly: the physical world.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.PositionMatch" title="sidescanpy.targets.correlate.PositionMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PositionMatch</span></code></a></p></td>
+<td><p>Where a target falls in a set of converted surveys.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.build_position_index" title="sidescanpy.targets.correlate.build_position_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_position_index</span></code></a></p></td>
+<td><p>Cache per-ping positions of every <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> in <code class="docutils literal notranslate"><span class="pre">ss_h5_dir</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.match_frequency" title="sidescanpy.targets.correlate.match_frequency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_frequency</span></code></a></p></td>
+<td><p>Pick the frequency key in <code class="docutils literal notranslate"><span class="pre">channels</span></code> whose sample interval is closest to <code class="docutils literal notranslate"><span class="pre">target_mps</span></code> (meters per sample); the first key if <code class="docutils literal notranslate"><span class="pre">target_mps</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.correlate_target" title="sidescanpy.targets.correlate.correlate_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correlate_target</span></code></a></p></td>
+<td><p>Locate <code class="docutils literal notranslate"><span class="pre">target</span></code> in the surveys described by <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.CatalogPlacement" title="sidescanpy.targets.correlate.CatalogPlacement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CatalogPlacement</span></code></a></p></td>
+<td><p>A correlated target and its position on every frequency of its file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.correlate_catalog" title="sidescanpy.targets.correlate.correlate_catalog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correlate_catalog</span></code></a></p></td>
+<td><p><a class="reference internal" href="#sidescanpy.targets.correlate.correlate_target" title="sidescanpy.targets.correlate.correlate_target"><code class="xref py py-func docutils literal notranslate"><span class="pre">correlate_target()</span></code></a> every target, projected onto every frequency of its file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.targets.correlate.place_catalog" title="sidescanpy.targets.correlate.place_catalog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">place_catalog</span></code></a></p></td>
+<td><p>Group <a class="reference internal" href="#sidescanpy.targets.correlate.correlate_catalog" title="sidescanpy.targets.correlate.correlate_catalog"><code class="xref py py-func docutils literal notranslate"><span class="pre">correlate_catalog()</span></code></a> placements by file, frequency and channel.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.resolve_target_position">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">resolve_target_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">survey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_key</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_time_delta_s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.resolve_target_position" title="Link to this definition">#</a></dt>
+<dd><p>Approximate <code class="docutils literal notranslate"><span class="pre">target</span></code>’s position from the nearest ping (by
+timestamp) in <code class="docutils literal notranslate"><span class="pre">survey</span></code>’s <code class="docutils literal notranslate"><span class="pre">freq_key</span></code> channel.</p>
+<p>This is a coarse nearest-ping lookup, not a stored pick position (no
+absolute lat/lon was found in <code class="docutils literal notranslate"><span class="pre">.tgt</span></code> — see module docstring) and
+does <strong>not</strong> upgrade <code class="docutils literal notranslate"><span class="pre">position_confidence</span></code> above <code class="docutils literal notranslate"><span class="pre">&quot;unknown&quot;</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>target</strong><span class="classifier">Target</span></dt><dd><p>Must have <code class="docutils literal notranslate"><span class="pre">pick_timestamp</span></code> set.</p>
+</dd>
+<dt><strong>survey</strong><span class="classifier">SideScanSurvey</span></dt><dd></dd>
+<dt><strong>freq_key</strong><span class="classifier">str</span></dt><dd></dd>
+<dt><strong>max_time_delta_s</strong><span class="classifier">float, default 300.0</span></dt><dd><p>If the nearest ping’s timestamp is farther than this from
+<code class="docutils literal notranslate"><span class="pre">target.pick_timestamp</span></code>, position is left unset (<code class="docutils literal notranslate"><span class="pre">target</span></code>
+returned unchanged) rather than guessed from a clearly-wrong file.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>Target</dt><dd><p>Copy of <code class="docutils literal notranslate"><span class="pre">target</span></code> with <code class="docutils literal notranslate"><span class="pre">latitude</span></code>/<code class="docutils literal notranslate"><span class="pre">longitude</span></code> set if a
+close-enough ping was found, otherwise unchanged.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.calibrate_clock_offset">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">calibrate_clock_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ss_h5_dir</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_utc_offset_hours</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.calibrate_clock_offset" title="Link to this definition">#</a></dt>
+<dd><p>Derive the constant epoch-shift between each <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code>’s
+(possibly corrupted) ping clock and its filename-embedded true local
+start time.</p>
+<p>Filenames are expected to embed <code class="docutils literal notranslate"><span class="pre">&lt;YYMMDD&gt;&lt;HHMMSS&gt;</span></code> local start time
+(matches Klein SDF’s own <code class="docutils literal notranslate"><span class="pre">sonar_data&lt;YYMMDD&gt;&lt;HHMMSS&gt;.sdf</span></code> naming,
+preserved through conversion). Returns the median offset (seconds,
+corrupted minus true) across every file found in <code class="docutils literal notranslate"><span class="pre">ss_h5_dir</span></code>,
+logging each file’s individual estimate so a bad calibration (large
+spread =&gt; the offset isn’t actually constant for this survey) is
+visible rather than silently trusted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ss_h5_dir</strong><span class="classifier">str or Path</span></dt><dd></dd>
+<dt><strong>local_utc_offset_hours</strong><span class="classifier">float</span></dt><dd><p>Required keyword. Local-time-to-UTC offset (hours to add to the
+filename’s embedded local time to get UTC). Use the offset that was
+actually in effect at the survey’s location/date – there is
+deliberately no default.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>float</dt><dd><p>Median offset in seconds (corrupted ping time - true start time).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>RuntimeError</dt><dd><p>If no file in <code class="docutils literal notranslate"><span class="pre">ss_h5_dir</span></code> matched the expected filename pattern.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.resolve_targets_offset_corrected">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">resolve_targets_offset_corrected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ss_h5_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_s</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_time_delta_s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.resolve_targets_offset_corrected" title="Link to this definition">#</a></dt>
+<dd><p>Resolve position (plus altitude/speed) for every target in
+<code class="docutils literal notranslate"><span class="pre">targets</span></code> using a known constant clock offset (see
+<a class="reference internal" href="#sidescanpy.targets.correlate.calibrate_clock_offset" title="sidescanpy.targets.correlate.calibrate_clock_offset"><code class="xref py py-func docutils literal notranslate"><span class="pre">calibrate_clock_offset()</span></code></a>).</p>
+<p>Enriches each matched target with <code class="docutils literal notranslate"><span class="pre">altitude_m</span></code>/<code class="docutils literal notranslate"><span class="pre">speed_mps</span></code>/
+<code class="docutils literal notranslate"><span class="pre">meters_per_ping</span></code>/<code class="docutils literal notranslate"><span class="pre">ground_range_m</span></code> in <code class="docutils literal notranslate"><span class="pre">extra_attributes</span></code> — all
+approximations from the nearest matched ping, not per-sample
+measurements, and constant across a target’s ~256-ping window.
+<code class="docutils literal notranslate"><span class="pre">position_confidence</span></code> stays <code class="docutils literal notranslate"><span class="pre">&quot;unknown&quot;</span></code> regardless of match
+quality, matching <a class="reference internal" href="#sidescanpy.targets.correlate.resolve_target_position" title="sidescanpy.targets.correlate.resolve_target_position"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_target_position()</span></code></a>’s convention.
+Targets with no <code class="docutils literal notranslate"><span class="pre">pick_timestamp</span></code>, or whose nearest match (across
+every <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file in <code class="docutils literal notranslate"><span class="pre">ss_h5_dir</span></code>) is farther than
+<code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">*</span> <span class="pre">max_time_delta_s</span></code> away, are returned unchanged.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.resolve_targets_nearest_ping">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">resolve_targets_nearest_ping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ss_h5_dir</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_time_delta_s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.resolve_targets_nearest_ping" title="Link to this definition">#</a></dt>
+<dd><p>Resolve position for every target in <code class="docutils literal notranslate"><span class="pre">targets</span></code> via plain
+(no clock-offset) nearest-ping matching, checking every <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code>
+file and every frequency channel in <code class="docutils literal notranslate"><span class="pre">ss_h5_dir</span></code> and keeping
+whichever match lands closest in time.</p>
+<p>Thin batch wrapper around <a class="reference internal" href="#sidescanpy.targets.correlate.resolve_target_position" title="sidescanpy.targets.correlate.resolve_target_position"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_target_position()</span></code></a> — use
+<a class="reference internal" href="#sidescanpy.targets.correlate.resolve_targets_offset_corrected" title="sidescanpy.targets.correlate.resolve_targets_offset_corrected"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_targets_offset_corrected()</span></code></a> instead when the survey is
+known to need clock-offset correction (see that function and
+<a class="reference internal" href="#sidescanpy.targets.correlate.calibrate_clock_offset" title="sidescanpy.targets.correlate.calibrate_clock_offset"><code class="xref py py-func docutils literal notranslate"><span class="pre">calibrate_clock_offset()</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.resolve_targets_by_catalog_ping">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">resolve_targets_by_catalog_ping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ss_h5_dir</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_time_delta_s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.resolve_targets_by_catalog_ping" title="Link to this definition">#</a></dt>
+<dd><p>Place targets at the ping their catalog names (Klein <code class="docutils literal notranslate"><span class="pre">.tgt</span></code>).</p>
+<p>Klein catalogs store the target ping’s own time and ping number
+(<code class="docutils literal notranslate"><span class="pre">extra_attributes[&quot;catalog_ping_time&quot;]</span></code> / <code class="docutils literal notranslate"><span class="pre">[&quot;catalog_ping_number&quot;]</span></code>,
+see <a class="reference internal" href="sidescanpy.io.sdf.targets.html#module-sidescanpy.io.sdf.targets" title="sidescanpy.io.sdf.targets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sidescanpy.io.sdf.targets</span></code></a>) on the sonar’s clock, the same
+clock as the converted pings. Matching them needs no clock offset and,
+unlike <code class="docutils literal notranslate"><span class="pre">pick_timestamp</span></code> (the later save time), identifies the
+target’s ping exactly.</p>
+<p>For each target, the pings of every <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> in <code class="docutils literal notranslate"><span class="pre">ss_h5_dir</span></code> within
+<code class="docutils literal notranslate"><span class="pre">max_time_delta_s</span></code> of the catalog time are searched for the catalog
+ping number (ping counters restart after recording gaps, so the time
+window is what makes the number unique). If the number is not there,
+the nearest ping in time within the window is used and recorded as
+<code class="docutils literal notranslate"><span class="pre">position_source=&quot;catalog_ping_time&quot;</span></code>.</p>
+<p>Sets <code class="docutils literal notranslate"><span class="pre">latitude</span></code>/<code class="docutils literal notranslate"><span class="pre">longitude</span></code> to that ping’s position (the vehicle
+position at the target ping, not the target’s own seafloor position)
+and <code class="docutils literal notranslate"><span class="pre">position_confidence=&quot;approximate&quot;</span></code>, and records <code class="docutils literal notranslate"><span class="pre">ss_h5</span></code> (file
+stem), <code class="docutils literal notranslate"><span class="pre">ping_index</span></code> (file-local), <code class="docutils literal notranslate"><span class="pre">ping_number</span></code>,
+<code class="docutils literal notranslate"><span class="pre">position_source</span></code> (<code class="docutils literal notranslate"><span class="pre">&quot;catalog_ping&quot;</span></code>), <code class="docutils literal notranslate"><span class="pre">position_time_delta_s</span></code>,
+<code class="docutils literal notranslate"><span class="pre">altitude_m</span></code>, <code class="docutils literal notranslate"><span class="pre">ground_range_m</span></code>/<code class="docutils literal notranslate"><span class="pre">ground_range_clipped</span></code> (from
+<code class="docutils literal notranslate"><span class="pre">range_m</span></code>), and <code class="docutils literal notranslate"><span class="pre">speed_mps</span></code>/<code class="docutils literal notranslate"><span class="pre">meters_per_ping</span></code> in
+<code class="docutils literal notranslate"><span class="pre">extra_attributes</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>targets</strong><span class="classifier">list of Target</span></dt><dd></dd>
+<dt><strong>ss_h5_dir</strong><span class="classifier">str or Path</span></dt><dd><p>Directory of converted <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> files.</p>
+</dd>
+<dt><strong>max_time_delta_s</strong><span class="classifier">float, default 1.5</span></dt><dd><p>Half-width of the time window around the catalog time (the catalog
+time has 1 s resolution).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>list of Target</dt><dd><p>Same order as <code class="docutils literal notranslate"><span class="pre">targets</span></code>. Targets without catalog fields, or
+whose catalog time is in no file (for example picked while not
+logging), are returned unchanged.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.project_target_to_frequency">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">project_target_to_frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_mps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_mps</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.project_target_to_frequency" title="Link to this definition">#</a></dt>
+<dd><p>Re-express <code class="docutils literal notranslate"><span class="pre">target</span></code>’s position on a <em>different</em> frequency channel
+of the same survey, using the one thing both channels share exactly:
+the physical world.</p>
+<p>A source catalog (EdgeTech Discover, Klein SonarWiz) only ever marks
+a contact against the one frequency channel it was picked on — there
+is no “also visible on the other channel” field. But <code class="docutils literal notranslate"><span class="pre">ping</span></code> (both
+channels are pinged in lockstep — the same physical vessel position,
+identical ping <em>count</em> per channel within one
+file) and the physical slant range a sample represents
+(<code class="docutils literal notranslate"><span class="pre">sample</span> <span class="pre">*</span> <span class="pre">meters_per_sample</span></code>) are both real, channel-independent
+quantities. So the target’s true position on the untagged channel is
+recoverable: convert its sample index to a physical slant range using
+the <em>source</em> channel’s own meters/sample, then back to a sample index
+using the <em>target</em> channel’s — same ping, same side, no catalog entry
+needed for that channel at all.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ping</span></code>/<code class="docutils literal notranslate"><span class="pre">channel</span></code>/every other field are carried through unchanged
+(<code class="docutils literal notranslate"><span class="pre">replace</span></code>) — only <code class="docutils literal notranslate"><span class="pre">sample</span></code> moves, plus
+<code class="docutils literal notranslate"><span class="pre">extra_attributes[&quot;projected_from_mps&quot;]</span></code> recording the source
+resolution, so a caller/renderer can tell a real catalog mark apart
+from one recovered this way (e.g. to draw it with a different box
+style) without losing the fact that it’s the same real contact.</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> (not a clamped/guessed value) if the projected
+sample would land at or past <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> — a real, physical
+consequence of the two channels recording different maximum ranges,
+not a placement bug: the contact genuinely sits beyond the other
+channel’s recorded window and has no honest position to report
+there. Only checked when <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> is given.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.PositionMatch">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">PositionMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.PositionMatch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.NamedTuple" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></a></p>
+<p>Where a target falls in a set of converted surveys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">Path</span></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file containing the matched ping.</p>
+</dd>
+<dt><strong>freq_key</strong><span class="classifier">str</span></dt><dd><p>Frequency channel the match was made on.</p>
+</dd>
+<dt><strong>ping_idx</strong><span class="classifier">int</span></dt><dd><p>Index along that file’s own ping axis (file-local, not the
+mission-global ping number).</p>
+</dd>
+<dt><strong>dist_m</strong><span class="classifier">float</span></dt><dd><p>Distance from the target’s recorded position to the ping, in meters;
+<code class="docutils literal notranslate"><span class="pre">0.0</span></code> for a match made from <code class="docutils literal notranslate"><span class="pre">Target.ping</span></code> alone.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.PositionMatch.path">
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#sidescanpy.targets.correlate.PositionMatch.path" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.PositionMatch.freq_key">
+<span class="sig-name descname"><span class="pre">freq_key</span></span><a class="headerlink" href="#sidescanpy.targets.correlate.PositionMatch.freq_key" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.PositionMatch.ping_idx">
+<span class="sig-name descname"><span class="pre">ping_idx</span></span><a class="headerlink" href="#sidescanpy.targets.correlate.PositionMatch.ping_idx" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.PositionMatch.dist_m">
+<span class="sig-name descname"><span class="pre">dist_m</span></span><a class="headerlink" href="#sidescanpy.targets.correlate.PositionMatch.dist_m" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.build_position_index">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">build_position_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ss_h5_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.build_position_index" title="Link to this definition">#</a></dt>
+<dd><p>Cache per-ping positions of every <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> in <code class="docutils literal notranslate"><span class="pre">ss_h5_dir</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ss_h5_dir</strong><span class="classifier">str, Path, or sequence of them</span></dt><dd><p>Directory searched (non-recursively) for <code class="docutils literal notranslate"><span class="pre">*.ss.h5</span></code>, or an
+explicit list of <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> files (indexed in sorted order).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>dict</dt><dd><p><code class="docutils literal notranslate"><span class="pre">{path:</span> <span class="pre">{freq_key:</span> <span class="pre">info}}</span></code> where <code class="docutils literal notranslate"><span class="pre">info</span></code> has <code class="docutils literal notranslate"><span class="pre">lat</span></code>, <code class="docutils literal notranslate"><span class="pre">lon</span></code>
+(per-ping arrays), <code class="docutils literal notranslate"><span class="pre">sample_interval_m</span></code> (meters per sample, using
+1500 m/s when <code class="docutils literal notranslate"><span class="pre">sound_vel_ms</span></code> is not a positive finite value),
+<code class="docutils literal notranslate"><span class="pre">n_samples</span></code>, <code class="docutils literal notranslate"><span class="pre">n_pings</span></code> and <code class="docutils literal notranslate"><span class="pre">ping_start</span></code> (the file’s first value
+on the mission-global ping axis; nonzero for files that continue a
+global numbering). Surveys are read lazily so only the small
+position arrays are loaded.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.match_frequency">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">match_frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_mps</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.match_frequency" title="Link to this definition">#</a></dt>
+<dd><p>Pick the frequency key in <code class="docutils literal notranslate"><span class="pre">channels</span></code> whose sample interval is closest
+to <code class="docutils literal notranslate"><span class="pre">target_mps</span></code> (meters per sample); the first key if <code class="docutils literal notranslate"><span class="pre">target_mps</span></code> is
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.correlate_target">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">correlate_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dist_m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.correlate_target" title="Link to this definition">#</a></dt>
+<dd><p>Locate <code class="docutils literal notranslate"><span class="pre">target</span></code> in the surveys described by <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p>The frequency channel is chosen per file with <a class="reference internal" href="#sidescanpy.targets.correlate.match_frequency" title="sidescanpy.targets.correlate.match_frequency"><code class="xref py py-func docutils literal notranslate"><span class="pre">match_frequency()</span></code></a>
+using <code class="docutils literal notranslate"><span class="pre">target.extra_attributes[&quot;ping_meters_per_sample&quot;]</span></code> when present.</p>
+<p>Strategies are tried in order:</p>
+<ol class="arabic simple" start="0">
+<li><p><strong>Resolved ping</strong>: a target placed by
+<a class="reference internal" href="#sidescanpy.targets.correlate.resolve_targets_by_catalog_ping" title="sidescanpy.targets.correlate.resolve_targets_by_catalog_ping"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_targets_by_catalog_ping()</span></code></a> records its file stem
+(<code class="docutils literal notranslate"><span class="pre">extra_attributes[&quot;ss_h5&quot;]</span></code>) and file-local <code class="docutils literal notranslate"><span class="pre">ping_index</span></code>; when
+that file is in <code class="docutils literal notranslate"><span class="pre">index</span></code> and the ping in range, it is used as is
+(distance 0). Navigation fixes often repeat over several pings, so
+the nearest position alone can be several pings off.</p></li>
+<li><p><strong>Position</strong>: the nearest ping by geodesic distance on the WGS84
+ellipsoid (<a class="reference external" href="https://pyproj4.github.io/pyproj/stable/api/geod.html#pyproj.Geod.inv" title="(in pyproj v3.7.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyproj.Geod.inv()</span></code></a>) over all files, accepted if
+within <code class="docutils literal notranslate"><span class="pre">max_dist_m</span></code>. Pings without a position fix are skipped.</p></li>
+<li><p><strong>Ping number</strong> (only if step 1 fails or the target has no lat/lon):
+<code class="docutils literal notranslate"><span class="pre">target.ping</span></code> is a mission-global ping number, converted to a
+file-local index via each channel’s <code class="docutils literal notranslate"><span class="pre">ping_start</span></code>. Accepted only when
+exactly one file’s range contains it; zero or several candidates
+return <code class="docutils literal notranslate"><span class="pre">None</span></code> rather than guess. This recovers catalogs that carry
+only a pixel-derived ping and no (or a less precise) GPS position.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>target</strong><span class="classifier">Target</span></dt><dd></dd>
+<dt><strong>index</strong><span class="classifier">dict</span></dt><dd><p>From <a class="reference internal" href="#sidescanpy.targets.correlate.build_position_index" title="sidescanpy.targets.correlate.build_position_index"><code class="xref py py-func docutils literal notranslate"><span class="pre">build_position_index()</span></code></a>.</p>
+</dd>
+<dt><strong>max_dist_m</strong><span class="classifier">float</span></dt><dd><p>Maximum distance for a position match.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>PositionMatch or None</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.CatalogPlacement">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">CatalogPlacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_frequency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.CatalogPlacement" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.NamedTuple" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></a></p>
+<p>A correlated target and its position on every frequency of its file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>target</strong><span class="classifier">Target</span></dt><dd></dd>
+<dt><strong>match</strong><span class="classifier">PositionMatch</span></dt><dd><p>Where <a class="reference internal" href="#sidescanpy.targets.correlate.correlate_target" title="sidescanpy.targets.correlate.correlate_target"><code class="xref py py-func docutils literal notranslate"><span class="pre">correlate_target()</span></code></a> placed it (its native frequency).</p>
+</dd>
+<dt><strong>on_frequency</strong><span class="classifier">dict</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">{freq_key:</span> <span class="pre">Target}</span></code> – the target itself on its native
+frequency, and a <a class="reference internal" href="#sidescanpy.targets.correlate.project_target_to_frequency" title="sidescanpy.targets.correlate.project_target_to_frequency"><code class="xref py py-func docutils literal notranslate"><span class="pre">project_target_to_frequency()</span></code></a> copy on every
+other frequency of the file whose recorded range contains it.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.CatalogPlacement.target">
+<span class="sig-name descname"><span class="pre">target</span></span><a class="headerlink" href="#sidescanpy.targets.correlate.CatalogPlacement.target" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.CatalogPlacement.match">
+<span class="sig-name descname"><span class="pre">match</span></span><a class="headerlink" href="#sidescanpy.targets.correlate.CatalogPlacement.match" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.CatalogPlacement.on_frequency">
+<span class="sig-name descname"><span class="pre">on_frequency</span></span><a class="headerlink" href="#sidescanpy.targets.correlate.CatalogPlacement.on_frequency" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.correlate_catalog">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">correlate_catalog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dist_m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.correlate_catalog" title="Link to this definition">#</a></dt>
+<dd><p><a class="reference internal" href="#sidescanpy.targets.correlate.correlate_target" title="sidescanpy.targets.correlate.correlate_target"><code class="xref py py-func docutils literal notranslate"><span class="pre">correlate_target()</span></code></a> every target, projected onto every frequency of its file.</p>
+<p>Uncorrelated targets are omitted. Order follows <code class="docutils literal notranslate"><span class="pre">targets</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>targets</strong><span class="classifier">sequence of Target</span></dt><dd></dd>
+<dt><strong>index</strong><span class="classifier">dict</span></dt><dd><p>From <a class="reference internal" href="#sidescanpy.targets.correlate.build_position_index" title="sidescanpy.targets.correlate.build_position_index"><code class="xref py py-func docutils literal notranslate"><span class="pre">build_position_index()</span></code></a>.</p>
+</dd>
+<dt><strong>max_dist_m</strong><span class="classifier">float</span></dt><dd><p>Maximum distance for a position match.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>list of CatalogPlacement</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.targets.correlate.place_catalog">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.targets.correlate.</span></span><span class="sig-name descname"><span class="pre">place_catalog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catalog</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dist_m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.targets.correlate.place_catalog" title="Link to this definition">#</a></dt>
+<dd><p>Group <a class="reference internal" href="#sidescanpy.targets.correlate.correlate_catalog" title="sidescanpy.targets.correlate.correlate_catalog"><code class="xref py py-func docutils literal notranslate"><span class="pre">correlate_catalog()</span></code></a> placements by file, frequency and channel.</p>
+<p>Targets without a <code class="docutils literal notranslate"><span class="pre">sample</span></code> are left out (they can’t be placed in a
+window).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>dict</dt><dd><p><code class="docutils literal notranslate"><span class="pre">{(path,</span> <span class="pre">freq_key):</span> <span class="pre">{channel:</span> <span class="pre">[(target,</span> <span class="pre">file_ping_idx),</span> <span class="pre">...]}}</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sidescanpy.targets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">sidescanpy.targets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sidescanpy.targets.io.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">sidescanpy.targets.io</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.resolve_target_position"><code class="docutils literal notranslate"><span class="pre">resolve_target_position()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.calibrate_clock_offset"><code class="docutils literal notranslate"><span class="pre">calibrate_clock_offset()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.resolve_targets_offset_corrected"><code class="docutils literal notranslate"><span class="pre">resolve_targets_offset_corrected()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.resolve_targets_nearest_ping"><code class="docutils literal notranslate"><span class="pre">resolve_targets_nearest_ping()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.resolve_targets_by_catalog_ping"><code class="docutils literal notranslate"><span class="pre">resolve_targets_by_catalog_ping()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.project_target_to_frequency"><code class="docutils literal notranslate"><span class="pre">project_target_to_frequency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.PositionMatch"><code class="docutils literal notranslate"><span class="pre">PositionMatch</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.PositionMatch.path"><code class="docutils literal notranslate"><span class="pre">PositionMatch.path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.PositionMatch.freq_key"><code class="docutils literal notranslate"><span class="pre">PositionMatch.freq_key</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.PositionMatch.ping_idx"><code class="docutils literal notranslate"><span class="pre">PositionMatch.ping_idx</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.PositionMatch.dist_m"><code class="docutils literal notranslate"><span class="pre">PositionMatch.dist_m</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.build_position_index"><code class="docutils literal notranslate"><span class="pre">build_position_index()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.match_frequency"><code class="docutils literal notranslate"><span class="pre">match_frequency()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.correlate_target"><code class="docutils literal notranslate"><span class="pre">correlate_target()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.CatalogPlacement"><code class="docutils literal notranslate"><span class="pre">CatalogPlacement</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.CatalogPlacement.target"><code class="docutils literal notranslate"><span class="pre">CatalogPlacement.target</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.CatalogPlacement.match"><code class="docutils literal notranslate"><span class="pre">CatalogPlacement.match</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.CatalogPlacement.on_frequency"><code class="docutils literal notranslate"><span class="pre">CatalogPlacement.on_frequency</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.correlate_catalog"><code class="docutils literal notranslate"><span class="pre">correlate_catalog()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.targets.correlate.place_catalog"><code class="docutils literal notranslate"><span class="pre">place_catalog()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

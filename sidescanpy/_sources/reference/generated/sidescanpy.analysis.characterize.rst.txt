@@ -1,0 +1,28 @@
+sidescanpy.analysis.characterize
+================================
+
+.. automodule:: sidescanpy.analysis.characterize
+
+.. currentmodule:: sidescanpy.analysis.characterize
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   ValueSummary
+   characterize_values
+   UnitsResult
+   infer_units
+
+.. autoclass:: sidescanpy.analysis.characterize.ValueSummary
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.characterize.characterize_values
+
+.. autoclass:: sidescanpy.analysis.characterize.UnitsResult
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.characterize.infer_units

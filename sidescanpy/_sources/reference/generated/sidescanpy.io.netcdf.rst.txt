@@ -1,0 +1,12 @@
+sidescanpy.io.netcdf
+====================
+
+.. automodule:: sidescanpy.io.netcdf
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   reader <sidescanpy.io.netcdf.reader>
+   writer <sidescanpy.io.netcdf.writer>

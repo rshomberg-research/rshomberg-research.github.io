@@ -1,0 +1,15 @@
+sidescanpy.export.ml.yolo
+=========================
+
+.. automodule:: sidescanpy.export.ml.yolo
+
+.. currentmodule:: sidescanpy.export.ml.yolo
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   write_yolo
+
+.. autofunction:: sidescanpy.export.ml.yolo.write_yolo

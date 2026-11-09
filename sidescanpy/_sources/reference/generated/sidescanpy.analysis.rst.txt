@@ -1,0 +1,19 @@
+sidescanpy.analysis
+===================
+
+.. automodule:: sidescanpy.analysis
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   beam <sidescanpy.analysis.beam>
+   characterize <sidescanpy.analysis.characterize>
+   geometry <sidescanpy.analysis.geometry>
+   nadir <sidescanpy.analysis.nadir>
+   navigation <sidescanpy.analysis.navigation>
+   outliers <sidescanpy.analysis.outliers>
+   shadows <sidescanpy.analysis.shadows>
+   tvg <sidescanpy.analysis.tvg>
+   usable_range <sidescanpy.analysis.usable_range>

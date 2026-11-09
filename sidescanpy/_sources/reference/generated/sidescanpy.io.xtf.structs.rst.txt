@@ -1,0 +1,82 @@
+sidescanpy.io.xtf.structs
+=========================
+
+.. automodule:: sidescanpy.io.xtf.structs
+
+.. currentmodule:: sidescanpy.io.xtf.structs
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   PACKET_MAGIC
+   FILE_FORMAT_XTF
+   FILE_HEADER_BLOCK_BYTES
+   CHAN_INFO_IN_FIRST_BLOCK
+   HEADER_TYPE_SONAR
+   HEADER_TYPE_NOTES
+   HEADER_TYPE_NAMES
+   CHANNEL_TYPE_SUBBOTTOM
+   CHANNEL_TYPE_PORT
+   CHANNEL_TYPE_STBD
+   CHANNEL_TYPE_BATHY
+   NAV_UNITS_METERS
+   NAV_UNITS_LATLON
+   SAMPLE_FORMAT_DTYPES
+   LEGACY_SAMPLE_DTYPES
+   CHAN_INFO_DTYPE
+   FILE_HEADER_DTYPE
+   PACKET_START_DTYPE
+   PING_HEADER_DTYPE
+   PING_CHAN_HEADER_DTYPE
+   sample_dtype
+
+.. autodata:: sidescanpy.io.xtf.structs.PACKET_MAGIC
+
+.. autodata:: sidescanpy.io.xtf.structs.FILE_FORMAT_XTF
+
+.. autodata:: sidescanpy.io.xtf.structs.FILE_HEADER_BLOCK_BYTES
+
+.. autodata:: sidescanpy.io.xtf.structs.CHAN_INFO_IN_FIRST_BLOCK
+
+.. autodata:: sidescanpy.io.xtf.structs.HEADER_TYPE_SONAR
+
+.. autodata:: sidescanpy.io.xtf.structs.HEADER_TYPE_NOTES
+
+.. autodata:: sidescanpy.io.xtf.structs.HEADER_TYPE_NAMES
+   :no-value:
+
+.. autodata:: sidescanpy.io.xtf.structs.CHANNEL_TYPE_SUBBOTTOM
+
+.. autodata:: sidescanpy.io.xtf.structs.CHANNEL_TYPE_PORT
+
+.. autodata:: sidescanpy.io.xtf.structs.CHANNEL_TYPE_STBD
+
+.. autodata:: sidescanpy.io.xtf.structs.CHANNEL_TYPE_BATHY
+
+.. autodata:: sidescanpy.io.xtf.structs.NAV_UNITS_METERS
+
+.. autodata:: sidescanpy.io.xtf.structs.NAV_UNITS_LATLON
+
+.. autodata:: sidescanpy.io.xtf.structs.SAMPLE_FORMAT_DTYPES
+   :no-value:
+
+.. autodata:: sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES
+   :no-value:
+
+.. autodata:: sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE
+   :no-value:
+
+.. autodata:: sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE
+   :no-value:
+
+.. autodata:: sidescanpy.io.xtf.structs.PACKET_START_DTYPE
+
+.. autodata:: sidescanpy.io.xtf.structs.PING_HEADER_DTYPE
+   :no-value:
+
+.. autodata:: sidescanpy.io.xtf.structs.PING_CHAN_HEADER_DTYPE
+   :no-value:
+
+.. autofunction:: sidescanpy.io.xtf.structs.sample_dtype

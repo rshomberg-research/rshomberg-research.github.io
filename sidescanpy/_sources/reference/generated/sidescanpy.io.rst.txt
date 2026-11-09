@@ -1,0 +1,16 @@
+sidescanpy.io
+=============
+
+.. automodule:: sidescanpy.io
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   dispatch <sidescanpy.io.dispatch>
+   hdf5 <sidescanpy.io.hdf5>
+   jsf <sidescanpy.io.jsf>
+   netcdf <sidescanpy.io.netcdf>
+   sdf <sidescanpy.io.sdf>
+   xtf <sidescanpy.io.xtf>

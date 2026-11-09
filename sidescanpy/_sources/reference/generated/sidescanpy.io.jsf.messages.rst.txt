@@ -1,0 +1,150 @@
+sidescanpy.io.jsf.messages
+==========================
+
+.. automodule:: sidescanpy.io.jsf.messages
+
+.. currentmodule:: sidescanpy.io.jsf.messages
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   JSFMessageHeader
+   JSFMessage
+   SonarDataMessage
+   LegacySideScanDataMessage
+   NavigationOffsetsMessage
+   SystemInformationMessage
+   FileTimeStampMessage
+   FilePaddingMessage
+   NMEAStringMessage
+   NMEAGenericMessage
+   NMEADBTMessage
+   NMEAVTGMessage
+   NMEAGGAMessage
+   NMEARMCMessage
+   NMEAGLLMessage
+   NMEADPTMessage
+   NMEAZDAMessage
+   PitchRollDataMessage
+   PressureSensorReadingMessage
+   calculate_dvl_altitude_plane_fit
+   DopplerVelocityLogDataMessage
+   SituationMessage
+   SituationComprehensiveMessage
+   CableCounterDataMessage
+   KilometerOfPipeDataMessage
+   ContainerTimeStampMessage
+   UnknownMessage2040
+   SonarMessageStatusMessage
+
+.. autoclass:: sidescanpy.io.jsf.messages.JSFMessageHeader
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.JSFMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.SonarDataMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.LegacySideScanDataMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.NavigationOffsetsMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.SystemInformationMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.FileTimeStampMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.FilePaddingMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.NMEAStringMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.NMEAGenericMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.NMEADBTMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.NMEAVTGMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.NMEAGGAMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.NMEARMCMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.NMEAGLLMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.NMEADPTMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.NMEAZDAMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.PitchRollDataMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.PressureSensorReadingMessage
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.io.jsf.messages.calculate_dvl_altitude_plane_fit
+
+.. autoclass:: sidescanpy.io.jsf.messages.DopplerVelocityLogDataMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.SituationMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.SituationComprehensiveMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.CableCounterDataMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.KilometerOfPipeDataMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.ContainerTimeStampMessage
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.UnknownMessage2040
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.jsf.messages.SonarMessageStatusMessage
+   :members:
+   :show-inheritance:

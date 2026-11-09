@@ -1,0 +1,19 @@
+sidescanpy.io.hdf5.writer
+=========================
+
+.. automodule:: sidescanpy.io.hdf5.writer
+
+.. currentmodule:: sidescanpy.io.hdf5.writer
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   FLOAT64_KEEP
+   write_survey
+
+.. autodata:: sidescanpy.io.hdf5.writer.FLOAT64_KEEP
+   :no-value:
+
+.. autofunction:: sidescanpy.io.hdf5.writer.write_survey

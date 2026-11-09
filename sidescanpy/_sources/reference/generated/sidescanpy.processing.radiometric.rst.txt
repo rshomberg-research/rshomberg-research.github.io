@@ -1,0 +1,62 @@
+sidescanpy.processing.radiometric
+=================================
+
+.. automodule:: sidescanpy.processing.radiometric
+
+.. currentmodule:: sidescanpy.processing.radiometric
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   DEFAULT_TEMPERATURE_C
+   DEFAULT_SALINITY_PSU
+   DEFAULT_DEPTH_M
+   DEFAULT_PH
+   DEFAULT_SPREADING_LOSS_DB
+   TVGParams
+   francois_garrison_absorption_db_per_m
+   center_frequency_hz
+   absorption_for_frequency
+   tvg_gain_db
+   apply_tvg_to_amplitude
+   apply_tvg
+   resolve_tvg_params
+   tvg_gain_for_dataset
+   tvg_params_record
+   tvg_params_from_record
+
+.. autodata:: sidescanpy.processing.radiometric.DEFAULT_TEMPERATURE_C
+
+.. autodata:: sidescanpy.processing.radiometric.DEFAULT_SALINITY_PSU
+
+.. autodata:: sidescanpy.processing.radiometric.DEFAULT_DEPTH_M
+
+.. autodata:: sidescanpy.processing.radiometric.DEFAULT_PH
+
+.. autodata:: sidescanpy.processing.radiometric.DEFAULT_SPREADING_LOSS_DB
+
+.. autoclass:: sidescanpy.processing.radiometric.TVGParams
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.processing.radiometric.francois_garrison_absorption_db_per_m
+
+.. autofunction:: sidescanpy.processing.radiometric.center_frequency_hz
+
+.. autofunction:: sidescanpy.processing.radiometric.absorption_for_frequency
+
+.. autofunction:: sidescanpy.processing.radiometric.tvg_gain_db
+
+.. autofunction:: sidescanpy.processing.radiometric.apply_tvg_to_amplitude
+
+.. autofunction:: sidescanpy.processing.radiometric.apply_tvg
+
+.. autofunction:: sidescanpy.processing.radiometric.resolve_tvg_params
+
+.. autofunction:: sidescanpy.processing.radiometric.tvg_gain_for_dataset
+
+.. autofunction:: sidescanpy.processing.radiometric.tvg_params_record
+
+.. autofunction:: sidescanpy.processing.radiometric.tvg_params_from_record

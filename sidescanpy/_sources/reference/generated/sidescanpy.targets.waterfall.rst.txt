@@ -1,0 +1,35 @@
+sidescanpy.targets.waterfall
+============================
+
+.. automodule:: sidescanpy.targets.waterfall
+
+.. currentmodule:: sidescanpy.targets.waterfall
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   BOX_AXES
+   WaterfallBox
+   mean_sample_spacing_m
+   median_ping_spacing_m
+   target_waterfall_position
+   waterfall_boxes
+   targets_by_global_ping
+
+.. autodata:: sidescanpy.targets.waterfall.BOX_AXES
+
+.. autoclass:: sidescanpy.targets.waterfall.WaterfallBox
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.targets.waterfall.mean_sample_spacing_m
+
+.. autofunction:: sidescanpy.targets.waterfall.median_ping_spacing_m
+
+.. autofunction:: sidescanpy.targets.waterfall.target_waterfall_position
+
+.. autofunction:: sidescanpy.targets.waterfall.waterfall_boxes
+
+.. autofunction:: sidescanpy.targets.waterfall.targets_by_global_ping

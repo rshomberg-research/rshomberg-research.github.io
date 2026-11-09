@@ -1,0 +1,18 @@
+sidescanpy.export.target_window
+===============================
+
+.. automodule:: sidescanpy.export.target_window
+
+.. currentmodule:: sidescanpy.export.target_window
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   decode_and_correct_window
+   correct_decoded_window
+
+.. autofunction:: sidescanpy.export.target_window.decode_and_correct_window
+
+.. autofunction:: sidescanpy.export.target_window.correct_decoded_window

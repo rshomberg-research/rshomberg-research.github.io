@@ -1,0 +1,23 @@
+sidescanpy.export.ml.coco
+=========================
+
+.. automodule:: sidescanpy.export.ml.coco
+
+.. currentmodule:: sidescanpy.export.ml.coco
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   CocoImageEntry
+   resolve_categories
+   write_coco
+
+.. autoclass:: sidescanpy.export.ml.coco.CocoImageEntry
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.export.ml.coco.resolve_categories
+
+.. autofunction:: sidescanpy.export.ml.coco.write_coco

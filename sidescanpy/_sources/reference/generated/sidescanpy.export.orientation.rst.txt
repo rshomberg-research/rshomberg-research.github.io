@@ -1,0 +1,27 @@
+sidescanpy.export.orientation
+=============================
+
+.. automodule:: sidescanpy.export.orientation
+
+.. currentmodule:: sidescanpy.export.orientation
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   detrend_by_range
+   orient_for_display
+   orient_pixel_window
+   flip_geo_vertical
+   orient_geo_window
+
+.. autofunction:: sidescanpy.export.orientation.detrend_by_range
+
+.. autofunction:: sidescanpy.export.orientation.orient_for_display
+
+.. autofunction:: sidescanpy.export.orientation.orient_pixel_window
+
+.. autofunction:: sidescanpy.export.orientation.flip_geo_vertical
+
+.. autofunction:: sidescanpy.export.orientation.orient_geo_window

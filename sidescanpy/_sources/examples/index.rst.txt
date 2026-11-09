@@ -1,0 +1,113 @@
+:orphan:
+
+Examples
+========
+
+Each example runs sidescanpy on a real, openly licensed recording that
+anyone can download, and shows the code, what it prints and the figure
+it makes. The pages are built by running the scripts in
+``examples/gallery/``.
+
+Run one yourself with an output directory (the current one by default)::
+
+    python examples/gallery/plot_correct_a_line.py out/
+
+Plotting needs the ``viz`` extra and the GeoTIFF in
+:ref:`sphx_glr_examples_plot_grid_to_a_map.py` the ``geo`` extra. The
+recordings, their sizes and licences are listed in :doc:`/example_data`.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Each correction is one function call on the survey. Every call is recorded with its parameters in each frequency&#x27;s processing_history, so a corrected file says how it was made; leave a call out to skip that correction, or put your own function in the chain.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_correct_a_line_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_correct_a_line`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Correct a line</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Once every sample has a latitude and longitude (the georef step), grid_channel resamples a channel onto a regular UTM grid and to_geotiff writes it for a GIS.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_grid_to_a_map_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_grid_to_a_map`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Grid to a map</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Convert one raw EdgeTech JSF line to sidescanpy&#x27;s data model, save it as .ss.h5, and look at it. read_and_convert reads JSF, Klein SDF and XTF into the same structure: a SideScanSurvey holding one xarray.Dataset per frequency, with backscatter shaped (ping, channel, sample) (channel 0 is port, 1 starboard) plus the navigation and attitude records.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_read_a_file_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_read_a_file`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Read a file</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Three sonars, three file formats or writers, the same code. Each line is read with read_and_convert, TVG-corrected with apply_tvg and plotted with plot_waterfall; only the file name and format string change.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_three_formats_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_three_formats`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Three formats, one model</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/plot_correct_a_line
+   /examples/plot_grid_to_a_map
+   /examples/plot_read_a_file
+   /examples/plot_three_formats
+

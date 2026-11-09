@@ -438,6 +438,7 @@
 <li class="toctree-l3 current active has-children"><a aria-current="page" class="current reference internal" href="#">ml</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.coco.html">coco</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.dataset.html">dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.tiles.html">tiles</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.yolo.html">yolo</a></li>
 </ul>
 </details></li>
@@ -525,6 +526,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="sidescanpy.targets.html">targets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.correlate.html">correlate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.score.html">score</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.waterfall.html">waterfall</a></li>
 </ul>
 </details></li>
@@ -611,14 +613,17 @@
   <section id="module-sidescanpy.export.ml">
 <span id="sidescanpy-export-ml"></span><h1>sidescanpy.export.ml<a class="headerlink" href="#module-sidescanpy.export.ml" title="Link to this heading">#</a></h1>
 <p>ML datasets: <a class="reference internal" href="sidescanpy.core.target.html#sidescanpy.core.target.Target" title="sidescanpy.core.target.Target"><code class="xref py py-class docutils literal notranslate"><span class="pre">sidescanpy.core.target.Target</span></code></a> lists to COCO and YOLO
-label files, and <a class="reference internal" href="sidescanpy.export.ml.dataset.html#sidescanpy.export.ml.dataset.build_target_dataset" title="sidescanpy.export.ml.dataset.build_target_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">build_target_dataset()</span></code></a>, which renders a whole
-annotated image dataset from converted surveys and a target catalog.</p>
+label files; <a class="reference internal" href="sidescanpy.export.ml.dataset.html#sidescanpy.export.ml.dataset.build_target_dataset" title="sidescanpy.export.ml.dataset.build_target_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">build_target_dataset()</span></code></a>, which renders a whole
+annotated image dataset from converted surveys and a target catalog; and
+swath tiles for annotation or detection, with the boxes drawn on them
+turned back into targets (<a class="reference internal" href="sidescanpy.export.ml.tiles.html#module-sidescanpy.export.ml.tiles" title="sidescanpy.export.ml.tiles"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sidescanpy.export.ml.tiles</span></code></a>).</p>
 <p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
 <p class="rubric">Modules</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sidescanpy.export.ml.coco.html">coco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sidescanpy.export.ml.dataset.html">dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sidescanpy.export.ml.tiles.html">tiles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sidescanpy.export.ml.yolo.html">yolo</a></li>
 </ul>
 </div>

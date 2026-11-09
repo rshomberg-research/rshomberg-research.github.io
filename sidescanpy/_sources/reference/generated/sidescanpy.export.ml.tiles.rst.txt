@@ -1,0 +1,37 @@
+sidescanpy.export.ml.tiles
+==========================
+
+.. automodule:: sidescanpy.export.ml.tiles
+
+.. currentmodule:: sidescanpy.export.ml.tiles
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   TILE_INDEX_NAME
+   TileBox
+   TileRecord
+   write_swath_tiles
+   read_tile_index
+   read_coco_boxes
+   boxes_to_targets
+
+.. autodata:: sidescanpy.export.ml.tiles.TILE_INDEX_NAME
+
+.. autoclass:: sidescanpy.export.ml.tiles.TileBox
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.export.ml.tiles.TileRecord
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.export.ml.tiles.write_swath_tiles
+
+.. autofunction:: sidescanpy.export.ml.tiles.read_tile_index
+
+.. autofunction:: sidescanpy.export.ml.tiles.read_coco_boxes
+
+.. autofunction:: sidescanpy.export.ml.tiles.boxes_to_targets

@@ -10,4 +10,5 @@ sidescanpy.targets
 
    correlate <sidescanpy.targets.correlate>
    io <sidescanpy.targets.io>
+   score <sidescanpy.targets.score>
    waterfall <sidescanpy.targets.waterfall>

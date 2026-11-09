@@ -438,6 +438,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.export.ml.html">ml</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.coco.html">coco</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.dataset.html">dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.tiles.html">tiles</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sidescanpy.export.ml.yolo.html">yolo</a></li>
 </ul>
 </details></li>
@@ -525,6 +526,7 @@
 <li class="toctree-l2 current active has-children"><a aria-current="page" class="current reference internal" href="#">targets</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.correlate.html">correlate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.io.html">io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.score.html">score</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.targets.waterfall.html">waterfall</a></li>
 </ul>
 </details></li>
@@ -616,8 +618,9 @@ like COCO/YOLO describe it).</p>
 <p>The data model itself lives in <a class="reference internal" href="sidescanpy.core.target.html#module-sidescanpy.core.target" title="sidescanpy.core.target"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sidescanpy.core.target</span></code></a> (re-exported
 here). Format-specific catalog readers live next to that format’s other IO
 code (e.g. <code class="docutils literal notranslate"><span class="pre">sidescanpy.io.jsf.targets</span></code>); this package holds target JSON/CSV
-IO, window decoding and display helpers, and position correlation against
-converted surveys. ML annotation writers (COCO/YOLO) are in
+IO, window decoding and display helpers, position correlation against
+converted surveys, and scoring of candidate targets against a catalog
+(<a class="reference internal" href="sidescanpy.targets.score.html#sidescanpy.targets.score.match_targets" title="sidescanpy.targets.score.match_targets"><code class="xref py py-func docutils literal notranslate"><span class="pre">match_targets()</span></code></a>). ML annotation writers (COCO/YOLO) are in
 <a class="reference internal" href="sidescanpy.export.ml.html#module-sidescanpy.export.ml" title="sidescanpy.export.ml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sidescanpy.export.ml</span></code></a>.</p>
 <p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
 <p class="rubric">Modules</p>
@@ -625,6 +628,7 @@ converted surveys. ML annotation writers (COCO/YOLO) are in
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sidescanpy.targets.correlate.html">correlate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sidescanpy.targets.io.html">io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sidescanpy.targets.score.html">score</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sidescanpy.targets.waterfall.html">waterfall</a></li>
 </ul>
 </div>

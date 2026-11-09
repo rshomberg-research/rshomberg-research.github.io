@@ -10,4 +10,5 @@ sidescanpy.export.ml
 
    coco <sidescanpy.export.ml.coco>
    dataset <sidescanpy.export.ml.dataset>
+   tiles <sidescanpy.export.ml.tiles>
    yolo <sidescanpy.export.ml.yolo>

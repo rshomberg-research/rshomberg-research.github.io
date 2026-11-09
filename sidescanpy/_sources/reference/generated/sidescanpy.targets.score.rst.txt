@@ -1,0 +1,20 @@
+sidescanpy.targets.score
+========================
+
+.. automodule:: sidescanpy.targets.score
+
+.. currentmodule:: sidescanpy.targets.score
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   TargetMatch
+   match_targets
+
+.. autoclass:: sidescanpy.targets.score.TargetMatch
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.targets.score.match_targets

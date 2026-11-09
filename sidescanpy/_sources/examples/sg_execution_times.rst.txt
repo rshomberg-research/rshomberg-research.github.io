@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**01:45.068** total execution time for 4 files **from examples**:
+**03:15.172** total execution time for 7 files **from examples**:
 
 .. container::
 
@@ -32,15 +32,24 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
+   * - :ref:`sphx_glr_examples_plot_training_dataset.py` (``plot_training_dataset.py``)
+     - 01:22.692
+     - 0.0
    * - :ref:`sphx_glr_examples_plot_grid_to_a_map.py` (``plot_grid_to_a_map.py``)
-     - 00:42.659
+     - 00:34.625
+     - 0.0
+   * - :ref:`sphx_glr_examples_plot_target_chips.py` (``plot_target_chips.py``)
+     - 00:26.547
      - 0.0
    * - :ref:`sphx_glr_examples_plot_correct_a_line.py` (``plot_correct_a_line.py``)
-     - 00:27.907
+     - 00:22.549
      - 0.0
    * - :ref:`sphx_glr_examples_plot_read_a_file.py` (``plot_read_a_file.py``)
-     - 00:18.360
+     - 00:14.832
      - 0.0
    * - :ref:`sphx_glr_examples_plot_three_formats.py` (``plot_three_formats.py``)
-     - 00:16.142
+     - 00:12.630
+     - 0.0
+   * - :ref:`sphx_glr_examples_plot_swath_tiles.py` (``plot_swath_tiles.py``)
+     - 00:01.296
      - 0.0

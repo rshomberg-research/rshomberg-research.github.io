@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**01:45.068** total execution time for 4 files **from all galleries**:
+**03:15.172** total execution time for 13 files **from all galleries**:
 
 .. container::
 
@@ -32,15 +32,42 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
+   * - :ref:`sphx_glr_examples_plot_training_dataset.py` (``../examples/gallery/plot_training_dataset.py``)
+     - 01:22.692
+     - 0.0
    * - :ref:`sphx_glr_examples_plot_grid_to_a_map.py` (``../examples/gallery/plot_grid_to_a_map.py``)
-     - 00:42.659
+     - 00:34.625
+     - 0.0
+   * - :ref:`sphx_glr_examples_plot_target_chips.py` (``../examples/gallery/plot_target_chips.py``)
+     - 00:26.547
      - 0.0
    * - :ref:`sphx_glr_examples_plot_correct_a_line.py` (``../examples/gallery/plot_correct_a_line.py``)
-     - 00:27.907
+     - 00:22.549
      - 0.0
    * - :ref:`sphx_glr_examples_plot_read_a_file.py` (``../examples/gallery/plot_read_a_file.py``)
-     - 00:18.360
+     - 00:14.832
      - 0.0
    * - :ref:`sphx_glr_examples_plot_three_formats.py` (``../examples/gallery/plot_three_formats.py``)
-     - 00:16.142
+     - 00:12.630
+     - 0.0
+   * - :ref:`sphx_glr_examples_plot_swath_tiles.py` (``../examples/gallery/plot_swath_tiles.py``)
+     - 00:01.296
+     - 0.0
+   * - :ref:`sphx_glr_examples_atr_atr_1_prepare.py` (``../examples/gallery/atr/atr_1_prepare.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_examples_atr_atr_2_train_detector.py` (``../examples/gallery/atr/atr_2_train_detector.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_examples_atr_atr_3_train_classifier.py` (``../examples/gallery/atr/atr_3_train_classifier.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_examples_atr_atr_4_evaluate.py` (``../examples/gallery/atr/atr_4_evaluate.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_examples_atr_atr_5_review_fiftyone.py` (``../examples/gallery/atr/atr_5_review_fiftyone.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_examples_atr_atr_6_apply_to_survey.py` (``../examples/gallery/atr/atr_6_apply_to_survey.py``)
+     - 00:00.000
      - 0.0

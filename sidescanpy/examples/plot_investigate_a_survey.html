@@ -554,14 +554,14 @@ records no altitude, so the bottom track supplies it first.</p>
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">var</span></a> <span class="o">=</span> <span class="s2">&quot;</span><span class="s2">backscatter_intensity</span><span class="s2">&quot;</span><span class="w">
 </span><a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">channels</span></a><span class="p">[</span><span class="s2">&quot;</span><span class="s2">hz_218740</span><span class="s2">&quot;</span><span class="p">]</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>18:10:09 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-18:10:09 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
-18:10:09 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-18:10:09 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-18:10:09 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>18:22:08 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+18:22:08 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
+18:22:08 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+18:22:08 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+18:22:08 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 /home/runner/work/sidescanpy/sidescanpy/src/sidescanpy/processing/bottom.py:230: RuntimeWarning: All-NaN slice encountered
   peak = np.nanmax(roll[..., :window], axis=-1, keepdims=True)
-18:10:10 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+18:22:09 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 </pre></div>
 </div>
 <section id="what-are-the-samples">
@@ -654,7 +654,7 @@ with its shorter usable range, absorption alone fits slightly better). So this s
 anything past the usable range is noise to crop or mask, not seabed.
 Confirm on the corrected data that the level is flat with range: a good
 fit is a hypothesis, not a result.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.379 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 14.004 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-investigate-a-survey-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/458b5198bbc16451188be16c5e2244b5/plot_investigate_a_survey.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_investigate_a_survey.ipynb</span></code></a></p>

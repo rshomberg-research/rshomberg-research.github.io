@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**08:34.199** total execution time for 13 files **from examples**:
+**08:35.129** total execution time for 13 files **from examples**:
 
 .. container::
 
@@ -33,41 +33,41 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_examples_plot_training_dataset.py` (``plot_training_dataset.py``)
-     - 03:16.658
+     - 03:15.591
      - 0.0
    * - :ref:`sphx_glr_examples_plot_target_chips.py` (``plot_target_chips.py``)
-     - 01:24.087
+     - 01:23.955
      - 0.0
    * - :ref:`sphx_glr_examples_plot_wreck_gallery.py` (``plot_wreck_gallery.py``)
-     - 01:15.573
+     - 01:15.152
      - 0.0
    * - :ref:`sphx_glr_examples_plot_four_passes.py` (``plot_four_passes.py``)
-     - 00:46.823
+     - 00:46.482
      - 0.0
    * - :ref:`sphx_glr_examples_plot_grid_to_a_map.py` (``plot_grid_to_a_map.py``)
-     - 00:40.204
+     - 00:42.159
      - 0.0
    * - :ref:`sphx_glr_examples_plot_read_a_file.py` (``plot_read_a_file.py``)
-     - 00:28.753
+     - 00:28.676
      - 0.0
    * - :ref:`sphx_glr_examples_plot_investigate_a_survey.py` (``plot_investigate_a_survey.py``)
-     - 00:13.379
+     - 00:14.004
      - 0.0
    * - :ref:`sphx_glr_examples_plot_correct_a_line.py` (``plot_correct_a_line.py``)
-     - 00:12.546
+     - 00:12.749
      - 0.0
    * - :ref:`sphx_glr_examples_plot_compare_sonars_and_formats.py` (``plot_compare_sonars_and_formats.py``)
-     - 00:09.248
+     - 00:09.390
      - 0.0
    * - :ref:`sphx_glr_examples_plot_shadow_height.py` (``plot_shadow_height.py``)
-     - 00:02.125
+     - 00:02.135
      - 0.0
    * - :ref:`sphx_glr_examples_plot_swath_tiles.py` (``plot_swath_tiles.py``)
-     - 00:01.996
+     - 00:02.023
      - 0.0
    * - :ref:`sphx_glr_examples_plot_navigation.py` (``plot_navigation.py``)
-     - 00:01.742
+     - 00:01.747
      - 0.0
    * - :ref:`sphx_glr_examples_plot_whats_in_a_file.py` (``plot_whats_in_a_file.py``)
-     - 00:01.065
+     - 00:01.066
      - 0.0

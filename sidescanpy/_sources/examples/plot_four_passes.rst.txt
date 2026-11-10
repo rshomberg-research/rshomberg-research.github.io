@@ -256,7 +256,7 @@ linear interpolation between the samples (scipy ``griddata``).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-190
+.. GENERATED FROM PYTHON SOURCE LINES 178-198
 
 Reading the result
 ------------------
@@ -271,10 +271,18 @@ course stands in for the heading. The shadows point away from each
 track, so each pass shows a different side of the wreck: a mosaic of
 all four would show more of it than any one.
 
+Why the 152° pass looks different
+---------------------------------
+Same wreck, different geometry. The other passes run along the hull;
+this one crosses it end-on, close under the towfish (about 10 m slant
+range), where shadows are short and the recorder's gain makes the
+seabed bright. Its track is on the other side, so the shadows fall the
+other way.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 46.823 seconds)
+   **Total running time of the script:** (0 minutes 46.482 seconds)
 
 
 .. _sphx_glr_download_examples_plot_four_passes.py:

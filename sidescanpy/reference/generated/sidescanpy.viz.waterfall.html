@@ -693,8 +693,10 @@ offset.</p>
 </dd>
 <dt><strong>cmap</strong><span class="classifier">str or Colormap, default “copper”</span></dt><dd><p>Matplotlib colormap.</p>
 </dd>
-<dt><strong>vmin, vmax</strong><span class="classifier">float, optional</span></dt><dd><p>Color scale bounds. If not given, computed from finite-value
-percentiles (<code class="docutils literal notranslate"><span class="pre">vmin_pct</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax_pct</span></code>).</p>
+<dt><strong>vmin, vmax</strong><span class="classifier">float, optional</span></dt><dd><p>Color scale bounds. If not given, computed from percentiles
+(<code class="docutils literal notranslate"><span class="pre">vmin_pct</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax_pct</span></code>) of the finite values that are
+drawn: samples without an x coordinate (such as the water column
+in ground-range modes) are left out.</p>
 </dd>
 <dt><strong>vmin_pct, vmax_pct</strong><span class="classifier">float, default 1.0 and 99.0</span></dt><dd><p>Percentiles for auto color scaling. Ignored if <code class="docutils literal notranslate"><span class="pre">vmin</span></code> or
 <code class="docutils literal notranslate"><span class="pre">vmax</span></code> is given.</p>

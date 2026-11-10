@@ -33,7 +33,7 @@ Licence v3.0) and USGS Grand Bay (U.S. public domain); see
 
 Usage: ``python examples/gallery/plot_three_formats.py [output_dir]``
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-37
+.. GENERATED FROM PYTHON SOURCE LINES 17-36
 
 .. code-block:: Python
 
@@ -47,7 +47,6 @@ Usage: ``python examples/gallery/plot_three_formats.py [output_dir]``
     import numpy as np
 
     from sidescanpy import datasets
-    from sidescanpy.core.units import linear_to_db
     from sidescanpy.io import read_and_convert
     from sidescanpy.log import configure_logging
     from sidescanpy.processing import apply_tvg, compute_geometric_ranges
@@ -64,13 +63,13 @@ Usage: ``python examples/gallery/plot_three_formats.py [output_dir]``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-41
+.. GENERATED FROM PYTHON SOURCE LINES 37-40
 
 From left: EdgeTech (JSF written by Discover), Benthos SIS-1624 (XTF
 written by Isis) and Klein (XTF written by SonarPro), each in dB against
 slant range.
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-57
+.. GENERATED FROM PYTHON SOURCE LINES 40-57
 
 .. code-block:: Python
 
@@ -85,9 +84,10 @@ slant range.
         survey = read_and_convert([datasets.fetch(name)], fmt=fmt)
         survey = apply_tvg(survey)
         ds = compute_geometric_ranges(survey.get_frequency(freq_key).dataset)
-        ds = ds.assign(backscatter_db=linear_to_db(ds["backscatter_intensity"]))
-        plot_waterfall(ds, x_axis="slant_range", value_var="backscatter_db",
-                       vmin_pct=10, vmax_pct=99.5, ax=ax, title=f"{label}, {freq_key}")
+        # apply_tvg returns dB; average samples to about 1000 per side for display.
+        ds = ds.coarsen(sample=max(1, ds.sizes["sample"] // 1000), boundary="trim").mean()
+        plot_waterfall(ds, x_axis="slant_range", vmin_pct=2, vmax_pct=99.5, ax=ax,
+                       title=f"{label}, {freq_key}")
     fig.savefig(out / "three_formats.png", dpi=110)
 
 
@@ -103,10 +103,10 @@ slant range.
 
  .. code-block:: none
 
-    13:59:58 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    13:59:58 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
-    13:59:58 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    13:59:58 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
+    14:43:37 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    14:43:37 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    14:43:37 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    14:43:37 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
 
 
 
@@ -138,8 +138,8 @@ XTF. The two readers return identical samples.
 
  .. code-block:: none
 
-    14:00:16 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    14:00:16 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    14:43:46 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    14:43:46 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
     JSF vs XTF, 288 pings: max |difference| = 0
 
 
@@ -148,7 +148,7 @@ XTF. The two readers return identical samples.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 18.286 seconds)
+   **Total running time of the script:** (0 minutes 8.853 seconds)
 
 
 .. _sphx_glr_download_examples_plot_three_formats.py:

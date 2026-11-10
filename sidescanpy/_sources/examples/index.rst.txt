@@ -16,6 +16,10 @@ Plotting needs the ``viz`` extra and the GeoTIFF in
 :ref:`sphx_glr_examples_plot_grid_to_a_map.py` the ``geo`` extra. The
 recordings, their sizes and licences are listed in :doc:`/example_data`.
 
+The two-stage target recognition examples (detector, classifier, review,
+evaluation) need a GPU and extra packages, so they are not in this
+gallery: see :doc:`/atr/index`.
+
 
 .. raw:: html
 
@@ -164,147 +168,4 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
    /examples/plot_target_chips
    /examples/plot_three_formats
    /examples/plot_training_dataset
-
-Automatic target recognition
-----------------------------
-
-Two stages, as in most sidescan target recognition: a detector that finds
-anything on the seabed (and is allowed false alarms), then a classifier
-that looks closely at each detection. These pages train both on a public
-labelled image set, test them on a year they never saw, show how a person
-reviews and corrects the results, and run them on sidescanpy tiles with
-positions. :doc:`/atr` shows how they connect to the sonar-data steps
-above.
-
-They need extra packages (Ultralytics YOLO, torchvision, FiftyOne) and a
-GPU, so they are not run when this site is built: the code is shown with
-the output and figures of a run on a workstation with one 20 GB GPU.
-
-
-.. raw:: html
-
-  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbnails">
-
-.. thumbnail-parent-div-open
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="The detector and classifier in these examples are trained on a public, labelled sidescan image set: Santos et al. (2024), Side-scan sonar imaging for mine detection, 1170 images from a Marine Sonic sonar on a Gavia AUV, with YOLO boxes for mine-like contacts (``MILCO``, 437) and non-mine-like bottom objects (``NOMBO``, 231). CC BY 4.0, doi:10.6084/m9.figshare.24574879; article doi:10.1016/j.dib.2024.110132.">
-
-.. only:: html
-
-  .. image:: /examples/atr/images/thumb/sphx_glr_atr_1_prepare_thumb.png
-    :alt:
-
-  :doc:`/examples/atr/atr_1_prepare`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">1. Labelled sonar images for a detector</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="The first stage finds something on the seabed. It is trained on the one-class set from sphx_glr_examples_atr_atr_1_prepare.py with Ultralytics YOLO, starting from weights pretrained on everyday photographs. Ultralytics is not a sidescanpy dependency; install it next to it (``pip install ultralytics``, which brings PyTorch).">
-
-.. only:: html
-
-  .. image:: /examples/atr/images/thumb/sphx_glr_atr_2_train_detector_thumb.png
-    :alt:
-
-  :doc:`/examples/atr/atr_2_train_detector`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">2. Train an object detector</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="The second stage looks closely at each detection and decides what it is: MILCO (mine-like contact), NOMBO (non-mine-like bottom object) or clutter (not an object; the detector&#x27;s false alarms). It sees a small chip around the object, at a fixed size relative to it, which is where a classifier can use detail a detector working on whole images cannot.">
-
-.. only:: html
-
-  .. image:: /examples/atr/images/thumb/sphx_glr_atr_3_train_classifier_thumb.png
-    :alt:
-
-  :doc:`/examples/atr/atr_3_train_classifier`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">3. Train a classifier on target chips</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="The year 2017 was kept out of training and validation. Here both stages run on it as they would on a new survey: the detector with a low confidence threshold (miss little), then the classifier on a chip around each detection, dropping those it calls clutter.">
-
-.. only:: html
-
-  .. image:: /examples/atr/images/thumb/sphx_glr_atr_4_evaluate_thumb.png
-    :alt:
-
-  :doc:`/examples/atr/atr_4_evaluate`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">4. Test both stages on more data</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="A person checks what the two stages found before it counts: confirms objects, rejects false alarms, fixes classes and adds what was missed. The corrected labels become training data for the next round, which is how a small labelled set grows.">
-
-.. only:: html
-
-  .. image:: /examples/atr/images/thumb/sphx_glr_atr_5_review_fiftyone_thumb.png
-    :alt:
-
-  :doc:`/examples/atr/atr_5_review_fiftyone`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">5. Review detections and correct the labels</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="The trained stages applied to sidescanpy output: swath tiles cut from a corrected line, detections turned into targets with positions (~sidescanpy.export.ml.boxes_to_targets), classified, and scored against a catalog in metres (~sidescanpy.targets.match_targets).">
-
-.. only:: html
-
-  .. image:: /examples/atr/images/thumb/sphx_glr_atr_6_apply_to_survey_thumb.png
-    :alt:
-
-  :doc:`/examples/atr/atr_6_apply_to_survey`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">6. Run the models on a survey and score in metres</div>
-    </div>
-
-
-.. thumbnail-parent-div-close
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-   :includehidden:
-
-
-   /examples/atr/index.rst
 

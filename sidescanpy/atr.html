@@ -52,7 +52,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Analysis" href="analysis.html" />
+    <link rel="next" title="Two-stage target recognition, step by step" href="atr/index.html" />
     <link rel="prev" title="Targets and datasets" href="datasets.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -417,7 +417,18 @@
 <li class="toctree-l1"><a class="reference internal" href="processing.html">Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grids.html">Gridding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Targets and datasets</a></li>
-<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Target recognition</a></li>
+<li class="toctree-l1 current active has-children"><a aria-current="page" class="current reference internal" href="#">Target recognition</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="atr/index.html">Step by step</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="atr/prepare.html">1. Labelled sonar images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atr/detector.html">2. Train the detector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atr/classifier.html">3. Train the classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atr/evaluate.html">4. Test both stages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atr/review.html">5. Review and correct the labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atr/survey.html">6. Run the models on a survey</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="viz.html">Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command line</a></li>
@@ -515,32 +526,33 @@ detection and decides what it is, or rejects it.</p>
 </tr>
 <tr class="row-even"><td><p>3. Annotate</p></td>
 <td><p>draw boxes in FiftyOne, CVAT or Label Studio and export COCO; read the boxes back as targets with ping, side and position</p></td>
-<td><p><a class="reference internal" href="examples/plot_swath_tiles.html"><span class="std std-doc">Swath tiles for annotation</span></a>, <a class="reference internal" href="examples/atr/atr_5_review_fiftyone.html"><span class="std std-doc">Review and correct labels</span></a></p></td>
+<td><p><a class="reference internal" href="examples/plot_swath_tiles.html"><span class="std std-doc">Swath tiles for annotation</span></a>, <a class="reference internal" href="atr/review.html"><span class="std std-doc">Review and correct labels</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4. Train a detector</p></td>
 <td><p>one class, “object”, on whole images</p></td>
-<td><p><a class="reference internal" href="examples/atr/atr_1_prepare.html"><span class="std std-doc">Labelled images</span></a>, <a class="reference internal" href="examples/atr/atr_2_train_detector.html"><span class="std std-doc">Train a detector</span></a></p></td>
+<td><p><a class="reference internal" href="atr/prepare.html"><span class="std std-doc">Labelled images</span></a>, <a class="reference internal" href="atr/detector.html"><span class="std std-doc">Train a detector</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>5. Train a classifier</p></td>
 <td><p>chips around each labelled object, plus clutter and background images</p></td>
-<td><p><a class="reference internal" href="examples/atr/atr_3_train_classifier.html"><span class="std std-doc">Train a classifier</span></a>, <a class="reference internal" href="examples/plot_training_dataset.html"><span class="std std-doc">Training dataset with backgrounds</span></a></p></td>
+<td><p><a class="reference internal" href="atr/classifier.html"><span class="std std-doc">Train a classifier</span></a>, <a class="reference internal" href="examples/plot_training_dataset.html"><span class="std std-doc">Training dataset with backgrounds</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>6. Find candidates</p></td>
 <td><p>run both stages on new tiles and turn the detections into targets with positions</p></td>
-<td><p><a class="reference internal" href="examples/atr/atr_6_apply_to_survey.html"><span class="std std-doc">Run the models on a survey</span></a></p></td>
+<td><p><a class="reference internal" href="atr/survey.html"><span class="std std-doc">Run the models on a survey</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>7. Review</p></td>
 <td><p>confirm, reject and correct the candidates; the corrections are the next round’s training data</p></td>
-<td><p><a class="reference internal" href="examples/atr/atr_5_review_fiftyone.html"><span class="std std-doc">Review and correct labels</span></a></p></td>
+<td><p><a class="reference internal" href="atr/review.html"><span class="std std-doc">Review and correct labels</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>8. Test on more data</p></td>
 <td><p>score on lines or surveys that were never used for training, in image space or in metres</p></td>
-<td><p><a class="reference internal" href="examples/atr/atr_4_evaluate.html"><span class="std std-doc">Test both stages</span></a>, <a class="reference internal" href="examples/atr/atr_6_apply_to_survey.html"><span class="std std-doc">Run the models on a survey</span></a></p></td>
+<td><p><a class="reference internal" href="atr/evaluate.html"><span class="std std-doc">Test both stages</span></a>, <a class="reference internal" href="atr/survey.html"><span class="std std-doc">Run the models on a survey</span></a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>The detector and classifier examples train on a public labelled image
+<p>The <a class="reference internal" href="atr/index.html"><span class="std std-doc">step-by-step pages</span></a> walk through steps 4 to 8 in
+turn. The detector and classifier examples train on a public labelled image
 set (Santos et al. 2024, mine-like objects seen by a Marine Sonic sonar),
 because no openly licensed raw sidescan recording with labelled targets
 was available. With your own data, steps 2 and 3 produce the same kind of
@@ -623,6 +635,8 @@ setting rarely transfers to another without new labels. Correcting the
 data first (TVG, ground range, the same pixel size) narrows the gap but
 does not close it.</p></li>
 </ul>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 </section>
 
@@ -646,11 +660,11 @@ does not close it.</p></li>
       </div>
     </a>
     <a class="right-next"
-       href="analysis.html"
+       href="atr/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Analysis</p>
+        <p class="prev-next-title">Two-stage target recognition, step by step</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

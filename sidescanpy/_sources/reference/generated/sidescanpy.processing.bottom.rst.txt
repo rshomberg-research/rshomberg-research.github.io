@@ -17,6 +17,7 @@ sidescanpy.processing.bottom
    mask_before_sample
    altitude_sample_index
    uniform_exclusion_boundary
+   reject_late_boundaries
    mask_nadir_gap
    BOTTOM_TRACK_REPLACE
    altitude_from_bottom_track
@@ -34,6 +35,8 @@ sidescanpy.processing.bottom
 .. autofunction:: sidescanpy.processing.bottom.altitude_sample_index
 
 .. autofunction:: sidescanpy.processing.bottom.uniform_exclusion_boundary
+
+.. autofunction:: sidescanpy.processing.bottom.reject_late_boundaries
 
 .. autofunction:: sidescanpy.processing.bottom.mask_nadir_gap
 

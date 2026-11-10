@@ -98,7 +98,7 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="A target catalog (here five picks made by eye, a stand-in for an acquisition-software catalog or an analyst&#x27;s list) rendered as image chips with build_target_dataset: at four correction levels, at three pixel sizes, and in two window styles. Every run also writes COCO and YOLO labels, so any of these chip sets can train an image classifier.">
+    <div class="sphx-glr-thumbcontainer" tooltip="A target catalog (here five picks made by eye, a stand-in for an acquisition-software catalog or an analyst&#x27;s list) rendered as image chips with build_target_dataset: at four correction levels, at three pixel sizes, and in three window styles. Every run also writes COCO and YOLO labels, so any of these chip sets can train an image classifier.">
 
 .. only:: html
 

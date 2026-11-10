@@ -648,13 +648,16 @@ derived per loaded neighborhood by <a class="reference internal" href="sidescanp
 <tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.export.windows.levels.mask_nadir_gap_with_uncorrected" title="sidescanpy.export.windows.levels.mask_nadir_gap_with_uncorrected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask_nadir_gap_with_uncorrected</span></code></a></p></td>
 <td><p><a class="reference internal" href="sidescanpy.processing.bottom.html#sidescanpy.processing.bottom.mask_nadir_gap" title="sidescanpy.processing.bottom.mask_nadir_gap"><code class="xref py py-func docutils literal notranslate"><span class="pre">mask_nadir_gap()</span></code></a>, plus <code class="docutils literal notranslate"><span class="pre">uncorrected</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.export.windows.levels.with_db_var" title="sidescanpy.export.windows.levels.with_db_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_db_var</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.export.windows.levels.mask_dropouts" title="sidescanpy.export.windows.levels.mask_dropouts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask_dropouts</span></code></a></p></td>
+<td><p>Set dropout samples (recorded amplitude exactly zero) to NaN.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.export.windows.levels.with_db_var" title="sidescanpy.export.windows.levels.with_db_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_db_var</span></code></a></p></td>
 <td><p>Add <code class="docutils literal notranslate"><span class="pre">backscatter_db</span></code> (<code class="docutils literal notranslate"><span class="pre">20*log10</span></code> of the uncorrected signal, no TVG gain).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.export.windows.levels.nominal_sample_interval_m" title="sidescanpy.export.windows.levels.nominal_sample_interval_m"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nominal_sample_interval_m</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.export.windows.levels.nominal_sample_interval_m" title="sidescanpy.export.windows.levels.nominal_sample_interval_m"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nominal_sample_interval_m</span></code></a></p></td>
 <td><p>Slant-range meters per sample at <code class="docutils literal notranslate"><span class="pre">ds</span></code>'s first ping.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.export.windows.levels.WindowSpec" title="sidescanpy.export.windows.levels.WindowSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WindowSpec</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.export.windows.levels.WindowSpec" title="sidescanpy.export.windows.levels.WindowSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WindowSpec</span></code></a></p></td>
 <td><p>How one export style is rendered.</p></td>
 </tr>
 </tbody>
@@ -690,6 +693,33 @@ derived per loaded neighborhood by <a class="reference internal" href="sidescanp
 <dd><p><a class="reference internal" href="sidescanpy.processing.bottom.html#sidescanpy.processing.bottom.mask_nadir_gap" title="sidescanpy.processing.bottom.mask_nadir_gap"><code class="xref py py-func docutils literal notranslate"><span class="pre">mask_nadir_gap()</span></code></a>, plus <code class="docutils literal notranslate"><span class="pre">uncorrected</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">uncorrected</span></code> is derived from the masked intensity, so both carry the
 same NaN nadir gap.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.export.windows.levels.mask_dropouts">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.export.windows.levels.</span></span><span class="sig-name descname"><span class="pre">mask_dropouts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.export.windows.levels.mask_dropouts" title="Link to this definition">#</a></dt>
+<dd><p>Set dropout samples (recorded amplitude exactly zero) to NaN.</p>
+<p>A sample recorded as zero carries no measurement. After TVG it is no
+longer at the dB floor (the gain for its range is added), so it is found
+on <code class="docutils literal notranslate"><span class="pre">uncorrected</span></code> (every radiometric step undone; at or below
+<a class="reference internal" href="sidescanpy.core.units.html#sidescanpy.core.units.MIN_LINEAR" title="sidescanpy.core.units.MIN_LINEAR"><code class="xref py py-data docutils literal notranslate"><span class="pre">MIN_LINEAR</span></code></a>) and masked in
+<code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> and <code class="docutils literal notranslate"><span class="pre">uncorrected</span></code>. Resampling then
+interpolates over it instead of spreading it into a dark spot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ds</strong><span class="classifier">xr.Dataset</span></dt><dd><p>Loaded channel with <code class="docutils literal notranslate"><span class="pre">uncorrected</span></code>
+(<a class="reference internal" href="#sidescanpy.export.windows.levels.mask_nadir_gap_with_uncorrected" title="sidescanpy.export.windows.levels.mask_nadir_gap_with_uncorrected"><code class="xref py py-func docutils literal notranslate"><span class="pre">mask_nadir_gap_with_uncorrected()</span></code></a>).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>xr.Dataset</dt><dd><p><code class="docutils literal notranslate"><span class="pre">ds</span></code> itself when nothing is masked, otherwise a copy.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -816,6 +846,7 @@ read the level’s own variable.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.windows.levels.PIXEL_LEVELS"><code class="docutils literal notranslate"><span class="pre">PIXEL_LEVELS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.windows.levels.LEVEL_VARS"><code class="docutils literal notranslate"><span class="pre">LEVEL_VARS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.windows.levels.mask_nadir_gap_with_uncorrected"><code class="docutils literal notranslate"><span class="pre">mask_nadir_gap_with_uncorrected()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.windows.levels.mask_dropouts"><code class="docutils literal notranslate"><span class="pre">mask_dropouts()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.windows.levels.with_db_var"><code class="docutils literal notranslate"><span class="pre">with_db_var()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.windows.levels.nominal_sample_interval_m"><code class="docutils literal notranslate"><span class="pre">nominal_sample_interval_m()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.windows.levels.WindowSpec"><code class="docutils literal notranslate"><span class="pre">WindowSpec</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">

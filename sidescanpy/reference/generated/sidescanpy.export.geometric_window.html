@@ -637,7 +637,10 @@ and the per-ping cumulative along-track distance from
 <tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window_griddata" title="sidescanpy.export.geometric_window.extract_geometric_window_griddata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_geometric_window_griddata</span></code></a></p></td>
 <td><p>Same contract as <a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="sidescanpy.export.geometric_window.extract_geometric_window"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a>/ <a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window_binned" title="sidescanpy.export.geometric_window.extract_geometric_window_binned"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window_binned()</span></code></a> (same params, same <code class="docutils literal notranslate"><span class="pre">(grid,</span> <span class="pre">meta)</span></code> shape, same <code class="docutils literal notranslate"><span class="pre">meta</span></code> keys, drop-in interchangeable with <a class="reference internal" href="#sidescanpy.export.geometric_window.locate_point" title="sidescanpy.export.geometric_window.locate_point"><code class="xref py py-func docutils literal notranslate"><span class="pre">locate_point()</span></code></a>) but resamples via <code class="docutils literal notranslate"><span class="pre">scipy.interpolate.griddata</span></code> -- full scattered-data interpolation across the whole requested grid, not a radius search (KDTree) or strict rectangle membership (binned).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.export.geometric_window.locate_point" title="sidescanpy.export.geometric_window.locate_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">locate_point</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.export.geometric_window.interpolate_scattered" title="sidescanpy.export.geometric_window.interpolate_scattered"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpolate_scattered</span></code></a></p></td>
+<td><p>Interpolate scattered samples at query points with <code class="docutils literal notranslate"><span class="pre">scipy.interpolate.griddata</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.export.geometric_window.locate_point" title="sidescanpy.export.geometric_window.locate_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">locate_point</span></code></a></p></td>
 <td><p>Translate a real-world <code class="docutils literal notranslate"><span class="pre">(along_m,</span> <span class="pre">across_m)</span></code> point into pixel <code class="docutils literal notranslate"><span class="pre">(row,</span> <span class="pre">col)</span></code> coordinates within a grid produced by <a class="reference internal" href="#sidescanpy.export.geometric_window.extract_geometric_window" title="sidescanpy.export.geometric_window.extract_geometric_window"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a>, using that call's own returned <code class="docutils literal notranslate"><span class="pre">meta</span></code> — for marking a <em>different</em> point than the one the window was centered on (e.g. a second target sharing the same frame).</p></td>
 </tr>
 </tbody>
@@ -935,6 +938,43 @@ never-NaN behavior.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.export.geometric_window.interpolate_scattered">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.export.geometric_window.</span></span><span class="sig-name descname"><span class="pre">interpolate_scattered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_points</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">interp_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_fill_distance_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.export.geometric_window.interpolate_scattered" title="Link to this definition">#</a></dt>
+<dd><p>Interpolate scattered samples at query points with <code class="docutils literal notranslate"><span class="pre">scipy.interpolate.griddata</span></code>.</p>
+<p>The resampler behind the <code class="docutils literal notranslate"><span class="pre">&quot;griddata&quot;</span></code> windows, geometric and
+georeferenced. Query points outside the samples’ convex hull get the
+nearest sample’s value; query points farther than
+<code class="docutils literal notranslate"><span class="pre">max_fill_distance_m</span></code> from every sample are NaN, so the edge of the
+recorded swath (and the nadir gap) is not extended into invented
+seabed. Coordinates are shifted to the query points’ centre first, so
+projected (UTM) coordinates triangulate as accurately as local ones.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>points</strong><span class="classifier">np.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">2)</span></code> sample positions in meters (any planar frame).</p>
+</dd>
+<dt><strong>values</strong><span class="classifier">np.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(n,)</span></code> finite sample values.</p>
+</dd>
+<dt><strong>query_points</strong><span class="classifier">np.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">2)</span></code> positions to interpolate at, same frame.</p>
+</dd>
+<dt><strong>interp_method</strong><span class="classifier">{“linear”, “cubic”, “nearest”}, default “linear”</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">griddata</span></code>’s <code class="docutils literal notranslate"><span class="pre">method</span></code>.</p>
+</dd>
+<dt><strong>max_fill_distance_m</strong><span class="classifier">float, default inf</span></dt><dd><p>See above. Only samples within twice this distance of the query
+points’ bounding box are triangulated, which keeps a small window
+fast when <code class="docutils literal notranslate"><span class="pre">points</span></code> covers a large neighborhood.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd><p><code class="docutils literal notranslate"><span class="pre">(m,)</span></code> float64.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="sidescanpy.export.geometric_window.locate_point">
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.export.geometric_window.</span></span><span class="sig-name descname"><span class="pre">locate_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">along_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.export.geometric_window.locate_point" title="Link to this definition">#</a></dt>
 <dd><p>Translate a real-world <code class="docutils literal notranslate"><span class="pre">(along_m,</span> <span class="pre">across_m)</span></code> point into pixel
@@ -1000,6 +1040,7 @@ anyway) and a real anisotropic-pixel window.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.geometric_window.extract_geometric_window"><code class="docutils literal notranslate"><span class="pre">extract_geometric_window()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.geometric_window.extract_geometric_window_binned"><code class="docutils literal notranslate"><span class="pre">extract_geometric_window_binned()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.geometric_window.extract_geometric_window_griddata"><code class="docutils literal notranslate"><span class="pre">extract_geometric_window_griddata()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.geometric_window.interpolate_scattered"><code class="docutils literal notranslate"><span class="pre">interpolate_scattered()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.export.geometric_window.locate_point"><code class="docutils literal notranslate"><span class="pre">locate_point()</span></code></a></li>
 </ul>
   </nav></div>

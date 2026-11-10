@@ -70,18 +70,19 @@ Not run when the docs are built. Usage::
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-52
+.. GENERATED FROM PYTHON SOURCE LINES 50-53
 
 Convert, correct and tile the line (as in
-:ref:`sphx_glr_examples_plot_swath_tiles.py`).
+:ref:`sphx_glr_examples_plot_swath_tiles.py`, including the merge window
+for this file's two-entry GPS updates).
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-63
+.. GENERATED FROM PYTHON SOURCE LINES 53-64
 
 .. code-block:: Python
 
 
     survey = read_and_convert([datasets.fetch("usgs_grand_bay_150602205800.xtf")], fmt="xtf")
-    survey = interpolate_aux_onto_pings(survey)
+    survey = interpolate_aux_onto_pings(survey, merge_window_s=0.3)
     survey = apply_tvg(survey)
     survey = compute_geometric_ranges(survey)
     survey = compute_georeferencing(survey)
@@ -91,13 +92,13 @@ Convert, correct and tile the line (as in
                               pct_low=5, pct_high=99.7)
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-67
+.. GENERATED FROM PYTHON SOURCE LINES 65-68
 
 Detect on each tile, keep what the classifier does not call clutter, and
 turn the boxes into targets. The detector was trained on colour images,
 so the grey tiles are passed as three equal channels.
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-94
+.. GENERATED FROM PYTHON SOURCE LINES 68-95
 
 .. code-block:: Python
 
@@ -129,13 +130,13 @@ so the grey tiles are passed as three equal channels.
     print(f"{len(candidates)} candidate targets on {len(tiles)} tiles")
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-98
+.. GENERATED FROM PYTHON SOURCE LINES 96-99
 
 Score against the catalog: a candidate within 3 m of a catalog target
 is a hit. ``min_score`` shows how the trade-off moves with the detector
 threshold.
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-112
+.. GENERATED FROM PYTHON SOURCE LINES 99-113
 
 .. code-block:: Python
 
@@ -154,7 +155,7 @@ threshold.
                                                        min_score=min_score).summary())
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-124
+.. GENERATED FROM PYTHON SOURCE LINES 114-125
 
 Output of a run::
 

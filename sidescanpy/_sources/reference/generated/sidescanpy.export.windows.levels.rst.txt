@@ -15,6 +15,7 @@ sidescanpy.export.windows.levels
    PIXEL_LEVELS
    LEVEL_VARS
    mask_nadir_gap_with_uncorrected
+   mask_dropouts
    with_db_var
    nominal_sample_interval_m
    WindowSpec
@@ -29,6 +30,8 @@ sidescanpy.export.windows.levels
    :no-value:
 
 .. autofunction:: sidescanpy.export.windows.levels.mask_nadir_gap_with_uncorrected
+
+.. autofunction:: sidescanpy.export.windows.levels.mask_dropouts
 
 .. autofunction:: sidescanpy.export.windows.levels.with_db_var
 

@@ -663,13 +663,16 @@ return <code class="docutils literal notranslate"><span class="pre">(ping,</span
 <tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.uniform_exclusion_boundary" title="sidescanpy.processing.bottom.uniform_exclusion_boundary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uniform_exclusion_boundary</span></code></a></p></td>
 <td><p>Collapse a per-(ping, channel) boundary to one conservative value.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.mask_nadir_gap" title="sidescanpy.processing.bottom.mask_nadir_gap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask_nadir_gap</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.reject_late_boundaries" title="sidescanpy.processing.bottom.reject_late_boundaries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reject_late_boundaries</span></code></a></p></td>
+<td><p>NaN out first-return boundaries far beyond their channel's usual one.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.mask_nadir_gap" title="sidescanpy.processing.bottom.mask_nadir_gap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask_nadir_gap</span></code></a></p></td>
 <td><p>Return a copy of <code class="docutils literal notranslate"><span class="pre">ds</span></code> with the whole nadir gap set to NaN.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE" title="sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BOTTOM_TRACK_REPLACE</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE" title="sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BOTTOM_TRACK_REPLACE</span></code></a></p></td>
 <td><p>Accepted <code class="docutils literal notranslate"><span class="pre">replace</span></code> values of <a class="reference internal" href="#sidescanpy.processing.bottom.altitude_from_bottom_track" title="sidescanpy.processing.bottom.altitude_from_bottom_track"><code class="xref py py-func docutils literal notranslate"><span class="pre">altitude_from_bottom_track()</span></code></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.altitude_from_bottom_track" title="sidescanpy.processing.bottom.altitude_from_bottom_track"><code class="xref py py-obj docutils literal notranslate"><span class="pre">altitude_from_bottom_track</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.bottom.altitude_from_bottom_track" title="sidescanpy.processing.bottom.altitude_from_bottom_track"><code class="xref py py-obj docutils literal notranslate"><span class="pre">altitude_from_bottom_track</span></code></a></p></td>
 <td><p>Set <code class="docutils literal notranslate"><span class="pre">altitude_m</span></code> from the first bottom return (the <code class="docutils literal notranslate"><span class="pre">&quot;bottom_track&quot;</span></code> step).</p></td>
 </tr>
 </tbody>
@@ -847,8 +850,41 @@ no finite entries.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.bottom.reject_late_boundaries">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">reject_late_boundaries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boundary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altitude_sample</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.reject_late_boundaries" title="Link to this definition">#</a></dt>
+<dd><p>NaN out first-return boundaries far beyond their channel’s usual one.</p>
+<p>With altitude, a channel’s usual boundary is the median ratio of
+boundary to altitude sample, times each ping’s altitude sample; without
+it, the channel’s median boundary. A boundary more than <code class="docutils literal notranslate"><span class="pre">factor</span></code>
+times the usual one is rejected. Only late boundaries are rejected: the
+failure this guards against is a bright far-range return setting the
+detection threshold, which pushes the boundary out, not in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>boundary</strong><span class="classifier">np.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel)</span></code> sample index, NaN where nothing was detected.</p>
+</dd>
+<dt><strong>altitude_sample</strong><span class="classifier">np.ndarray or None</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel)</span></code> altitude in samples
+(<a class="reference internal" href="#sidescanpy.processing.bottom.altitude_sample_index" title="sidescanpy.processing.bottom.altitude_sample_index"><code class="xref py py-func docutils literal notranslate"><span class="pre">altitude_sample_index()</span></code></a>), or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>factor</strong><span class="classifier">float, default 3.0</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>boundary</strong><span class="classifier">np.ndarray</span></dt><dd><p>Copy with rejected entries set to NaN.</p>
+</dd>
+<dt><strong>usual</strong><span class="classifier">np.ndarray</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel)</span></code> usual boundary, NaN where it can’t be formed
+(a channel with no detection, or a ping with no altitude).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="sidescanpy.processing.bottom.mask_nadir_gap">
-<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">mask_nadir_gap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('backscatter_intensity',)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_value_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'backscatter_intensity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ground_range_m'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_sample_buffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_first_bottom_return_sample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_smoothing_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.mask_nadir_gap" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">mask_nadir_gap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('backscatter_intensity',)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_value_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'backscatter_intensity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ground_range_m'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_sample_buffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_first_bottom_return_sample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_smoothing_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_boundary_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.mask_nadir_gap" title="Link to this definition">#</a></dt>
 <dd><p>Return a copy of <code class="docutils literal notranslate"><span class="pre">ds</span></code> with the whole nadir gap set to NaN.</p>
 <p>Everything before <a class="reference internal" href="#sidescanpy.processing.bottom.detect_first_bottom_return" title="sidescanpy.processing.bottom.detect_first_bottom_return"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_first_bottom_return()</span></code></a>’s per-ping
 boundary (noise burst plus un-illuminated span) is masked in each
@@ -871,6 +907,13 @@ can’t return before altitude).</p>
 element-wise max.</p>
 </dd>
 <dt><strong>boundary_smoothing_window</strong><span class="classifier">int, default 15</span></dt><dd><p><a class="reference internal" href="#sidescanpy.processing.bottom.smooth_boundary_across_pings" title="sidescanpy.processing.bottom.smooth_boundary_across_pings"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth_boundary_across_pings()</span></code></a> window; <code class="docutils literal notranslate"><span class="pre">&lt;=</span> <span class="pre">1</span></code> disables.</p>
+</dd>
+<dt><strong>max_boundary_factor</strong><span class="classifier">float or None, default 3.0</span></dt><dd><p>Reject a ping’s boundary when it lies more than this factor beyond
+its channel’s usual one (see <a class="reference internal" href="#sidescanpy.processing.bottom.reject_late_boundaries" title="sidescanpy.processing.bottom.reject_late_boundaries"><code class="xref py py-func docutils literal notranslate"><span class="pre">reject_late_boundaries()</span></code></a>), before
+smoothing. A bright far-range return can set a ping’s peak so high
+that the near seabed never reaches <code class="docutils literal notranslate"><span class="pre">threshold_fraction</span></code> of it;
+runs of such pings are too long for the rolling median alone.
+<code class="docutils literal notranslate"><span class="pre">None</span></code> disables.</p>
 </dd>
 </dl>
 </dd>
@@ -1014,6 +1057,7 @@ their recorded value. <code class="docutils literal notranslate"><span class="pr
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.mask_before_sample"><code class="docutils literal notranslate"><span class="pre">mask_before_sample()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.altitude_sample_index"><code class="docutils literal notranslate"><span class="pre">altitude_sample_index()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.uniform_exclusion_boundary"><code class="docutils literal notranslate"><span class="pre">uniform_exclusion_boundary()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.reject_late_boundaries"><code class="docutils literal notranslate"><span class="pre">reject_late_boundaries()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.mask_nadir_gap"><code class="docutils literal notranslate"><span class="pre">mask_nadir_gap()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.BOTTOM_TRACK_REPLACE"><code class="docutils literal notranslate"><span class="pre">BOTTOM_TRACK_REPLACE</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.bottom.altitude_from_bottom_track"><code class="docutils literal notranslate"><span class="pre">altitude_from_bottom_track()</span></code></a></li>

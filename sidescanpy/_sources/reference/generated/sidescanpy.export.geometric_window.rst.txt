@@ -13,6 +13,7 @@ sidescanpy.export.geometric_window
    extract_geometric_window
    extract_geometric_window_binned
    extract_geometric_window_griddata
+   interpolate_scattered
    locate_point
 
 .. autofunction:: sidescanpy.export.geometric_window.extract_geometric_window
@@ -20,5 +21,7 @@ sidescanpy.export.geometric_window
 .. autofunction:: sidescanpy.export.geometric_window.extract_geometric_window_binned
 
 .. autofunction:: sidescanpy.export.geometric_window.extract_geometric_window_griddata
+
+.. autofunction:: sidescanpy.export.geometric_window.interpolate_scattered
 
 .. autofunction:: sidescanpy.export.geometric_window.locate_point

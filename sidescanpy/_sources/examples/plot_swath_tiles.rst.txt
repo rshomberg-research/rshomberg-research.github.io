@@ -73,19 +73,26 @@ Usage: ``python examples/gallery/plot_swath_tiles.py [output_dir]``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-50
+.. GENERATED FROM PYTHON SOURCE LINES 47-57
 
 Convert and correct. Georeferencing is only needed to give the targets
 a latitude and longitude at the end; the tiles themselves are cut from
 the native ping x sample grid.
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-58
+Navigation in this file is sample-and-hold, and each GPS update is logged
+over two entries (the jump, then a tiny follow-up one entry later).
+``merge_window_s`` joins the two into one update; without it every
+update becomes two fixes 65 ms apart and the interpolated track stalls
+for one ping in seven. :func:`~sidescanpy.processing.aux_update_events`
+shows the pattern (changes 1 entry apart, then 6 to 7).
+
+.. GENERATED FROM PYTHON SOURCE LINES 57-65
 
 .. code-block:: Python
 
 
     survey = read_and_convert([datasets.fetch("usgs_grand_bay_150602205800.xtf")], fmt="xtf")
-    survey = interpolate_aux_onto_pings(survey)
+    survey = interpolate_aux_onto_pings(survey, merge_window_s=0.3)
     survey = apply_tvg(survey)
     survey = compute_geometric_ranges(survey)
     survey = compute_georeferencing(survey)
@@ -95,10 +102,19 @@ the native ping x sample grid.
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    13:02:17 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    13:02:17 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    13:02:17 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    13:02:17 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-64
+
+.. GENERATED FROM PYTHON SOURCE LINES 66-71
 
 Tiles 30 m along track with 0.1 m pixels, overlapping by 5 m so an
 object on a tile edge appears whole in one of them. Each line and
@@ -106,7 +122,7 @@ frequency adds its tiles to the same folder and index. The 8-bit stretch
 runs from the 5th to the 99.7th percentile of each tile, so the dark
 water column under the towfish does not wash out the seabed.
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-71
+.. GENERATED FROM PYTHON SOURCE LINES 71-78
 
 .. code-block:: Python
 
@@ -125,13 +141,13 @@ water column under the towfish does not wash out the seabed.
 
  .. code-block:: none
 
-    4 tiles, 2000 x 299 px
-    {"ss_h5": "grand_bay_150602205800", "freq_key": "hz_100000", "window": {"layout": "dual", "channel": null, "ping_start": 152, "ping_stop": 243, "sample_start": 0, "sample_stop": 4096, "px_per_ping": 3 ...
+    4 tiles, 2000 x 301 px
+    {"ss_h5": "grand_bay_150602205800", "freq_key": "hz_100000", "window": {"layout": "dual", "channel": null, "ping_start": 156, "ping_stop": 249, "sample_start": 0, "sample_stop": 4096, "px_per_ping": 3 ...
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-91
+.. GENERATED FROM PYTHON SOURCE LINES 79-98
 
 Annotate the tiles. Any tool that exports COCO works. With
 `FiftyOne <https://docs.voxel51.com/>`_ and its CVAT annotation
@@ -153,7 +169,7 @@ and a person drawing boxes):
 Here a small COCO file stands in for that export: one box on each of two
 objects in the third tile.
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-107
+.. GENERATED FROM PYTHON SOURCE LINES 98-114
 
 .. code-block:: Python
 
@@ -182,18 +198,18 @@ objects in the third tile.
  .. code-block:: none
 
 
-    404
+    405
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-112
+.. GENERATED FROM PYTHON SOURCE LINES 115-119
 
 Read the boxes back and turn them into targets. Each target records the
 ``.ss.h5`` file and ping it came from, so it can be rendered as chips
 straight away (see :ref:`sphx_glr_examples_plot_target_chips.py`) or
 scored against a catalog with :func:`~sidescanpy.targets.match_targets`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-129
+.. GENERATED FROM PYTHON SOURCE LINES 119-136
 
 .. code-block:: Python
 
@@ -213,13 +229,13 @@ scored against a catalog with :func:`~sidescanpy.targets.match_targets`.
         ax.text(box.x, box.y - 8, t.category, color="red")
     ax.set_title(f"{record.file_name}: port mirrored on the left, starboard on the right")
     ax.set_xlabel("pixel (0.1 m)")
-    fig.savefig(out / "swath_tiles.png", dpi=100)
+    fig.savefig(out / "swath_tiles.png", dpi=150)
 
 
 
 .. image-sg:: /examples/images/sphx_glr_plot_swath_tiles_001.png
    :alt: grand_bay_150602205800_hz_100000_0002.png: port mirrored on the left, starboard on the right
-   :srcset: /examples/images/sphx_glr_plot_swath_tiles_001.png
+   :srcset: /examples/images/sphx_glr_plot_swath_tiles_001.png, /examples/images/sphx_glr_plot_swath_tiles_001_2_00x.png 2.00x
    :class: sphx-glr-single-img
 
 
@@ -227,8 +243,8 @@ scored against a catalog with :func:`~sidescanpy.targets.match_targets`.
 
  .. code-block:: none
 
-    grand_bay_150602205800_hz_100000_0002_000: contact  ping 217, starboard, sample 1376, lat 30.363817 lon -88.360449, 4.0 x 4.0 m
-    grand_bay_150602205800_hz_100000_0002_001: reef     ping 208, port, sample 3317, lat 30.362883 lon -88.359946, 12.0 x 12.0 m
+    grand_bay_150602205800_hz_100000_0002_000: contact  ping 217, starboard, sample 1376, lat 30.363822 lon -88.360432, 4.0 x 4.0 m
+    grand_bay_150602205800_hz_100000_0002_001: reef     ping 208, port, sample 3317, lat 30.362870 lon -88.359983, 12.0 x 12.0 m
 
 
 
@@ -236,7 +252,7 @@ scored against a catalog with :func:`~sidescanpy.targets.match_targets`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.296 seconds)
+   **Total running time of the script:** (0 minutes 1.290 seconds)
 
 
 .. _sphx_glr_download_examples_plot_swath_tiles.py:

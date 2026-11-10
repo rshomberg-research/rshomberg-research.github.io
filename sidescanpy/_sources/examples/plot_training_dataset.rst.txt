@@ -66,7 +66,7 @@ Usage: ``python examples/gallery/plot_training_dataset.py [output_dir]``
     configure_logging("WARNING")
 
     survey = read_and_convert([datasets.fetch("usgs_grand_bay_150602205800.xtf")], fmt="xtf")
-    survey = interpolate_aux_onto_pings(survey)
+    survey = interpolate_aux_onto_pings(survey, merge_window_s=0.3)
     survey = apply_tvg(survey)
     survey = compute_geometric_ranges(survey)
     survey = compute_georeferencing(survey)
@@ -90,6 +90,15 @@ Usage: ``python examples/gallery/plot_training_dataset.py [output_dir]``
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    13:03:27 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    13:03:27 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    13:03:27 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    13:03:27 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+
 
 
 
@@ -109,8 +118,8 @@ only there to show the layout.
 
 
     spec = DatasetSpec(
-        styles=("chip",), render_level="geometric", size_px=128, resolution_m=0.2,
-        resample_method="kdtree", box_size_m=4.0, categories=["contact", "reef"],
+        styles=("chip",), render_level="geometric", size_px=256, resolution_m=0.1,
+        box_size_m=4.0, categories=["contact", "reef"],
         n_background=8, val_fraction=0.4, split_block_pings=50,
         layout="ultralytics", seed=0,
     )
@@ -163,14 +172,14 @@ image has no label lines.
         ax.set_title(f"{path.parent.name}: {path.stem}", fontsize=8)
         ax.set_xticks([])
         ax.set_yticks([])
-    fig.savefig(out / "training_dataset.png", dpi=100)
+    fig.savefig(out / "training_dataset.png", dpi=150)
 
 
 
 
 .. image-sg:: /examples/images/sphx_glr_plot_training_dataset_001.png
    :alt: train: target_c1, train: target_c2, train: target_c3, val: target_r1, train: bg_0, train: bg_1, train: bg_2, train: bg_3
-   :srcset: /examples/images/sphx_glr_plot_training_dataset_001.png
+   :srcset: /examples/images/sphx_glr_plot_training_dataset_001.png, /examples/images/sphx_glr_plot_training_dataset_001_2_00x.png 2.00x
    :class: sphx-glr-single-img
 
 
@@ -202,7 +211,7 @@ kinds of image make the two sets look alike apart from the targets.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 22.692 seconds)
+   **Total running time of the script:** (2 minutes 5.108 seconds)
 
 
 .. _sphx_glr_download_examples_plot_training_dataset.py:

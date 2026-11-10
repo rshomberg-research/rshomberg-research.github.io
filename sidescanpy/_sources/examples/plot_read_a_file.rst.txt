@@ -88,8 +88,8 @@ altitude in.
 
  .. code-block:: none
 
-    17:24:08 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    17:24:08 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    18:09:39 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    18:09:39 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
 
 
 
@@ -153,10 +153,10 @@ A linear seabed feature runs along the starboard side at about 50 m.
 
  .. code-block:: none
 
-    17:24:10 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    17:24:10 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
-    17:24:11 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    17:24:11 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
+    18:09:41 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    18:09:41 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
+    18:09:42 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    18:09:42 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
 
 
 
@@ -164,7 +164,7 @@ A linear seabed feature runs along the starboard side at about 50 m.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 27.052 seconds)
+   **Total running time of the script:** (0 minutes 28.753 seconds)
 
 
 .. _sphx_glr_download_examples_plot_read_a_file.py:

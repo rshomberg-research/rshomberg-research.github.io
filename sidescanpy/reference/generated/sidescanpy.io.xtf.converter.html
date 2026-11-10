@@ -646,7 +646,10 @@ the JSF weighting factor N in <code class="docutils literal notranslate"><span c
 ping; scaling makes the samples equal to the JSF ones for the same
 ping (checked on a public Discover 7.22 recording with both files).
 Writers that leave <code class="docutils literal notranslate"><span class="pre">Weight</span></code> at 0 are unaffected. The range seen is
-recorded in <code class="docutils literal notranslate"><span class="pre">xtf_weight_min</span></code> / <code class="docutils literal notranslate"><span class="pre">xtf_weight_max</span></code>.</p></li>
+recorded in <code class="docutils literal notranslate"><span class="pre">xtf_weight_min</span></code> / <code class="docutils literal notranslate"><span class="pre">xtf_weight_max</span></code>. Some older
+Klein-written files hold garbage (e.g. -8408); blocks with <code class="docutils literal notranslate"><span class="pre">|Weight|</span></code>
+above 30 are left unscaled, with a WARNING, and counted in
+<code class="docutils literal notranslate"><span class="pre">xtf_weight_ignored</span></code>.</p></li>
 <li><p>Each frequency has its own ping axis. A ping holding neither channel
 of a frequency (some files’ early packets carry only the low-frequency
 pair, see <a class="reference internal" href="sidescanpy.io.xtf.reader.html#module-sidescanpy.io.xtf.reader" title="sidescanpy.io.xtf.reader"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sidescanpy.io.xtf.reader</span></code></a>) is left out of that

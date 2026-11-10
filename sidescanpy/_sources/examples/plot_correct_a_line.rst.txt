@@ -79,11 +79,11 @@ Usage: ``python examples/gallery/plot_correct_a_line.py [output_dir]``
 
  .. code-block:: none
 
-    13:18:03 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    13:18:03 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
-    13:18:03 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    13:18:03 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
-    13:18:03 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    13:43:21 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    13:43:21 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    13:43:21 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    13:43:21 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
+    13:43:22 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 
 
 
@@ -114,13 +114,13 @@ input unchanged.
 
  .. code-block:: none
 
-    13:18:04 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
-    13:18:04 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
-    13:18:04 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    13:18:04 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    13:18:04 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    13:18:04 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    13:18:10 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    13:43:22 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
+    13:43:22 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
+    13:43:22 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    13:43:22 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    13:43:22 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    13:43:23 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    13:43:29 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
     altitude from bottom track: 17.5 m (median)
 
 
@@ -169,7 +169,7 @@ still needs (see ``examples/tvg_calibration.py``).
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 27.847 seconds)
+   **Total running time of the script:** (0 minutes 27.978 seconds)
 
 
 .. _sphx_glr_download_examples_plot_correct_a_line.py:

@@ -646,16 +646,19 @@ directory of pre-downloaded files works offline.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.datasets.REGISTRY" title="sidescanpy.datasets.REGISTRY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REGISTRY</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.datasets.list_datasets" title="sidescanpy.datasets.list_datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_datasets</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.datasets.BGS_LONDON_GATEWAY_WRECKS" title="sidescanpy.datasets.BGS_LONDON_GATEWAY_WRECKS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BGS_LONDON_GATEWAY_WRECKS</span></code></a></p></td>
+<td><p>Catalogued wreck centres of the London Gateway survey, as given in the BGS record (UTM zone 31N, WGS84; easting, northing in meters).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.datasets.list_datasets" title="sidescanpy.datasets.list_datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_datasets</span></code></a></p></td>
 <td><p>Names <a class="reference internal" href="#sidescanpy.datasets.fetch" title="sidescanpy.datasets.fetch"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch()</span></code></a> accepts, sorted.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.datasets.data_dir" title="sidescanpy.datasets.data_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_dir</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.datasets.data_dir" title="sidescanpy.datasets.data_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_dir</span></code></a></p></td>
 <td><p>The cache directory <a class="reference internal" href="#sidescanpy.datasets.fetch" title="sidescanpy.datasets.fetch"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch()</span></code></a> uses when none is given.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.datasets.citation" title="sidescanpy.datasets.citation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">citation</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.datasets.citation" title="sidescanpy.datasets.citation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">citation</span></code></a></p></td>
 <td><p>Source, licence and attribution text for a registered file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.datasets.fetch" title="sidescanpy.datasets.fetch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.datasets.fetch" title="sidescanpy.datasets.fetch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch</span></code></a></p></td>
 <td><p>Return a local path to a registered recording, downloading it if needed.</p></td>
 </tr>
 </tbody>
@@ -684,6 +687,15 @@ directory of pre-downloaded files works offline.</p>
 <dt class="sig sig-object py" id="sidescanpy.datasets.REGISTRY">
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.datasets.</span></span><span class="sig-name descname"><span class="pre">REGISTRY</span></span><a class="headerlink" href="#sidescanpy.datasets.REGISTRY" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.datasets.BGS_LONDON_GATEWAY_WRECKS">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.datasets.</span></span><span class="sig-name descname"><span class="pre">BGS_LONDON_GATEWAY_WRECKS</span></span><a class="headerlink" href="#sidescanpy.datasets.BGS_LONDON_GATEWAY_WRECKS" title="Link to this definition">#</a></dt>
+<dd><p>Catalogued wreck centres of the London Gateway survey, as given in the BGS
+record (UTM zone 31N, WGS84; easting, northing in meters). Centres only: a
+line can show its wreck tens of meters away along track, so treat them as
+approximate positions, not boxes.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sidescanpy.datasets.list_datasets">
@@ -788,6 +800,7 @@ apart, each logged as a WARNING). The partial file is removed.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.datasets.RemoteFile"><code class="docutils literal notranslate"><span class="pre">RemoteFile</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.datasets.SOURCES"><code class="docutils literal notranslate"><span class="pre">SOURCES</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.datasets.REGISTRY"><code class="docutils literal notranslate"><span class="pre">REGISTRY</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.datasets.BGS_LONDON_GATEWAY_WRECKS"><code class="docutils literal notranslate"><span class="pre">BGS_LONDON_GATEWAY_WRECKS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.datasets.list_datasets"><code class="docutils literal notranslate"><span class="pre">list_datasets()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.datasets.data_dir"><code class="docutils literal notranslate"><span class="pre">data_dir()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.datasets.citation"><code class="docutils literal notranslate"><span class="pre">citation()</span></code></a></li>

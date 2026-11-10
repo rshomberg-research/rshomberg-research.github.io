@@ -539,9 +539,29 @@ going online.</p>
 <td><p>12 MB</p></td>
 <td><p>Klein, XTF; the recorded altitude is a lost bottom track</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bgs_london_gateway_dynamo_78.xtf</span></code>, <code class="docutils literal notranslate"><span class="pre">_80</span></code>, <code class="docutils literal notranslate"><span class="pre">_85</span></code>, <code class="docutils literal notranslate"><span class="pre">_86</span></code>, <code class="docutils literal notranslate"><span class="pre">_90</span></code></p></td>
+<td><p>9 to 27 MB each</p></td>
+<td><p>Klein 400 kHz, XTF (GeoDAS, 2007): five passes over the Dynamo wreck</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bgs_london_gateway_eastoaze_31.xtf</span></code>, <code class="docutils literal notranslate"><span class="pre">ernaboldt_13</span></code>, <code class="docutils literal notranslate"><span class="pre">storm_04</span></code>, <code class="docutils literal notranslate"><span class="pre">amethyst_25</span></code>, <code class="docutils literal notranslate"><span class="pre">ash_11</span></code></p></td>
+<td><p>9 to 26 MB each</p></td>
+<td><p>the same survey: one line over each of five more wrecks</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bgs_london_gateway_aisha_05.xtf</span></code></p></td>
+<td><p>28 MB</p></td>
+<td><p>Klein 400 kHz, XTF (SonarPro, 2008): the Aisha wreck</p></td>
+</tr>
 </tbody>
 </table>
 </div>
+<p>The London Gateway files store navigation as UTM zone 31N easting and
+northing without saying so: convert them with <code class="docutils literal notranslate"><span class="pre">nav_crs=&quot;EPSG:32631&quot;</span></code>.
+They record no heading (use the course over ground), their samples
+already carry the recorder’s TVG, and their <code class="docutils literal notranslate"><span class="pre">Weight</span></code> fields are garbage,
+which the reader ignores with a warning.
+<code class="docutils literal notranslate"><span class="pre">datasets.BGS_LONDON_GATEWAY_WRECKS</span></code> holds the catalogued centre of each
+wreck from the BGS record (UTM 31N meters); a line can show its wreck
+tens of meters from that centre along track.</p>
 </section>
 <section id="sources-and-licences">
 <h2>Sources and licences<a class="headerlink" href="#sources-and-licences" title="Link to this heading">#</a></h2>
@@ -557,6 +577,12 @@ Search</em> (CEND 11/08, 2008),
 <a class="reference external" href="https://www.data.gov.uk/dataset/4a67eeb2-3dce-40b6-96ca-66cc25eeeada">https://www.data.gov.uk/dataset/4a67eeb2-3dce-40b6-96ca-66cc25eeeada</a>.
 Contains public sector information licensed under the Open Government
 Licence v3.0.</p></li>
+<li><p><strong>London Gateway.</strong> British Geological Survey, National Geoscience
+Data Centre, <em>Geophysical Survey WESSEX_London_Gateway: Thames Estuary
+(2002, 2007, 2008, 2011)</em>, item 140325,
+<a class="reference external" href="https://webapps.bgs.ac.uk/services/ngdc/accessions/index.html#item140325">https://webapps.bgs.ac.uk/services/ngdc/accessions/index.html#item140325</a>.
+Acquired by the Port of London Authority and Wessex Archaeology.
+Contains data supplied by UKRI; Open Government Licence v3.0.</p></li>
 <li><p><strong>Grand Bay.</strong> Locker, S.D., Forde, A.S., and Smith, C.G., 2018,
 <em>Subbottom and Sidescan Sonar Data Acquired in 2015 From Grand Bay,
 Mississippi and Alabama</em>: U.S. Geological Survey data release,

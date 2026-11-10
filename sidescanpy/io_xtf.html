@@ -611,9 +611,10 @@ in <code class="docutils literal notranslate"><span class="pre">xtf_nav_crs</spa
 is never guessed. <code class="docutils literal notranslate"><span class="pre">ShipXcoordinate</span></code> / <code class="docutils literal notranslate"><span class="pre">ShipYcoordinate</span></code> are not used.</p></li>
 <li><p><strong>Sample scaling.</strong> Samples are scaled by <code class="docutils literal notranslate"><span class="pre">2**-Weight</span></code> from the channel
 header. Some older files carry meaningless <code class="docutils literal notranslate"><span class="pre">Weight</span></code> values (for example
--8408), which make every sample unusable. If a converted file’s samples
-are all infinite, NaN or zero, check <code class="docutils literal notranslate"><span class="pre">xtf_weight_min</span></code> and
-<code class="docutils literal notranslate"><span class="pre">xtf_weight_max</span></code> in the dataset attributes.</p></li>
+-8408, in some KleinXlt and GeoDAS files); blocks with <code class="docutils literal notranslate"><span class="pre">|Weight|</span></code> above
+30 are left unscaled, with a warning, and counted in the
+<code class="docutils literal notranslate"><span class="pre">xtf_weight_ignored</span></code> attribute (<code class="docutils literal notranslate"><span class="pre">xtf_weight_min</span></code> and <code class="docutils literal notranslate"><span class="pre">xtf_weight_max</span></code>
+give the range seen).</p></li>
 <li><p><strong>Older KleinXlt files.</strong> Some KleinXlt 3.0 files leave the channel
 <code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> at 255, which the reader rejects with <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
 <li><p><strong>Recorder gain.</strong> Gain codes are read but not interpreted, and nothing

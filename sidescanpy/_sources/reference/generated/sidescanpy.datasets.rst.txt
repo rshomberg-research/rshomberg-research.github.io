@@ -14,6 +14,7 @@ sidescanpy.datasets
    RemoteFile
    SOURCES
    REGISTRY
+   BGS_LONDON_GATEWAY_WRECKS
    list_datasets
    data_dir
    citation
@@ -31,6 +32,9 @@ sidescanpy.datasets
    :no-value:
 
 .. autodata:: sidescanpy.datasets.REGISTRY
+   :no-value:
+
+.. autodata:: sidescanpy.datasets.BGS_LONDON_GATEWAY_WRECKS
    :no-value:
 
 .. autofunction:: sidescanpy.datasets.list_datasets

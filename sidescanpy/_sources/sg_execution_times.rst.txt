@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**05:52.414** total execution time for 13 files **from all galleries**:
+**05:59.484** total execution time for 13 files **from all galleries**:
 
 .. container::
 
@@ -33,25 +33,25 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_examples_plot_training_dataset.py` (``../examples/gallery/plot_training_dataset.py``)
-     - 02:57.852
+     - 03:05.349
      - 0.0
    * - :ref:`sphx_glr_examples_plot_target_chips.py` (``../examples/gallery/plot_target_chips.py``)
-     - 01:13.033
+     - 01:12.429
      - 0.0
    * - :ref:`sphx_glr_examples_plot_grid_to_a_map.py` (``../examples/gallery/plot_grid_to_a_map.py``)
-     - 00:33.747
+     - 00:33.485
      - 0.0
    * - :ref:`sphx_glr_examples_plot_correct_a_line.py` (``../examples/gallery/plot_correct_a_line.py``)
-     - 00:27.847
+     - 00:27.978
      - 0.0
    * - :ref:`sphx_glr_examples_plot_read_a_file.py` (``../examples/gallery/plot_read_a_file.py``)
-     - 00:20.427
+     - 00:20.456
      - 0.0
    * - :ref:`sphx_glr_examples_plot_three_formats.py` (``../examples/gallery/plot_three_formats.py``)
-     - 00:17.851
+     - 00:18.135
      - 0.0
    * - :ref:`sphx_glr_examples_plot_swath_tiles.py` (``../examples/gallery/plot_swath_tiles.py``)
-     - 00:01.657
+     - 00:01.652
      - 0.0
    * - :ref:`sphx_glr_examples_atr_atr_1_prepare.py` (``../examples/gallery/atr/atr_1_prepare.py``)
      - 00:00.000

@@ -29,7 +29,8 @@ page looks at two public lines where that goes wrong in different ways,
 and shows how to see it and fix it:
 
 - a Klein line whose recorder logs every GPS update over two entries;
-- a Klein line from an older survey that records no heading at all.
+- a Klein line from an older survey that records no heading at all, and
+  whose positions jump back at every GPS fix.
 
 Data: USGS Grand Bay (U.S. public domain) and BGS London Gateway (Open
 Government Licence; contains data supplied by UKRI); see
@@ -37,7 +38,7 @@ Government Licence; contains data supplied by UKRI); see
 
 Usage: ``python examples/gallery/plot_navigation.py [output_dir]``
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-54
+.. GENERATED FROM PYTHON SOURCE LINES 22-60
 
 .. code-block:: Python
 
@@ -53,7 +54,12 @@ Usage: ``python examples/gallery/plot_navigation.py [output_dir]``
     from sidescanpy import datasets
     from sidescanpy.io import read_and_convert
     from sidescanpy.log import configure_logging
-    from sidescanpy.processing import aux_update_events, build_survey_track, interpolate_aux_onto_pings
+    from sidescanpy.processing import (
+        aux_update_events,
+        build_survey_track,
+        interpolate_aux_onto_pings,
+        smooth_navigation,
+    )
     from sidescanpy.processing.navigation import course_over_ground
     from sidescanpy.viz import plot_track_and_scanlines
 
@@ -81,7 +87,7 @@ Usage: ``python examples/gallery/plot_navigation.py [output_dir]``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-63
+.. GENERATED FROM PYTHON SOURCE LINES 62-69
 
 How often does the GPS really update?
 -------------------------------------
@@ -91,7 +97,7 @@ a quarter of the changes come one entry after the previous one, and
 the rest 6 to 7 entries apart: each GPS update is logged as a jump and
 then a tiny follow-up one entry (0.13 s) later.
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-69
+.. GENERATED FROM PYTHON SOURCE LINES 69-75
 
 .. code-block:: Python
 
@@ -115,7 +121,7 @@ then a tiny follow-up one entry (0.13 s) later.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-80
+.. GENERATED FROM PYTHON SOURCE LINES 76-88
 
 Three versions of the same track
 --------------------------------
@@ -126,9 +132,11 @@ jumps over the pings, but the follow-up entries count as extra fixes
 65 ms after the real ones, so the track stalls for one ping in seven.
 ``merge_window_s`` joins changes less than that far apart into one
 update. Choose it longer than the follow-up delay and shorter than the
-real update interval; ``aux_update_events`` shows both.
+real update interval; ``aux_update_events`` shows both. On a line whose
+navigation changes at every entry there is nothing to merge: a merge
+window there joins real fixes and collapses the track.
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-107
+.. GENERATED FROM PYTHON SOURCE LINES 88-115
 
 .. code-block:: Python
 
@@ -172,10 +180,10 @@ real update interval; ``aux_update_events`` shows both.
 
  .. code-block:: none
 
-    15:18:39 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    15:18:39 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    15:18:39 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    15:18:39 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    17:24:35 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    17:24:35 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    17:24:35 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    17:24:35 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
     as recorded                        median step 0.00 m, steps under 0.1 m: 256 of 296
     interpolated                       median step 0.36 m, steps under 0.1 m: 20 of 296
     interpolated, merge_window_s=0.3   median step 0.33 m, steps under 0.1 m: 1 of 296
@@ -183,7 +191,7 @@ real update interval; ``aux_update_events`` shows both.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-117
+.. GENERATED FROM PYTHON SOURCE LINES 116-125
 
 No heading recorded: use the course over ground
 -----------------------------------------------
@@ -195,7 +203,7 @@ measures the course from the positions a few seconds either side of
 each ping; it assumes the towfish follows the vessel's track (no crab
 angle), which holds on a straight line.
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-137
+.. GENERATED FROM PYTHON SOURCE LINES 125-146
 
 .. code-block:: Python
 
@@ -222,6 +230,7 @@ angle), which holds on a straight line.
 
 
 
+
 .. image-sg:: /examples/images/sphx_glr_plot_navigation_002.png
    :alt: Track and swath (scan lines every 60 pings, placed by course)
    :srcset: /examples/images/sphx_glr_plot_navigation_002.png, /examples/images/sphx_glr_plot_navigation_002_2_00x.png 2.00x
@@ -232,10 +241,79 @@ angle), which holds on a straight line.
 
  .. code-block:: none
 
-    15:19:04 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_90.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
-    15:19:04 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_90.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 789 of 789 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
-    15:19:04 WARNING sidescanpy.io.xtf.converter: hz_400000: 1578 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
+    17:24:51 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_90.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
+    17:24:51 WARNING sidescanpy.io.xtf.converter: bgs_london_gateway_dynamo_90.xtf: SensorX/Y is ShipX/Y shifted by a fixed -1.8 m east, -12.5 m north (an offset rotated by heading 0); using the Ship positions. Set heading_deg (e.g. course over ground) before the layback step
+    17:24:51 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_90.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 789 of 789 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
+    17:24:51 WARNING sidescanpy.io.xtf.converter: hz_400000: 1578 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
     recorded heading: [0.]; course over ground: 143 to 153 deg
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 147-158
+
+Positions that jump back at every fix
+-------------------------------------
+Another line from the same survey changes position at every entry, so
+there are no held fixes to interpolate between, yet once a second the
+track jumps back by about 2.5 m: the recorder runs the position ahead of
+each GPS fix and corrects it when the next one arrives. Seen against a
+straight line, the along-track error is a square wave with a 1 s
+period. :func:`~sidescanpy.processing.smooth_navigation` replaces each
+position with a straight-line fit over a time window; 5 s spans whole
+periods, so the error averages out (and so do the occasional single
+stale positions some lines have, like the line above).
+
+.. GENERATED FROM PYTHON SOURCE LINES 158-185
+
+.. code-block:: Python
+
+
+    line80 = interpolate_aux_onto_pings(
+        read_and_convert([datasets.fetch("bgs_london_gateway_dynamo_80.xtf")], fmt="xtf", nav_crs="EPSG:32631"))
+    raw80 = line80.get_frequency("hz_400000").dataset
+    smoothed = smooth_navigation(line80, window_s=5.0).get_frequency("hz_400000").dataset
+    t80 = (raw80["time"].values - raw80["time"].values[0]).astype("timedelta64[ns]").astype(np.int64) / 1e9
+
+
+    def along_residual(ds, sel):
+        e, n = east_north(ds)
+        e, n = e[sel], n[sel]
+        u = np.array([e[-1] - e[0], n[-1] - n[0]]) / np.hypot(e[-1] - e[0], n[-1] - n[0])
+        along = e * u[0] + n * u[1]
+        ts = t80[sel]
+        return ts, along - np.polyval(np.polyfit(ts, along, 1), ts)
+
+
+    sel = slice(300, 420)
+    fig, ax = plt.subplots(figsize=(10, 3.5), constrained_layout=True)
+    for label, ds in (("interpolated", raw80), ("smooth_navigation, 5 s", smoothed)):
+        ts, resid = along_residual(ds, sel)
+        ax.plot(ts, resid, ".-", ms=3, lw=0.8, label=label)
+        print(f"{label:24s} along-track error: {np.std(resid):.2f} m (standard deviation)")
+    ax.set_xlabel("time (s)")
+    ax.set_ylabel("along-track offset from\na straight line (m)")
+    ax.legend()
+    fig.savefig(out / "navigation_sawtooth.png", dpi=150)
+
+
+
+.. image-sg:: /examples/images/sphx_glr_plot_navigation_003.png
+   :alt: plot navigation
+   :srcset: /examples/images/sphx_glr_plot_navigation_003.png, /examples/images/sphx_glr_plot_navigation_003_2_00x.png 2.00x
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    17:25:05 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_80.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
+    17:25:05 WARNING sidescanpy.io.xtf.converter: bgs_london_gateway_dynamo_80.xtf: SensorX/Y is ShipX/Y shifted by a fixed -1.8 m east, -12.5 m north (an offset rotated by heading 0); using the Ship positions. Set heading_deg (e.g. course over ground) before the layback step
+    17:25:05 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_80.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 966 of 966 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
+    17:25:05 WARNING sidescanpy.io.xtf.converter: hz_400000: 1932 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
+    interpolated             along-track error: 1.28 m (standard deviation)
+    smooth_navigation, 5 s   along-track error: 0.08 m (standard deviation)
 
 
 
@@ -243,7 +321,7 @@ angle), which holds on a straight line.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 26.061 seconds)
+   **Total running time of the script:** (0 minutes 30.874 seconds)
 
 
 .. _sphx_glr_download_examples_plot_navigation.py:

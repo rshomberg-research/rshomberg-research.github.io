@@ -721,6 +721,19 @@ coordinates, <code class="docutils literal notranslate"><span class="pre">Laybac
 pings: Triton Isis records the layback without applying it) say so in
 <code class="docutils literal notranslate"><span class="pre">position_source_reason</span></code> but stay <code class="docutils literal notranslate"><span class="pre">unknown</span></code>. The <code class="docutils literal notranslate"><span class="pre">layback</span></code>
 correction step moves only <code class="docutils literal notranslate"><span class="pre">ship</span></code> positions.</p>
+<p>One exception is detected and corrected. Some writers (seen in GeoDAS
+files) offset Sensor from Ship by their tow-point offset and layback
+rotated by the recorded heading. With no heading recorded
+(<code class="docutils literal notranslate"><span class="pre">SensorHeading</span></code> 0 throughout) that offset points the same way, south
+at heading 0, on every line whatever the course, so Sensor is not the
+towfish. When <code class="docutils literal notranslate"><span class="pre">SensorHeading</span></code> is 0 on every ping, Sensor sits a fixed
+east/north offset from Ship, and the line runs well away from north, the
+Ship positions become <code class="docutils literal notranslate"><span class="pre">latitude</span></code> / <code class="docutils literal notranslate"><span class="pre">longitude</span></code> with
+<code class="docutils literal notranslate"><span class="pre">position_source</span></code> <code class="docutils literal notranslate"><span class="pre">ship</span></code>, and the offset rotated back by heading 0
+(less any recorded <code class="docutils literal notranslate"><span class="pre">Layback</span></code>) is recorded as <code class="docutils literal notranslate"><span class="pre">tow_point_aft_m</span></code> /
+<code class="docutils literal notranslate"><span class="pre">tow_point_starboard_m</span></code> for the <code class="docutils literal notranslate"><span class="pre">layback</span></code> step. That step rotates by
+<code class="docutils literal notranslate"><span class="pre">heading_deg</span></code>, so set a heading first (the course over ground,
+<a class="reference internal" href="sidescanpy.processing.navigation.html#sidescanpy.processing.navigation.course_over_ground" title="sidescanpy.processing.navigation.course_over_ground"><code class="xref py py-func docutils literal notranslate"><span class="pre">course_over_ground()</span></code></a>).</p>
 <p>Not converted: <code class="docutils literal notranslate"><span class="pre">pulse_length_us</span></code> is not in the XTF ping or channel
 headers and is 0.0 (as for SDF); gain codes are not interpreted.</p>
 <p>Provenance attributes on every frequency dataset (<code class="docutils literal notranslate"><span class="pre">xtf_</span></code> prefix):
@@ -755,7 +768,16 @@ the file shorter than the split’s <code class="docutils literal notranslate"><
 <tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS" title="sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SHIP_POSITION_PROGRAMS</span></code></a></p></td>
 <td><p>Recording programs (lower-case name prefixes) whose Sensor coordinates, with no Ship coordinates and a recorded layback, look like the ship's position.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.convert" title="sidescanpy.io.xtf.converter.convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.ZERO_HEADING_OFFSET_SD_M" title="sidescanpy.io.xtf.converter.ZERO_HEADING_OFFSET_SD_M"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZERO_HEADING_OFFSET_SD_M</span></code></a></p></td>
+<td><p>Largest standard deviation (m) of a Sensor - Ship offset taken as fixed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_TRACK_M" title="sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_TRACK_M"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZERO_HEADING_MIN_TRACK_M</span></code></a></p></td>
+<td><p>Shortest Ship track (m) over which a fixed offset is judged.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_COURSE_DEG" title="sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_COURSE_DEG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZERO_HEADING_MIN_COURSE_DEG</span></code></a></p></td>
+<td><p>A fixed offset is only suspect on courses further than this from north.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.convert" title="sidescanpy.io.xtf.converter.convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert</span></code></a></p></td>
 <td><p>Convert XTF sonar pings into a validated SideScanSurvey.</p></td>
 </tr>
 </tbody>
@@ -791,6 +813,24 @@ the file shorter than the split’s <code class="docutils literal notranslate"><
 <dd><p>Recording programs (lower-case name prefixes) whose Sensor coordinates,
 with no Ship coordinates and a recorded layback, look like the ship’s
 position. Reported in position_source_reason only, never assumed.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.converter.ZERO_HEADING_OFFSET_SD_M">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.converter.</span></span><span class="sig-name descname"><span class="pre">ZERO_HEADING_OFFSET_SD_M</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></span><a class="headerlink" href="#sidescanpy.io.xtf.converter.ZERO_HEADING_OFFSET_SD_M" title="Link to this definition">#</a></dt>
+<dd><p>Largest standard deviation (m) of a Sensor - Ship offset taken as fixed.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_TRACK_M">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.converter.</span></span><span class="sig-name descname"><span class="pre">ZERO_HEADING_MIN_TRACK_M</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20.0</span></span><a class="headerlink" href="#sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_TRACK_M" title="Link to this definition">#</a></dt>
+<dd><p>Shortest Ship track (m) over which a fixed offset is judged.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_COURSE_DEG">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.converter.</span></span><span class="sig-name descname"><span class="pre">ZERO_HEADING_MIN_COURSE_DEG</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20.0</span></span><a class="headerlink" href="#sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_COURSE_DEG" title="Link to this definition">#</a></dt>
+<dd><p>A fixed offset is only suspect on courses further than this from north.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -897,6 +937,9 @@ sample rate cannot be derived, a file with <code class="docutils literal notrans
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.SHIP_SENSOR_TOL_M"><code class="docutils literal notranslate"><span class="pre">SHIP_SENSOR_TOL_M</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.SHIP_SENSOR_FRACTION"><code class="docutils literal notranslate"><span class="pre">SHIP_SENSOR_FRACTION</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS"><code class="docutils literal notranslate"><span class="pre">SHIP_POSITION_PROGRAMS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.ZERO_HEADING_OFFSET_SD_M"><code class="docutils literal notranslate"><span class="pre">ZERO_HEADING_OFFSET_SD_M</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_TRACK_M"><code class="docutils literal notranslate"><span class="pre">ZERO_HEADING_MIN_TRACK_M</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_COURSE_DEG"><code class="docutils literal notranslate"><span class="pre">ZERO_HEADING_MIN_COURSE_DEG</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.convert"><code class="docutils literal notranslate"><span class="pre">convert()</span></code></a></li>
 </ul>
   </nav></div>

@@ -15,6 +15,9 @@ sidescanpy.io.xtf.converter
    SHIP_SENSOR_TOL_M
    SHIP_SENSOR_FRACTION
    SHIP_POSITION_PROGRAMS
+   ZERO_HEADING_OFFSET_SD_M
+   ZERO_HEADING_MIN_TRACK_M
+   ZERO_HEADING_MIN_COURSE_DEG
    convert
 
 .. autodata:: sidescanpy.io.xtf.converter.HALVED_SOUND_VELOCITY_BELOW_MS
@@ -26,5 +29,11 @@ sidescanpy.io.xtf.converter
 .. autodata:: sidescanpy.io.xtf.converter.SHIP_SENSOR_FRACTION
 
 .. autodata:: sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS
+
+.. autodata:: sidescanpy.io.xtf.converter.ZERO_HEADING_OFFSET_SD_M
+
+.. autodata:: sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_TRACK_M
+
+.. autodata:: sidescanpy.io.xtf.converter.ZERO_HEADING_MIN_COURSE_DEG
 
 .. autofunction:: sidescanpy.io.xtf.converter.convert

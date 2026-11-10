@@ -52,7 +52,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Read a file" href="plot_read_a_file.html" />
+    <link rel="next" title="Target recognition" href="../atr.html" />
     <link rel="prev" title="Getting started" href="../getting_started.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -408,6 +408,21 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../atr.html">Target recognition</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../atr/index.html">Step by step</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../atr/prepare.html">1. Labelled sonar images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../atr/detector.html">2. Train the detector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../atr/classifier.html">3. Train the classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../atr/evaluate.html">4. Test both stages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../atr/review.html">5. Review and correct the labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../atr/survey.html">6. Run the models on a survey</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_data.html">Example data</a></li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="plot_read_a_file.html">Read a file</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_whats_in_a_file.html">What’s in a file: metadata and aux streams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_navigation.html">Navigation: held fixes, interpolation and the track</a></li>
@@ -415,6 +430,9 @@
 <li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_compare_sonars_and_formats.html">Comparing results across sonars and file formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_wreck_gallery.html">Eight wrecks at one scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_four_passes.html">Four passes over one wreck: native and north-up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_shadow_height.html">A wreck’s height from its shadow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_swath_tiles.html">Swath tiles for annotation, and boxes back to targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_target_chips.html">Target chips at several corrections and resolutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_training_dataset.html">A training dataset with background images</a></li>
@@ -477,10 +495,22 @@
                   
   <section id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h1>
-<p>Each example runs sidescanpy on a real, openly licensed recording that
-anyone can download, and shows the code, what it prints and the figure
-it makes. The pages are built by running the scripts in
-<code class="docutils literal notranslate"><span class="pre">examples/gallery/</span></code>.</p>
+<p>Worked walkthroughs on real data. The Guide explains how each part of
+sidescanpy works; these pages show it doing a job.</p>
+<p>Each example below runs sidescanpy on a real, openly licensed recording
+that anyone can download, and shows the code, what it prints and the
+figure it makes. The pages are built by running the scripts in
+<code class="docutils literal notranslate"><span class="pre">examples/gallery/</span></code>. Two more sections sit alongside them:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../atr.html"><span class="doc">Target recognition</span></a>: two-stage target recognition step by step, from raw data
+or a target catalog to a trained detector and classifier. Those
+scripts need a GPU and extra packages, so they are not run when this
+site is built; each page shows the results of a run.</p></li>
+<li><p><a class="reference internal" href="../example_data.html"><span class="doc">Example data</span></a>: every recording the examples use, with its
+source, size and licence.</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
 <p>Run one yourself with an output directory (the current one by default):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">examples</span><span class="o">/</span><span class="n">gallery</span><span class="o">/</span><span class="n">plot_correct_a_line</span><span class="o">.</span><span class="n">py</span> <span class="n">out</span><span class="o">/</span>
 </pre></div>
@@ -488,9 +518,6 @@ it makes. The pages are built by running the scripts in
 <p>Plotting needs the <code class="docutils literal notranslate"><span class="pre">viz</span></code> extra and the GeoTIFF in
 <a class="reference internal" href="plot_grid_to_a_map.html#sphx-glr-examples-plot-grid-to-a-map-py"><span class="std std-ref">Grid to a map</span></a> the <code class="docutils literal notranslate"><span class="pre">geo</span></code> extra. The
 recordings, their sizes and licences are listed in <a class="reference internal" href="../example_data.html"><span class="doc">Example data</span></a>.</p>
-<p>The two-stage target recognition examples (detector, classifier, review,
-evaluation) need a GPU and extra packages, so they are not in this
-gallery: see <a class="reference internal" href="../atr/index.html"><span class="doc">Two-stage target recognition, step by step</span></a>.</p>
 <div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Convert one raw EdgeTech JSF line to sidescanpy&#x27;s data model, save it as .ss.h5, and look at it. read_and_convert reads JSF, Klein SDF and XTF into the same structure: a SideScanSurvey holding one xarray.Dataset per frequency, with backscatter shaped (ping, channel, sample) (channel 0 is port, 1 starboard) plus the navigation and attitude records."><img alt="" src="../_images/sphx_glr_plot_read_a_file_thumb.png" />
 <p><a class="reference internal" href="plot_read_a_file.html"><span class="doc">Read a file</span></a></p>
   <div class="sphx-glr-thumbnail-title">Read a file</div>
@@ -512,6 +539,15 @@ gallery: see <a class="reference internal" href="../atr/index.html"><span class=
 </div><div class="sphx-glr-thumbcontainer" tooltip="Once every sample has a latitude and longitude (the georef step), grid_channel resamples a channel onto a regular UTM grid and to_geotiff writes it for a GIS."><img alt="" src="../_images/sphx_glr_plot_grid_to_a_map_thumb.png" />
 <p><a class="reference internal" href="plot_grid_to_a_map.html"><span class="doc">Grid to a map</span></a></p>
   <div class="sphx-glr-thumbnail-title">Grid to a map</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Wrecks from a 2007-2008 survey of the approaches to the Thames, each shown in the same 70 m window at 0.15 m cells, so their sizes compare directly. The frame is the sonar&#x27;s own: along-track distance up, ground range across (port left, starboard right), the way the towfish saw each wreck, without placing it on a map."><img alt="" src="../_images/sphx_glr_plot_wreck_gallery_thumb.png" />
+<p><a class="reference internal" href="plot_wreck_gallery.html"><span class="doc">Eight wrecks at one scale</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Eight wrecks at one scale</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The same wreck seen on four lines run in three directions. In the native view (ping by slant range) each pass looks different: the wreck is lit from a different side, its shadow points away from the track, and near nadir it is compressed in range. Georeferenced north-up onto one map grid, the four views agree on where the wreck is and what shape it has, but only once the navigation is right. Here that takes four steps:"><img alt="" src="../_images/sphx_glr_plot_four_passes_thumb.png" />
+<p><a class="reference internal" href="plot_four_passes.html"><span class="doc">Four passes over one wreck: native and north-up</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Four passes over one wreck: native and north-up</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Anything standing on the seabed blocks the sound behind it, so the image has a dark shadow beyond the object. The longer the shadow, the taller the object. Over a flat seabed, with the towfish at altitude A and the shadow starting at slant range R and running Ls further, similar triangles give the height of the object&#x27;s top:"><img alt="" src="../_images/sphx_glr_plot_shadow_height_thumb.png" />
+<p><a class="reference internal" href="plot_shadow_height.html"><span class="doc">A wreck’s height from its shadow</span></a></p>
+  <div class="sphx-glr-thumbnail-title">A wreck's height from its shadow</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="The first step of training an object detector on sidescan data is images a person can annotate. write_swath_tiles cuts a corrected line into dual-swath tiles (port mirrored on the left, starboard on the right) with square pixels in metres, writes them as PNG, and records in tiles.json where each tile sits in the sonar data."><img alt="" src="../_images/sphx_glr_plot_swath_tiles_thumb.png" />
 <p><a class="reference internal" href="plot_swath_tiles.html"><span class="doc">Swath tiles for annotation, and boxes back to targets</span></a></p>
   <div class="sphx-glr-thumbnail-title">Swath tiles for annotation, and boxes back to targets</div>
@@ -545,11 +581,11 @@ gallery: see <a class="reference internal" href="../atr/index.html"><span class=
       </div>
     </a>
     <a class="right-next"
-       href="plot_read_a_file.html"
+       href="../atr.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Read a file</p>
+        <p class="prev-next-title">Target recognition</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

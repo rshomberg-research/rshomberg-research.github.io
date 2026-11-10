@@ -627,6 +627,9 @@ steps with the local median ping step.</p></li>
 <li><p><a class="reference internal" href="#sidescanpy.processing.navigation.course_over_ground" title="sidescanpy.processing.navigation.course_over_ground"><code class="xref py py-func docutils literal notranslate"><span class="pre">course_over_ground()</span></code></a> – per-ping course (degrees true) from the
 positions a few seconds before and after each ping, for use as the
 heading when a towfish compass is unreliable.</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.navigation.smooth_navigation" title="sidescanpy.processing.navigation.smooth_navigation"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth_navigation()</span></code></a> – running mean of the per-ping positions
+over a time window, for recorders whose positions carry a periodic
+error between fixes.</p></li>
 </ul>
 <p>Pure array/dataset functions; no plotting.</p>
 <p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
@@ -641,6 +644,12 @@ heading when a towfish compass is unreliable.</p></li>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.navigation.course_over_ground" title="sidescanpy.processing.navigation.course_over_ground"><code class="xref py py-obj docutils literal notranslate"><span class="pre">course_over_ground</span></code></a></p></td>
 <td><p>Per-ping course over ground, degrees true (compass bearing, [0, 360)).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.navigation.STEP_SMOOTH_NAVIGATION" title="sidescanpy.processing.navigation.STEP_SMOOTH_NAVIGATION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_SMOOTH_NAVIGATION</span></code></a></p></td>
+<td><p>History step name written by <a class="reference internal" href="#sidescanpy.processing.navigation.smooth_navigation" title="sidescanpy.processing.navigation.smooth_navigation"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth_navigation()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.navigation.smooth_navigation" title="sidescanpy.processing.navigation.smooth_navigation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smooth_navigation</span></code></a></p></td>
+<td><p>Replace per-ping positions with their running mean over <code class="docutils literal notranslate"><span class="pre">window_s</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -711,6 +720,68 @@ have distinct finite positions.</p>
 </dl>
 </dd></dl>
 
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.processing.navigation.STEP_SMOOTH_NAVIGATION">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.navigation.</span></span><span class="sig-name descname"><span class="pre">STEP_SMOOTH_NAVIGATION</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'smooth_navigation'</span></span><a class="headerlink" href="#sidescanpy.processing.navigation.STEP_SMOOTH_NAVIGATION" title="Link to this definition">#</a></dt>
+<dd><p>History step name written by <a class="reference internal" href="#sidescanpy.processing.navigation.smooth_navigation" title="sidescanpy.processing.navigation.smooth_navigation"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth_navigation()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.navigation.smooth_navigation">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.navigation.</span></span><span class="sig-name descname"><span class="pre">smooth_navigation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.navigation.smooth_navigation" title="Link to this definition">#</a></dt>
+<dd><p>Replace per-ping positions with their running mean over <code class="docutils literal notranslate"><span class="pre">window_s</span></code>.</p>
+<p>Each ping’s <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longitude</span></code> come from a straight-line
+fit (least squares, against time) to the finite positions within
+<code class="docutils literal notranslate"><span class="pre">window_s</span> <span class="pre">/</span> <span class="pre">2</span></code> of its time; with evenly spaced pings that is their
+mean. The fit rather than the mean keeps pings next to missing
+positions unbiased. Near the ends of the dataset the window shrinks
+symmetrically, so the first and last pings keep their positions. A
+straight track at constant speed is unchanged (no lag).</p>
+<p>For positions that change at every entry but carry an error between
+GPS fixes, which interpolating between fixes cannot remove. Some
+recorders run the position ahead of each fix and jump back when the
+next one arrives: a sawtooth along track with the fix period. A window
+spanning a whole number of fix periods removes it (and leaves a
+constant along-track offset of about half its amplitude). Check the
+track first (<a class="reference internal" href="sidescanpy.processing.aux_fixes.html#sidescanpy.processing.aux_fixes.aux_update_events" title="sidescanpy.processing.aux_fixes.aux_update_events"><code class="xref py py-func docutils literal notranslate"><span class="pre">aux_update_events()</span></code></a>, and the
+residual from a straight line); on sample-and-hold navigation,
+interpolate between fixes instead
+(<a class="reference internal" href="sidescanpy.processing.interpolate.html#sidescanpy.processing.interpolate.interpolate_aux_onto_pings" title="sidescanpy.processing.interpolate.interpolate_aux_onto_pings"><code class="xref py py-func docutils literal notranslate"><span class="pre">interpolate_aux_onto_pings()</span></code></a>).</p>
+<p>The mean is taken in degrees, which is accurate for windows of
+seconds to minutes; turns tighter than the distance covered in
+<code class="docutils literal notranslate"><span class="pre">window_s</span></code> are cut short. Heading is not changed: derive it from the
+smoothed track with <a class="reference internal" href="#sidescanpy.processing.navigation.course_over_ground" title="sidescanpy.processing.navigation.course_over_ground"><code class="xref py py-func docutils literal notranslate"><span class="pre">course_over_ground()</span></code></a> if the compass is not
+used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ds</strong><span class="classifier">xr.Dataset or SideScanSurvey</span></dt><dd><p>Frequency channel dataset with per-ping <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and
+<code class="docutils literal notranslate"><span class="pre">longitude</span></code>, pings in time order. A
+<a class="reference internal" href="sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.survey.SideScanSurvey"><code class="xref py py-class docutils literal notranslate"><span class="pre">SideScanSurvey</span></code></a> is smoothed
+frequency by frequency; a new survey is returned.</p>
+</dd>
+<dt><strong>window_s</strong><span class="classifier">float, default 5.0</span></dt><dd><p>Width of the time window (s), centred on each ping.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>xr.Dataset or SideScanSurvey</dt><dd><p>Same type as <code class="docutils literal notranslate"><span class="pre">ds</span></code>: a new dataset with float64 <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and
+<code class="docutils literal notranslate"><span class="pre">longitude</span></code> and a <code class="docutils literal notranslate"><span class="pre">smooth_navigation</span></code> history record. Pings
+without a finite position keep NaN.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">window_s</span></code> is not positive, or <code class="docutils literal notranslate"><span class="pre">georef</span></code> was already applied
+(its per-sample positions would go stale; invert it first).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -763,6 +834,8 @@ have distinct finite positions.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.navigation.along_track_distance_m"><code class="docutils literal notranslate"><span class="pre">along_track_distance_m()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.navigation.fill_nav_stalls"><code class="docutils literal notranslate"><span class="pre">fill_nav_stalls()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.navigation.course_over_ground"><code class="docutils literal notranslate"><span class="pre">course_over_ground()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.navigation.STEP_SMOOTH_NAVIGATION"><code class="docutils literal notranslate"><span class="pre">STEP_SMOOTH_NAVIGATION</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.navigation.smooth_navigation"><code class="docutils literal notranslate"><span class="pre">smooth_navigation()</span></code></a></li>
 </ul>
   </nav></div>
 

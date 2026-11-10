@@ -52,8 +52,8 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Formats" href="formats.html" />
-    <link rel="prev" title="Limitations" href="limitations.html" />
+    <link rel="next" title="Read a file" href="examples/plot_read_a_file.html" />
+    <link rel="prev" title="6. Run the models on a survey" href="atr/survey.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -153,14 +153,14 @@
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="guide.html">
     Guide
   </a>
@@ -313,14 +313,14 @@
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="guide.html">
     Guide
   </a>
@@ -412,11 +412,6 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Building a workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core.html">Data model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="processing.html">Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="grids.html">Gridding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datasets.html">Targets and datasets</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="atr.html">Target recognition</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="atr/index.html">Step by step</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="atr/prepare.html">1. Labelled sonar images</a></li>
@@ -429,12 +424,22 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="viz.html">Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line</a></li>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="limitations.html">Limitations</a></li>
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Example data</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_read_a_file.html">Read a file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_whats_in_a_file.html">What’s in a file: metadata and aux streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_navigation.html">Navigation: held fixes, interpolation and the track</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_investigate_a_survey.html">Investigating an unknown survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_correct_a_line.html">Correct a line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_compare_sonars_and_formats.html">Comparing results across sonars and file formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_grid_to_a_map.html">Grid to a map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_wreck_gallery.html">Eight wrecks at one scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_four_passes.html">Four passes over one wreck: native and north-up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_shadow_height.html">A wreck’s height from its shadow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_swath_tiles.html">Swath tiles for annotation, and boxes back to targets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_target_chips.html">Target chips at several corrections and resolutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_training_dataset.html">A training dataset with background images</a></li>
 </ul>
 </div>
 </nav></div>
@@ -476,7 +481,7 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="guide.html" class="nav-link">Guide</a></li>
+    <li class="breadcrumb-item"><a href="examples/index.html" class="nav-link">Examples</a></li>
     
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Example data</span></li>
   </ul>
@@ -550,9 +555,9 @@ going online.</p>
 <td><p>12 MB</p></td>
 <td><p>Klein, XTF; the recorded altitude is a lost bottom track</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bgs_london_gateway_dynamo_78.xtf</span></code>, <code class="docutils literal notranslate"><span class="pre">_80</span></code>, <code class="docutils literal notranslate"><span class="pre">_85</span></code>, <code class="docutils literal notranslate"><span class="pre">_86</span></code>, <code class="docutils literal notranslate"><span class="pre">_90</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bgs_london_gateway_dynamo_78.xtf</span></code>, <code class="docutils literal notranslate"><span class="pre">_80</span></code>, <code class="docutils literal notranslate"><span class="pre">_85</span></code>, <code class="docutils literal notranslate"><span class="pre">_86</span></code>, <code class="docutils literal notranslate"><span class="pre">_88</span></code>, <code class="docutils literal notranslate"><span class="pre">_90</span></code></p></td>
 <td><p>9 to 27 MB each</p></td>
-<td><p>Klein 400 kHz, XTF (GeoDAS, 2007): five passes over the Dynamo wreck</p></td>
+<td><p>Klein 400 kHz, XTF (GeoDAS, 2007): six passes over the Dynamo wreck</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bgs_london_gateway_eastoaze_31.xtf</span></code>, <code class="docutils literal notranslate"><span class="pre">ernaboldt_13</span></code>, <code class="docutils literal notranslate"><span class="pre">storm_04</span></code>, <code class="docutils literal notranslate"><span class="pre">amethyst_25</span></code>, <code class="docutils literal notranslate"><span class="pre">ash_11</span></code></p></td>
 <td><p>9 to 26 MB each</p></td>
@@ -569,7 +574,12 @@ going online.</p>
 northing without saying so: convert them with <code class="docutils literal notranslate"><span class="pre">nav_crs=&quot;EPSG:32631&quot;</span></code>.
 They record no heading (use the course over ground), their samples
 already carry the recorder’s TVG, and their <code class="docutils literal notranslate"><span class="pre">Weight</span></code> fields are garbage,
-which the reader ignores with a warning.
+which the reader ignores with a warning. Their positions jump back by 1
+to 3 m at every GPS fix (<code class="docutils literal notranslate"><span class="pre">processing.smooth_navigation</span></code> removes that).
+On the GeoDAS lines with no heading the recorder’s tow-point offset
+points south whatever the course; the reader detects it, uses the ship
+positions and records the tow point (12.5 m aft) for the layback step.
+The cable layback is not recorded: about 20 m aligns the Dynamo passes.
 <code class="docutils literal notranslate"><span class="pre">datasets.BGS_LONDON_GATEWAY_WRECKS</span></code> holds the catalogued centre of each
 wreck from the BGS record (UTM 31N meters); a line can show its wreck
 tens of meters from that centre along track.</p>
@@ -616,20 +626,20 @@ same terms.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="limitations.html"
+       href="atr/survey.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Limitations</p>
+        <p class="prev-next-title">6. Run the models on a survey</p>
       </div>
     </a>
     <a class="right-next"
-       href="formats.html"
+       href="examples/plot_read_a_file.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Formats</p>
+        <p class="prev-next-title">Read a file</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

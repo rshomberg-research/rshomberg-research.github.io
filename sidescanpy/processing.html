@@ -417,24 +417,11 @@
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grids.html">Gridding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Targets and datasets</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="atr.html">Target recognition</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="atr/index.html">Step by step</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="atr/prepare.html">1. Labelled sonar images</a></li>
-<li class="toctree-l3"><a class="reference internal" href="atr/detector.html">2. Train the detector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="atr/classifier.html">3. Train the classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="atr/evaluate.html">4. Test both stages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="atr/review.html">5. Review and correct the labels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="atr/survey.html">6. Run the models on a survey</a></li>
-</ul>
-</details></li>
-</ul>
-</details></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="viz.html">Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="limitations.html">Limitations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_data.html">Example data</a></li>
 </ul>
 </div>
 </nav></div>
@@ -1009,6 +996,14 @@ std, percentiles and count.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">along_track_distance_m(ds,</span> <span class="pre">fill_nav_stalls=False)</span></code>: cumulative
 geodesic distance along the track; <code class="docutils literal notranslate"><span class="pre">fill_nav_stalls</span></code> spreads pings that
 repeat a navigation fix.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">smooth_navigation(ds,</span> <span class="pre">window_s=5.0)</span></code>: replaces each ping’s position
+with a straight-line fit over a time window, for recorders whose
+positions change at every entry but carry an error between GPS fixes
+(a sawtooth that interpolating between fixes cannot remove). Records a
+<code class="docutils literal notranslate"><span class="pre">smooth_navigation</span></code> history entry; apply it before <code class="docutils literal notranslate"><span class="pre">georef</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">course_over_ground(ds,</span> <span class="pre">half_window_s=4.0)</span></code>: per-ping course from the
+positions either side, to use as <code class="docutils literal notranslate"><span class="pre">heading_deg</span></code> when no compass is
+recorded or trusted.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">build_survey_track(surveys,</span> <span class="pre">freq_key,</span> <span class="pre">scanline_stride=)</span></code>: nadir track
 and strided scan-line endpoints as a <code class="docutils literal notranslate"><span class="pre">SurveyTrack</span></code>.</p></li>
 </ul>

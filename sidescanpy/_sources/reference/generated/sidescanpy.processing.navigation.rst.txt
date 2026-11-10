@@ -13,9 +13,15 @@ sidescanpy.processing.navigation
    along_track_distance_m
    fill_nav_stalls
    course_over_ground
+   STEP_SMOOTH_NAVIGATION
+   smooth_navigation
 
 .. autofunction:: sidescanpy.processing.navigation.along_track_distance_m
 
 .. autofunction:: sidescanpy.processing.navigation.fill_nav_stalls
 
 .. autofunction:: sidescanpy.processing.navigation.course_over_ground
+
+.. autodata:: sidescanpy.processing.navigation.STEP_SMOOTH_NAVIGATION
+
+.. autofunction:: sidescanpy.processing.navigation.smooth_navigation

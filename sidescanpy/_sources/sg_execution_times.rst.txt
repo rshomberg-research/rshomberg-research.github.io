@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**04:29.075** total execution time for 10 files **from all galleries**:
+**10:47.499** total execution time for 13 files **from all galleries**:
 
 .. container::
 
@@ -32,33 +32,42 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
+   * - :ref:`sphx_glr_examples_plot_wreck_gallery.py` (``../examples/gallery/plot_wreck_gallery.py``)
+     - 03:23.763
+     - 0.0
    * - :ref:`sphx_glr_examples_plot_training_dataset.py` (``../examples/gallery/plot_training_dataset.py``)
-     - 01:54.030
+     - 02:32.542
+     - 0.0
+   * - :ref:`sphx_glr_examples_plot_four_passes.py` (``../examples/gallery/plot_four_passes.py``)
+     - 01:36.892
      - 0.0
    * - :ref:`sphx_glr_examples_plot_target_chips.py` (``../examples/gallery/plot_target_chips.py``)
-     - 00:55.036
+     - 01:09.904
      - 0.0
    * - :ref:`sphx_glr_examples_plot_grid_to_a_map.py` (``../examples/gallery/plot_grid_to_a_map.py``)
-     - 00:31.060
+     - 00:33.439
      - 0.0
    * - :ref:`sphx_glr_examples_plot_navigation.py` (``../examples/gallery/plot_navigation.py``)
-     - 00:26.061
+     - 00:30.874
      - 0.0
    * - :ref:`sphx_glr_examples_plot_read_a_file.py` (``../examples/gallery/plot_read_a_file.py``)
-     - 00:19.752
+     - 00:27.052
      - 0.0
    * - :ref:`sphx_glr_examples_plot_investigate_a_survey.py` (``../examples/gallery/plot_investigate_a_survey.py``)
-     - 00:08.194
+     - 00:10.664
      - 0.0
    * - :ref:`sphx_glr_examples_plot_correct_a_line.py` (``../examples/gallery/plot_correct_a_line.py``)
-     - 00:07.165
+     - 00:09.628
      - 0.0
    * - :ref:`sphx_glr_examples_plot_compare_sonars_and_formats.py` (``../examples/gallery/plot_compare_sonars_and_formats.py``)
-     - 00:05.989
+     - 00:08.436
+     - 0.0
+   * - :ref:`sphx_glr_examples_plot_shadow_height.py` (``../examples/gallery/plot_shadow_height.py``)
+     - 00:01.750
      - 0.0
    * - :ref:`sphx_glr_examples_plot_swath_tiles.py` (``../examples/gallery/plot_swath_tiles.py``)
-     - 00:01.202
+     - 00:01.698
      - 0.0
    * - :ref:`sphx_glr_examples_plot_whats_in_a_file.py` (``../examples/gallery/plot_whats_in_a_file.py``)
-     - 00:00.587
+     - 00:00.856
      - 0.0

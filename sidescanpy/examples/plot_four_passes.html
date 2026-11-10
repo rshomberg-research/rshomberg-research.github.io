@@ -52,7 +52,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="A wreck’s height from its shadow" href="plot_shadow_height.html" />
+    <link rel="next" title="Swath tiles for annotation, and boxes back to targets" href="plot_swath_tiles.html" />
     <link rel="prev" title="Eight wrecks at one scale" href="plot_wreck_gallery.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -161,6 +161,20 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../theory/index.html">
+    Theory
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../example_data.html">
+    Example data
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../guide.html">
     Guide
   </a>
@@ -173,13 +187,6 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../sources/index.html">
-    Source formats
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button"
                 data-bs-toggle="dropdown" aria-expanded="false"
@@ -188,6 +195,13 @@
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../sources/index.html">
+    Source formats
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="../reference/index.html">
     API reference
@@ -328,6 +342,20 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../theory/index.html">
+    Theory
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../example_data.html">
+    Example data
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../guide.html">
     Guide
   </a>
@@ -438,20 +466,17 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../example_data.html">Example data</a></li>
 </ul>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="plot_read_a_file.html">Read a file</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_whats_in_a_file.html">What’s in a file: metadata and aux streams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_navigation.html">Navigation: held fixes, interpolation and the track</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_investigate_a_survey.html">Investigating an unknown survey</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_common_artifacts.html">Common sidescan artifacts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_compare_sonars_and_formats.html">Comparing results across sonars and file formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_wreck_gallery.html">Eight wrecks at one scale</a></li>
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Four passes over one wreck: native and north-up</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_shadow_height.html">A wreck’s height from its shadow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_swath_tiles.html">Swath tiles for annotation, and boxes back to targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_target_chips.html">Target chips at several corrections and resolutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_training_dataset.html">A training dataset with background images</a></li>
@@ -524,7 +549,7 @@ to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="four-passes-over-one-wreck-native-and-north-up">
 <span id="sphx-glr-examples-plot-four-passes-py"></span><h1>Four passes over one wreck: native and north-up<a class="headerlink" href="#four-passes-over-one-wreck-native-and-north-up" title="Link to this heading">#</a></h1>
-<p>The same wreck seen on four lines run in three directions. In the
+<img src="../_images/sphx_glr_plot_four_passes_001.png" srcset="../_images/sphx_glr_plot_four_passes_001.png, ../_images/sphx_glr_plot_four_passes_001_2_00x.png 2.00x" alt="Native (ping by slant range, top) and georeferenced north-up (bottom), course 059°, course 056°, course 152°, course 236°" class = "sphx-glr-single-img"/><p>The same wreck seen on four lines run in three directions. In the
 native view (ping by slant range) each pass looks different: the wreck
 is lit from a different side, its shadow points away from the track, and
 near nadir it is compressed in range. Georeferenced north-up onto one
@@ -543,10 +568,12 @@ GPS fix (see <a class="reference internal" href="plot_wreck_gallery.html"><span 
 <a class="reference internal" href="../reference/generated/sidescanpy.processing.navigation.html#sidescanpy.processing.navigation.course_over_ground" title="sidescanpy.processing.navigation.course_over_ground"><code class="xref py py-func docutils literal notranslate"><span class="pre">course_over_ground()</span></code></a> gives the direction
 each ping looks across.</p></li>
 <li><p><strong>Layback.</strong> The towfish trails the ship by the tow-point offset plus
-the cable. The cable length was not recorded, so the layback here
-(15 m) was found from two passes run in opposite directions (lines 78
-and 85): with no layback they place the wreck 30 m apart along the
-track, twice the missing layback.</p></li>
+the cable. The cable length was not recorded, so the cable layback
+here (27.5 m, beyond the 12.5 m tow point) was found from two pairs
+of passes run in opposite directions: with only the tow point applied
+they place the wreck 53 to 57 m apart along the track, twice the
+missing layback (<a class="reference internal" href="../theory/plot_navigation_and_position.html"><span class="doc">Where the towfish is: navigation and layback</span></a> measures
+it).</p></li>
 </ol>
 <p>Data: BGS London Gateway, Klein 3000 at 400 kHz, Open Government Licence
 v3.0, contains data supplied by UKRI (see <a class="reference internal" href="../example_data.html"><span class="doc">Example data</span></a>).</p>
@@ -582,7 +609,7 @@ v3.0, contains data supplied by UKRI (see <a class="reference internal" href="..
 </span><span class="w">
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">LINES</span></a> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="s2">bgs_london_gateway_dynamo_78.xtf</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s2">bgs_london_gateway_dynamo_86.xtf</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
 </span>         <span class="s2">&quot;</span><span class="s2">bgs_london_gateway_dynamo_88.xtf</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s2">bgs_london_gateway_dynamo_85.xtf</span><span class="s2">&quot;</span><span class="p">]</span><span class="w">
-</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">LAYBACK_M</span></a> <span class="o">=</span> <span class="mf">15.0</span><span class="w">
+</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">LAYBACK_M</span></a> <span class="o">=</span> <span class="mf">27.5</span><span class="w">
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">WINDOW_M</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">CELL_M</span></a> <span class="o">=</span> <span class="mf">64.0</span><span class="p">,</span> <span class="mf">0.15</span><span class="w">
 </span><span class="w">
 </span><span class="c1"># The catalogued wreck position (UTM zone 31N), moved to the middle of the</span><span class="w">
@@ -678,11 +705,11 @@ linear interpolation between the samples (scipy <code class="docutils literal no
 </span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;</span><span class="s2">Native (ping by slant range, top) and georeferenced north-up (bottom)</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">four_passes.png</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img src="../_images/sphx_glr_plot_four_passes_001.png" srcset="../_images/sphx_glr_plot_four_passes_001.png, ../_images/sphx_glr_plot_four_passes_001_2_00x.png 2.00x" alt="Native (ping by slant range, top) and georeferenced north-up (bottom), course 059°, course 055°, course 152°, course 236°" class = "sphx-glr-single-img"/></section>
+<img src="../_images/sphx_glr_plot_four_passes_001.png" srcset="../_images/sphx_glr_plot_four_passes_001.png, ../_images/sphx_glr_plot_four_passes_001_2_00x.png 2.00x" alt="Native (ping by slant range, top) and georeferenced north-up (bottom), course 059°, course 056°, course 152°, course 236°" class = "sphx-glr-single-img"/></section>
 <section id="reading-the-result">
 <h2>Reading the result<a class="headerlink" href="#reading-the-result" title="Link to this heading">#</a></h2>
 <p>On the map the four passes put the hull in the same place to within
-5 to 10 m. What is left has three sources. A tidal current set the
+a few meters. What is left has three sources. A tidal current set the
 towfish sideways off the ship’s track on the south-east line (the
 passes made 1.35 m/s over the ground running north-east and 2.65 m/s
 running south-west, so about 0.65 m/s of current), and a layback only
@@ -699,7 +726,7 @@ this one crosses it end-on, close under the towfish (about 10 m slant
 range), where shadows are short and the recorder’s gain makes the
 seabed bright. Its track is on the other side, so the shadows fall the
 other way.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 44.948 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 43.896 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-four-passes-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/917107df5df183c057e63243cb502dbb/plot_four_passes.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_four_passes.ipynb</span></code></a></p>
@@ -734,11 +761,11 @@ other way.</p>
       </div>
     </a>
     <a class="right-next"
-       href="plot_shadow_height.html"
+       href="plot_swath_tiles.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">A wreck’s height from its shadow</p>
+        <p class="prev-next-title">Swath tiles for annotation, and boxes back to targets</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

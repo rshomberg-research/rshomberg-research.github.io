@@ -1,0 +1,258 @@
+:orphan:
+
+Theory
+======
+
+Why sidescan imagery looks the way it does. Each page takes one idea:
+it states the physics, with the formula and a diagram, then measures
+the idea on a real, openly licensed recording, so every number can be
+checked.
+
+The :doc:`/examples/index` show how to do a task with sidescanpy; these
+pages explain the physics behind the steps.
+
+Every page is a script in ``examples/theory/`` that runs when this site
+is built, on the recordings listed in :doc:`/example_data`. Run one
+yourself with an output directory::
+
+    python examples/theory/plot_shadow_height.py out/
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A sidescan towfish carries two long, thin transducer arrays, one on each side. Each ping it sends a short pulse of sound from both, then listens and records how strong the echo is, sample by sample, against time since the pulse left. Each array&#x27;s beam is a thin fan: narrow along the track (typically under a degree to about 1 degree) and wide in the vertical, so one ping lights up a thin strip of seabed running out to each side.">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_how_sidescan_sees_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_how_sidescan_sees`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">How sidescan sees</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A sidescan file holds numbers, one per sample, that rise and fall with the echo. They are relative: the receiver amplifies the transducer&#x27;s voltage and a digitizer turns it into integers, so each number is proportional to the echo&#x27;s voltage at that point in the receiver. Nothing in the file ties those numbers to sound pressure in micropascals; that needs a calibration of the transducer and receiver, which ordinary surveys do not carry. Only ratios between samples mean something.">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_amplitude_and_db_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_amplitude_and_db`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Echo amplitude and decibels</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The echo from the seabed gets weaker the farther it travels. The sound spreads out on its way to the seabed and back, and seawater absorbs part of it, more the higher the frequency. The usable range ends where the echo sinks into the noise floor: the level the receiver records with no seabed echo at all, from its own electronics, the sea and the towing platform.">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_range_limits_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_range_limits`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">How far a sidescan sees</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A higher frequency shows finer detail but reaches less far, because seawater absorbs sound more strongly the higher the frequency (plot_range_limits plots the absorption curve). How fine the detail is depends on two different things, one for each direction.">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_frequency_and_resolution_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_frequency_and_resolution`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Frequency, range and resolution</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The sonar equation keeps the books on an echo in decibels. The echo level EL the receiver sees is the source level SL the transducer sends, less the transmission loss TL on the way out and again on the way back, plus the backscatter strength BS of whatever returned the sound:">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_sonar_equation_and_tvg_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_sonar_equation_and_tvg`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The sonar equation and time-varying gain</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The sonar measures time, not distance across the seabed. An echo that arrives t seconds after the pulse left came from slant range">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_slant_to_ground_range_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_slant_to_ground_range`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">From slant range to ground range</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Each sample of a ping is one slant range R: it holds the echo of every seabed point at that distance from the towfish. On a flat seabed that is one point, and plot_slant_to_ground_range puts it at ground range sqrt(R^2 - H^2) for altitude H. With a mound, a slope or a wreck, the circle of radius R can cross the seabed at several points, and their echoes add in the same sample.">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_slopes_and_layover_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_slopes_and_layover`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Slopes, relief and layover</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Anything standing on the seabed blocks the sound behind it, so the image has a dark shadow beyond the object. The longer the shadow, the taller the object. Over a flat seabed, with the towfish at altitude A and the shadow starting at slant range R and running Ls further, similar triangles give the height of the object&#x27;s top:">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_shadow_height_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_shadow_height`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">A wreck's height from its shadow</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A sidescan builds its image one ping at a time while the towfish moves. Between two pings it travels the ping spacing">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_ping_spacing_and_coverage_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_ping_spacing_and_coverage`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ping spacing, footprint and coverage</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A towfish is not a steady platform. Waves, the cable and the current tip it nose up and down (pitch), lean it to one side (roll) and swing its nose away from the direction it travels (yaw). Each moves where a ping lands on the seabed or how bright it is, and each leaves a pattern in the image that can be mistaken for the seabed. Learn these patterns before calling something a target.">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_towfish_attitude_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_towfish_attitude`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Towfish attitude: pitch, roll and yaw</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Every pixel of a georeferenced sidescan image is placed from three numbers per ping: the towfish&#x27;s position, its heading, and the slant range of the sample. An error in the position moves the whole ping; an error in the heading swings it, more at long range. This page covers where the position comes from and four ways it goes wrong.">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_navigation_and_position_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_navigation_and_position`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Where the towfish is: navigation and layback</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Much of what a sidescan image shows is not seabed. The towfish moves, the recorder changes its gain, other sonars ping, the GPS updates slowly and the signal fades into noise at long range. Each leaves its own mark, and an analyst or a detector trained on images sees all of them. This page shows the common ones on public recordings, with what causes each, a number that tells it apart, and what sidescanpy offers for it.">
+
+.. only:: html
+
+  .. image:: /theory/images/thumb/sphx_glr_plot_common_artifacts_thumb.png
+    :alt:
+
+  :doc:`/theory/plot_common_artifacts`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Common sidescan artifacts</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /theory/plot_how_sidescan_sees
+   /theory/plot_amplitude_and_db
+   /theory/plot_range_limits
+   /theory/plot_frequency_and_resolution
+   /theory/plot_sonar_equation_and_tvg
+   /theory/plot_slant_to_ground_range
+   /theory/plot_slopes_and_layover
+   /theory/plot_shadow_height
+   /theory/plot_ping_spacing_and_coverage
+   /theory/plot_towfish_attitude
+   /theory/plot_navigation_and_position
+   /theory/plot_common_artifacts
+

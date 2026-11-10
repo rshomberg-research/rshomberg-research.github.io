@@ -52,7 +52,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Common sidescan artifacts" href="plot_common_artifacts.html" />
+    <link rel="next" title="Correct a line" href="plot_correct_a_line.html" />
     <link rel="prev" title="Navigation: held fixes, interpolation and the track" href="plot_navigation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -161,6 +161,20 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../theory/index.html">
+    Theory
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../example_data.html">
+    Example data
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../guide.html">
     Guide
   </a>
@@ -173,13 +187,6 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../sources/index.html">
-    Source formats
-  </a>
-</li>
-
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button"
                 data-bs-toggle="dropdown" aria-expanded="false"
@@ -188,6 +195,13 @@
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../sources/index.html">
+    Source formats
+  </a>
+</li>
+
+
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="../reference/index.html">
     API reference
@@ -328,6 +342,20 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../theory/index.html">
+    Theory
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../example_data.html">
+    Example data
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../guide.html">
     Guide
   </a>
@@ -438,20 +466,17 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../example_data.html">Example data</a></li>
 </ul>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="plot_read_a_file.html">Read a file</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_whats_in_a_file.html">What’s in a file: metadata and aux streams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_navigation.html">Navigation: held fixes, interpolation and the track</a></li>
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Investigating an unknown survey</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_common_artifacts.html">Common sidescan artifacts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_compare_sonars_and_formats.html">Comparing results across sonars and file formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_wreck_gallery.html">Eight wrecks at one scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_four_passes.html">Four passes over one wreck: native and north-up</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_shadow_height.html">A wreck’s height from its shadow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_swath_tiles.html">Swath tiles for annotation, and boxes back to targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_target_chips.html">Target chips at several corrections and resolutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_training_dataset.html">A training dataset with background images</a></li>
@@ -524,7 +549,7 @@ to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="investigating-an-unknown-survey">
 <span id="sphx-glr-examples-plot-investigate-a-survey-py"></span><h1>Investigating an unknown survey<a class="headerlink" href="#investigating-an-unknown-survey" title="Link to this heading">#</a></h1>
-<p>A survey arrives with no notes. Before choosing corrections, measure
+<img src="../_images/sphx_glr_plot_investigate_a_survey_004.png" srcset="../_images/sphx_glr_plot_investigate_a_survey_004.png, ../_images/sphx_glr_plot_investigate_a_survey_004_2_00x.png 2.00x" alt="Decay model fit (best: full_physics)" class = "sphx-glr-single-img"/><p>A survey arrives with no notes. Before choosing corrections, measure
 what the recording is: what the samples are, where the seabed starts
 under the towfish, how far the sonar sees before the signal sinks into
 noise, and whether the recorder already applied a time-varying gain.
@@ -571,14 +596,14 @@ records no altitude, so the bottom track supplies it first.</p>
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">var</span></a> <span class="o">=</span> <span class="s2">&quot;</span><span class="s2">backscatter_intensity</span><span class="s2">&quot;</span><span class="w">
 </span><a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">channels</span></a><span class="p">[</span><span class="s2">&quot;</span><span class="s2">hz_218740</span><span class="s2">&quot;</span><span class="p">]</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>21:24:00 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-21:24:00 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
-21:24:00 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-21:24:01 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-21:24:01 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>22:06:05 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+22:06:05 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
+22:06:05 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+22:06:05 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+22:06:05 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 /home/runner/work/sidescanpy/sidescanpy/src/sidescanpy/processing/bottom.py:230: RuntimeWarning: All-NaN slice encountered
   peak = np.nanmax(roll[..., :window], axis=-1, keepdims=True)
-21:24:01 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+22:06:06 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 </pre></div>
 </div>
 <section id="what-are-the-samples">
@@ -671,7 +696,7 @@ with its shorter usable range, absorption alone fits slightly better). So this s
 anything past the usable range is noise to crop or mask, not seabed.
 Confirm on the corrected data that the level is flat with range: a good
 fit is a hypothesis, not a result.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.309 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.315 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-investigate-a-survey-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/458b5198bbc16451188be16c5e2244b5/plot_investigate_a_survey.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_investigate_a_survey.ipynb</span></code></a></p>
@@ -706,11 +731,11 @@ fit is a hypothesis, not a result.</p>
       </div>
     </a>
     <a class="right-next"
-       href="plot_common_artifacts.html"
+       href="plot_correct_a_line.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Common sidescan artifacts</p>
+        <p class="prev-next-title">Correct a line</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

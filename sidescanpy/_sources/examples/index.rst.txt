@@ -4,25 +4,23 @@ Examples
 ========
 
 Worked walkthroughs on real data. The Guide explains how each part of
-sidescanpy works; these pages show it doing a job.
+sidescanpy works; these pages show it doing a job, and :doc:`/theory/index`
+explains the physics behind the steps.
 
 Each example below runs sidescanpy on a real, openly licensed recording
 that anyone can download, and shows the code, what it prints and the
 figure it makes. The pages are built by running the scripts in
-``examples/gallery/``. Two more sections sit alongside them:
+``examples/gallery/``. Another section sits alongside them:
 
 - :doc:`/atr`: two-stage target recognition step by step, from raw data
   or a target catalog to a trained detector and classifier. Those
   scripts need a GPU and extra packages, so they are not run when this
   site is built; each page shows the results of a run.
-- :doc:`/example_data`: every recording the examples use, with its
-  source, size and licence.
 
 .. toctree::
    :hidden:
 
    Target recognition </atr>
-   Example data </example_data>
 
 Run one yourself with an output directory (the current one by default)::
 
@@ -114,23 +112,6 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Much of what a sidescan image shows is not seabed. The towfish moves, the recorder changes its gain, other sonars ping, the GPS updates slowly and the signal fades into noise at long range. Each leaves its own mark, and an analyst or a detector trained on images sees all of them. This page shows the common ones on public recordings, with what causes each, a number that tells it apart, and what sidescanpy offers for it.">
-
-.. only:: html
-
-  .. image:: /examples/images/thumb/sphx_glr_plot_common_artifacts_thumb.png
-    :alt:
-
-  :doc:`/examples/plot_common_artifacts`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Common sidescan artifacts</div>
-    </div>
-
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Each correction is one function call on the survey. Every call is recorded with its parameters in each frequency&#x27;s processing_history, so a corrected file says how it was made; leave a call out to skip that correction, or put your own function in the chain.">
 
 .. only:: html
@@ -211,23 +192,6 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Four passes over one wreck: native and north-up</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Anything standing on the seabed blocks the sound behind it, so the image has a dark shadow beyond the object. The longer the shadow, the taller the object. Over a flat seabed, with the towfish at altitude A and the shadow starting at slant range R and running Ls further, similar triangles give the height of the object&#x27;s top:">
-
-.. only:: html
-
-  .. image:: /examples/images/thumb/sphx_glr_plot_shadow_height_thumb.png
-    :alt:
-
-  :doc:`/examples/plot_shadow_height`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">A wreck's height from its shadow</div>
     </div>
 
 
@@ -330,13 +294,11 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
    /examples/plot_whats_in_a_file
    /examples/plot_navigation
    /examples/plot_investigate_a_survey
-   /examples/plot_common_artifacts
    /examples/plot_correct_a_line
    /examples/plot_compare_sonars_and_formats
    /examples/plot_grid_to_a_map
    /examples/plot_wreck_gallery
    /examples/plot_four_passes
-   /examples/plot_shadow_height
    /examples/plot_swath_tiles
    /examples/plot_target_chips
    /examples/plot_training_dataset

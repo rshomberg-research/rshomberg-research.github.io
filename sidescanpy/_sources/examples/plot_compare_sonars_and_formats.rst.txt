@@ -112,10 +112,10 @@ slant range.
 
  .. code-block:: none
 
-    21:24:51 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    21:24:51 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
-    21:24:51 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    21:24:51 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
+    22:06:31 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    22:06:31 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    22:06:31 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    22:06:31 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
 
 
 
@@ -147,8 +147,8 @@ XTF. The two readers return identical samples.
 
  .. code-block:: none
 
-    21:25:01 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    21:25:01 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    22:06:41 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    22:06:41 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
     JSF vs XTF, 288 pings: max |difference| = 0
 
 
@@ -157,7 +157,7 @@ XTF. The two readers return identical samples.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 10.695 seconds)
+   **Total running time of the script:** (0 minutes 10.770 seconds)
 
 
 .. _sphx_glr_download_examples_plot_compare_sonars_and_formats.py:

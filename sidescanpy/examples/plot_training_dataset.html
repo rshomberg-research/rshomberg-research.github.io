@@ -52,7 +52,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Guide" href="../guide.html" />
+    <link rel="next" title="Same pings, different chains: recreating a vendor product" href="plot_vendor_chain.html" />
     <link rel="prev" title="Target chips at several corrections and resolutions" href="plot_target_chips.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -451,6 +451,8 @@
 <li class="toctree-l1"><a class="reference internal" href="plot_swath_tiles.html">Swath tiles for annotation, and boxes back to targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_target_chips.html">Target chips at several corrections and resolutions</a></li>
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">A training dataset with background images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_vendor_chain.html">Same pings, different chains: recreating a vendor product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_four_published_chains.html">Four published chains, four looks; one recorded chain, one scale</a></li>
 </ul>
 </div>
 </nav></div>
@@ -574,10 +576,10 @@ files alongside.</p>
 </span>    <span class="p">]</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>18:59:46 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-18:59:46 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-18:59:46 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;pitch_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-18:59:46 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;roll_deg&#39;]: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>21:29:15 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+21:29:15 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+21:29:15 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;pitch_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+21:29:15 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;roll_deg&#39;]: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
 </pre></div>
 </div>
 <p>Eight background windows whose footprint holds no catalog target
@@ -641,7 +643,7 @@ smoother than the target chips: a classifier can learn that difference
 instead of the objects. More lines, <code class="docutils literal notranslate"><span class="pre">background_ping_ranges</span></code> (where to
 draw backgrounds from) and the same <code class="docutils literal notranslate"><span class="pre">normalization_scope</span></code> for both
 kinds of image make the two sets look alike apart from the targets.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (3 minutes 5.431 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (3 minutes 25.742 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-training-dataset-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/aa54bd57ea001d6edec586baf729b923/plot_training_dataset.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_training_dataset.ipynb</span></code></a></p>
@@ -675,11 +677,11 @@ kinds of image make the two sets look alike apart from the targets.</p>
       </div>
     </a>
     <a class="right-next"
-       href="../guide.html"
+       href="plot_vendor_chain.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Guide</p>
+        <p class="prev-next-title">Same pings, different chains: recreating a vendor product</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

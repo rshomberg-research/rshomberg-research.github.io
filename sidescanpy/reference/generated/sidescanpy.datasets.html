@@ -629,10 +629,13 @@
   <section id="module-sidescanpy.datasets">
 <span id="sidescanpy-datasets"></span><h1>sidescanpy.datasets<a class="headerlink" href="#module-sidescanpy.datasets" title="Link to this heading">#</a></h1>
 <p>Openly licensed sidescan recordings for examples and tests.</p>
-<p>Each registered file is one raw recording inside a public agency archive
-(a multi-gigabyte zip). <a class="reference internal" href="#sidescanpy.datasets.fetch" title="sidescanpy.datasets.fetch"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch()</span></code></a> pulls just that member out with HTTP
-range requests, checks its SHA-256 and caches it, so an example needs a
-few tens of megabytes instead of the whole archive.</p>
+<p>Each registered file is one raw recording, or one published product
+made from recordings, in a public agency archive. Most archives are
+multi-gigabyte zips: <a class="reference internal" href="#sidescanpy.datasets.fetch" title="sidescanpy.datasets.fetch"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch()</span></code></a> pulls just the one member out with
+HTTP range requests, so an example needs a few tens of megabytes instead
+of the whole archive. A few archives serve each file on its own URL;
+those are downloaded directly. Either way the SHA-256 is checked and the
+file cached.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;jncc_wight_barfleur_20130321174522.jsf&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">datasets</span><span class="o">.</span><span class="n">citation</span><span class="p">(</span><span class="s2">&quot;jncc_wight_barfleur_20130321174522.jsf&quot;</span><span class="p">))</span>
@@ -652,7 +655,7 @@ directory of pre-downloaded files works offline.</p>
 <td><p>A public archive and the terms its files come under.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.datasets.RemoteFile" title="sidescanpy.datasets.RemoteFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RemoteFile</span></code></a></p></td>
-<td><p>One recording inside a source archive.</p></td>
+<td><p>One file in a source archive.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.datasets.SOURCES" title="sidescanpy.datasets.SOURCES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SOURCES</span></code></a></p></td>
 <td><p></p></td>
@@ -689,7 +692,9 @@ directory of pre-downloaded files works offline.</p>
 <dt class="sig sig-object py" id="sidescanpy.datasets.RemoteFile">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.datasets.</span></span><span class="sig-name descname"><span class="pre">RemoteFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archive_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">member</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sha256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.datasets.RemoteFile" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>One recording inside a source archive.</p>
+<p>One file in a source archive.</p>
+<p><code class="docutils literal notranslate"><span class="pre">member</span></code> is the file’s path inside the zip at <code class="docutils literal notranslate"><span class="pre">archive_url</span></code>; when
+it is <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">archive_url</span></code> is the file itself.</p>
 </dd></dl>
 
 <dl class="py data">

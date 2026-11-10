@@ -455,6 +455,8 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/plot_swath_tiles.html">Swath tiles for annotation, and boxes back to targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/plot_target_chips.html">Target chips at several corrections and resolutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/plot_training_dataset.html">A training dataset with background images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_vendor_chain.html">Same pings, different chains: recreating a vendor product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_four_published_chains.html">Four published chains, four looks; one recorded chain, one scale</a></li>
 </ul>
 </div>
 </nav></div>
@@ -523,7 +525,9 @@
 <p><code class="docutils literal notranslate"><span class="pre">sidescanpy.datasets.fetch(name)</span></code> returns a local path to a recording,
 downloading it the first time. Each recording is one file inside a large
 public agency archive (8 to 57 GB); <code class="docutils literal notranslate"><span class="pre">fetch</span></code> reads just that file out of
-the archive with HTTP range requests, checks its SHA-256 and caches it.</p>
+the archive with HTTP range requests, checks its SHA-256 and caches it.
+A few archives (PANGAEA) serve each file on its own URL; those are
+downloaded directly.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
 
 <span class="n">datasets</span><span class="o">.</span><span class="n">list_datasets</span><span class="p">()</span>          <span class="c1"># the names fetch() accepts</span>
@@ -609,6 +613,62 @@ Dynamo passes together.
 <code class="docutils literal notranslate"><span class="pre">datasets.BGS_LONDON_GATEWAY_WRECKS</span></code> holds the catalogued centre of each
 wreck from the BGS record (UTM 31N meters); a line can show its wreck
 tens of meters from that centre along track.</p>
+<section id="published-products-and-their-recordings">
+<h3>Published products and their recordings<a class="headerlink" href="#published-products-and-their-recordings" title="Link to this heading">#</a></h3>
+<p>Two examples compare sidescanpy with mosaics that other software
+made from the same recordings, so they also fetch those mosaics and
+whole lines. These files are larger (about 830 MB in all, 640 MB of it
+downloaded for the Grand Bay line and mosaic alone, which unpack to
+950 MB); the other examples don’t use them.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Size</p></th>
+<th class="head"><p>File</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">usgs_grand_bay_150602202800.xtf</span></code></p></td>
+<td><p>236 MB (117 MB download)</p></td>
+<td><p>Klein 100 kHz, XTF (SonarPro): a whole line under the mosaic</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">usgs_grand_bay_mosaic_30cmgray.tif</span></code></p></td>
+<td><p>715 MB (287 MB download)</p></td>
+<td><p>The release’s mosaic (CleanSweep 3.9), 0.30 m, UTM 16N, 8-bit palette</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jncc_solan_bank_SB04_10.xtf</span></code></p></td>
+<td><p>79 MB</p></td>
+<td><p>Benthos SIS-1500, 200 kHz, XTF (Isis); positions are the ship’s</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jncc_solan_bank_SB4_10.tif</span></code></p></td>
+<td><p>16 MB</p></td>
+<td><p>Isis/TritonMap GeoTIFF of that line, 0.5 m, UTM 30N</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jncc_east_rockall_ER_C1_SS_001_6.xtf</span></code></p></td>
+<td><p>76 MB</p></td>
+<td><p>EdgeTech 4200, 120 + 410 kHz, XTF (Isis); UTM 29N navigation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jncc_east_rockall_ER_C1_SS_001_6_CMG.tif</span></code></p></td>
+<td><p>57 MB</p></td>
+<td><p>Isis/TritonMap GeoTIFF of that line, 0.4 m, UTM 28N</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">awi_ofobs_ps124_20210217004957.jsf</span></code> and four more</p></td>
+<td><p>51 MB each</p></td>
+<td><p>EdgeTech 2205 JSF (Discover Bathymetric), towed OFOBS frame, five consecutive files</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">awi_ofobs_ps124_026_07_ssh_10cm_part1.tiff</span></code></p></td>
+<td><p>25 MB</p></td>
+<td><p>CARIS HIPS and SIPS intensity mosaic of the profile, 0.10 m, float, UPS South</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The East Rockall line stores navigation as UTM zone 29N easting and
+northing without saying so: read it with <code class="docutils literal notranslate"><span class="pre">nav_crs=&quot;EPSG:32629&quot;</span></code>. The
+mosaics’ palettes draw strong echoes dark (Grand Bay, Solan Bank, East
+Rockall); the palette index itself rises with echo strength. No data is
+index 255 in the Grand Bay mosaic and 0 in the two Isis mosaics.</p>
+</section>
 </section>
 <section id="sources-and-licences">
 <h2>Sources and licences<a class="headerlink" href="#sources-and-licences" title="Link to this heading">#</a></h2>
@@ -630,11 +690,40 @@ Data Centre, <em>Geophysical Survey WESSEX_London_Gateway: Thames Estuary
 <a class="reference external" href="https://webapps.bgs.ac.uk/services/ngdc/accessions/index.html#item140325">https://webapps.bgs.ac.uk/services/ngdc/accessions/index.html#item140325</a>.
 Acquired by the Port of London Authority and Wessex Archaeology.
 Contains data supplied by UKRI; Open Government Licence v3.0.</p></li>
+<li><p><strong>Solan Bank.</strong> Joint Nature Conservation Committee, <em>Raw sidescan
+sonar data from Solan Bank Area of Search</em> (CEND 11/08, 2008),
+<a class="reference external" href="https://www.data.gov.uk/dataset/5773e015-c014-416c-aa43-a0397a8fd9e9">https://www.data.gov.uk/dataset/5773e015-c014-416c-aa43-a0397a8fd9e9</a>,
+and <em>Processed sidescan mosaics from Solan Bank Area of Search</em>,
+<a class="reference external" href="https://www.data.gov.uk/dataset/6c1e65a9-d45d-443e-b563-f723ac266ac4">https://www.data.gov.uk/dataset/6c1e65a9-d45d-443e-b563-f723ac266ac4</a>.
+Contains public sector information licensed under the Open Government
+Licence v3.0.</p></li>
+<li><p><strong>East Rockall.</strong> Joint Nature Conservation Committee, <em>Raw side scan
+data from Anton Dohrn and East Rockall Bank</em> (MV Franklin, 2009),
+<a class="reference external" href="https://www.data.gov.uk/dataset/09203cee-92dd-486b-8838-a525507765fd">https://www.data.gov.uk/dataset/09203cee-92dd-486b-8838-a525507765fd</a>,
+and <em>Processed side scan data from Anton Dohrn and East Rockall Bank</em>,
+<a class="reference external" href="https://www.data.gov.uk/dataset/efc2ea5f-c376-4904-b7fb-34cdde65744e">https://www.data.gov.uk/dataset/efc2ea5f-c376-4904-b7fb-34cdde65744e</a>.
+Contains public sector information licensed under the Open Government
+Licence v3.0.</p></li>
+<li><p><strong>AWI OFOBS, PS124.</strong> Hehemann, Laura; Purser, Autun; Boehringer,
+Lilian; Werner, Ellen; Wenzhöfer, Frank (2021): <em>Side scan sonar and
+swath bathymetry collected along OFOBS profiles PS124_26-7 during
+POLARSTERN cruise PS124, binned</em> [dataset]. PANGAEA,
+<a class="reference external" href="https://doi.org/10.1594/PANGAEA.939172">https://doi.org/10.1594/PANGAEA.939172</a>, In: Hehemann, L et al.
+(2021): <em>Side scan sonar and swath bathymetry collected along OFOBS
+profiles during POLARSTERN cruise PS124</em> [dataset publication series].
+PANGAEA, <a class="reference external" href="https://doi.org/10.1594/PANGAEA.939322">https://doi.org/10.1594/PANGAEA.939322</a>. The mosaic:
+Hehemann, Laura; Boehringer, Lilian; Purser, Autun; Werner, Ellen;
+Wenzhöfer, Frank (2021): <em>Seafloor bathymetric maps derived from side
+scan data collected along OFOBS profiles during POLARSTERN cruise PS124
+to the southern Weddell Sea</em> [dataset]. PANGAEA,
+<a class="reference external" href="https://doi.org/10.1594/PANGAEA.939087">https://doi.org/10.1594/PANGAEA.939087</a>. Licensed under
+<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p></li>
 <li><p><strong>Grand Bay.</strong> Locker, S.D., Forde, A.S., and Smith, C.G., 2018,
 <em>Subbottom and Sidescan Sonar Data Acquired in 2015 From Grand Bay,
 Mississippi and Alabama</em>: U.S. Geological Survey data release,
 <a class="reference external" href="https://doi.org/10.5066/P9374DKQ">https://doi.org/10.5066/P9374DKQ</a>. Public domain; the U.S. Geological
-Survey is the originator of the data.</p></li>
+Survey is the originator of the data. Two examples also use the
+release’s sidescan mosaic (CleanSweep 3.9, 0.30 m).</p></li>
 </ul>
 <p>The figures on these pages are derived from those recordings under the
 same terms.</p>
@@ -688,7 +777,10 @@ same terms.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-example-data">The example data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-example-data">The example data</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#published-products-and-their-recordings">Published products and their recordings</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources-and-licences">Sources and licences</a></li>
 </ul>
   </nav></div>

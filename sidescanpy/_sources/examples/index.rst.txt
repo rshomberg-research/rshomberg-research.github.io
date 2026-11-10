@@ -282,6 +282,40 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The USGS released the raw Klein recordings of its 2015 Grand Bay survey together with the mosaic it made from them in CleanSweep 3.9. The pings are the same; only the processing differs. Put through sidescanpy&#x27;s default steps, a line looks little like the published mosaic: the seabed texture is there, but the level, the contrast and even the position of features differ. Every one of those differences comes from a processing choice, and adding the right choices, one recorded step at a time, brings the two together.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_vendor_chain_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_vendor_chain`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Same pings, different chains: recreating a vendor product</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A sidescan mosaic is the recorded pings plus every choice the processing made: the gain curve, the navigation, how the beam pattern was flattened, how the samples were gridded and how dB became gray. Four agencies published raw recordings together with their own mosaics of the same lines, each made with different software. Side by side the published mosaics disagree on almost everything a reader would use to compare seabeds: which way strong echoes are drawn, how bright the seabed is, how much contrast it has. Part of that is the seabed and the sonar. Much of it is the processing, and the processing is not recorded with the product.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_four_published_chains_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_four_published_chains`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Four published chains, four looks; one recorded chain, one scale</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -306,4 +340,6 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
    /examples/plot_swath_tiles
    /examples/plot_target_chips
    /examples/plot_training_dataset
+   /examples/plot_vendor_chain
+   /examples/plot_four_published_chains
 

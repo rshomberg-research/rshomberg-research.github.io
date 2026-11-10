@@ -68,8 +68,8 @@ Usage: ``python examples/gallery/plot_whats_in_a_file.py [output_dir]``
 
  .. code-block:: none
 
-    18:53:25 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    18:53:25 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    21:23:57 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    21:23:57 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
     SideScanSurvey(name='jncc_wight_barfleur_20130321174522', n_frequencies=2, nav=88, att=764, dvl=0, sensors=1)
 
 
@@ -283,7 +283,7 @@ Plotting the streams over time turns these numbers into findings:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.035 seconds)
+   **Total running time of the script:** (0 minutes 1.195 seconds)
 
 
 .. _sphx_glr_download_examples_plot_whats_in_a_file.py:

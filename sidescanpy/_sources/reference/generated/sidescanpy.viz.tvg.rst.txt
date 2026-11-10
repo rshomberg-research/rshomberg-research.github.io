@@ -19,6 +19,7 @@ sidescanpy.viz.tvg
    plot_range_decay_fit
    set_fit_window_limits
    plot_range_decay_residuals
+   plot_tvg_fit
 
 .. autofunction:: sidescanpy.viz.tvg.plot_mean_vs_range
 
@@ -37,3 +38,5 @@ sidescanpy.viz.tvg
 .. autofunction:: sidescanpy.viz.tvg.set_fit_window_limits
 
 .. autofunction:: sidescanpy.viz.tvg.plot_range_decay_residuals
+
+.. autofunction:: sidescanpy.viz.tvg.plot_tvg_fit

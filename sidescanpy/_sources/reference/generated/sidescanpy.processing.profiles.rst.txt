@@ -11,8 +11,11 @@ sidescanpy.processing.profiles
    :nosignatures:
 
    backscatter_vs_range
+   median_level_profile
    backscatter_vs_sample
 
 .. autofunction:: sidescanpy.processing.profiles.backscatter_vs_range
+
+.. autofunction:: sidescanpy.processing.profiles.median_level_profile
 
 .. autofunction:: sidescanpy.processing.profiles.backscatter_vs_sample

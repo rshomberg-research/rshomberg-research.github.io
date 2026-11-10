@@ -438,7 +438,7 @@ fades with range until it sinks into the noise.
           f"R = {c:.0f} x {fb / fs:.5f} / 2 = {c * fb / fs / 2:.2f} m")
     for other in (1480.0, 1520.0):
         print(f"  with c = {other:.0f} m/s the same echo would be at {other * fb / fs / 2:.2f} m")
-    print(f"usable range, starboard (estimate_usable_range): {usable.usable_range_m:.0f} m")
+    print(f"usable range, starboard (estimate_usable_range, noise knee): {usable.usable_range_m:.0f} m")
 
 
 
@@ -459,7 +459,7 @@ fades with range until it sinks into the noise.
         a.axvspan(0, 1000 * fb / fs, color="C0", alpha=0.12, label="water column")
         a.axvline(1000 * fb / fs, color="C0", lw=1.5, label="first seabed echo")
         a.set_xlabel("time since transmit (ms)")
-    ax.axvspan(2000 * usable.usable_range_m / c, time_ms[-1], color="0.5", alpha=0.15, label="fading into noise")
+    ax.axvspan(2000 * usable.usable_range_m / c, time_ms[-1], color="0.5", alpha=0.15, label="noise (past the noise knee)")
     ax.set_ylabel("recorded level (dB re 1 count)")
     ax.set_xlim(0, time_ms[-1])
     ax.legend(loc="upper right", fontsize=9)
@@ -496,7 +496,7 @@ fades with range until it sinks into the noise.
     first seabed echo at sample 2068: t = 2068 / 86806 = 23.82 ms, R = 1500 x 0.02382 / 2 = 17.87 m
       with c = 1480 m/s the same echo would be at 17.63 m
       with c = 1520 m/s the same echo would be at 18.11 m
-    usable range, starboard (estimate_usable_range): 68 m
+    usable range, starboard (estimate_usable_range, noise knee): 91 m
 
 
 
@@ -641,7 +641,7 @@ range.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 439-495
+.. GENERATED FROM PYTHON SOURCE LINES 439-496
 
 Reading the result
 ------------------
@@ -675,9 +675,10 @@ inner edge. Separating the two needs an altimeter.
 
 **The image fades with range.** The level falls by tens of dB from
 the first echo outward. :func:`~sidescanpy.analysis.estimate_usable_range`
-puts the starboard signal into the noise at 68 m, while the mean
-level keeps falling slowly past that; :doc:`plot_range_limits` looks
-at why. The ping is also recorded as plain counts, not a calibrated
+puts the starboard signal into the noise at 91 m: its noise knee, where
+the median level comes within 3 dB of its lowest value and stops
+falling. :doc:`plot_range_limits` compares that with a more cautious
+rule. The ping is also recorded as plain counts, not a calibrated
 sound level: :doc:`plot_amplitude_and_db` explains what the dB values
 mean.
 
@@ -703,7 +704,7 @@ fade with range.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 11.017 seconds)
+   **Total running time of the script:** (0 minutes 8.503 seconds)
 
 
 .. _sphx_glr_download_theory_plot_how_sidescan_sees.py:

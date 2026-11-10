@@ -47,7 +47,7 @@ largest); the first run downloads them.
 
 Usage: ``python examples/gallery/plot_four_published_chains.py [output_dir]``
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-65
+.. GENERATED FROM PYTHON SOURCE LINES 31-66
 
 .. code-block:: Python
 
@@ -57,6 +57,7 @@ Usage: ``python examples/gallery/plot_four_published_chains.py [output_dir]``
     import itertools
     import json
     import sys
+    import warnings
     from pathlib import Path
 
     import matplotlib.pyplot as plt
@@ -92,7 +93,7 @@ Usage: ``python examples/gallery/plot_four_published_chains.py [output_dir]``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-85
+.. GENERATED FROM PYTHON SOURCE LINES 68-86
 
 The four lines
 --------------
@@ -113,7 +114,7 @@ recorded positions are not the towfish's.
 - **AWI OFOBS:** five consecutive files; the frame's positions are USBL
   fixes and its compass is good, so the recorded heading is kept.
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-118
+.. GENERATED FROM PYTHON SOURCE LINES 86-119
 
 .. code-block:: Python
 
@@ -157,7 +158,7 @@ recorded positions are not the towfish's.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-147
+.. GENERATED FROM PYTHON SOURCE LINES 120-148
 
 The one chain
 -------------
@@ -188,7 +189,7 @@ Then every sample is placed on the window's 0.25 m cells by linear
 interpolation in dB, after averaging consecutive samples down to half a
 cell, and cells farther than 1.5 m from any sample stay empty.
 
-.. GENERATED FROM PYTHON SOURCE LINES 147-221
+.. GENERATED FROM PYTHON SOURCE LINES 148-224
 
 .. code-block:: Python
 
@@ -251,7 +252,9 @@ cell, and cells farther than 1.5 m from any sample stay empty.
         n = db.shape[2] // k
 
         def block_mean(a):
-            return np.nanmean(a[:, :, : n * k].reshape(*a.shape[:2], n, k), axis=3)
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore", RuntimeWarning)  # all-NaN blocks (water column) stay NaN
+                return np.nanmean(a[:, :, : n * k].reshape(*a.shape[:2], n, k), axis=3)
 
         ok = np.isfinite(x) & np.isfinite(y)
         bx, by, bd = (block_mean(np.where(ok, a, np.nan)) for a in (np.asarray(x), np.asarray(y), db))
@@ -273,7 +276,7 @@ cell, and cells farther than 1.5 m from any sample stay empty.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 222-228
+.. GENERATED FROM PYTHON SOURCE LINES 225-231
 
 The published mosaics
 ---------------------
@@ -282,7 +285,7 @@ the three 8-bit palette mosaics through their own colour tables, the
 CARIS float mosaic (which has no colour table) with a 2 to 98 % stretch
 of the whole mosaic. Gray 0 is black, 1 white.
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-264
+.. GENERATED FROM PYTHON SOURCE LINES 231-267
 
 .. code-block:: Python
 
@@ -326,30 +329,17 @@ of the whole mosaic. Gray 0 is black, 1 white.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/runner/work/sidescanpy/sidescanpy/examples/gallery/plot_four_published_chains.py:206: RuntimeWarning: Mean of empty slice
-      return np.nanmean(a[:, :, : n * k].reshape(*a.shape[:2], n, k), axis=3)
-    /home/runner/work/sidescanpy/sidescanpy/examples/gallery/plot_four_published_chains.py:206: RuntimeWarning: Mean of empty slice
-      return np.nanmean(a[:, :, : n * k].reshape(*a.shape[:2], n, k), axis=3)
-    /home/runner/work/sidescanpy/sidescanpy/examples/gallery/plot_four_published_chains.py:206: RuntimeWarning: Mean of empty slice
-      return np.nanmean(a[:, :, : n * k].reshape(*a.shape[:2], n, k), axis=3)
-    /home/runner/work/sidescanpy/sidescanpy/examples/gallery/plot_four_published_chains.py:206: RuntimeWarning: Mean of empty slice
-      return np.nanmean(a[:, :, : n * k].reshape(*a.shape[:2], n, k), axis=3)
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 265-269
+.. GENERATED FROM PYTHON SOURCE LINES 268-272
 
 What was recorded
 -----------------
 Each corrected dataset carries its own record of the chain. The steps
 for the first line:
 
-.. GENERATED FROM PYTHON SOURCE LINES 269-273
+.. GENERATED FROM PYTHON SOURCE LINES 272-276
 
 .. code-block:: Python
 
@@ -379,7 +369,7 @@ for the first line:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 274-280
+.. GENERATED FROM PYTHON SOURCE LINES 277-283
 
 Side by side
 ------------
@@ -388,7 +378,7 @@ relative to its own median from -15 dB (black) to +10 dB (white). Pale
 blue is no data. On the right, the histograms of the displayed gray
 values: how much of each image is dark, mid or bright.
 
-.. GENERATED FROM PYTHON SOURCE LINES 280-335
+.. GENERATED FROM PYTHON SOURCE LINES 283-338
 
 .. code-block:: Python
 
@@ -459,7 +449,7 @@ values: how much of each image is dark, mid or bright.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 347-355
+.. GENERATED FROM PYTHON SOURCE LINES 350-358
 
 The numbers
 -----------
@@ -470,7 +460,7 @@ median row only describes the published mosaics; the spread of the
 interquartile range and of the 2 to 98 % range, and the histogram
 overlap (1 = the same distribution), compare like with like.
 
-.. GENERATED FROM PYTHON SOURCE LINES 355-371
+.. GENERATED FROM PYTHON SOURCE LINES 358-374
 
 .. code-block:: Python
 
@@ -507,7 +497,7 @@ overlap (1 = the same distribution), compare like with like.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 372-390
+.. GENERATED FROM PYTHON SOURCE LINES 375-393
 
 Reading the result
 ------------------
@@ -531,7 +521,7 @@ deliberately made differently.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 28.532 seconds)
+   **Total running time of the script:** (1 minutes 10.910 seconds)
 
 
 .. _sphx_glr_download_examples_plot_four_published_chains.py:

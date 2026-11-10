@@ -572,25 +572,28 @@ waterfall like this one.</p>
 <p>Time-varying gain (TVG) adds back the spreading and absorption losses
 that make far range darker than near range. Some recorders apply part or
 all of it before writing the file, and correcting again washes out the
-far range. <code class="docutils literal notranslate"><span class="pre">analysis.fit_range_decay</span></code> measures what the data still
-carries:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit_range_decay</span>
+far range. <code class="docutils literal notranslate"><span class="pre">analysis.fit_tvg_models</span></code> fits the TVG the data still needs
+(no TVG, absorption only, or 20, 30 or 40 log R with or without
+absorption) to the median level against range:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit_tvg_models</span>
 
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">survey</span><span class="o">.</span><span class="n">frequencies</span><span class="p">):</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">compute_geometric_ranges</span><span class="p">(</span><span class="n">survey</span><span class="o">.</span><span class="n">get_frequency</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">fit_range_decay</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="o">.</span><span class="n">tvg_status</span><span class="p">)</span>
+    <span class="n">fit</span> <span class="o">=</span> <span class="n">fit_tvg_models</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">fit</span><span class="o">.</span><span class="n">best</span><span class="p">,</span> <span class="n">fit</span><span class="o">.</span><span class="n">tvg_status</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hz_100000</span> <span class="n">spreading_only</span>
-<span class="n">hz_400000</span> <span class="n">full</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hz_100000</span> <span class="n">flat</span> <span class="n">full</span>
+<span class="n">hz_400000</span> <span class="mi">20</span> <span class="n">log</span> <span class="n">R</span> <span class="n">absorption_only</span>
 </pre></div>
 </div>
-<p>The status names what the data has already had removed: <code class="docutils literal notranslate"><span class="pre">none</span></code> (raw
-losses, apply full TVG), <code class="docutils literal notranslate"><span class="pre">spreading_only</span></code>, <code class="docutils literal notranslate"><span class="pre">absorption_only</span></code>, <code class="docutils literal notranslate"><span class="pre">full</span></code>
-(apply none), or <code class="docutils literal notranslate"><span class="pre">ambiguous</span></code>. Here the fit suggests the recorder already
-compensated spreading at 100 kHz and both terms at 400 kHz. Treat it as a
-hypothesis: apply the recipe it suggests and check that the corrected
-data is flat with range before you trust it. <a class="reference internal" href="processing.html#tvg"><span class="std std-ref">Processing</span></a>
+<p>The best model is the TVG to apply (<code class="docutils literal notranslate"><span class="pre">fit.tvg_params</span></code>), and the status
+names what the recorder has already removed: <code class="docutils literal notranslate"><span class="pre">none</span></code> (raw losses, apply
+full TVG), <code class="docutils literal notranslate"><span class="pre">spreading_only</span></code>, <code class="docutils literal notranslate"><span class="pre">absorption_only</span></code>, or <code class="docutils literal notranslate"><span class="pre">full</span></code> (apply none).
+Here the 100 kHz level hardly falls with range (the recorder levelled
+it, so apply no TVG) and the 400 kHz level falls like 20 log R. Treat it
+as a hypothesis: <code class="docutils literal notranslate"><span class="pre">analysis.check_tvg</span></code> applies the model and measures how
+flat the corrected data is. <a class="reference internal" href="processing.html#tvg"><span class="std std-ref">Processing</span></a>
 explains the TVG terms and <a class="reference internal" href="limitations.html"><span class="std std-doc">Limitations</span></a> what is not
 settled about recorder gain.</p>
 </section>

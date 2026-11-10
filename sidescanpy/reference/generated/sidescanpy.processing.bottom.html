@@ -464,6 +464,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg_fit.html">tvg_fit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
 </ul>
 </details></li>
@@ -867,12 +868,15 @@ row has no finite value.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sidescanpy.processing.bottom.uniform_exclusion_boundary">
-<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">uniform_exclusion_boundary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">per_ping_boundary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">90.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.uniform_exclusion_boundary" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.bottom.</span></span><span class="sig-name descname"><span class="pre">uniform_exclusion_boundary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">per_ping_boundary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">90.0</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.bottom.uniform_exclusion_boundary" title="Link to this definition">#</a></dt>
 <dd><p>Collapse a per-(ping, channel) boundary to one conservative value.</p>
 <p>For aggregate range binning, a per-ping boundary biases the near
 bins: only the pings whose boundary is earliest (usually the
 shallowest, brightest ones) contribute there. A single cutoff keeps
-every bin’s contributing pings the same.</p>
+every bin’s contributing pings the same. A tenth of pings with a
+far detection moves a 90th-percentile cutoff for all of them, so a
+WARNING is logged when the value is more than <code class="docutils literal notranslate"><span class="pre">warn_factor</span></code> times
+the median boundary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -880,6 +884,7 @@ every bin’s contributing pings the same.</p>
 </dd>
 <dt><strong>percentile</strong><span class="classifier">float, default 90.0</span></dt><dd><p>Percentile across all finite entries.</p>
 </dd>
+<dt><strong>warn_factor</strong><span class="classifier">float, default 3.0</span></dt><dd></dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>

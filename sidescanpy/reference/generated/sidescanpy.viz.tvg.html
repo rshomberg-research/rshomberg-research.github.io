@@ -464,6 +464,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg_fit.html">tvg_fit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
 </ul>
 </details></li>
@@ -659,9 +660,16 @@
                   
   <section id="module-sidescanpy.viz.tvg">
 <span id="sidescanpy-viz-tvg"></span><h1>sidescanpy.viz.tvg<a class="headerlink" href="#module-sidescanpy.viz.tvg" title="Link to this heading">#</a></h1>
-<p>Plots for TVG and range-decay analysis (<a class="reference internal" href="sidescanpy.analysis.tvg.html#module-sidescanpy.analysis.tvg" title="sidescanpy.analysis.tvg"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sidescanpy.analysis.tvg</span></code></a>).</p>
+<p>Plots for TVG and range-decay analysis (<a class="reference internal" href="sidescanpy.analysis.tvg.html#module-sidescanpy.analysis.tvg" title="sidescanpy.analysis.tvg"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sidescanpy.analysis.tvg</span></code></a>,
+<a class="reference internal" href="sidescanpy.analysis.tvg_fit.html#module-sidescanpy.analysis.tvg_fit" title="sidescanpy.analysis.tvg_fit"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sidescanpy.analysis.tvg_fit</span></code></a>).</p>
 <p>Each function draws into an optional <code class="docutils literal notranslate"><span class="pre">ax</span></code>, returns <code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code> and
-never saves a file.</p>
+never saves a file. <a class="reference internal" href="#sidescanpy.viz.tvg.plot_tvg_fit" title="sidescanpy.viz.tvg.plot_tvg_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_tvg_fit()</span></code></a> draws a
+<a class="reference internal" href="sidescanpy.analysis.tvg_fit.html#sidescanpy.analysis.tvg_fit.fit_tvg_models" title="sidescanpy.analysis.tvg_fit.fit_tvg_models"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_tvg_models()</span></code></a> result and, below it, a
+<a class="reference internal" href="sidescanpy.analysis.tvg_fit.html#sidescanpy.analysis.tvg_fit.check_tvg" title="sidescanpy.analysis.tvg_fit.check_tvg"><code class="xref py py-func docutils literal notranslate"><span class="pre">check_tvg()</span></code></a> result. The range-decay plots
+(<a class="reference internal" href="#sidescanpy.viz.tvg.plot_candidate_fit" title="sidescanpy.viz.tvg.plot_candidate_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_candidate_fit()</span></code></a>, <a class="reference internal" href="#sidescanpy.viz.tvg.plot_range_decay_fit" title="sidescanpy.viz.tvg.plot_range_decay_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_range_decay_fit()</span></code></a>,
+<a class="reference internal" href="#sidescanpy.viz.tvg.plot_range_decay_residuals" title="sidescanpy.viz.tvg.plot_range_decay_residuals"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_range_decay_residuals()</span></code></a>, <a class="reference internal" href="#sidescanpy.viz.tvg.set_fit_window_limits" title="sidescanpy.viz.tvg.set_fit_window_limits"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_fit_window_limits()</span></code></a>) are
+deprecated with <a class="reference internal" href="sidescanpy.analysis.tvg.html#sidescanpy.analysis.tvg.fit_range_decay" title="sidescanpy.analysis.tvg.fit_range_decay"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_range_decay()</span></code></a> and will be
+removed in 0.12.</p>
 <p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
 <p class="rubric">Contents</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
@@ -692,6 +700,9 @@ never saves a file.</p>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.viz.tvg.plot_range_decay_residuals" title="sidescanpy.viz.tvg.plot_range_decay_residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_range_decay_residuals</span></code></a></p></td>
 <td><p>Residual (model - observed) vs. range within each candidate's fit window.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.viz.tvg.plot_tvg_fit" title="sidescanpy.viz.tvg.plot_tvg_fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_tvg_fit</span></code></a></p></td>
+<td><p>One column: the TVG model fit and, below it, the check after TVG.</p></td>
 </tr>
 </tbody>
 </table>
@@ -834,6 +845,9 @@ the excluded nadir gap). Purely a display domain; the fit
 itself was never evaluated there and this draws no new
 conclusion about that span.</p>
 </dd>
+<dt><strong>.. deprecated:: 0.10</strong></dt><dd><p>Removed in 0.12. Use <a class="reference internal" href="#sidescanpy.viz.tvg.plot_tvg_fit" title="sidescanpy.viz.tvg.plot_tvg_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_tvg_fit()</span></code></a> with
+<a class="reference internal" href="sidescanpy.analysis.tvg_fit.html#sidescanpy.analysis.tvg_fit.fit_tvg_models" title="sidescanpy.analysis.tvg_fit.fit_tvg_models"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_tvg_models()</span></code></a>.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -844,6 +858,10 @@ conclusion about that span.</p>
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.viz.tvg.</span></span><span class="sig-name descname"><span class="pre">plot_range_decay_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.viz.tvg.plot_range_decay_fit" title="Link to this definition">#</a></dt>
 <dd><p>Observed loss-vs-range curve with every candidate model overlaid
 (one <a class="reference internal" href="#sidescanpy.viz.tvg.plot_candidate_fit" title="sidescanpy.viz.tvg.plot_candidate_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_candidate_fit()</span></code></a> call per candidate on a shared axis).</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.10: </span>Removed in 0.12. Use <a class="reference internal" href="#sidescanpy.viz.tvg.plot_tvg_fit" title="sidescanpy.viz.tvg.plot_tvg_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_tvg_fit()</span></code></a> with
+<a class="reference internal" href="sidescanpy.analysis.tvg_fit.html#sidescanpy.analysis.tvg_fit.fit_tvg_models" title="sidescanpy.analysis.tvg_fit.fit_tvg_models"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_tvg_models()</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -856,6 +874,10 @@ outlier bin cannot compress the fit curves. x-limits deliberately
 span 0 to the far edge (padded), not the fit window, so a misplaced
 reference or window stays visible. With a shared x-axis, call this on
 one panel only. No-op if there is no fit or no recorded window.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.10: </span>Removed in 0.12. Use <a class="reference internal" href="#sidescanpy.viz.tvg.plot_tvg_fit" title="sidescanpy.viz.tvg.plot_tvg_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_tvg_fit()</span></code></a> with
+<a class="reference internal" href="sidescanpy.analysis.tvg_fit.html#sidescanpy.analysis.tvg_fit.fit_tvg_models" title="sidescanpy.analysis.tvg_fit.fit_tvg_models"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_tvg_models()</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -870,6 +892,47 @@ matching <code class="docutils literal notranslate"><span class="pre">fit_tvg_cu
 <code class="docutils literal notranslate"><span class="pre">relative_x=True</span></code> plots distance from each candidate’s <code class="docutils literal notranslate"><span class="pre">r_ref_m</span></code>;
 pass <code class="docutils literal notranslate"><span class="pre">False</span></code> for absolute range (to stack under
 <a class="reference internal" href="#sidescanpy.viz.tvg.plot_candidate_fit" title="sidescanpy.viz.tvg.plot_candidate_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_candidate_fit()</span></code></a> on a shared x-axis).</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.10: </span>Removed in 0.12. Use <a class="reference internal" href="#sidescanpy.viz.tvg.plot_tvg_fit" title="sidescanpy.viz.tvg.plot_tvg_fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_tvg_fit()</span></code></a> with
+<a class="reference internal" href="sidescanpy.analysis.tvg_fit.html#sidescanpy.analysis.tvg_fit.fit_tvg_models" title="sidescanpy.analysis.tvg_fit.fit_tvg_models"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_tvg_models()</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.viz.tvg.plot_tvg_fit">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.viz.tvg.</span></span><span class="sig-name descname"><span class="pre">plot_tvg_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.viz.tvg.plot_tvg_fit" title="Link to this definition">#</a></dt>
+<dd><p>One column: the TVG model fit and, below it, the check after TVG.</p>
+<p>Fit panel: the median level against range (black), the fit window
+(shaded), the 20, 30 and 40 log R models with absorption (thin), the
+best model (thick; dashed when it has no absorption), each labelled
+with its RMS in the window. Check panel (when <code class="docutils literal notranslate"><span class="pre">check</span></code> is given):
+the median level after the TVG, relative to its mean in the window,
+with a zero line, limits of ±5 dB, and the spread and trend written
+in the corner. Flat means the model holds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fit</strong><span class="classifier">TVGFitResult</span></dt><dd><p>From <a class="reference internal" href="sidescanpy.analysis.tvg_fit.html#sidescanpy.analysis.tvg_fit.fit_tvg_models" title="sidescanpy.analysis.tvg_fit.fit_tvg_models"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_tvg_models()</span></code></a>.</p>
+</dd>
+<dt><strong>check</strong><span class="classifier">TVGCheckResult, optional</span></dt><dd><p>From <a class="reference internal" href="sidescanpy.analysis.tvg_fit.html#sidescanpy.analysis.tvg_fit.check_tvg" title="sidescanpy.analysis.tvg_fit.check_tvg"><code class="xref py py-func docutils literal notranslate"><span class="pre">check_tvg()</span></code></a>, normally on
+<code class="docutils literal notranslate"><span class="pre">fit.tvg_params</span></code> and <code class="docutils literal notranslate"><span class="pre">fit.window_m</span></code>.</p>
+</dd>
+<dt><strong>ax, ax_check</strong><span class="classifier">Axes, optional</span></dt><dd><p>Where to draw. Without <code class="docutils literal notranslate"><span class="pre">ax</span></code> a new figure is made, with a second
+row for the check when <code class="docutils literal notranslate"><span class="pre">check</span></code> is given. With <code class="docutils literal notranslate"><span class="pre">ax</span></code> and a
+<code class="docutils literal notranslate"><span class="pre">check</span></code>, pass <code class="docutils literal notranslate"><span class="pre">ax_check</span></code> too.</p>
+</dd>
+<dt><strong>title</strong><span class="classifier">str, optional</span></dt><dd><p>Title of the fit panel.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(Figure, (Axes, Axes or None))</dt><dd><p>The figure, the fit axes and the check axes (<code class="docutils literal notranslate"><span class="pre">None</span></code> without a
+check).</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -930,6 +993,7 @@ pass <code class="docutils literal notranslate"><span class="pre">False</span></
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.viz.tvg.plot_range_decay_fit"><code class="docutils literal notranslate"><span class="pre">plot_range_decay_fit()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.viz.tvg.set_fit_window_limits"><code class="docutils literal notranslate"><span class="pre">set_fit_window_limits()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.viz.tvg.plot_range_decay_residuals"><code class="docutils literal notranslate"><span class="pre">plot_range_decay_residuals()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.viz.tvg.plot_tvg_fit"><code class="docutils literal notranslate"><span class="pre">plot_tvg_fit()</span></code></a></li>
 </ul>
   </nav></div>
 

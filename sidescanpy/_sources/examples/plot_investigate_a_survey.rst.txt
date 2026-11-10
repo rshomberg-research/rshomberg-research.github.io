@@ -38,7 +38,7 @@ v3.0 (see :doc:`/example_data`).
 
 Usage: ``python examples/gallery/plot_investigate_a_survey.py [output_dir]``
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-46
+.. GENERATED FROM PYTHON SOURCE LINES 22-45
 
 .. code-block:: Python
 
@@ -57,10 +57,9 @@ Usage: ``python examples/gallery/plot_investigate_a_survey.py [output_dir]``
         altitude_from_bottom_track,
         blank_nadir_noise,
         compute_geometric_ranges,
-        uniform_exclusion_boundary,
     )
     from sidescanpy.viz import analysis as plots
-    from sidescanpy.viz.tvg import plot_range_decay_fit
+    from sidescanpy.viz.tvg import plot_tvg_fit
 
     out = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(".")
     out.mkdir(parents=True, exist_ok=True)
@@ -73,13 +72,13 @@ Usage: ``python examples/gallery/plot_investigate_a_survey.py [output_dir]``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-51
+.. GENERATED FROM PYTHON SOURCE LINES 47-50
 
 Load both frequencies as recorded: no corrections, the electronic noise
 burst at nadir zeroed, and slant and ground range added. This file
 records no altitude, so the bottom track supplies it first.
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-60
+.. GENERATED FROM PYTHON SOURCE LINES 50-59
 
 .. code-block:: Python
 
@@ -100,19 +99,17 @@ records no altitude, so the bottom track supplies it first.
 
  .. code-block:: none
 
-    22:06:05 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    22:06:05 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
-    22:06:05 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    22:06:05 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    22:06:05 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    /home/runner/work/sidescanpy/sidescanpy/src/sidescanpy/processing/bottom.py:230: RuntimeWarning: All-NaN slice encountered
-      peak = np.nanmax(roll[..., :window], axis=-1, keepdims=True)
-    22:06:06 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:26 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    23:13:26 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    23:13:26 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:26 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:26 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:27 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-66
+.. GENERATED FROM PYTHON SOURCE LINES 60-65
 
 What are the samples?
 ---------------------
@@ -120,7 +117,7 @@ Their type and range, and how many are zero or saturated. On a log
 scale, linear amplitude spreads over several decades; values already
 in dB would sit in a narrow band.
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-71
+.. GENERATED FROM PYTHON SOURCE LINES 65-70
 
 .. code-block:: Python
 
@@ -147,7 +144,7 @@ in dB would sit in a narrow band.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-79
+.. GENERATED FROM PYTHON SOURCE LINES 71-78
 
 Where does the seabed start?
 ----------------------------
@@ -157,7 +154,7 @@ per ping and classifies the nadir region: a clean ``gap`` here, the
 easy case (a bright spike or noise needs more care). Later steps
 exclude everything before it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-84
+.. GENERATED FROM PYTHON SOURCE LINES 78-83
 
 .. code-block:: Python
 
@@ -179,24 +176,24 @@ exclude everything before it.
 
  .. code-block:: none
 
-    /home/runner/work/sidescanpy/sidescanpy/src/sidescanpy/processing/bottom.py:120: RuntimeWarning: All-NaN slice encountered
-      peak = np.nanmax(roll_for_peak, axis=-1, keepdims=True)
     {'hz_218740': 'gap', 'hz_521000': 'gap'}
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-92
+.. GENERATED FROM PYTHON SOURCE LINES 84-93
 
 How far does the sonar see?
 ---------------------------
 The level falls with range until it reaches the noise floor; beyond
 that the image holds no seabed.
-:func:`~sidescanpy.analysis.estimate_usable_range` finds where. Higher
-frequencies are absorbed faster, so the 521 kHz channel sees about half
-as far as the 219 kHz one.
+:func:`~sidescanpy.analysis.estimate_usable_range` finds where: the
+noise knee, the first range past the near-range peak where the median
+level comes within 3 dB of its lowest value. Higher frequencies are
+absorbed faster, so the 521 kHz channel sees about half as far as the
+219 kHz one.
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-102
+.. GENERATED FROM PYTHON SOURCE LINES 93-103
 
 .. code-block:: Python
 
@@ -223,47 +220,51 @@ as far as the 219 kHz one.
 
  .. code-block:: none
 
-    hz_218740: usable range 116 m of 200 m recorded
-    hz_521000: usable range 66 m of 200 m recorded
+    hz_218740: usable range 161 m of 200 m recorded
+    hz_521000: usable range 89 m of 200 m recorded
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-111
+.. GENERATED FROM PYTHON SOURCE LINES 104-116
 
-Did the recorder already apply a gain?
---------------------------------------
+Which gain does it need?
+------------------------
 Raw sidescan levels fall with range by spreading and absorption, unless
-the recorder compensated them. :func:`~sidescanpy.analysis.fit_range_decay`
-fits the level against range, within the usable range, with each
-combination of terms, and reports a TVG status: ``none`` (no gain
-applied: correct both terms), ``spreading_only`` or ``full`` (part or
-all of it already applied: turn those terms off), or ``ambiguous``.
+the recorder compensated them.
+:func:`~sidescanpy.analysis.fit_tvg_models` fits the median level from
+5 m past its peak to the noise knee with each TVG model: none (flat),
+absorption only, and 20, 30 or 40 log R with and without absorption,
+each with a free constant. The best model is the TVG to apply, and its
+``tvg_status`` names what the recorder already removed (``none``: no
+gain applied). A good fit is a hypothesis, so
+:func:`~sidescanpy.analysis.check_tvg` applies it and measures how flat
+the corrected level is over the same window.
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-126
+.. GENERATED FROM PYTHON SOURCE LINES 116-131
 
 .. code-block:: Python
 
 
-    decays = {}
+    fits, checks = {}, {}
     for fk, c in channels.items():
-        boundary = nadirs[fk].first_bottom_return_sample
-        decays[fk] = analysis.fit_range_decay(
-            c, value_var=var, bin_width_m=5.0, usable_range_m=usable[fk].usable_range_m,
-            exclude_before_sample=uniform_exclusion_boundary(boundary) if boundary is not None else None,
-        )
-        d = decays[fk].to_dict()
-        rmse = ", ".join(f"{name} {c['rmse_db']:.1f} dB" for name, c in d["candidates"].items())
-        print(f"{fk}: TVG status {decays[fk].tvg_status} (fit RMS error: {rmse})")
-    units = analysis.infer_units(values, decays["hz_218740"])
+        fits[fk] = fit = analysis.fit_tvg_models(c, value_var=var)
+        checks[fk] = check = analysis.check_tvg(c, fit.tvg_params, fit.window_m, value_var=var)
+        rms = ", ".join(f"{name} {m.rms_db:.2f}" for name, m in fit.models.items())
+        print(f"{fk}: window {fit.window_m[0]:.1f}-{fit.window_m[1]:.1f} m, best {fit.best} "
+              f"(TVG status {fit.tvg_status}), free n {fit.free_n:.1f}; RMS in dB: {rms}")
+        print(f"   after TVG: spread {check.spread_db:.2f} dB, trend {check.trend_db_per_10m:+.2f} dB per 10 m")
+    units = analysis.infer_units(values, fits["hz_218740"])
     print(f"units: {units.units}")
-    fig, _ = plot_range_decay_fit(decays["hz_218740"])
+    fig, axes = plt.subplots(2, 2, figsize=(11, 7.6), height_ratios=[1.5, 1], sharex="col", constrained_layout=True)
+    for col, fk in enumerate(channels):
+        plot_tvg_fit(fits[fk], checks[fk], ax=axes[0, col], ax_check=axes[1, col])
 
 
 
 
 .. image-sg:: /examples/images/sphx_glr_plot_investigate_a_survey_004.png
-   :alt: Decay model fit (best: full_physics)
+   :alt: 230 kHz, best 30 log R + abs, 548 kHz, best 30 log R + abs
    :srcset: /examples/images/sphx_glr_plot_investigate_a_survey_004.png, /examples/images/sphx_glr_plot_investigate_a_survey_004_2_00x.png 2.00x
    :class: sphx-glr-single-img
 
@@ -272,31 +273,36 @@ all of it already applied: turn those terms off), or ``ambiguous``.
 
  .. code-block:: none
 
-    hz_218740: TVG status none (fit RMS error: flat 17.5 dB, spreading_only 1.2 dB, absorption_only 1.7 dB, full_physics 0.8 dB)
-    hz_521000: TVG status none (fit RMS error: flat 13.1 dB, spreading_only 2.3 dB, absorption_only 1.2 dB, full_physics 1.8 dB)
+    23:13:35 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    hz_218740: window 28.5-160.5 m, best 30 log R + abs (TVG status none), free n 26.6; RMS in dB: flat 9.92, absorption only 5.52, 20 log R 5.85, 20 log R + abs 1.69, 30 log R 3.83, 30 log R + abs 1.23, 40 log R 1.83, 40 log R + abs 2.91
+       after TVG: spread 1.23 dB, trend +0.23 dB per 10 m
+    23:13:37 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    hz_521000: window 27.5-88.5 m, best 30 log R + abs (TVG status none), free n 34.0; RMS in dB: flat 9.91, absorption only 4.94, 20 log R 7.03, 20 log R + abs 2.09, 30 log R 5.60, 30 log R + abs 0.79, 40 log R 4.18, 40 log R + abs 1.02
+       after TVG: spread 0.80 dB, trend -0.32 dB per 10 m
     units: raw_counts
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-151
+.. GENERATED FROM PYTHON SOURCE LINES 145-157
 
 The answer
 ----------
-Raw counts, a clean nadir gap, a usable range of about 116 m at 219 kHz
-and 66 m at 521 kHz, and no gain applied by the recorder at either
-frequency: the level falls with range, and at 219 kHz the model with
-both spreading and absorption fits to within about 1 dB (at 521 kHz,
-with its shorter usable range, absorption alone fits slightly better). So this survey needs the full TVG
-(:func:`~sidescanpy.processing.apply_tvg` with its defaults), and
-anything past the usable range is noise to crop or mask, not seabed.
-Confirm on the corrected data that the level is flat with range: a good
-fit is a hypothesis, not a result.
+Raw counts, a clean nadir gap, a usable range of about 160 m at 219 kHz
+and 90 m at 521 kHz, and no gain applied by the recorder at either
+frequency: 30 log R with absorption fits best at both (1.23 and 0.79 dB
+RMS; a free spreading coefficient gives 27 and 34), and applying it
+leaves the level flat to about 1 dB across the window. So this survey
+needs :func:`~sidescanpy.processing.apply_tvg` with
+``spreading_loss_db=30`` (the default) and Francois-Garrison absorption
+(``fits[fk].tvg_params``), and anything past the noise knee is noise to
+crop or mask, not seabed. What TVG leaves near the start of the window
+is the beam pattern, for the empirical range correction.
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 13.315 seconds)
+   **Total running time of the script:** (0 minutes 11.800 seconds)
 
 
 .. _sphx_glr_download_examples_plot_investigate_a_survey.py:

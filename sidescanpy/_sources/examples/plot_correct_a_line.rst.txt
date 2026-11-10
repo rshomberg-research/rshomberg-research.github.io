@@ -78,11 +78,11 @@ Usage: ``python examples/gallery/plot_correct_a_line.py [output_dir]``
 
  .. code-block:: none
 
-    22:06:18 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    22:06:18 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
-    22:06:18 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    22:06:18 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
-    22:06:19 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:38 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    23:13:38 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    23:13:38 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:38 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
+    23:13:38 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 
 
 
@@ -113,13 +113,13 @@ input unchanged.
 
  .. code-block:: none
 
-    22:06:19 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
-    22:06:19 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
-    22:06:19 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    22:06:19 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    22:06:20 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    22:06:20 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    22:06:28 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:39 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
+    23:13:39 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
+    23:13:39 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:39 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:39 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:39 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    23:13:45 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
     altitude from bottom track: 17.5 m (median)
 
 
@@ -169,13 +169,13 @@ texture is averaged rather than skipped.
 
 The default TVG uses 30 log R spreading and Francois-Garrison
 absorption. Whether a sonar already applied some gain in hardware
-varies; :func:`~sidescanpy.analysis.fit_range_decay` measures what a dataset
+varies; :func:`~sidescanpy.analysis.fit_tvg_models` measures what a dataset
 still needs (see ``examples/tvg_calibration.py``).
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 12.325 seconds)
+   **Total running time of the script:** (0 minutes 9.706 seconds)
 
 
 .. _sphx_glr_download_examples_plot_correct_a_line.py:

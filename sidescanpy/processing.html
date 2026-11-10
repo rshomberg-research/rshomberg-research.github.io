@@ -718,7 +718,10 @@ the insonified seafloor patch growing in proportion to range: two-way
 spherical spreading (40) less 10 log R (e.g.
 <a class="reference external" href="https://www.mdpi.com/2077-1312/5/4/54">J. Mar. Sci. Eng. 2017, 5(4), 54</a>).
 Which fits real data varies; measure it per survey with
-<code class="docutils literal notranslate"><span class="pre">analysis.fit_range_decay</span></code> (pass the same <code class="docutils literal notranslate"><span class="pre">spreading_loss_db</span></code>) and set the
+<code class="docutils literal notranslate"><span class="pre">analysis.fit_tvg_models</span></code>, which fits no TVG, absorption only and
+20/30/40 log R with and without absorption to the raw median level and
+returns the best as <code class="docutils literal notranslate"><span class="pre">fit.tvg_params</span></code>, and confirm it with
+<code class="docutils literal notranslate"><span class="pre">analysis.check_tvg</span></code> (<a class="reference internal" href="analysis.html#fitting-the-tvg"><span class="std std-ref">Analysis</span></a>). Set the
 coefficient in the config. 40 was the default in 0.7.0-0.7.5 and 20
 (one-way spreading) before 0.7.0; files corrected with either record the
 value in their history, so <code class="docutils literal notranslate"><span class="pre">invert()</span></code> still undoes them exactly.</p></li>

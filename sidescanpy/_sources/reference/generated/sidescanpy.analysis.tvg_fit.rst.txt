@@ -1,0 +1,41 @@
+sidescanpy.analysis.tvg_fit
+===========================
+
+.. automodule:: sidescanpy.analysis.tvg_fit
+
+.. currentmodule:: sidescanpy.analysis.tvg_fit
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   tvg_model_name
+   TVGModelFit
+   TVGSideFit
+   TVGFitResult
+   TVGCheckResult
+   fit_tvg_models
+   check_tvg
+
+.. autofunction:: sidescanpy.analysis.tvg_fit.tvg_model_name
+
+.. autoclass:: sidescanpy.analysis.tvg_fit.TVGModelFit
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.analysis.tvg_fit.TVGSideFit
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.analysis.tvg_fit.TVGFitResult
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.analysis.tvg_fit.TVGCheckResult
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.tvg_fit.fit_tvg_models
+
+.. autofunction:: sidescanpy.analysis.tvg_fit.check_tvg

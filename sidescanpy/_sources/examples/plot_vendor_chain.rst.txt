@@ -41,7 +41,7 @@ Data: USGS Grand Bay 2015, doi:10.5066/P9374DKQ, public domain (see
 
 Usage: ``python examples/gallery/plot_vendor_chain.py [output_dir]``
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-59
+.. GENERATED FROM PYTHON SOURCE LINES 25-60
 
 .. code-block:: Python
 
@@ -50,6 +50,7 @@ Usage: ``python examples/gallery/plot_vendor_chain.py [output_dir]``
 
     import json
     import sys
+    import warnings
     from pathlib import Path
 
     import matplotlib.pyplot as plt
@@ -86,7 +87,7 @@ Usage: ``python examples/gallery/plot_vendor_chain.py [output_dir]``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-67
+.. GENERATED FROM PYTHON SOURCE LINES 62-68
 
 The line and the mosaic
 -----------------------
@@ -95,7 +96,7 @@ rises with echo strength (the release draws high indices dark); 255 is
 no data. It is used here as index values, and drawn with strong
 echoes bright, like the sidescanpy images below.
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-91
+.. GENERATED FROM PYTHON SOURCE LINES 68-92
 
 .. code-block:: Python
 
@@ -137,7 +138,7 @@ echoes bright, like the sidescanpy images below.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-99
+.. GENERATED FROM PYTHON SOURCE LINES 93-100
 
 The default chain
 -----------------
@@ -147,7 +148,7 @@ slant to ground range over a flat seabed, and a position for every
 sample. Gridded by linear interpolation in dB onto the mosaic's cells,
 and drawn with a plain 2 to 98 % stretch.
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-129
+.. GENERATED FROM PYTHON SOURCE LINES 100-133
 
 .. code-block:: Python
 
@@ -162,7 +163,10 @@ and drawn with a plain 2 to 98 % stretch.
                                                         ds["latitude_per_sample"].values))
         if block > 1:
             n = db.shape[2] // block
-            x, y, db = (np.nanmean(a[:, :, : n * block].reshape(*a.shape[:2], n, block), axis=3) for a in (x, y, db))
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore", RuntimeWarning)  # all-NaN blocks (water column) stay NaN
+                x, y, db = (np.nanmean(a[:, :, : n * block].reshape(*a.shape[:2], n, block), axis=3)
+                            for a in (x, y, db))
         ok = np.isfinite(x) & np.isfinite(db) & (x > bounds[0] - 5) & (x < bounds[2] + 5) \
             & (y > bounds[1] - 5) & (y < bounds[3] + 5)
         px, py, pv = x[ok] - x0, y1 - y[ok], db[ok]
@@ -188,7 +192,7 @@ and drawn with a plain 2 to 98 % stretch.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 130-154
+.. GENERATED FROM PYTHON SOURCE LINES 134-158
 
 The matched chain
 -----------------
@@ -215,7 +219,7 @@ the release does not publish as such:
 The two custom steps go through :func:`~sidescanpy.processing.correct`
 like the built-in ones, so they land in ``processing_history``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-239
+.. GENERATED FROM PYTHON SOURCE LINES 158-243
 
 .. code-block:: Python
 
@@ -313,10 +317,6 @@ like the built-in ones, so they land in ``processing_history``.
  .. code-block:: none
 
     course over ground minus recorded heading: median -7.2 deg
-    /home/runner/work/sidescanpy/sidescanpy/examples/gallery/plot_vendor_chain.py:110: RuntimeWarning: Mean of empty slice
-      x, y, db = (np.nanmean(a[:, :, : n * block].reshape(*a.shape[:2], n, block), axis=3) for a in (x, y, db))
-    /home/runner/work/sidescanpy/sidescanpy/examples/gallery/plot_vendor_chain.py:110: RuntimeWarning: Mean of empty slice
-      x, y, db = (np.nanmean(a[:, :, : n * block].reshape(*a.shape[:2], n, block), axis=3) for a in (x, y, db))
     display: 52.9 to 87.2 dB, gamma 1.93
     interpolate_aux
     heading_from_cog
@@ -331,7 +331,7 @@ like the built-in ones, so they land in ``processing_history``.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 240-250
+.. GENERATED FROM PYTHON SOURCE LINES 244-254
 
 Agreement with the mosaic
 -------------------------
@@ -344,7 +344,7 @@ On the cells all three images cover:
 - **Histogram overlap**: the shared area of the two gray-level
   histograms (1 = the same distribution).
 
-.. GENERATED FROM PYTHON SOURCE LINES 250-297
+.. GENERATED FROM PYTHON SOURCE LINES 254-301
 
 .. code-block:: Python
 
@@ -412,14 +412,14 @@ On the cells all three images cover:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 298-302
+.. GENERATED FROM PYTHON SOURCE LINES 302-306
 
 The three images
 ----------------
 Top, the window; bottom, the orange detail box (40 by 30 m) at full
 resolution. Pale blue is no data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 302-330
+.. GENERATED FROM PYTHON SOURCE LINES 306-334
 
 .. code-block:: Python
 
@@ -463,7 +463,7 @@ resolution. Pale blue is no data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 343-360
+.. GENERATED FROM PYTHON SOURCE LINES 347-364
 
 Reading the result
 ------------------
@@ -486,7 +486,7 @@ recorded chain applied to four agencies' recordings.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 50.605 seconds)
+   **Total running time of the script:** (1 minutes 35.934 seconds)
 
 
 .. _sphx_glr_download_examples_plot_vendor_chain.py:

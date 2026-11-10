@@ -10,8 +10,16 @@ sidescanpy.analysis.usable_range
 .. autosummary::
    :nosignatures:
 
+   NoiseKnee
+   find_noise_knee
    UsableRangeResult
    estimate_usable_range
+
+.. autoclass:: sidescanpy.analysis.usable_range.NoiseKnee
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.analysis.usable_range.find_noise_knee
 
 .. autoclass:: sidescanpy.analysis.usable_range.UsableRangeResult
    :members:

@@ -16,4 +16,5 @@ sidescanpy.analysis
    outliers <sidescanpy.analysis.outliers>
    shadows <sidescanpy.analysis.shadows>
    tvg <sidescanpy.analysis.tvg>
+   tvg_fit <sidescanpy.analysis.tvg_fit>
    usable_range <sidescanpy.analysis.usable_range>

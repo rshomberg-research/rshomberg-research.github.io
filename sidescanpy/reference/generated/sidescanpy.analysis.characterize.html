@@ -464,6 +464,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg_fit.html">tvg_fit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
 </ul>
 </details></li>
@@ -719,9 +720,10 @@ uncalibrated linear amplitude; volts can’t be told apart by value
 alone)</p></li>
 <li><p>anything else → <code class="docutils literal notranslate"><span class="pre">&quot;unknown&quot;</span></code></p></li>
 </ul>
-<p>When <code class="docutils literal notranslate"><span class="pre">decay</span></code> (a <a class="reference internal" href="sidescanpy.analysis.tvg.html#sidescanpy.analysis.tvg.fit_range_decay" title="sidescanpy.analysis.tvg.fit_range_decay"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_range_decay()</span></code></a>
-result) has a confident TVG status and a fixed-scale RMSE under
-3 dB, a supporting note is added.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">decay</span></code> (a <a class="reference internal" href="sidescanpy.analysis.tvg_fit.html#sidescanpy.analysis.tvg_fit.fit_tvg_models" title="sidescanpy.analysis.tvg_fit.fit_tvg_models"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_tvg_models()</span></code></a> result,
+or a deprecated <a class="reference internal" href="sidescanpy.analysis.tvg.html#sidescanpy.analysis.tvg.fit_range_decay" title="sidescanpy.analysis.tvg.fit_range_decay"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_range_decay()</span></code></a> one) has
+a TVG status and a best-model RMS under 3 dB, a supporting note is
+added.</p>
 </dd></dl>
 
 </section>

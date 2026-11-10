@@ -464,6 +464,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.shadows.html">shadows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg.html">tvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.tvg_fit.html">tvg_fit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.analysis.usable_range.html">usable_range</a></li>
 </ul>
 </details></li>
@@ -705,7 +706,8 @@ from their history records.</p></li>
 <li><p>Segments (<a class="reference internal" href="sidescanpy.processing.segments.html#module-sidescanpy.processing.segments" title="sidescanpy.processing.segments"><code class="xref py py-mod docutils literal notranslate"><span class="pre">segments</span></code></a>): <a class="reference internal" href="sidescanpy.processing.segments.html#sidescanpy.processing.segments.find_segments" title="sidescanpy.processing.segments.find_segments"><code class="xref py py-func docutils literal notranslate"><span class="pre">find_segments()</span></code></a>,
 <a class="reference internal" href="sidescanpy.processing.segments.html#sidescanpy.processing.segments.split_by_segments" title="sidescanpy.processing.segments.split_by_segments"><code class="xref py py-func docutils literal notranslate"><span class="pre">split_by_segments()</span></code></a>, <a class="reference internal" href="sidescanpy.processing.segments.html#sidescanpy.processing.segments.Segment" title="sidescanpy.processing.segments.Segment"><code class="xref py py-class docutils literal notranslate"><span class="pre">Segment</span></code></a> and the individual detectors.</p></li>
 <li><p><a class="reference internal" href="sidescanpy.processing.profiles.html#sidescanpy.processing.profiles.backscatter_vs_range" title="sidescanpy.processing.profiles.backscatter_vs_range"><code class="xref py py-func docutils literal notranslate"><span class="pre">backscatter_vs_range()</span></code></a> / <a class="reference internal" href="sidescanpy.processing.profiles.html#sidescanpy.processing.profiles.backscatter_vs_sample" title="sidescanpy.processing.profiles.backscatter_vs_sample"><code class="xref py py-func docutils literal notranslate"><span class="pre">backscatter_vs_sample()</span></code></a> — binned
-backscatter profiles.</p></li>
+backscatter profiles; <a class="reference internal" href="sidescanpy.processing.profiles.html#sidescanpy.processing.profiles.median_level_profile" title="sidescanpy.processing.profiles.median_level_profile"><code class="xref py py-func docutils literal notranslate"><span class="pre">median_level_profile()</span></code></a> — median level per
+range bin in dB, for the TVG model fit.</p></li>
 <li><p><a class="reference internal" href="sidescanpy.processing.track.html#sidescanpy.processing.track.build_survey_track" title="sidescanpy.processing.track.build_survey_track"><code class="xref py py-func docutils literal notranslate"><span class="pre">build_survey_track()</span></code></a> / <a class="reference internal" href="sidescanpy.processing.track.html#sidescanpy.processing.track.SurveyTrack" title="sidescanpy.processing.track.SurveyTrack"><code class="xref py py-class docutils literal notranslate"><span class="pre">SurveyTrack</span></code></a> — nadir track plus
 strided swath-edge positions across a multi-file survey.</p></li>
 </ul>

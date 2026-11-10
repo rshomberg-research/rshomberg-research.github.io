@@ -372,7 +372,7 @@ the native image they look like objects on the bottom.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 293-305
+.. GENERATED FROM PYTHON SOURCE LINES 293-306
 
 Far range into noise
 --------------------
@@ -384,10 +384,11 @@ seabed. The level along range, right, stops falling where the noise
 takes over.
 
 *What to do:* :func:`~sidescanpy.analysis.estimate_usable_range`
-finds where the level stops falling; crop or mask beyond it
+finds where the level stops falling (its default, the noise knee);
+crop or mask beyond it
 (:func:`~sidescanpy.processing.crop_far_range_noise`).
 
-.. GENERATED FROM PYTHON SOURCE LINES 305-329
+.. GENERATED FROM PYTHON SOURCE LINES 306-330
 
 .. code-block:: Python
 
@@ -409,7 +410,7 @@ finds where the level stops falling; crop or mask beyond it
     ax_l.plot(ranges, np.median(db[:, n_side - 1::-1], axis=0), lw=0.8, label="port")
     ax_l.plot(ranges, np.median(db[:, n_side:], axis=0), lw=0.8, label="starboard")
     ax_l.axvline(u, color="k", ls="--", lw=1)
-    ax_l.text(u + 2, ax_l.get_ylim()[1], f"usable range {u:.0f} m", va="top", fontsize=9)
+    ax_l.text(u + 2, ax_l.get_ylim()[1], f"usable range {u:.0f} m (noise knee)", va="top", fontsize=9)
     ax_l.set_xlabel("slant range (m)")
     ax_l.set_ylabel("median level over all pings (dB)")
     ax_l.legend()
@@ -428,12 +429,12 @@ finds where the level stops falling; crop or mask beyond it
 
  .. code-block:: none
 
-    usable range 66 m of 200 m recorded
+    usable range 89 m of 200 m recorded
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 330-346
+.. GENERATED FROM PYTHON SOURCE LINES 331-347
 
 Towfish motion stripes
 ----------------------
@@ -452,7 +453,7 @@ gaps between pings.
 *What to do:* no correction; know it is there. A detector will see
 stripes at the wave period.
 
-.. GENERATED FROM PYTHON SOURCE LINES 346-377
+.. GENERATED FROM PYTHON SOURCE LINES 347-378
 
 .. code-block:: Python
 
@@ -506,7 +507,7 @@ stripes at the wave period.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 378-386
+.. GENERATED FROM PYTHON SOURCE LINES 379-387
 
 Gain step on one side
 ---------------------
@@ -517,7 +518,7 @@ one short run near ping 255, are bright across the port swath (arrows):
 the same kind of event lasting a ping or a few. Neither is in the seabed. The level of each side along the
 line, right, shows both.
 
-.. GENERATED FROM PYTHON SOURCE LINES 386-412
+.. GENERATED FROM PYTHON SOURCE LINES 387-413
 
 .. code-block:: Python
 
@@ -566,14 +567,14 @@ line, right, shows both.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 413-417
+.. GENERATED FROM PYTHON SOURCE LINES 414-418
 
 *What to do:* plot each side's level along the line, as above, before
 trusting levels between parts of a survey. Single bright pings can be
 masked with :func:`~sidescanpy.processing.mask_bright_ping_rows`; a long
 step has to be handled as two pieces of data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 419-431
+.. GENERATED FROM PYTHON SOURCE LINES 420-432
 
 Interference from another sonar
 -------------------------------
@@ -588,7 +589,7 @@ far range of the starboard side, where nothing else is bright.
 across pings does, but it also smooths small real objects; masking
 them needs the other sonar's ping times.
 
-.. GENERATED FROM PYTHON SOURCE LINES 431-444
+.. GENERATED FROM PYTHON SOURCE LINES 432-445
 
 .. code-block:: Python
 
@@ -617,7 +618,7 @@ them needs the other sonar's ping times.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 445-456
+.. GENERATED FROM PYTHON SOURCE LINES 446-457
 
 A turn
 ------
@@ -631,7 +632,7 @@ the assumptions behind course over ground and a straight-astern
 layback; with no heading recorded, this map uses the course over
 ground and no layback, so its inner side is only roughly placed.
 
-.. GENERATED FROM PYTHON SOURCE LINES 456-475
+.. GENERATED FROM PYTHON SOURCE LINES 457-476
 
 .. code-block:: Python
 
@@ -673,13 +674,13 @@ ground and no layback, so its inner side is only roughly placed.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 476-479
+.. GENERATED FROM PYTHON SOURCE LINES 477-480
 
 *What to do:* keep turns out of mosaics and training sets.
 :func:`~sidescanpy.processing.split_by_segments` cuts a line into
 clean segments.
 
-.. GENERATED FROM PYTHON SOURCE LINES 481-488
+.. GENERATED FROM PYTHON SOURCE LINES 482-489
 
 Data dropouts
 -------------
@@ -689,7 +690,7 @@ file does not say which). They are not a very dark seabed; they carry
 no measurement. Each streak is a few pings tall and runs along range,
 which the zoom shows.
 
-.. GENERATED FROM PYTHON SOURCE LINES 488-508
+.. GENERATED FROM PYTHON SOURCE LINES 489-509
 
 .. code-block:: Python
 
@@ -731,7 +732,7 @@ which the zoom shows.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 509-514
+.. GENERATED FROM PYTHON SOURCE LINES 510-515
 
 *What to do:* samples recorded as exactly zero are masked before
 resampling (:func:`~sidescanpy.export.windows.mask_dropouts`), so they
@@ -739,7 +740,7 @@ are interpolated over instead of spreading into dark spots. These
 runs are low but not zero, and sidescanpy does not catch them yet;
 mask them by level, as the line above counts them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 516-531
+.. GENERATED FROM PYTHON SOURCE LINES 517-532
 
 Navigation that is held, then jumps
 -----------------------------------
@@ -757,7 +758,7 @@ few slanted single lines in both maps are pings whose recorded heading
 jumps by about 25 degrees from its neighbours.
 :doc:`/examples/plot_navigation` covers navigation in full.
 
-.. GENERATED FROM PYTHON SOURCE LINES 531-556
+.. GENERATED FROM PYTHON SOURCE LINES 532-557
 
 .. code-block:: Python
 
@@ -806,7 +807,7 @@ jumps by about 25 degrees from its neighbours.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 557-565
+.. GENERATED FROM PYTHON SOURCE LINES 558-566
 
 Bedforms and speckle
 --------------------
@@ -817,7 +818,7 @@ many small scatterers adding up with random phases; it is the grain
 inside every crest and trough, shown closer in the right panel. Both are real seabed, not
 artifacts, but they make the marks a detector has to learn to ignore.
 
-.. GENERATED FROM PYTHON SOURCE LINES 565-580
+.. GENERATED FROM PYTHON SOURCE LINES 566-581
 
 .. code-block:: Python
 
@@ -848,7 +849,7 @@ artifacts, but they make the marks a detector has to learn to ignore.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 581-587
+.. GENERATED FROM PYTHON SOURCE LINES 582-588
 
 Not shown
 ---------
@@ -860,7 +861,7 @@ frequencies, and yaw.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 22.361 seconds)
+   **Total running time of the script:** (1 minutes 5.624 seconds)
 
 
 .. _sphx_glr_download_theory_plot_common_artifacts.py:

@@ -538,8 +538,8 @@ carries a per-ping gain factor that tracks the signal like an automatic
 gain control; XTF gain codes are read but not interpreted. Some
 recordings behave as if spreading, or both spreading and absorption,
 were already compensated. Measure each survey with
-<code class="docutils literal notranslate"><span class="pre">analysis.fit_range_decay</span></code> and turn off the TVG terms it says are
-already applied (<a class="reference internal" href="getting_started.html#check-the-gain-before-correcting"><span class="std std-ref">Getting started</span></a>
+<code class="docutils literal notranslate"><span class="pre">analysis.fit_tvg_models</span></code> and apply the model it finds (<code class="docutils literal notranslate"><span class="pre">flat</span></code> means
+apply none) (<a class="reference internal" href="getting_started.html#check-the-gain-before-correcting"><span class="std std-ref">Getting started</span></a>
 shows how). Do not assume a sonar model behaves the same on every
 survey.</p></li>
 <li><p><strong>The spreading coefficient is a choice.</strong> The default TVG uses
@@ -547,12 +547,14 @@ survey.</p></li>
 growth of the insonified seabed patch with range. Which fits real data
 varies by sonar and seabed. Set <code class="docutils literal notranslate"><span class="pre">spreading_loss_db</span></code> per survey after a
 fit; the value used is recorded in each file’s history.</p></li>
-<li><p><strong>The decay fit picks a named candidate.</strong> <code class="docutils literal notranslate"><span class="pre">fit_range_decay</span></code> compares
-four fixed loss models and does not fit absorption freely. Its fit
-window can run past the point where the signal reaches the noise
-floor, and the two frequencies of one line can get different answers.
-Check that the corrected data is flat with range before trusting the
-verdict.</p></li>
+<li><p><strong>The TVG fit compares fixed models.</strong> <code class="docutils literal notranslate"><span class="pre">fit_tvg_models</span></code> compares 0,
+20, 30 and 40 log R with and without Francois-Garrison absorption at
+default water conditions; it fits <code class="docutils literal notranslate"><span class="pre">n</span></code> freely but not absorption, so a
+wrong absorption coefficient shows up as a trend after TVG. Over short
+windows the models differ by tenths of a dB and the label means little.
+It trusts the recorded altitude, and a recorder gain that only shows in
+the shape of the curve is not identified. Check that the corrected
+data is flat with range (<code class="docutils literal notranslate"><span class="pre">check_tvg</span></code>) before trusting the model.</p></li>
 <li><p><strong>No angle-dependent correction.</strong> TVG depends on range only. There is
 no beam-pattern or grazing-angle correction, and no mosaic-wide
 normalization between lines.</p></li>

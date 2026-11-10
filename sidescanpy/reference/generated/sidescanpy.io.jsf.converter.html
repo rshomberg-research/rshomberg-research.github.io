@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -626,7 +627,21 @@ populated SideScanSurvey with one frequency channel per (start, end) pair
 plus aux records (navigation, attitude, dvl, sensors).</p>
 <p>This module performs no I/O. The reader is responsible for parsing JSF
 bytes into JSFMessage instances and for any cross-file message ordering.</p>
+<section id="starting-depth">
+<h2>Starting depth<a class="headerlink" href="#starting-depth" title="Link to this heading">#</a></h2>
+<p>The sonar data message’s “starting depth (window offset) in samples”
+(<code class="docutils literal notranslate"><span class="pre">SonarDataMessage.starting_depth_samples</span></code>) is applied to the sample
+axis: it is taken as the number of sample intervals before the first
+recorded sample, so recorded sample <code class="docutils literal notranslate"><span class="pre">i</span></code> gets the absolute <code class="docutils literal notranslate"><span class="pre">sample</span></code>
+coordinate <code class="docutils literal notranslate"><span class="pre">starting_depth</span> <span class="pre">+</span> <span class="pre">i</span></code> and the slant range
+<code class="docutils literal notranslate"><span class="pre">(starting_depth</span> <span class="pre">+</span> <span class="pre">i)</span> <span class="pre">x</span> <span class="pre">interval</span></code>. When pings (or sides) differ in
+offset, each trace is placed at its own offset on a common axis starting
+at the smallest one, NaN elsewhere. The offset is 0 in every file seen so
+far; a nonzero one logs one WARNING per frequency, because that reading
+of the field has not been checked against a real file, and is recorded
+in <code class="docutils literal notranslate"><span class="pre">jsf_starting_depth_min</span></code> / <code class="docutils literal notranslate"><span class="pre">jsf_starting_depth_max</span></code>.</p>
 <p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
+</section>
 <p class="rubric">Contents</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
@@ -726,6 +741,7 @@ If <code class="docutils literal notranslate"><span class="pre">repair_mode</spa
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-depth">Starting depth</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.jsf.converter.convert"><code class="docutils literal notranslate"><span class="pre">convert()</span></code></a></li>
 </ul>
   </nav></div>

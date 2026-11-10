@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -714,7 +715,8 @@ at <code class="docutils literal notranslate"><span class="pre">n_pings</span></
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_by_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.slicing.slice_by_samples" title="Link to this definition">#</a></dt>
 <dd><p>Return a new dataset with samples whose index is in <code class="docutils literal notranslate"><span class="pre">[start,</span> <span class="pre">stop)</span></code>.</p>
 <p>Selection is by the <em>absolute</em> integer <code class="docutils literal notranslate"><span class="pre">sample</span></code> coordinate (label
-based: 0 is the first recorded sample of the ping), so slicing an
+based, counted from the transmit: 0 is normally the first recorded
+sample of the ping), so slicing an
 already-sliced dataset keeps meaning the same samples. Datasets with
 no <code class="docutils literal notranslate"><span class="pre">sample</span></code> coordinate fall back to positional selection.</p>
 <dl class="field-list simple">

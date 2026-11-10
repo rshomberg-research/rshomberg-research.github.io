@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -654,7 +655,8 @@ and per-sample coordinates (latitude_per_sample, longitude_per_sample).</p>
 </dd>
 <dt><strong>grid_def</strong><span class="classifier">GridDefinition</span></dt><dd><p>Target grid definition (bbox, resolution, CRS).</p>
 </dd>
-<dt><strong>method</strong><span class="classifier">ResamplingMethod, default “mean”</span></dt><dd><p>Aggregation method: mean, median, max, nearest, or idw.</p>
+<dt><strong>method</strong><span class="classifier">ResamplingMethod or str, default “mean”</span></dt><dd><p>Aggregation method: mean, median, max, nearest, or idw, as the enum
+or its string value.</p>
 </dd>
 <dt><strong>separate_sides</strong><span class="classifier">bool, default False</span></dt><dd><p>If True, output separate port and starboard bands (diagnostic mode).
 If False, merge port and starboard into single backscatter variable.</p>
@@ -678,7 +680,8 @@ variable and grid that.</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt>ValueError</dt><dd><p>If channel is missing required variables or grid bounds don’t overlap.</p>
+<dt>ValueError</dt><dd><p>If channel is missing required variables, grid bounds don’t overlap,
+or method is not a known resampling method.</p>
 </dd>
 </dl>
 </dd>

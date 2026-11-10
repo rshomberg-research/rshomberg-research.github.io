@@ -10,6 +10,9 @@ sidescanpy.processing.geometric
 .. autosummary::
    :nosignatures:
 
+   PITCH_MODEL
    compute_geometric_ranges
+
+.. autodata:: sidescanpy.processing.geometric.PITCH_MODEL
 
 .. autofunction:: sidescanpy.processing.geometric.compute_geometric_ranges

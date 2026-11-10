@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -633,127 +634,154 @@ for tracking processing state.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_VARS" title="sidescanpy.core.schema.REQUIRED_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_VARS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_ATTRS" title="sidescanpy.core.schema.REQUIRED_ATTRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_ATTRS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.OPTIONAL_PER_PING_VARS" title="sidescanpy.core.schema.OPTIONAL_PER_PING_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OPTIONAL_PER_PING_VARS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.POSITION_SOURCE_ATTR" title="sidescanpy.core.schema.POSITION_SOURCE_ATTR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">POSITION_SOURCE_ATTR</span></code></a></p></td>
+<td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.POSITION_SOURCE_REASON_ATTR" title="sidescanpy.core.schema.POSITION_SOURCE_REASON_ATTR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">POSITION_SOURCE_REASON_ATTR</span></code></a></p></td>
+<td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.POSITION_SHIP" title="sidescanpy.core.schema.POSITION_SHIP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">POSITION_SHIP</span></code></a></p></td>
+<td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.POSITION_TOWFISH" title="sidescanpy.core.schema.POSITION_TOWFISH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">POSITION_TOWFISH</span></code></a></p></td>
+<td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.POSITION_MIXED" title="sidescanpy.core.schema.POSITION_MIXED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">POSITION_MIXED</span></code></a></p></td>
+<td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.POSITION_UNKNOWN" title="sidescanpy.core.schema.POSITION_UNKNOWN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">POSITION_UNKNOWN</span></code></a></p></td>
+<td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.POSITION_SOURCES" title="sidescanpy.core.schema.POSITION_SOURCES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">POSITION_SOURCES</span></code></a></p></td>
+<td><p>Built-in immutable sequence.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.combine_position_sources" title="sidescanpy.core.schema.combine_position_sources"><code class="xref py py-obj docutils literal notranslate"><span class="pre">combine_position_sources</span></code></a></p></td>
+<td><p>One <a class="reference internal" href="#sidescanpy.core.schema.POSITION_SOURCES" title="sidescanpy.core.schema.POSITION_SOURCES"><code class="xref py py-data docutils literal notranslate"><span class="pre">POSITION_SOURCES</span></code></a> value for a set of per-ping sources.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_ATTRS" title="sidescanpy.core.schema.REQUIRED_ATTRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_ATTRS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.KNOWN_PROCESSING_LEVELS" title="sidescanpy.core.schema.KNOWN_PROCESSING_LEVELS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KNOWN_PROCESSING_LEVELS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.KNOWN_PROCESSING_LEVELS" title="sidescanpy.core.schema.KNOWN_PROCESSING_LEVELS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KNOWN_PROCESSING_LEVELS</span></code></a></p></td>
 <td><p>Values <a class="reference internal" href="sidescanpy.core.history.html#sidescanpy.core.history.processing_level" title="sidescanpy.core.history.processing_level"><code class="xref py py-func docutils literal notranslate"><span class="pre">sidescanpy.core.history.processing_level()</span></code></a> can return.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.LEGACY_PROCESSING_LEVEL_VALUES" title="sidescanpy.core.schema.LEGACY_PROCESSING_LEVEL_VALUES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEGACY_PROCESSING_LEVEL_VALUES</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.LEGACY_PROCESSING_LEVEL_VALUES" title="sidescanpy.core.schema.LEGACY_PROCESSING_LEVEL_VALUES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEGACY_PROCESSING_LEVEL_VALUES</span></code></a></p></td>
 <td><p>Values the legacy <code class="docutils literal notranslate"><span class="pre">processing_level</span></code> attribute may hold on older files.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_AUX_STREAMS" title="sidescanpy.core.schema.HDF5_GROUP_AUX_STREAMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_AUX_STREAMS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_AUX_STREAMS" title="sidescanpy.core.schema.HDF5_GROUP_AUX_STREAMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_AUX_STREAMS</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_NAVIGATION" title="sidescanpy.core.schema.HDF5_GROUP_NAVIGATION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_NAVIGATION</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_NAVIGATION" title="sidescanpy.core.schema.HDF5_GROUP_NAVIGATION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_NAVIGATION</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_ATTITUDE" title="sidescanpy.core.schema.HDF5_GROUP_ATTITUDE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_ATTITUDE</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_ATTITUDE" title="sidescanpy.core.schema.HDF5_GROUP_ATTITUDE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_ATTITUDE</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_DVL" title="sidescanpy.core.schema.HDF5_GROUP_DVL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_DVL</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_DVL" title="sidescanpy.core.schema.HDF5_GROUP_DVL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_DVL</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_SENSORS" title="sidescanpy.core.schema.HDF5_GROUP_SENSORS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_SENSORS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_SENSORS" title="sidescanpy.core.schema.HDF5_GROUP_SENSORS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_SENSORS</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_FREQUENCIES" title="sidescanpy.core.schema.HDF5_GROUP_FREQUENCIES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_FREQUENCIES</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_GROUP_FREQUENCIES" title="sidescanpy.core.schema.HDF5_GROUP_FREQUENCIES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_GROUP_FREQUENCIES</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_FREQ_PREFIX" title="sidescanpy.core.schema.HDF5_FREQ_PREFIX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_FREQ_PREFIX</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_FREQ_PREFIX" title="sidescanpy.core.schema.HDF5_FREQ_PREFIX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_FREQ_PREFIX</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.SS_FORMAT_NAME" title="sidescanpy.core.schema.SS_FORMAT_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SS_FORMAT_NAME</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.SS_FORMAT_NAME" title="sidescanpy.core.schema.SS_FORMAT_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SS_FORMAT_NAME</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.SS_FORMAT_VERSION" title="sidescanpy.core.schema.SS_FORMAT_VERSION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SS_FORMAT_VERSION</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.SS_FORMAT_VERSION" title="sidescanpy.core.schema.SS_FORMAT_VERSION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SS_FORMAT_VERSION</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_CHUNK_PING" title="sidescanpy.core.schema.HDF5_CHUNK_PING"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_CHUNK_PING</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_CHUNK_PING" title="sidescanpy.core.schema.HDF5_CHUNK_PING"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_CHUNK_PING</span></code></a></p></td>
 <td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_COMPRESSION" title="sidescanpy.core.schema.HDF5_COMPRESSION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_COMPRESSION</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_COMPRESSION" title="sidescanpy.core.schema.HDF5_COMPRESSION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_COMPRESSION</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_COMPRESSION_LEVEL" title="sidescanpy.core.schema.HDF5_COMPRESSION_LEVEL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_COMPRESSION_LEVEL</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.HDF5_COMPRESSION_LEVEL" title="sidescanpy.core.schema.HDF5_COMPRESSION_LEVEL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5_COMPRESSION_LEVEL</span></code></a></p></td>
 <td><p>int([x]) -&gt; integer int(x, base=10) -&gt; integer</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.SideScanAccessor" title="sidescanpy.core.schema.SideScanAccessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SideScanAccessor</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.SideScanAccessor" title="sidescanpy.core.schema.SideScanAccessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SideScanAccessor</span></code></a></p></td>
 <td><p>xarray.Dataset accessor for sidescan specific validation and utilities</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_NAV_DIMS" title="sidescanpy.core.schema.REQUIRED_NAV_DIMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_NAV_DIMS</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_NAV_DIMS" title="sidescanpy.core.schema.REQUIRED_NAV_DIMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_NAV_DIMS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_NAV_COORDS" title="sidescanpy.core.schema.REQUIRED_NAV_COORDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_NAV_COORDS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_NAV_COORDS" title="sidescanpy.core.schema.REQUIRED_NAV_COORDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_NAV_COORDS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_NAV_VARS" title="sidescanpy.core.schema.REQUIRED_NAV_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_NAV_VARS</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_NAV_VARS" title="sidescanpy.core.schema.REQUIRED_NAV_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_NAV_VARS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_NAV_ATTRS" title="sidescanpy.core.schema.REQUIRED_NAV_ATTRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_NAV_ATTRS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_NAV_ATTRS" title="sidescanpy.core.schema.REQUIRED_NAV_ATTRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_NAV_ATTRS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.NavigationRecordAccessor" title="sidescanpy.core.schema.NavigationRecordAccessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NavigationRecordAccessor</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.NavigationRecordAccessor" title="sidescanpy.core.schema.NavigationRecordAccessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NavigationRecordAccessor</span></code></a></p></td>
 <td><p>xarray.Dataset accessor for navigation auxiliary streams.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_ATT_DIMS" title="sidescanpy.core.schema.REQUIRED_ATT_DIMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_ATT_DIMS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_ATT_DIMS" title="sidescanpy.core.schema.REQUIRED_ATT_DIMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_ATT_DIMS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_ATT_COORDS" title="sidescanpy.core.schema.REQUIRED_ATT_COORDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_ATT_COORDS</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_ATT_COORDS" title="sidescanpy.core.schema.REQUIRED_ATT_COORDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_ATT_COORDS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_ATT_VARS" title="sidescanpy.core.schema.REQUIRED_ATT_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_ATT_VARS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_ATT_VARS" title="sidescanpy.core.schema.REQUIRED_ATT_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_ATT_VARS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.OPTIONAL_ATT_VARS" title="sidescanpy.core.schema.OPTIONAL_ATT_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OPTIONAL_ATT_VARS</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.OPTIONAL_ATT_VARS" title="sidescanpy.core.schema.OPTIONAL_ATT_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OPTIONAL_ATT_VARS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_ATT_ATTRS" title="sidescanpy.core.schema.REQUIRED_ATT_ATTRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_ATT_ATTRS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_ATT_ATTRS" title="sidescanpy.core.schema.REQUIRED_ATT_ATTRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_ATT_ATTRS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.AttitudeRecordAccessor" title="sidescanpy.core.schema.AttitudeRecordAccessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AttitudeRecordAccessor</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.AttitudeRecordAccessor" title="sidescanpy.core.schema.AttitudeRecordAccessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AttitudeRecordAccessor</span></code></a></p></td>
 <td><p>Auxiliary stream for attitude data (roll, pitch, heave).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_DVL_DIMS" title="sidescanpy.core.schema.REQUIRED_DVL_DIMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_DVL_DIMS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_DVL_DIMS" title="sidescanpy.core.schema.REQUIRED_DVL_DIMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_DVL_DIMS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_DVL_COORDS" title="sidescanpy.core.schema.REQUIRED_DVL_COORDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_DVL_COORDS</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_DVL_COORDS" title="sidescanpy.core.schema.REQUIRED_DVL_COORDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_DVL_COORDS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_DVL_VARS" title="sidescanpy.core.schema.REQUIRED_DVL_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_DVL_VARS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_DVL_VARS" title="sidescanpy.core.schema.REQUIRED_DVL_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_DVL_VARS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_DVL_ATTRS" title="sidescanpy.core.schema.REQUIRED_DVL_ATTRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_DVL_ATTRS</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_DVL_ATTRS" title="sidescanpy.core.schema.REQUIRED_DVL_ATTRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_DVL_ATTRS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.DVLRecordAccessor" title="sidescanpy.core.schema.DVLRecordAccessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DVLRecordAccessor</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.DVLRecordAccessor" title="sidescanpy.core.schema.DVLRecordAccessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DVLRecordAccessor</span></code></a></p></td>
 <td><p>Auxiliary stream for DVL altimeter data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_GEN_DIMS" title="sidescanpy.core.schema.REQUIRED_GEN_DIMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_GEN_DIMS</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_GEN_DIMS" title="sidescanpy.core.schema.REQUIRED_GEN_DIMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_GEN_DIMS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_GEN_COORDS" title="sidescanpy.core.schema.REQUIRED_GEN_COORDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_GEN_COORDS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_GEN_COORDS" title="sidescanpy.core.schema.REQUIRED_GEN_COORDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_GEN_COORDS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_GEN_VARS" title="sidescanpy.core.schema.REQUIRED_GEN_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_GEN_VARS</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_GEN_VARS" title="sidescanpy.core.schema.REQUIRED_GEN_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_GEN_VARS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_GEN_ATTRS" title="sidescanpy.core.schema.REQUIRED_GEN_ATTRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_GEN_ATTRS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.REQUIRED_GEN_ATTRS" title="sidescanpy.core.schema.REQUIRED_GEN_ATTRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REQUIRED_GEN_ATTRS</span></code></a></p></td>
 <td><p>set() -&gt; new empty set object set(iterable) -&gt; new set object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.SensorRecordAccessor" title="sidescanpy.core.schema.SensorRecordAccessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SensorRecordAccessor</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.SensorRecordAccessor" title="sidescanpy.core.schema.SensorRecordAccessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SensorRecordAccessor</span></code></a></p></td>
 <td><p>Generic auxiliary stream for arbitrary time-series sensor data.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.make_empty_navigation_record" title="sidescanpy.core.schema.make_empty_navigation_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_empty_navigation_record</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.make_empty_navigation_record" title="sidescanpy.core.schema.make_empty_navigation_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_empty_navigation_record</span></code></a></p></td>
 <td><p>Zero-obs valid navigation_record.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.make_empty_attitude_record" title="sidescanpy.core.schema.make_empty_attitude_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_empty_attitude_record</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.make_empty_attitude_record" title="sidescanpy.core.schema.make_empty_attitude_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_empty_attitude_record</span></code></a></p></td>
 <td><p>Zero-obs valid attitude_record.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.make_empty_dvl_record" title="sidescanpy.core.schema.make_empty_dvl_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_empty_dvl_record</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.make_empty_dvl_record" title="sidescanpy.core.schema.make_empty_dvl_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_empty_dvl_record</span></code></a></p></td>
 <td><p>Zero-obs valid dvl_record.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.schema.make_empty_sensor_record" title="sidescanpy.core.schema.make_empty_sensor_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_empty_sensor_record</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.schema.make_empty_sensor_record" title="sidescanpy.core.schema.make_empty_sensor_record"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_empty_sensor_record</span></code></a></p></td>
 <td><p>Zero-obs valid sensor_record.</p></td>
 </tr>
 </tbody>
@@ -781,6 +809,111 @@ set(iterable) -&gt; new set object</p>
 <dd><p>set() -&gt; new empty set object
 set(iterable) -&gt; new set object</p>
 <p>Build an unordered collection of unique elements.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.core.schema.OPTIONAL_PER_PING_VARS">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.core.schema.</span></span><span class="sig-name descname"><span class="pre">OPTIONAL_PER_PING_VARS</span></span><a class="headerlink" href="#sidescanpy.core.schema.OPTIONAL_PER_PING_VARS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.core.schema.POSITION_SOURCE_ATTR">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.core.schema.</span></span><span class="sig-name descname"><span class="pre">POSITION_SOURCE_ATTR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'position_source'</span></span><a class="headerlink" href="#sidescanpy.core.schema.POSITION_SOURCE_ATTR" title="Link to this definition">#</a></dt>
+<dd><p>str(object=’’) -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to ‘strict’.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.core.schema.POSITION_SOURCE_REASON_ATTR">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.core.schema.</span></span><span class="sig-name descname"><span class="pre">POSITION_SOURCE_REASON_ATTR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'position_source_reason'</span></span><a class="headerlink" href="#sidescanpy.core.schema.POSITION_SOURCE_REASON_ATTR" title="Link to this definition">#</a></dt>
+<dd><p>str(object=’’) -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to ‘strict’.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.core.schema.POSITION_SHIP">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.core.schema.</span></span><span class="sig-name descname"><span class="pre">POSITION_SHIP</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ship'</span></span><a class="headerlink" href="#sidescanpy.core.schema.POSITION_SHIP" title="Link to this definition">#</a></dt>
+<dd><p>str(object=’’) -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to ‘strict’.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.core.schema.POSITION_TOWFISH">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.core.schema.</span></span><span class="sig-name descname"><span class="pre">POSITION_TOWFISH</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'towfish'</span></span><a class="headerlink" href="#sidescanpy.core.schema.POSITION_TOWFISH" title="Link to this definition">#</a></dt>
+<dd><p>str(object=’’) -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to ‘strict’.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.core.schema.POSITION_MIXED">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.core.schema.</span></span><span class="sig-name descname"><span class="pre">POSITION_MIXED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mixed'</span></span><a class="headerlink" href="#sidescanpy.core.schema.POSITION_MIXED" title="Link to this definition">#</a></dt>
+<dd><p>str(object=’’) -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to ‘strict’.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.core.schema.POSITION_UNKNOWN">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.core.schema.</span></span><span class="sig-name descname"><span class="pre">POSITION_UNKNOWN</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'unknown'</span></span><a class="headerlink" href="#sidescanpy.core.schema.POSITION_UNKNOWN" title="Link to this definition">#</a></dt>
+<dd><p>str(object=’’) -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to ‘strict’.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.core.schema.POSITION_SOURCES">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.core.schema.</span></span><span class="sig-name descname"><span class="pre">POSITION_SOURCES</span></span><a class="headerlink" href="#sidescanpy.core.schema.POSITION_SOURCES" title="Link to this definition">#</a></dt>
+<dd><p>Built-in immutable sequence.</p>
+<p>If no argument is given, the constructor returns an empty tuple.
+If iterable is specified the tuple is initialized from iterable’s items.</p>
+<p>If the argument is a tuple, the return value is the same object.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.core.schema.combine_position_sources">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.core.schema.</span></span><span class="sig-name descname"><span class="pre">combine_position_sources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">per_ping</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.core.schema.combine_position_sources" title="Link to this definition">#</a></dt>
+<dd><p>One <a class="reference internal" href="#sidescanpy.core.schema.POSITION_SOURCES" title="sidescanpy.core.schema.POSITION_SOURCES"><code class="xref py py-data docutils literal notranslate"><span class="pre">POSITION_SOURCES</span></code></a> value for a set of per-ping sources.</p>
+<p>All pings the same → that value; empty → unknown; otherwise mixed.</p>
 </dd></dl>
 
 <dl class="py data">
@@ -1385,6 +1518,15 @@ Required attrs: {source, sensor_type}</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.REQUIRED_DIMS"><code class="docutils literal notranslate"><span class="pre">REQUIRED_DIMS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.REQUIRED_COORDS"><code class="docutils literal notranslate"><span class="pre">REQUIRED_COORDS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.REQUIRED_VARS"><code class="docutils literal notranslate"><span class="pre">REQUIRED_VARS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.OPTIONAL_PER_PING_VARS"><code class="docutils literal notranslate"><span class="pre">OPTIONAL_PER_PING_VARS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.POSITION_SOURCE_ATTR"><code class="docutils literal notranslate"><span class="pre">POSITION_SOURCE_ATTR</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.POSITION_SOURCE_REASON_ATTR"><code class="docutils literal notranslate"><span class="pre">POSITION_SOURCE_REASON_ATTR</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.POSITION_SHIP"><code class="docutils literal notranslate"><span class="pre">POSITION_SHIP</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.POSITION_TOWFISH"><code class="docutils literal notranslate"><span class="pre">POSITION_TOWFISH</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.POSITION_MIXED"><code class="docutils literal notranslate"><span class="pre">POSITION_MIXED</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.POSITION_UNKNOWN"><code class="docutils literal notranslate"><span class="pre">POSITION_UNKNOWN</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.POSITION_SOURCES"><code class="docutils literal notranslate"><span class="pre">POSITION_SOURCES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.combine_position_sources"><code class="docutils literal notranslate"><span class="pre">combine_position_sources()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.REQUIRED_ATTRS"><code class="docutils literal notranslate"><span class="pre">REQUIRED_ATTRS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.KNOWN_PROCESSING_LEVELS"><code class="docutils literal notranslate"><span class="pre">KNOWN_PROCESSING_LEVELS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.schema.LEGACY_PROCESSING_LEVEL_VALUES"><code class="docutils literal notranslate"><span class="pre">LEGACY_PROCESSING_LEVEL_VALUES</span></code></a></li>

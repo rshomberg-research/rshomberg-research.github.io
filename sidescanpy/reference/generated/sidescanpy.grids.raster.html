@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -776,8 +777,10 @@ rioxarray, GDAL and most CF readers recognize. Needs no optional
 dependency.</p>
 <p>The grid’s cell centers are evenly spaced but, because
 <code class="docutils literal notranslate"><span class="pre">GridDefinition</span></code> stretches <code class="docutils literal notranslate"><span class="pre">ceil(extent</span> <span class="pre">/</span> <span class="pre">resolution_m)</span></code> cells
-across the bbox, the spacing is only approximately
-<code class="docutils literal notranslate"><span class="pre">resolution_m</span></code>; <code class="docutils literal notranslate"><span class="pre">x</span></code>/<code class="docutils literal notranslate"><span class="pre">y</span></code> hold the real centers.</p>
+across the bbox (a ratio within float error of a whole number
+counts as that number), the spacing is only approximately
+<code class="docutils literal notranslate"><span class="pre">resolution_m</span></code> (exactly it when the extent is a whole number of
+cells); <code class="docutils literal notranslate"><span class="pre">x</span></code>/<code class="docutils literal notranslate"><span class="pre">y</span></code> hold the real centers.</p>
 </dd></dl>
 
 <dl class="py method">

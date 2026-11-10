@@ -12,10 +12,19 @@ sidescanpy.io.xtf.converter
 
    HALVED_SOUND_VELOCITY_BELOW_MS
    SAMPLE_RATE_RTOL
+   SHIP_SENSOR_TOL_M
+   SHIP_SENSOR_FRACTION
+   SHIP_POSITION_PROGRAMS
    convert
 
 .. autodata:: sidescanpy.io.xtf.converter.HALVED_SOUND_VELOCITY_BELOW_MS
 
 .. autodata:: sidescanpy.io.xtf.converter.SAMPLE_RATE_RTOL
+
+.. autodata:: sidescanpy.io.xtf.converter.SHIP_SENSOR_TOL_M
+
+.. autodata:: sidescanpy.io.xtf.converter.SHIP_SENSOR_FRACTION
+
+.. autodata:: sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS
 
 .. autofunction:: sidescanpy.io.xtf.converter.convert

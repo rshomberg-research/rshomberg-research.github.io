@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -617,8 +618,10 @@
   <section id="module-sidescanpy.processing.sample_axis">
 <span id="sidescanpy-processing-sample-axis"></span><h1>sidescanpy.processing.sample_axis<a class="headerlink" href="#module-sidescanpy.processing.sample_axis" title="Link to this heading">#</a></h1>
 <p>Absolute sample coordinate and per-ping sample spacing helpers.</p>
-<p>Converters write an integer <code class="docutils literal notranslate"><span class="pre">sample</span></code> coordinate where 0 is the first
-recorded sample of the ping. Range math must use that <em>absolute</em> index,
+<p>Converters write an integer <code class="docutils literal notranslate"><span class="pre">sample</span></code> coordinate counted in sample
+intervals from the transmit, so slant range is <code class="docutils literal notranslate"><span class="pre">sample</span> <span class="pre">x</span> <span class="pre">interval</span></code>. 0 is
+normally the first recorded sample of the ping; a JSF starting depth
+(window offset) moves the first recorded sample to that offset. Range math must use that <em>absolute</em> index,
 not the local position along the (possibly sliced) sample axis, so that
 slicing leading samples never changes the computed ranges.</p>
 <p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>

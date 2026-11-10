@@ -533,7 +533,7 @@ and that channel’s samples.</p>
 <td><p>per-ping <code class="docutils literal notranslate"><span class="pre">NumSamples</span></code>; padding beyond it is NaN</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">SensorYcoordinate</span></code>, <code class="docutils literal notranslate"><span class="pre">SensorXcoordinate</span></code> (degrees, <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 3)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SensorYcoordinate</span></code>, <code class="docutils literal notranslate"><span class="pre">SensorXcoordinate</span></code> (degrees with <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 3; northing/easting converted from <code class="docutils literal notranslate"><span class="pre">nav_crs</span></code> with <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">heading_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">pitch_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">roll_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">heave_m</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">SensorHeading</span></code>, <code class="docutils literal notranslate"><span class="pre">SensorPitch</span></code> (nose up +), <code class="docutils literal notranslate"><span class="pre">SensorRoll</span></code> (port up +), <code class="docutils literal notranslate"><span class="pre">Heave</span></code></p></td>
@@ -552,6 +552,12 @@ and that channel’s samples.</p>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">time</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">Year</span></code> … <code class="docutils literal notranslate"><span class="pre">Second</span></code> + <code class="docutils literal notranslate"><span class="pre">HSeconds</span></code> (10 ms resolution)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">layback_m</span></code>, <code class="docutils literal notranslate"><span class="pre">cable_out_m</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Layback</span></code>, <code class="docutils literal notranslate"><span class="pre">CableOut</span></code> + <code class="docutils literal notranslate"><span class="pre">CableOutHundredths</span></code> / 100</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">position_source</span></code> attribute</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">towfish</span></code> when <code class="docutils literal notranslate"><span class="pre">SensorX/Y</span></code> sit away from <code class="docutils literal notranslate"><span class="pre">ShipX/Y</span></code>; else <code class="docutils literal notranslate"><span class="pre">unknown</span></code>, never <code class="docutils literal notranslate"><span class="pre">ship</span></code> (Isis files with no <code class="docutils literal notranslate"><span class="pre">ShipX/Y</span></code> and a recorded <code class="docutils literal notranslate"><span class="pre">Layback</span></code> are noted in <code class="docutils literal notranslate"><span class="pre">position_source_reason</span></code> as probably the ship) (see processing → Layback)</p></td>
 </tr>
 <tr class="row-even"><td><p>navigation / attitude records</p></td>
 <td><p>every ping header (<code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">=</span> <span class="pre">extracted_from_xtf_ping_headers</span></code>)</p></td>
@@ -594,8 +600,15 @@ with pings that hold only the low-frequency pair while declaring all
 four channels. The reader walks channel blocks by the packet byte
 count; those pings are left out of the high frequency (which keeps its
 own ping axis) and counted in <code class="docutils literal notranslate"><span class="pre">xtf_pings_absent</span></code>.</p></li>
-<li><p><strong>Projected coordinates</strong> (<code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0) are not supported and raise
-<code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><strong>Projected coordinates</strong> (<code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0): <code class="docutils literal notranslate"><span class="pre">SensorXcoordinate</span></code> /
+<code class="docutils literal notranslate"><span class="pre">SensorYcoordinate</span></code> are easting / northing in metres, and the file does
+not say in which projection. Pass it as <code class="docutils literal notranslate"><span class="pre">nav_crs</span></code> (an EPSG code such as
+<code class="docutils literal notranslate"><span class="pre">32619</span></code>, a CRS string, or a <code class="docutils literal notranslate"><span class="pre">pyproj.CRS</span></code>) to <code class="docutils literal notranslate"><span class="pre">io.xtf.convert</span></code>,
+<code class="docutils literal notranslate"><span class="pre">io.read_and_convert</span></code> or <code class="docutils literal notranslate"><span class="pre">io.read_and_convert_segments</span></code>, or as
+<code class="docutils literal notranslate"><span class="pre">sidescan-convert</span> <span class="pre">survey</span> <span class="pre">--nav-crs</span> <span class="pre">EPSG:32619</span></code>; positions are converted
+to WGS84 longitude/latitude, (0, 0) becomes NaN, and the CRS is recorded
+in <code class="docutils literal notranslate"><span class="pre">xtf_nav_crs</span></code>. Without it such a file raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>; the zone
+is never guessed. <code class="docutils literal notranslate"><span class="pre">ShipXcoordinate</span></code> / <code class="docutils literal notranslate"><span class="pre">ShipYcoordinate</span></code> are not used.</p></li>
 <li><p><strong>Sample scaling.</strong> Samples are scaled by <code class="docutils literal notranslate"><span class="pre">2**-Weight</span></code> from the channel
 header. Some older files carry meaningless <code class="docutils literal notranslate"><span class="pre">Weight</span></code> values (for example
 -8408), which make every sample unusable. If a converted file’s samples

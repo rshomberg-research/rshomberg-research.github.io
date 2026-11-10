@@ -553,6 +553,15 @@ aux messages carry their own timestamps. All <code class="docutils literal notra
 </ul>
 <p><a class="reference internal" href="jsf_aux_source_selection.html"><span class="std std-doc">JSF navigation and attitude sources</span></a>
 explains which message each per-ping value is taken from and why.</p>
+<ul class="simple">
+<li><p><strong>Layback.</strong> <code class="docutils literal notranslate"><span class="pre">layback_m</span></code> (bytes 228-231) and <code class="docutils literal notranslate"><span class="pre">cable_out_m</span></code> (bytes
+236-237, decimetres in the file) are carried per ping. Validity bit 13
+(“position interpolated”) sets <code class="docutils literal notranslate"><span class="pre">position_source</span></code>: set, the position is
+the sonar’s with layback applied by Discover; clear, it is the last
+navigation fix received, without layback. The cable-counter validity
+bit is clear in the Discover files seen so far although the cable out
+is plausible; the value is kept.</p></li>
+</ul>
 </section>
 <section id="known-quirks">
 <h2>Known quirks<a class="headerlink" href="#known-quirks" title="Link to this heading">#</a></h2>

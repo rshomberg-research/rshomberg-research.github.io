@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -639,7 +640,8 @@ ends the read.</p>
 <p>A sonar packet (header type 0) is a 256-byte ping header followed, for
 each channel, by a 64-byte channel header and <code class="docutils literal notranslate"><span class="pre">NumSamples</span></code> samples.
 The sample type comes from the file header’s <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> entry for that
-channel (<code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code>, else <code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code>).</p>
+channel (<code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code>, else <code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code>; a <code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code>
+the specification does not define, such as 255, counts as unset).</p>
 </section>
 <section id="channel-blocks-are-walked-using-the-packet-byte-count">
 <h2>Channel blocks are walked using the packet byte count<a class="headerlink" href="#channel-blocks-are-walked-using-the-packet-byte-count" title="Link to this heading">#</a></h2>

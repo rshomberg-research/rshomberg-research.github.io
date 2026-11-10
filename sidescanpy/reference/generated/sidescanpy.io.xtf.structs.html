@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -695,25 +696,28 @@ hold half the true value (some recorders store the one-way factor
 <tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.SAMPLE_FORMAT_DTYPES" title="sidescanpy.io.xtf.structs.SAMPLE_FORMAT_DTYPES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SAMPLE_FORMAT_DTYPES</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> (ChanInfo, added in X41) to sample dtype.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES" title="sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEGACY_SAMPLE_DTYPES</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.KNOWN_SAMPLE_FORMATS" title="sidescanpy.io.xtf.structs.KNOWN_SAMPLE_FORMATS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KNOWN_SAMPLE_FORMATS</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> values the XTF specification defines (0-8).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES" title="sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEGACY_SAMPLE_DTYPES</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code> to sample dtype for legacy (<code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> 0) data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE" title="sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CHAN_INFO_DTYPE</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE" title="sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CHAN_INFO_DTYPE</span></code></a></p></td>
 <td><p>VoidDType(length, /)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE" title="sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FILE_HEADER_DTYPE</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE" title="sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FILE_HEADER_DTYPE</span></code></a></p></td>
 <td><p>VoidDType(length, /)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.PACKET_START_DTYPE" title="sidescanpy.io.xtf.structs.PACKET_START_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PACKET_START_DTYPE</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.PACKET_START_DTYPE" title="sidescanpy.io.xtf.structs.PACKET_START_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PACKET_START_DTYPE</span></code></a></p></td>
 <td><p>VoidDType(length, /)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.PING_HEADER_DTYPE" title="sidescanpy.io.xtf.structs.PING_HEADER_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PING_HEADER_DTYPE</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.PING_HEADER_DTYPE" title="sidescanpy.io.xtf.structs.PING_HEADER_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PING_HEADER_DTYPE</span></code></a></p></td>
 <td><p>VoidDType(length, /)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.PING_CHAN_HEADER_DTYPE" title="sidescanpy.io.xtf.structs.PING_CHAN_HEADER_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PING_CHAN_HEADER_DTYPE</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.PING_CHAN_HEADER_DTYPE" title="sidescanpy.io.xtf.structs.PING_CHAN_HEADER_DTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PING_CHAN_HEADER_DTYPE</span></code></a></p></td>
 <td><p>VoidDType(length, /)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.sample_dtype" title="sidescanpy.io.xtf.structs.sample_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_dtype</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.structs.sample_dtype" title="sidescanpy.io.xtf.structs.sample_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_dtype</span></code></a></p></td>
 <td><p>Return the sample dtype described by one <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> record.</p></td>
 </tr>
 </tbody>
@@ -895,6 +899,15 @@ Formats 1 (IBM float), 4, 6 and 7 are not supported.</p>
 </dd></dl>
 
 <dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.KNOWN_SAMPLE_FORMATS">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">KNOWN_SAMPLE_FORMATS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8})</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.KNOWN_SAMPLE_FORMATS" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> values the XTF specification defines (0-8). Any other
+value is treated as unset, i.e. as 0 (legacy, <code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code>): some
+KleinXlt 3.0 files have 0xFF in the ChanInfo reserved bytes, which
+include <code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
 <dt class="sig sig-object py" id="sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES">
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.structs.</span></span><span class="sig-name descname"><span class="pre">LEGACY_SAMPLE_DTYPES</span></span><a class="headerlink" href="#sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES" title="Link to this definition">#</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code> to sample dtype for legacy (<code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> 0) data.
@@ -982,7 +995,10 @@ and <a class="reference external" href="https://numpy.org/doc/stable/reference/a
 <dd><p>Return the sample dtype described by one <code class="docutils literal notranslate"><span class="pre">ChanInfo</span></code> record.</p>
 <p><code class="docutils literal notranslate"><span class="pre">SampleFormat</span></code> (X41 and later) takes precedence; format 0 (legacy)
 falls back to <code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code>. A format that disagrees with
-<code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code> is used as given.</p>
+<code class="docutils literal notranslate"><span class="pre">BytesPerSample</span></code> is used as given. A value outside
+<a class="reference internal" href="#sidescanpy.io.xtf.structs.KNOWN_SAMPLE_FORMATS" title="sidescanpy.io.xtf.structs.KNOWN_SAMPLE_FORMATS"><code class="xref py py-data docutils literal notranslate"><span class="pre">KNOWN_SAMPLE_FORMATS</span></code></a> (such as 255) is treated as unset, like 0;
+this logs at DEBUG only, and <a class="reference internal" href="sidescanpy.io.xtf.reader.html#sidescanpy.io.xtf.reader.read_xtf_pings" title="sidescanpy.io.xtf.reader.read_xtf_pings"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_xtf_pings()</span></code></a>
+warns once per file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -998,7 +1014,7 @@ falls back to <code class="docutils literal notranslate"><span class="pre">Bytes
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt>ValueError</dt><dd><p>If the sample format or byte width is not supported (IBM float,
-reserved formats, or a legacy width other than 1, 2 or 4 bytes).</p>
+formats 4, 6 and 7, or a legacy width other than 1, 2 or 4 bytes).</p>
 </dd>
 </dl>
 </dd>
@@ -1069,6 +1085,7 @@ reserved formats, or a legacy width other than 1, 2 or 4 bytes).</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.NAV_UNITS_METERS"><code class="docutils literal notranslate"><span class="pre">NAV_UNITS_METERS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.NAV_UNITS_LATLON"><code class="docutils literal notranslate"><span class="pre">NAV_UNITS_LATLON</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.SAMPLE_FORMAT_DTYPES"><code class="docutils literal notranslate"><span class="pre">SAMPLE_FORMAT_DTYPES</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.KNOWN_SAMPLE_FORMATS"><code class="docutils literal notranslate"><span class="pre">KNOWN_SAMPLE_FORMATS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES"><code class="docutils literal notranslate"><span class="pre">LEGACY_SAMPLE_DTYPES</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE"><code class="docutils literal notranslate"><span class="pre">CHAN_INFO_DTYPE</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.structs.FILE_HEADER_DTYPE"><code class="docutils literal notranslate"><span class="pre">FILE_HEADER_DTYPE</span></code></a></li>

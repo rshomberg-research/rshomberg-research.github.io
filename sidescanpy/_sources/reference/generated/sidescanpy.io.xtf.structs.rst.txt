@@ -24,6 +24,7 @@ sidescanpy.io.xtf.structs
    NAV_UNITS_METERS
    NAV_UNITS_LATLON
    SAMPLE_FORMAT_DTYPES
+   KNOWN_SAMPLE_FORMATS
    LEGACY_SAMPLE_DTYPES
    CHAN_INFO_DTYPE
    FILE_HEADER_DTYPE
@@ -61,6 +62,8 @@ sidescanpy.io.xtf.structs
 
 .. autodata:: sidescanpy.io.xtf.structs.SAMPLE_FORMAT_DTYPES
    :no-value:
+
+.. autodata:: sidescanpy.io.xtf.structs.KNOWN_SAMPLE_FORMATS
 
 .. autodata:: sidescanpy.io.xtf.structs.LEGACY_SAMPLE_DTYPES
    :no-value:

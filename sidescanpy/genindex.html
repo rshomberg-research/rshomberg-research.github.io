@@ -478,15 +478,17 @@
 </li>
       <li><a href="reference/generated/sidescanpy.analysis.nadir.html#sidescanpy.analysis.nadir.analyze_nadir">analyze_nadir() (in module sidescanpy.analysis.nadir)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/sidescanpy.core.history.html#sidescanpy.core.history.append_history">append_history() (in module sidescanpy.core.history)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.SideScanAccessor.append_to_history">append_to_history() (sidescanpy.core.schema.SideScanAccessor method)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.core.history.html#sidescanpy.core.history.applied_steps">applied_steps() (in module sidescanpy.core.history)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.processing.range_correction.html#sidescanpy.processing.range_correction.apply_empirical_range_correction">apply_empirical_range_correction() (in module sidescanpy.processing.range_correction)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.processing.layback.html#sidescanpy.processing.layback.apply_layback">apply_layback() (in module sidescanpy.processing.layback)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.processing.radiometric.html#sidescanpy.processing.radiometric.apply_tvg">apply_tvg() (in module sidescanpy.processing.radiometric)</a>
 </li>
@@ -576,6 +578,8 @@
 </li>
       <li><a href="reference/generated/sidescanpy.targets.correlate.html#sidescanpy.targets.correlate.CatalogPlacement">CatalogPlacement (class in sidescanpy.targets.correlate)</a>
 </li>
+      <li><a href="reference/generated/sidescanpy.grids.definition.html#sidescanpy.grids.definition.CELL_COUNT_TOLERANCE">CELL_COUNT_TOLERANCE (in module sidescanpy.grids.definition)</a>
+</li>
       <li><a href="reference/generated/sidescanpy.processing.radiometric.html#sidescanpy.processing.radiometric.center_frequency_hz">center_frequency_hz() (in module sidescanpy.processing.radiometric)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.io.xtf.structs.html#sidescanpy.io.xtf.structs.CHAN_INFO_DTYPE">CHAN_INFO_DTYPE (in module sidescanpy.io.xtf.structs)</a>
@@ -610,10 +614,12 @@
 </li>
       <li><a href="reference/generated/sidescanpy.export.windows.pixel.html#sidescanpy.export.windows.pixel.combine_channels_mirrored">combine_channels_mirrored() (in module sidescanpy.export.windows.pixel)</a>
 </li>
-      <li><a href="reference/generated/sidescanpy.analysis.tvg.html#sidescanpy.analysis.tvg.compare_before_after">compare_before_after() (in module sidescanpy.analysis.tvg)</a>
+      <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.combine_position_sources">combine_position_sources() (in module sidescanpy.core.schema)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/sidescanpy.analysis.tvg.html#sidescanpy.analysis.tvg.compare_before_after">compare_before_after() (in module sidescanpy.analysis.tvg)</a>
+</li>
       <li><a href="reference/generated/sidescanpy.analysis.outliers.html#sidescanpy.analysis.outliers.compare_outlier_rejection">compare_outlier_rejection() (in module sidescanpy.analysis.outliers)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.processing.geometric.html#sidescanpy.processing.geometric.compute_geometric_ranges">compute_geometric_ranges() (in module sidescanpy.processing.geometric)</a>
@@ -1012,6 +1018,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.KNOWN_PROCESSING_LEVELS">KNOWN_PROCESSING_LEVELS (in module sidescanpy.core.schema)</a>
 </li>
+      <li><a href="reference/generated/sidescanpy.io.xtf.structs.html#sidescanpy.io.xtf.structs.KNOWN_SAMPLE_FORMATS">KNOWN_SAMPLE_FORMATS (in module sidescanpy.io.xtf.structs)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -1020,11 +1028,15 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/sidescanpy.targets.waterfall.html#sidescanpy.targets.waterfall.WaterfallBox.label">label (sidescanpy.targets.waterfall.WaterfallBox attribute)</a>
 </li>
+      <li><a href="reference/generated/sidescanpy.processing.layback.html#sidescanpy.processing.layback.LAT_BEFORE_VAR">LAT_BEFORE_VAR (in module sidescanpy.processing.layback)</a>
+</li>
       <li><a href="reference/generated/sidescanpy.io.sdf.pages.html#sidescanpy.io.sdf.pages.SDFSonarPage.latitude">latitude (sidescanpy.io.sdf.pages.SDFSonarPage property)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.io.sdf.pages.html#sidescanpy.io.sdf.pages.SDFPageHeader.layback_fish_latitude_deg">layback_fish_latitude_deg (sidescanpy.io.sdf.pages.SDFPageHeader property)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.io.sdf.pages.html#sidescanpy.io.sdf.pages.SDFPageHeader.layback_fish_longitude_deg">layback_fish_longitude_deg (sidescanpy.io.sdf.pages.SDFPageHeader property)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.processing.layback.html#sidescanpy.processing.layback.LAYBACK_MODEL">LAYBACK_MODEL (in module sidescanpy.processing.layback)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.export.ml.dataset.html#sidescanpy.export.ml.dataset.LAYOUTS">LAYOUTS (in module sidescanpy.export.ml.dataset)</a>
 </li>
@@ -1042,10 +1054,10 @@
 </li>
       <li><a href="reference/generated/sidescanpy.export.windows.levels.html#sidescanpy.export.windows.levels.LEVEL_VARS">LEVEL_VARS (in module sidescanpy.export.windows.levels)</a>
 </li>
-      <li><a href="reference/generated/sidescanpy.core.units.html#sidescanpy.core.units.linear_to_db">linear_to_db() (in module sidescanpy.core.units)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/sidescanpy.core.units.html#sidescanpy.core.units.linear_to_db">linear_to_db() (in module sidescanpy.core.units)</a>
+</li>
       <li><a href="reference/generated/sidescanpy.datasets.html#sidescanpy.datasets.list_datasets">list_datasets() (in module sidescanpy.datasets)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.processing.range_correction.html#sidescanpy.processing.range_correction.RangeCorrectionTable.load">load() (sidescanpy.processing.range_correction.RangeCorrectionTable class method)</a>
@@ -1071,6 +1083,8 @@
       <li><a href="reference/generated/sidescanpy.log.html#sidescanpy.log.LOG_FORMAT">LOG_FORMAT (in module sidescanpy.log)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.log.html#sidescanpy.log.log_timing">log_timing() (in module sidescanpy.log)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.processing.layback.html#sidescanpy.processing.layback.LON_BEFORE_VAR">LON_BEFORE_VAR (in module sidescanpy.processing.layback)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.io.sdf.pages.html#sidescanpy.io.sdf.pages.SDFSonarPage.longitude">longitude (sidescanpy.io.sdf.pages.SDFSonarPage property)</a>
 </li>
@@ -1288,6 +1302,8 @@
 </li>
         <li><a href="reference/generated/sidescanpy.processing.inversion.html#module-sidescanpy.processing.inversion">sidescanpy.processing.inversion</a>
 </li>
+        <li><a href="reference/generated/sidescanpy.processing.layback.html#module-sidescanpy.processing.layback">sidescanpy.processing.layback</a>
+</li>
         <li><a href="reference/generated/sidescanpy.processing.navigation.html#module-sidescanpy.processing.navigation">sidescanpy.processing.navigation</a>
 </li>
         <li><a href="reference/generated/sidescanpy.processing.outliers.html#module-sidescanpy.processing.outliers">sidescanpy.processing.outliers</a>
@@ -1425,10 +1441,12 @@
 </li>
       <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.OPTIONAL_ATT_VARS">OPTIONAL_ATT_VARS (in module sidescanpy.core.schema)</a>
 </li>
-      <li><a href="reference/generated/sidescanpy.export.orientation.html#sidescanpy.export.orientation.orient_for_display">orient_for_display() (in module sidescanpy.export.orientation)</a>
+      <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.OPTIONAL_PER_PING_VARS">OPTIONAL_PER_PING_VARS (in module sidescanpy.core.schema)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/sidescanpy.export.orientation.html#sidescanpy.export.orientation.orient_for_display">orient_for_display() (in module sidescanpy.export.orientation)</a>
+</li>
       <li><a href="reference/generated/sidescanpy.export.orientation.html#sidescanpy.export.orientation.orient_geo_window">orient_geo_window() (in module sidescanpy.export.orientation)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.export.orientation.html#sidescanpy.export.orientation.orient_pixel_window">orient_pixel_window() (in module sidescanpy.export.orientation)</a>
@@ -1469,6 +1487,8 @@
 </li>
       <li><a href="reference/generated/sidescanpy.analysis.geometry.html#sidescanpy.analysis.geometry.PingGeometry">PingGeometry (class in sidescanpy.analysis.geometry)</a>
 </li>
+      <li><a href="reference/generated/sidescanpy.processing.geometric.html#sidescanpy.processing.geometric.PITCH_MODEL">PITCH_MODEL (in module sidescanpy.processing.geometric)</a>
+</li>
       <li><a href="reference/generated/sidescanpy.io.jsf.messages.html#sidescanpy.io.jsf.messages.PitchRollDataMessage">PitchRollDataMessage (class in sidescanpy.io.jsf.messages)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.export.windows.levels.html#sidescanpy.export.windows.levels.PIXEL_LEVELS">PIXEL_LEVELS (in module sidescanpy.export.windows.levels)</a>
@@ -1495,14 +1515,14 @@
 </li>
       <li><a href="reference/generated/sidescanpy.viz.analysis.html#sidescanpy.viz.analysis.plot_nadir_waterfall">plot_nadir_waterfall() (in module sidescanpy.viz.analysis)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/sidescanpy.viz.analysis.html#sidescanpy.viz.analysis.plot_nadir_zoom">plot_nadir_zoom() (in module sidescanpy.viz.analysis)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.viz.analysis.html#sidescanpy.viz.analysis.plot_navigation_summary">plot_navigation_summary() (in module sidescanpy.viz.analysis)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.viz.analysis.html#sidescanpy.viz.analysis.plot_outlier_comparison">plot_outlier_comparison() (in module sidescanpy.viz.analysis)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/sidescanpy.viz.tvg.html#sidescanpy.viz.tvg.plot_per_ping_profiles">plot_per_ping_profiles() (in module sidescanpy.viz.tvg)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.viz.tvg.html#sidescanpy.viz.tvg.plot_range_decay_fit">plot_range_decay_fit() (in module sidescanpy.viz.tvg)</a>
@@ -1534,6 +1554,20 @@
       <li><a href="reference/generated/sidescanpy.viz.waterfall.html#sidescanpy.viz.waterfall.plot_waterfall">plot_waterfall() (in module sidescanpy.viz.waterfall)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.processing.aux_fixes.html#sidescanpy.processing.aux_fixes.POSITION_GROUP">POSITION_GROUP (in module sidescanpy.processing.aux_fixes)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.POSITION_MIXED">POSITION_MIXED (in module sidescanpy.core.schema)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.POSITION_SHIP">POSITION_SHIP (in module sidescanpy.core.schema)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.POSITION_SOURCE_ATTR">POSITION_SOURCE_ATTR (in module sidescanpy.core.schema)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.POSITION_SOURCE_REASON_ATTR">POSITION_SOURCE_REASON_ATTR (in module sidescanpy.core.schema)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.POSITION_SOURCES">POSITION_SOURCES (in module sidescanpy.core.schema)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.POSITION_TOWFISH">POSITION_TOWFISH (in module sidescanpy.core.schema)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.core.schema.html#sidescanpy.core.schema.POSITION_UNKNOWN">POSITION_UNKNOWN (in module sidescanpy.core.schema)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.targets.correlate.html#sidescanpy.targets.correlate.PositionMatch">PositionMatch (class in sidescanpy.targets.correlate)</a>
 </li>
@@ -1778,6 +1812,12 @@
       <li><a href="reference/generated/sidescanpy.io.sdf.pages.html#sidescanpy.io.sdf.pages.SDFPageHeader.ship_longitude_deg">ship_longitude_deg (sidescanpy.io.sdf.pages.SDFPageHeader property)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.io.sdf.pages.html#sidescanpy.io.sdf.pages.SDFPageHeader.ship_magnetic_variation_deg">ship_magnetic_variation_deg (sidescanpy.io.sdf.pages.SDFPageHeader property)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.io.xtf.converter.html#sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS">SHIP_POSITION_PROGRAMS (in module sidescanpy.io.xtf.converter)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.io.xtf.converter.html#sidescanpy.io.xtf.converter.SHIP_SENSOR_FRACTION">SHIP_SENSOR_FRACTION (in module sidescanpy.io.xtf.converter)</a>
+</li>
+      <li><a href="reference/generated/sidescanpy.io.xtf.converter.html#sidescanpy.io.xtf.converter.SHIP_SENSOR_TOL_M">SHIP_SENSOR_TOL_M (in module sidescanpy.io.xtf.converter)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.io.sdf.pages.html#sidescanpy.io.sdf.pages.SDFPageHeader.ship_speed_ms">ship_speed_ms (sidescanpy.io.sdf.pages.SDFPageHeader property)</a>
 </li>
@@ -2350,6 +2390,13 @@
 </li>
       </ul></li>
       <li>
+    sidescanpy.processing.layback
+
+      <ul>
+        <li><a href="reference/generated/sidescanpy.processing.layback.html#module-sidescanpy.processing.layback">module</a>
+</li>
+      </ul></li>
+      <li>
     sidescanpy.processing.navigation
 
       <ul>
@@ -2607,6 +2654,8 @@
 </li>
       <li><a href="reference/generated/sidescanpy.core.history.html#sidescanpy.core.history.STEP_INTERPOLATE_AUX">STEP_INTERPOLATE_AUX (in module sidescanpy.core.history)</a>
 </li>
+      <li><a href="reference/generated/sidescanpy.core.history.html#sidescanpy.core.history.STEP_LAYBACK">STEP_LAYBACK (in module sidescanpy.core.history)</a>
+</li>
       <li><a href="reference/generated/sidescanpy.processing.range_correction.html#sidescanpy.processing.range_correction.STEP_NAME">STEP_NAME (in module sidescanpy.processing.range_correction)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.core.history.html#sidescanpy.core.history.STEP_OUTPUT_VARS">STEP_OUTPUT_VARS (in module sidescanpy.core.history)</a>
@@ -2729,12 +2778,14 @@
 </li>
       <li><a href="reference/generated/sidescanpy.processing.inversion.html#sidescanpy.processing.inversion.UNCORRECTED_VAR">UNCORRECTED_VAR (in module sidescanpy.processing.inversion)</a>
 </li>
-      <li><a href="reference/generated/sidescanpy.processing.bottom.html#sidescanpy.processing.bottom.uniform_exclusion_boundary">uniform_exclusion_boundary() (in module sidescanpy.processing.bottom)</a>
+      <li><a href="reference/generated/sidescanpy.processing.layback.html#sidescanpy.processing.layback.undo_layback">undo_layback() (in module sidescanpy.processing.layback)</a>
 </li>
-      <li><a href="reference/generated/sidescanpy.analysis.characterize.html#sidescanpy.analysis.characterize.UnitsResult">UnitsResult (class in sidescanpy.analysis.characterize)</a>
+      <li><a href="reference/generated/sidescanpy.processing.bottom.html#sidescanpy.processing.bottom.uniform_exclusion_boundary">uniform_exclusion_boundary() (in module sidescanpy.processing.bottom)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/sidescanpy.analysis.characterize.html#sidescanpy.analysis.characterize.UnitsResult">UnitsResult (class in sidescanpy.analysis.characterize)</a>
+</li>
       <li><a href="reference/generated/sidescanpy.io.jsf.messages.html#sidescanpy.io.jsf.messages.UnknownMessage2040">UnknownMessage2040 (class in sidescanpy.io.jsf.messages)</a>
 </li>
       <li><a href="reference/generated/sidescanpy.analysis.usable_range.html#sidescanpy.analysis.usable_range.UsableRangeResult">UsableRangeResult (class in sidescanpy.analysis.usable_range)</a>

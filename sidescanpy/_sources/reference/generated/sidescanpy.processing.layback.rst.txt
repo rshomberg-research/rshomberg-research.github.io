@@ -1,0 +1,27 @@
+sidescanpy.processing.layback
+=============================
+
+.. automodule:: sidescanpy.processing.layback
+
+.. currentmodule:: sidescanpy.processing.layback
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   LAT_BEFORE_VAR
+   LON_BEFORE_VAR
+   LAYBACK_MODEL
+   apply_layback
+   undo_layback
+
+.. autodata:: sidescanpy.processing.layback.LAT_BEFORE_VAR
+
+.. autodata:: sidescanpy.processing.layback.LON_BEFORE_VAR
+
+.. autodata:: sidescanpy.processing.layback.LAYBACK_MODEL
+
+.. autofunction:: sidescanpy.processing.layback.apply_layback
+
+.. autofunction:: sidescanpy.processing.layback.undo_layback

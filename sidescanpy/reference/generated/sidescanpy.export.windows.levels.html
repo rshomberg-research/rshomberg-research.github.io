@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -699,11 +700,12 @@ same NaN nadir gap.</p>
 <dt class="sig sig-object py" id="sidescanpy.export.windows.levels.mask_dropouts">
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.export.windows.levels.</span></span><span class="sig-name descname"><span class="pre">mask_dropouts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.export.windows.levels.mask_dropouts" title="Link to this definition">#</a></dt>
 <dd><p>Set dropout samples (recorded amplitude exactly zero) to NaN.</p>
-<p>A sample recorded as zero carries no measurement. After TVG it is no
-longer at the dB floor (the gain for its range is added), so it is found
-on <code class="docutils literal notranslate"><span class="pre">uncorrected</span></code> (every radiometric step undone; at or below
-<a class="reference internal" href="sidescanpy.core.units.html#sidescanpy.core.units.MIN_LINEAR" title="sidescanpy.core.units.MIN_LINEAR"><code class="xref py py-data docutils literal notranslate"><span class="pre">MIN_LINEAR</span></code></a>) and masked in
-<code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> and <code class="docutils literal notranslate"><span class="pre">uncorrected</span></code>. Resampling then
+<p>A sample recorded as zero carries no measurement. It is found on
+<code class="docutils literal notranslate"><span class="pre">uncorrected</span></code> (every radiometric step undone; at or below
+<a class="reference internal" href="sidescanpy.core.units.html#sidescanpy.core.units.MIN_LINEAR" title="sidescanpy.core.units.MIN_LINEAR"><code class="xref py py-data docutils literal notranslate"><span class="pre">MIN_LINEAR</span></code></a>), which works whatever the
+correction state, including files corrected before TVG kept such
+samples at the dB floor, and masked in <code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> and
+<code class="docutils literal notranslate"><span class="pre">uncorrected</span></code>. Resampling then
 interpolates over it instead of spreading it into a dark spot.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

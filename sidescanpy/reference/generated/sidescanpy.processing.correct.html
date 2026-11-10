@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -637,7 +638,7 @@ callable <code class="docutils literal notranslate"><span class="pre">fn(ds,</sp
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code></dt><dd><p><a class="reference internal" href="sidescanpy.processing.interpolate.html#sidescanpy.processing.interpolate.interpolate_aux_onto_dataset" title="sidescanpy.processing.interpolate.interpolate_aux_onto_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">interpolate_aux_onto_dataset()</span></code></a>;
 needs the survey’s aux records (<code class="docutils literal notranslate"><span class="pre">aux=</span></code> / <a class="reference internal" href="#sidescanpy.processing.correct.correct_survey" title="sidescanpy.processing.correct.correct_survey"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct_survey()</span></code></a>);
-<a class="reference internal" href="#sidescanpy.processing.correct.correct" title="sidescanpy.processing.correct.correct"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct()</span></code></a> skips it when no <code class="docutils literal notranslate"><span class="pre">aux</span></code> is given.
+<a class="reference internal" href="#sidescanpy.processing.correct.correct" title="sidescanpy.processing.correct.correct"><code class="xref py py-func docutils literal notranslate"><span class="pre">correct()</span></code></a> skips it, with a WARNING, when no <code class="docutils literal notranslate"><span class="pre">aux</span></code> is given.
 Params: <code class="docutils literal notranslate"><span class="pre">fields,</span> <span class="pre">method,</span> <span class="pre">extrapolation,</span> <span class="pre">drop_invalid,</span> <span class="pre">held_values,</span>
 <span class="pre">max_hold_s,</span> <span class="pre">per_ping_fallback,</span> <span class="pre">groups,</span> <span class="pre">merge_window_s</span></code>.</p>
 </dd>
@@ -647,6 +648,14 @@ Params: <code class="docutils literal notranslate"><span class="pre">fields,</sp
 Params: <code class="docutils literal notranslate"><span class="pre">replace,</span> <span class="pre">max_diff_m,</span> <span class="pre">min_altitude_m,</span> <span class="pre">min_return_m,</span>
 <span class="pre">min_return_fraction,</span> <span class="pre">smooth_window,</span>
 <span class="pre">threshold_fraction,</span> <span class="pre">min_run,</span> <span class="pre">smooth_pings</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;layback&quot;</span></code></dt><dd><p><a class="reference internal" href="sidescanpy.processing.layback.html#sidescanpy.processing.layback.apply_layback" title="sidescanpy.processing.layback.apply_layback"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_layback()</span></code></a>: move ship
+positions astern to the towfish by the recorded layback (plus tow-point
+offset), before geometric/georef. Only moves positions whose
+<code class="docutils literal notranslate"><span class="pre">position_source</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;ship&quot;</span></code>; otherwise logs a WARNING and changes
+nothing. Not in <a class="reference internal" href="#sidescanpy.processing.correct.DEFAULT_STEPS" title="sidescanpy.processing.correct.DEFAULT_STEPS"><code class="xref py py-data docutils literal notranslate"><span class="pre">DEFAULT_STEPS</span></code></a>. Params: <code class="docutils literal notranslate"><span class="pre">layback_m,</span>
+<span class="pre">tow_point_aft_m,</span> <span class="pre">tow_point_starboard_m,</span> <span class="pre">position_source,</span> <span class="pre">use_cable_out,</span>
+<span class="pre">ellipsoid</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">&quot;tvg&quot;</span></code></dt><dd><p><a class="reference internal" href="sidescanpy.processing.radiometric.html#sidescanpy.processing.radiometric.apply_tvg" title="sidescanpy.processing.radiometric.apply_tvg"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_tvg()</span></code></a>. Params:
 <code class="docutils literal notranslate"><span class="pre">spreading_loss_db,</span> <span class="pre">absorption_db_per_m,</span> <span class="pre">min_range_m,</span> <span class="pre">sound_velocity_ms</span></code>,
@@ -741,7 +750,7 @@ records and what idempotency matches on; it must not be a built-in name.</p>
 <dt class="sig sig-object py" id="sidescanpy.processing.correct.correction_steps">
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.correct.</span></span><span class="sig-name descname"><span class="pre">correction_steps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requested</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.correct.correction_steps" title="Link to this definition">#</a></dt>
 <dd><p>Built-in step names in canonical order, adding <code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code> when needed.</p>
-<p><code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code> is added whenever any of tvg / geometric /
+<p><code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code> is added whenever any of layback / tvg / geometric /
 range_correction / georef is requested, since each reads per-ping
 navigation/attitude fields. Duplicates collapse.</p>
 <dl class="field-list simple">
@@ -768,8 +777,10 @@ navigation/attitude fields. Duplicates collapse.</p>
 <dt><strong>params</strong><span class="classifier">mapping, optional</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">{step_name:</span> <span class="pre">{param:</span> <span class="pre">value}}</span></code> overrides for steps in <code class="docutils literal notranslate"><span class="pre">steps</span></code>.</p>
 </dd>
 <dt><strong>aux</strong><span class="classifier">SideScanSurvey, optional</span></dt><dd><p>Supplies navigation/attitude records to <code class="docutils literal notranslate"><span class="pre">&quot;interpolate_aux&quot;</span></code>. When
-omitted, that step is skipped (DEBUG log) unless <code class="docutils literal notranslate"><span class="pre">params</span></code> gives it
-parameters, which is an error.</p>
+omitted, that step is skipped unless <code class="docutils literal notranslate"><span class="pre">params</span></code> gives it parameters,
+which is an error. The skip logs a WARNING (navigation and attitude
+stay the per-ping values as recorded), or DEBUG when the step was
+already applied to <code class="docutils literal notranslate"><span class="pre">ds</span></code>.</p>
 </dd>
 <dt><strong>force</strong><span class="classifier">bool, default False</span></dt><dd><p>Re-apply steps that were already applied (see module docstring).</p>
 </dd>

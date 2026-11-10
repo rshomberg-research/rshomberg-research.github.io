@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -622,21 +623,32 @@ No data — just the schema/contract.</p>
 <p class="rubric">Contents</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.grids.definition.GridDefinition" title="sidescanpy.grids.definition.GridDefinition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GridDefinition</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.grids.definition.CELL_COUNT_TOLERANCE" title="sidescanpy.grids.definition.CELL_COUNT_TOLERANCE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CELL_COUNT_TOLERANCE</span></code></a></p></td>
+<td><p>Fraction of a cell within which extent / resolution counts as a whole number of cells, so float error (400.2 / 0.3 = 1334.0000000006) does not add a cell.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.grids.definition.GridDefinition" title="sidescanpy.grids.definition.GridDefinition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GridDefinition</span></code></a></p></td>
 <td><p>Georeferenced grid schema.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.grids.definition.utm_crs_for_lonlat" title="sidescanpy.grids.definition.utm_crs_for_lonlat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utm_crs_for_lonlat</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.grids.definition.utm_crs_for_lonlat" title="sidescanpy.grids.definition.utm_crs_for_lonlat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utm_crs_for_lonlat</span></code></a></p></td>
 <td><p>Pick the WGS84 UTM zone CRS containing (lon, lat).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.grids.definition.utm_grid_from_wgs84_bbox" title="sidescanpy.grids.definition.utm_grid_from_wgs84_bbox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utm_grid_from_wgs84_bbox</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.grids.definition.utm_grid_from_wgs84_bbox" title="sidescanpy.grids.definition.utm_grid_from_wgs84_bbox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utm_grid_from_wgs84_bbox</span></code></a></p></td>
 <td><p>Build a GridDefinition in an auto-selected UTM zone from a WGS84 bbox.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.grids.definition.bbox_from_channel_dataset" title="sidescanpy.grids.definition.bbox_from_channel_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bbox_from_channel_dataset</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.grids.definition.bbox_from_channel_dataset" title="sidescanpy.grids.definition.bbox_from_channel_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bbox_from_channel_dataset</span></code></a></p></td>
 <td><p>(south, west, north, east) bbox fit to a channel dataset's per-sample lat/lon extent, with a small margin so edge cells aren't clipped.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.grids.definition.CELL_COUNT_TOLERANCE">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.grids.definition.</span></span><span class="sig-name descname"><span class="pre">CELL_COUNT_TOLERANCE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1e-06</span></span><a class="headerlink" href="#sidescanpy.grids.definition.CELL_COUNT_TOLERANCE" title="Link to this definition">#</a></dt>
+<dd><p>Fraction of a cell within which extent / resolution counts as a whole
+number of cells, so float error (400.2 / 0.3 = 1334.0000000006) does not
+add a cell. 1e-6 cells is 0.3 um at 0.3 m resolution.</p>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="sidescanpy.grids.definition.GridDefinition">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.grids.definition.</span></span><span class="sig-name descname"><span class="pre">GridDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bbox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.grids.definition.GridDefinition" title="Link to this definition">#</a></dt>
@@ -664,12 +676,16 @@ projection helpers (reproject_to).</p>
 <dt class="sig sig-object py" id="sidescanpy.grids.definition.GridDefinition.num_cells_ns">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">num_cells_ns</span></span><a class="headerlink" href="#sidescanpy.grids.definition.GridDefinition.num_cells_ns" title="Link to this definition">#</a></dt>
 <dd><p>Number of grid cells in north-south direction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ceil(extent_m_ns</span> <span class="pre">/</span> <span class="pre">resolution_m)</span></code>, except that a ratio within
+<a class="reference internal" href="#sidescanpy.grids.definition.CELL_COUNT_TOLERANCE" title="sidescanpy.grids.definition.CELL_COUNT_TOLERANCE"><code class="xref py py-data docutils literal notranslate"><span class="pre">CELL_COUNT_TOLERANCE</span></code></a> of a whole number counts as that number.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sidescanpy.grids.definition.GridDefinition.num_cells_ew">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">num_cells_ew</span></span><a class="headerlink" href="#sidescanpy.grids.definition.GridDefinition.num_cells_ew" title="Link to this definition">#</a></dt>
 <dd><p>Number of grid cells in east-west direction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ceil(extent_m_ew</span> <span class="pre">/</span> <span class="pre">resolution_m)</span></code>, except that a ratio within
+<a class="reference internal" href="#sidescanpy.grids.definition.CELL_COUNT_TOLERANCE" title="sidescanpy.grids.definition.CELL_COUNT_TOLERANCE"><code class="xref py py-data docutils literal notranslate"><span class="pre">CELL_COUNT_TOLERANCE</span></code></a> of a whole number counts as that number.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -889,6 +905,7 @@ data’s latitude), for a near-zero-extent segment.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.grids.definition.CELL_COUNT_TOLERANCE"><code class="docutils literal notranslate"><span class="pre">CELL_COUNT_TOLERANCE</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.grids.definition.GridDefinition"><code class="docutils literal notranslate"><span class="pre">GridDefinition</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.grids.definition.GridDefinition.extent_m_ns"><code class="docutils literal notranslate"><span class="pre">GridDefinition.extent_m_ns</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.grids.definition.GridDefinition.extent_m_ew"><code class="docutils literal notranslate"><span class="pre">GridDefinition.extent_m_ew</span></code></a></li>

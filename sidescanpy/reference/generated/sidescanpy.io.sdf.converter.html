@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -630,6 +631,14 @@ altitude, fathometer_reading) extracted from each page’s header</p></li>
 <li><p>Attitude aux record from per-page (timestamp, heading, pitch, roll)</p></li>
 <li><p>Empty DVL record (Klein doesn’t have DVL)</p></li>
 <li><p>No sensor records (Klein doesn’t have ancillary sensor streams)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cable_out_m</span></code> per ping from field 50. SDF has no layback distance, so
+no <code class="docutils literal notranslate"><span class="pre">layback_m</span></code>. <code class="docutils literal notranslate"><span class="pre">position_source</span></code> is <code class="docutils literal notranslate"><span class="pre">towfish</span></code> where the computed
+fish position (fields 39/40) is set and used for <code class="docutils literal notranslate"><span class="pre">latitude</span></code> /
+<code class="docutils literal notranslate"><span class="pre">longitude</span></code>, <code class="docutils literal notranslate"><span class="pre">ship</span></code> where the reader fell back to the ship position
+(fields 37/38), <code class="docutils literal notranslate"><span class="pre">mixed</span></code> if both occur. The layback-computed fish
+position (fields 71/72) is not used. <code class="docutils literal notranslate"><span class="pre">sdf_layback_method</span></code> records
+field 70 (0 Pythagorean, 1 hull mount). Not checked on a real file with
+a non-zero cable out.</p></li>
 </ul>
 <p>The reader yields both SDFSonarPage (sonar versions 3501/3502) and
 SDFUnknownPage (everything else). The converter filters to sonar pages

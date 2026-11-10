@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -652,8 +653,9 @@ pair, see <a class="reference internal" href="sidescanpy.io.xtf.reader.html#modu
 frequency, logged at DEBUG and counted in the <code class="docutils literal notranslate"><span class="pre">xtf_pings_absent</span></code>
 attribute.</p></li>
 <li><p>Per-ping fields come from the ping header: <code class="docutils literal notranslate"><span class="pre">SensorYcoordinate</span></code> /
-<code class="docutils literal notranslate"><span class="pre">SensorXcoordinate</span></code> → <code class="docutils literal notranslate"><span class="pre">latitude</span></code> / <code class="docutils literal notranslate"><span class="pre">longitude</span></code> (degrees,
-<code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 3 only), <code class="docutils literal notranslate"><span class="pre">SensorHeading</span></code>, <code class="docutils literal notranslate"><span class="pre">SensorPitch</span></code> (positive
+<code class="docutils literal notranslate"><span class="pre">SensorXcoordinate</span></code> → <code class="docutils literal notranslate"><span class="pre">latitude</span></code> / <code class="docutils literal notranslate"><span class="pre">longitude</span></code> (degrees with
+<code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 3; with <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0 they are northing / easting in
+metres and are converted, see below), <code class="docutils literal notranslate"><span class="pre">SensorHeading</span></code>, <code class="docutils literal notranslate"><span class="pre">SensorPitch</span></code> (positive
 nose up), <code class="docutils literal notranslate"><span class="pre">SensorRoll</span></code> (positive roll to starboard, i.e. port up,
 the JSF convention), <code class="docutils literal notranslate"><span class="pre">Heave</span></code>, <code class="docutils literal notranslate"><span class="pre">SensorDepth</span></code> →
 <code class="docutils literal notranslate"><span class="pre">heading_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">pitch_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">roll_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">heave_m</span></code>, <code class="docutils literal notranslate"><span class="pre">depth_m</span></code>.
@@ -685,10 +687,39 @@ used and the pings at other rates are reported at WARNING and counted in
 <code class="docutils literal notranslate"><span class="pre">xtf_pings_other_sample_rate</span></code>; their ranges are then wrong by the ratio
 of the rates. For split runs the tolerance is twice the split’s
 <code class="docutils literal notranslate"><span class="pre">rtol</span></code>, so the WARNING does not fire for them.</p>
+</section>
+<section id="projected-navigation">
+<h2>Projected navigation<a class="headerlink" href="#projected-navigation" title="Link to this heading">#</a></h2>
+<p>With <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0 the file header says <code class="docutils literal notranslate"><span class="pre">SensorXcoordinate</span></code> /
+<code class="docutils literal notranslate"><span class="pre">SensorYcoordinate</span></code> (and <code class="docutils literal notranslate"><span class="pre">ShipXcoordinate</span></code> / <code class="docutils literal notranslate"><span class="pre">ShipYcoordinate</span></code>, not
+used) are easting / northing in metres, but not in which projection. The
+caller names it with <code class="docutils literal notranslate"><span class="pre">nav_crs</span></code> (an EPSG code, a string pyproj accepts,
+or a <code class="docutils literal notranslate"><span class="pre">pyproj.CRS</span></code>); the sensor positions are converted to WGS84
+longitude / latitude with pyproj, a position of exactly (0, 0) becomes
+NaN (no fix), and the CRS is recorded in <code class="docutils literal notranslate"><span class="pre">xtf_nav_crs</span></code>. Without
+<code class="docutils literal notranslate"><span class="pre">nav_crs</span></code> such a file raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>: the zone is not guessed.
+<code class="docutils literal notranslate"><span class="pre">nav_crs</span></code> is ignored for files with <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 3.</p>
+</section>
+<section id="layback-and-position-source">
+<h2>Layback and position source<a class="headerlink" href="#layback-and-position-source" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Layback</span></code> → <code class="docutils literal notranslate"><span class="pre">layback_m</span></code> and <code class="docutils literal notranslate"><span class="pre">CableOut</span></code> (+ <code class="docutils literal notranslate"><span class="pre">CableOutHundredths</span></code>)
+→ <code class="docutils literal notranslate"><span class="pre">cable_out_m</span></code>, per ping, as written (some writers leave <code class="docutils literal notranslate"><span class="pre">Layback</span></code>
+NaN or 0). <code class="docutils literal notranslate"><span class="pre">position_source</span></code> says whether <code class="docutils literal notranslate"><span class="pre">latitude</span></code> / <code class="docutils literal notranslate"><span class="pre">longitude</span></code>
+already are the towfish: <code class="docutils literal notranslate"><span class="pre">towfish</span></code> when <code class="docutils literal notranslate"><span class="pre">SensorX/Ycoordinate</span></code> sit
+more than <code class="docutils literal notranslate"><span class="pre">SHIP_SENSOR_TOL_M</span></code> from <code class="docutils literal notranslate"><span class="pre">ShipX/Ycoordinate</span></code> on at least
+<code class="docutils literal notranslate"><span class="pre">SHIP_SENSOR_FRACTION</span></code> of the pings (the writer offset them), otherwise
+<code class="docutils literal notranslate"><span class="pre">unknown</span></code>. The reader never infers <code class="docutils literal notranslate"><span class="pre">ship</span></code>: neither the format nor the
+writers document it, so the call is left to a user who knows the system
+as deployed (pass <code class="docutils literal notranslate"><span class="pre">position_source=&quot;ship&quot;</span></code> to the <code class="docutils literal notranslate"><span class="pre">layback</span></code> step).
+Ship equal to Sensor does not mean the ship: EdgeTech Discover writes the
+laid-back towfish position in both fields. Files that look like ship
+positions (written by a <code class="docutils literal notranslate"><span class="pre">SHIP_POSITION_PROGRAMS</span></code> program, no Ship
+coordinates, <code class="docutils literal notranslate"><span class="pre">Layback</span></code> &gt; 0 on at least <code class="docutils literal notranslate"><span class="pre">SHIP_SENSOR_FRACTION</span></code> of the
+pings: Triton Isis records the layback without applying it) say so in
+<code class="docutils literal notranslate"><span class="pre">position_source_reason</span></code> but stay <code class="docutils literal notranslate"><span class="pre">unknown</span></code>. The <code class="docutils literal notranslate"><span class="pre">layback</span></code>
+correction step moves only <code class="docutils literal notranslate"><span class="pre">ship</span></code> positions.</p>
 <p>Not converted: <code class="docutils literal notranslate"><span class="pre">pulse_length_us</span></code> is not in the XTF ping or channel
-headers and is 0.0 (as for SDF); gain codes are not interpreted.
-<code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0 (projected coordinates) raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>:
-neither the JSF nor the SDF converter has a projected-coordinate path.</p>
+headers and is 0.0 (as for SDF); gain codes are not interpreted.</p>
 <p>Provenance attributes on every frequency dataset (<code class="docutils literal notranslate"><span class="pre">xtf_</span></code> prefix):
 recording program and version, sonar name and type, channel numbers
 and names, whether sound velocity was doubled, the <code class="docutils literal notranslate"><span class="pre">Weight</span></code> range, and counts of reader
@@ -712,7 +743,16 @@ the file shorter than the split’s <code class="docutils literal notranslate"><
 <tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.SAMPLE_RATE_RTOL" title="sidescanpy.io.xtf.converter.SAMPLE_RATE_RTOL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SAMPLE_RATE_RTOL</span></code></a></p></td>
 <td><p>Relative tolerance for treating two pings' sample rates as equal.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.convert" title="sidescanpy.io.xtf.converter.convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.SHIP_SENSOR_TOL_M" title="sidescanpy.io.xtf.converter.SHIP_SENSOR_TOL_M"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SHIP_SENSOR_TOL_M</span></code></a></p></td>
+<td><p>Sensor further than this (m) from Ship counts as a separate (towfish) position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.SHIP_SENSOR_FRACTION" title="sidescanpy.io.xtf.converter.SHIP_SENSOR_FRACTION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SHIP_SENSOR_FRACTION</span></code></a></p></td>
+<td><p>Fraction of pings with a Ship position that must be apart for &quot;towfish&quot;.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS" title="sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SHIP_POSITION_PROGRAMS</span></code></a></p></td>
+<td><p>Recording programs (lower-case name prefixes) whose Sensor coordinates, with no Ship coordinates and a recorded layback, look like the ship's position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.io.xtf.converter.convert" title="sidescanpy.io.xtf.converter.convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert</span></code></a></p></td>
 <td><p>Convert XTF sonar pings into a validated SideScanSurvey.</p></td>
 </tr>
 </tbody>
@@ -730,9 +770,29 @@ the file shorter than the split’s <code class="docutils literal notranslate"><
 <dd><p>Relative tolerance for treating two pings’ sample rates as equal.</p>
 </dd></dl>
 
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.converter.SHIP_SENSOR_TOL_M">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.converter.</span></span><span class="sig-name descname"><span class="pre">SHIP_SENSOR_TOL_M</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.5</span></span><a class="headerlink" href="#sidescanpy.io.xtf.converter.SHIP_SENSOR_TOL_M" title="Link to this definition">#</a></dt>
+<dd><p>Sensor further than this (m) from Ship counts as a separate (towfish) position.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.converter.SHIP_SENSOR_FRACTION">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.converter.</span></span><span class="sig-name descname"><span class="pre">SHIP_SENSOR_FRACTION</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.95</span></span><a class="headerlink" href="#sidescanpy.io.xtf.converter.SHIP_SENSOR_FRACTION" title="Link to this definition">#</a></dt>
+<dd><p>Fraction of pings with a Ship position that must be apart for “towfish”.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.converter.</span></span><span class="sig-name descname"><span class="pre">SHIP_POSITION_PROGRAMS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('isis',)</span></span><a class="headerlink" href="#sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS" title="Link to this definition">#</a></dt>
+<dd><p>Recording programs (lower-case name prefixes) whose Sensor coordinates,
+with no Ship coordinates and a recorded layback, look like the ship’s
+position. Reported in position_source_reason only, never assumed.</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="sidescanpy.io.xtf.converter.convert">
-<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.converter.</span></span><span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pings</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">survey_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.converter.convert" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.xtf.converter.</span></span><span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pings</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">survey_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nav_crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.xtf.converter.convert" title="Link to this definition">#</a></dt>
 <dd><p>Convert XTF sonar pings into a validated SideScanSurvey.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -748,6 +808,12 @@ pings NaN-padded to the longest.</p>
 </dd>
 <dt><strong>survey_name</strong><span class="classifier">str, optional</span></dt><dd><p>Survey name. Defaults to the first source file’s stem.</p>
 </dd>
+<dt><strong>nav_crs</strong><span class="classifier">int, str or pyproj.CRS, optional</span></dt><dd><p>Projected CRS of the coordinates in files with <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0
+(easting / northing in metres), e.g. <code class="docutils literal notranslate"><span class="pre">32619</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;EPSG:32619&quot;</span></code>
+for UTM zone 19N. Required for such files; ignored for files with
+<code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 3. Positions are converted to WGS84 longitude /
+latitude (see the module docstring).</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -760,10 +826,11 @@ attitude records from the ping headers, an empty DVL record.</p>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt>ValueError</dt><dd><p>If there are no sonar pings, no port/starboard channels, more
-than one channel pair of unknown frequency, or a frequency whose
-sample rate cannot be derived.</p>
+than one channel pair of unknown frequency, a frequency whose
+sample rate cannot be derived, a file with <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0 and no
+<code class="docutils literal notranslate"><span class="pre">nav_crs</span></code>, or a <code class="docutils literal notranslate"><span class="pre">nav_crs</span></code> that is not projected.</p>
 </dd>
-<dt>NotImplementedError</dt><dd><p>If a file’s <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> is not 3 (latitude/longitude).</p>
+<dt>NotImplementedError</dt><dd><p>If a file’s <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> is neither 0 nor 3.</p>
 </dd>
 </dl>
 </dd>
@@ -820,8 +887,13 @@ sample rate cannot be derived.</p>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sound-velocity-and-sample-rate">Sound velocity and sample rate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projected-navigation">Projected navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layback-and-position-source">Layback and position source</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.HALVED_SOUND_VELOCITY_BELOW_MS"><code class="docutils literal notranslate"><span class="pre">HALVED_SOUND_VELOCITY_BELOW_MS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.SAMPLE_RATE_RTOL"><code class="docutils literal notranslate"><span class="pre">SAMPLE_RATE_RTOL</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.SHIP_SENSOR_TOL_M"><code class="docutils literal notranslate"><span class="pre">SHIP_SENSOR_TOL_M</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.SHIP_SENSOR_FRACTION"><code class="docutils literal notranslate"><span class="pre">SHIP_SENSOR_FRACTION</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.SHIP_POSITION_PROGRAMS"><code class="docutils literal notranslate"><span class="pre">SHIP_POSITION_PROGRAMS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.io.xtf.converter.convert"><code class="docutils literal notranslate"><span class="pre">convert()</span></code></a></li>
 </ul>
   </nav></div>

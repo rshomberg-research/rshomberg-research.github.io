@@ -52,7 +52,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="sidescanpy.processing.navigation" href="sidescanpy.processing.navigation.html" />
+    <link rel="next" title="sidescanpy.processing.layback" href="sidescanpy.processing.layback.html" />
     <link rel="prev" title="sidescanpy.processing.interpolate" href="sidescanpy.processing.interpolate.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3 current active"><a aria-current="page" class="current reference internal" href="#">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -619,7 +620,8 @@
 <p>Undo recorded corrections, driven by <code class="docutils literal notranslate"><span class="pre">processing_history</span></code>.</p>
 <p>No uncorrected copy of the backscatter is stored: radiometric steps are
 inverted exactly from the parameters recorded in their history records, and
-geometric/georef steps are undone by dropping the variables they added.</p>
+geometric/georef steps are undone by dropping the variables they added, and
+<code class="docutils literal notranslate"><span class="pre">layback</span></code> by restoring the positions it kept.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#sidescanpy.processing.inversion.uncorrected_backscatter" title="sidescanpy.processing.inversion.uncorrected_backscatter"><code class="xref py py-func docutils literal notranslate"><span class="pre">uncorrected_backscatter()</span></code></a> – the pre-radiometric signal as a
 DataArray (nothing else touched). Works lazily on dask-backed data.</p></li>
@@ -713,14 +715,16 @@ requested (<code class="docutils literal notranslate"><span class="pre">tvg</spa
 <code class="docutils literal notranslate"><span class="pre">range_correction</span></code>). Undoing <code class="docutils literal notranslate"><span class="pre">geometric</span></code> also undoes <code class="docutils literal notranslate"><span class="pre">georef</span></code>
 (it is derived from the geometric variables) and requires
 <code class="docutils literal notranslate"><span class="pre">range_correction</span></code> to be undone too if it was applied (it needs
-<code class="docutils literal notranslate"><span class="pre">ground_range_m</span></code>). Steps that were never applied are ignored.</p>
+<code class="docutils literal notranslate"><span class="pre">ground_range_m</span></code>). Undoing <code class="docutils literal notranslate"><span class="pre">layback</span></code> restores the recorded
+positions and also undoes <code class="docutils literal notranslate"><span class="pre">georef</span></code> (computed from the moved
+positions). Steps that were never applied are ignored.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt>xr.Dataset</dt><dd><p>New dataset: <code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> restored, geometric/georef
-output variables dropped, and the undone steps’ history records
+output variables dropped, layback positions restored, and the undone steps’ history records
 removed. Records of non-invertible steps (<code class="docutils literal notranslate"><span class="pre">crop_farrange</span></code>,
 <code class="docutils literal notranslate"><span class="pre">interpolate_aux</span></code>, custom steps) are kept.</p>
 </dd>
@@ -758,11 +762,11 @@ leave a dependent step behind (see above).</p>
       </div>
     </a>
     <a class="right-next"
-       href="sidescanpy.processing.navigation.html"
+       href="sidescanpy.processing.layback.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">sidescanpy.processing.navigation</p>
+        <p class="prev-next-title">sidescanpy.processing.layback</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

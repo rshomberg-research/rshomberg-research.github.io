@@ -13,6 +13,15 @@ sidescanpy.core.schema
    REQUIRED_DIMS
    REQUIRED_COORDS
    REQUIRED_VARS
+   OPTIONAL_PER_PING_VARS
+   POSITION_SOURCE_ATTR
+   POSITION_SOURCE_REASON_ATTR
+   POSITION_SHIP
+   POSITION_TOWFISH
+   POSITION_MIXED
+   POSITION_UNKNOWN
+   POSITION_SOURCES
+   combine_position_sources
    REQUIRED_ATTRS
    KNOWN_PROCESSING_LEVELS
    LEGACY_PROCESSING_LEVEL_VALUES
@@ -61,6 +70,26 @@ sidescanpy.core.schema
 
 .. autodata:: sidescanpy.core.schema.REQUIRED_VARS
    :no-value:
+
+.. autodata:: sidescanpy.core.schema.OPTIONAL_PER_PING_VARS
+   :no-value:
+
+.. autodata:: sidescanpy.core.schema.POSITION_SOURCE_ATTR
+
+.. autodata:: sidescanpy.core.schema.POSITION_SOURCE_REASON_ATTR
+
+.. autodata:: sidescanpy.core.schema.POSITION_SHIP
+
+.. autodata:: sidescanpy.core.schema.POSITION_TOWFISH
+
+.. autodata:: sidescanpy.core.schema.POSITION_MIXED
+
+.. autodata:: sidescanpy.core.schema.POSITION_UNKNOWN
+
+.. autodata:: sidescanpy.core.schema.POSITION_SOURCES
+   :no-value:
+
+.. autofunction:: sidescanpy.core.schema.combine_position_sources
 
 .. autodata:: sidescanpy.core.schema.REQUIRED_ATTRS
    :no-value:

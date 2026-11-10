@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -653,55 +654,58 @@ only as a fallback when the history records no recognised step.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_BOTTOM_TRACK" title="sidescanpy.core.history.STEP_BOTTOM_TRACK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_BOTTOM_TRACK</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_TVG" title="sidescanpy.core.history.STEP_TVG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_TVG</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_LAYBACK" title="sidescanpy.core.history.STEP_LAYBACK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_LAYBACK</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_GEOMETRIC" title="sidescanpy.core.history.STEP_GEOMETRIC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_GEOMETRIC</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_TVG" title="sidescanpy.core.history.STEP_TVG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_TVG</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_RANGE_CORRECTION" title="sidescanpy.core.history.STEP_RANGE_CORRECTION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_RANGE_CORRECTION</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_GEOMETRIC" title="sidescanpy.core.history.STEP_GEOMETRIC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_GEOMETRIC</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_GEOREF" title="sidescanpy.core.history.STEP_GEOREF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_GEOREF</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_RANGE_CORRECTION" title="sidescanpy.core.history.STEP_RANGE_CORRECTION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_RANGE_CORRECTION</span></code></a></p></td>
 <td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.BUILTIN_STEPS" title="sidescanpy.core.history.BUILTIN_STEPS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BUILTIN_STEPS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_GEOREF" title="sidescanpy.core.history.STEP_GEOREF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_GEOREF</span></code></a></p></td>
+<td><p>str(object='') -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.BUILTIN_STEPS" title="sidescanpy.core.history.BUILTIN_STEPS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BUILTIN_STEPS</span></code></a></p></td>
 <td><p>Built-in correction steps, in their canonical (dependency) order.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.RADIOMETRIC_STEPS" title="sidescanpy.core.history.RADIOMETRIC_STEPS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RADIOMETRIC_STEPS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.RADIOMETRIC_STEPS" title="sidescanpy.core.history.RADIOMETRIC_STEPS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RADIOMETRIC_STEPS</span></code></a></p></td>
 <td><p>Steps that change <code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> values and can be inverted.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_OUTPUT_VARS" title="sidescanpy.core.history.STEP_OUTPUT_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_OUTPUT_VARS</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.STEP_OUTPUT_VARS" title="sidescanpy.core.history.STEP_OUTPUT_VARS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STEP_OUTPUT_VARS</span></code></a></p></td>
 <td><p>Variables added by the geometric/georef steps.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.LEGACY_STEP_NAMES" title="sidescanpy.core.history.LEGACY_STEP_NAMES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEGACY_STEP_NAMES</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.LEGACY_STEP_NAMES" title="sidescanpy.core.history.LEGACY_STEP_NAMES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEGACY_STEP_NAMES</span></code></a></p></td>
 <td><p>Step names written to <code class="docutils literal notranslate"><span class="pre">processing_history</span></code> by older versions.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.LEVEL_STEPS" title="sidescanpy.core.history.LEVEL_STEPS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEVEL_STEPS</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.LEVEL_STEPS" title="sidescanpy.core.history.LEVEL_STEPS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEVEL_STEPS</span></code></a></p></td>
 <td><p>Built-in steps that define a processing level.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.PROCESSING_LEVELS" title="sidescanpy.core.history.PROCESSING_LEVELS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PROCESSING_LEVELS</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.PROCESSING_LEVELS" title="sidescanpy.core.history.PROCESSING_LEVELS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PROCESSING_LEVELS</span></code></a></p></td>
 <td><p>Values <a class="reference internal" href="#sidescanpy.core.history.processing_level" title="sidescanpy.core.history.processing_level"><code class="xref py py-func docutils literal notranslate"><span class="pre">processing_level()</span></code></a> can return, least to most processed.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.canonical_step" title="sidescanpy.core.history.canonical_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">canonical_step</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.canonical_step" title="sidescanpy.core.history.canonical_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">canonical_step</span></code></a></p></td>
 <td><p>Map a recorded step name (possibly a legacy one) to its canonical name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.read_history" title="sidescanpy.core.history.read_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_history</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.read_history" title="sidescanpy.core.history.read_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_history</span></code></a></p></td>
 <td><p>Parsed <code class="docutils literal notranslate"><span class="pre">processing_history</span></code> records (raw, names not canonicalised).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.applied_steps" title="sidescanpy.core.history.applied_steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">applied_steps</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.applied_steps" title="sidescanpy.core.history.applied_steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">applied_steps</span></code></a></p></td>
 <td><p>Canonical names of every recorded step, oldest first.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.has_step" title="sidescanpy.core.history.has_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_step</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.has_step" title="sidescanpy.core.history.has_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_step</span></code></a></p></td>
 <td><p>True if <code class="docutils literal notranslate"><span class="pre">step</span></code> has been applied to <code class="docutils literal notranslate"><span class="pre">ds</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.processing_level" title="sidescanpy.core.history.processing_level"><code class="xref py py-obj docutils literal notranslate"><span class="pre">processing_level</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.processing_level" title="sidescanpy.core.history.processing_level"><code class="xref py py-obj docutils literal notranslate"><span class="pre">processing_level</span></code></a></p></td>
 <td><p>The most advanced correction step applied to <code class="docutils literal notranslate"><span class="pre">ds</span></code> (canonical order), or <code class="docutils literal notranslate"><span class="pre">&quot;raw&quot;</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.append_history" title="sidescanpy.core.history.append_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_history</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.append_history" title="sidescanpy.core.history.append_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_history</span></code></a></p></td>
 <td><p>Return a shallow copy of <code class="docutils literal notranslate"><span class="pre">ds</span></code> with one step record appended.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.core.history.remove_history_records" title="sidescanpy.core.history.remove_history_records"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_history_records</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.core.history.remove_history_records" title="sidescanpy.core.history.remove_history_records"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_history_records</span></code></a></p></td>
 <td><p>Return a shallow copy of <code class="docutils literal notranslate"><span class="pre">ds</span></code> without the history records at <code class="docutils literal notranslate"><span class="pre">indices</span></code>.</p></td>
 </tr>
 </tbody>
@@ -738,6 +742,20 @@ errors defaults to ‘strict’.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="sidescanpy.core.history.STEP_BOTTOM_TRACK">
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.core.history.</span></span><span class="sig-name descname"><span class="pre">STEP_BOTTOM_TRACK</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bottom_track'</span></span><a class="headerlink" href="#sidescanpy.core.history.STEP_BOTTOM_TRACK" title="Link to this definition">#</a></dt>
+<dd><p>str(object=’’) -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to ‘strict’.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.core.history.STEP_LAYBACK">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.core.history.</span></span><span class="sig-name descname"><span class="pre">STEP_LAYBACK</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'layback'</span></span><a class="headerlink" href="#sidescanpy.core.history.STEP_LAYBACK" title="Link to this definition">#</a></dt>
 <dd><p>str(object=’’) -&gt; str
 str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
 <p>Create a new string object from the given object. If encoding or
@@ -834,8 +852,8 @@ variable checked by <a class="reference internal" href="#sidescanpy.core.history
 <dt class="sig sig-object py" id="sidescanpy.core.history.LEVEL_STEPS">
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.core.history.</span></span><span class="sig-name descname"><span class="pre">LEVEL_STEPS</span></span><a class="headerlink" href="#sidescanpy.core.history.LEVEL_STEPS" title="Link to this definition">#</a></dt>
 <dd><p>Built-in steps that define a processing level. Cropping, aux
-interpolation and bottom tracking prepare data but do not correct it, so
-they are not levels.</p>
+interpolation, bottom tracking and layback prepare data but do not correct
+the backscatter, so they are not levels.</p>
 </dd></dl>
 
 <dl class="py data">
@@ -953,6 +971,7 @@ via <code class="docutils literal notranslate"><span class="pre">str()</span></c
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.history.STEP_CROP_FARRANGE"><code class="docutils literal notranslate"><span class="pre">STEP_CROP_FARRANGE</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.history.STEP_INTERPOLATE_AUX"><code class="docutils literal notranslate"><span class="pre">STEP_INTERPOLATE_AUX</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.history.STEP_BOTTOM_TRACK"><code class="docutils literal notranslate"><span class="pre">STEP_BOTTOM_TRACK</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.history.STEP_LAYBACK"><code class="docutils literal notranslate"><span class="pre">STEP_LAYBACK</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.history.STEP_TVG"><code class="docutils literal notranslate"><span class="pre">STEP_TVG</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.history.STEP_GEOMETRIC"><code class="docutils literal notranslate"><span class="pre">STEP_GEOMETRIC</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.core.history.STEP_RANGE_CORRECTION"><code class="docutils literal notranslate"><span class="pre">STEP_RANGE_CORRECTION</span></code></a></li>

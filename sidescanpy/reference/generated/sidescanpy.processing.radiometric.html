@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -927,7 +928,12 @@ Converts linear amplitude to dB (<code class="docutils literal notranslate"><spa
 range, and returns corrected dB values in place of the input.</p>
 <p>Input <code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> is assumed to be linear amplitude; the
 library does not check this (what units the input data is in is the
-caller’s knowledge). Exact-zero amplitude maps to the -120 dB floor.</p>
+caller’s knowledge). Exact-zero amplitude maps to the -120 dB floor
+and gets no gain, so it stays exactly at
+<a class="reference internal" href="sidescanpy.core.units.html#sidescanpy.core.units.FLOOR_DB" title="sidescanpy.core.units.FLOOR_DB"><code class="xref py py-data docutils literal notranslate"><span class="pre">FLOOR_DB</span></code></a> after TVG and
+<a class="reference internal" href="sidescanpy.core.units.html#sidescanpy.core.units.mask_floor_clip" title="sidescanpy.core.units.mask_floor_clip"><code class="xref py py-func docutils literal notranslate"><span class="pre">mask_floor_clip()</span></code></a> still recognizes it
+(<a class="reference internal" href="sidescanpy.processing.inversion.html#sidescanpy.processing.inversion.uncorrected_backscatter" title="sidescanpy.processing.inversion.uncorrected_backscatter"><code class="xref py py-func docutils literal notranslate"><span class="pre">uncorrected_backscatter()</span></code></a> maps
+it back to 0).</p>
 <p>The step is recorded in <code class="docutils literal notranslate"><span class="pre">processing_history</span></code> as <code class="docutils literal notranslate"><span class="pre">&quot;tvg&quot;</span></code> with the
 parameters actually used (defaults resolved), which is what
 <a class="reference internal" href="sidescanpy.processing.inversion.html#sidescanpy.processing.inversion.invert" title="sidescanpy.processing.inversion.invert"><code class="xref py py-func docutils literal notranslate"><span class="pre">sidescanpy.processing.inversion.invert()</span></code></a> reads to undo it.</p>

@@ -16,6 +16,7 @@ sidescanpy.processing
    georeferencing <sidescanpy.processing.georeferencing>
    interpolate <sidescanpy.processing.interpolate>
    inversion <sidescanpy.processing.inversion>
+   layback <sidescanpy.processing.layback>
    navigation <sidescanpy.processing.navigation>
    outliers <sidescanpy.processing.outliers>
    profiles <sidescanpy.processing.profiles>

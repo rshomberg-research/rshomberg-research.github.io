@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -623,26 +624,40 @@ and values are preserved. Downstream tools (xarray.interp, rioxarray,
 etc.) handle resampling onto regular grids on demand.</p>
 <p>Outputs (all shape (ping, channel, sample)):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slant_range_m</span>       <span class="n">attitude</span><span class="o">-</span><span class="n">invariant</span> <span class="n">time</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">flight</span> <span class="nb">range</span>
-<span class="n">ground_range_m</span>      <span class="n">sqrt</span><span class="p">(</span><span class="n">slant</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="n">altitude</span><span class="o">^</span><span class="mi">2</span><span class="p">),</span> <span class="n">unsigned</span> <span class="p">(</span><span class="n">flat</span><span class="o">-</span><span class="n">bottom</span><span class="p">,</span>
-                    <span class="n">no</span> <span class="n">pitch</span> <span class="n">correction</span><span class="p">)</span>
-<span class="n">across_track_m</span>      <span class="n">signed</span> <span class="n">Y</span> <span class="n">component</span><span class="p">,</span> <span class="n">pitch</span><span class="o">-</span><span class="n">corrected</span>
+<span class="n">ground_range_m</span>      <span class="n">sqrt</span><span class="p">(</span><span class="n">slant</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="n">altitude</span><span class="o">^</span><span class="mi">2</span><span class="p">),</span> <span class="n">unsigned</span><span class="p">:</span> <span class="n">horizontal</span>
+                    <span class="n">distance</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">nadir</span> <span class="n">point</span> <span class="p">(</span><span class="n">flat</span> <span class="n">bottom</span><span class="p">;</span> <span class="n">the</span>
+                    <span class="n">same</span> <span class="k">with</span> <span class="ow">or</span> <span class="n">without</span> <span class="n">pitch</span><span class="p">)</span>
+<span class="n">across_track_m</span>      <span class="n">signed</span> <span class="n">Y</span> <span class="n">component</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">platform</span> <span class="n">frame</span>
                     <span class="p">(</span><span class="n">negative</span> <span class="o">=</span> <span class="n">port</span><span class="p">,</span> <span class="n">positive</span> <span class="o">=</span> <span class="n">starboard</span><span class="p">)</span>
-<span class="n">along_track_m</span>       <span class="n">signed</span> <span class="n">X</span> <span class="n">component</span><span class="p">,</span> <span class="n">pitch</span><span class="o">-</span><span class="n">induced</span> <span class="n">offset</span>
-                    <span class="p">(</span><span class="n">positive</span> <span class="o">=</span> <span class="n">forward</span> <span class="n">of</span> <span class="n">nadir</span><span class="p">,</span> <span class="n">negative</span> <span class="o">=</span> <span class="n">aft</span><span class="p">)</span>
+<span class="n">along_track_m</span>       <span class="n">signed</span> <span class="n">X</span> <span class="n">component</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">platform</span> <span class="n">frame</span><span class="p">,</span> <span class="n">the</span>
+                    <span class="n">pitch</span><span class="o">-</span><span class="n">induced</span> <span class="n">offset</span> <span class="p">(</span><span class="n">positive</span> <span class="o">=</span> <span class="n">forward</span> <span class="n">of</span> <span class="n">nadir</span><span class="p">)</span>
 <span class="n">vertical_offset_m</span>   <span class="n">Z</span> <span class="n">component</span> <span class="kn">from</span><span class="w"> </span><span class="nn">platform</span> <span class="o">=</span> <span class="n">altitude_m</span> <span class="k">for</span> <span class="n">flat</span>
                     <span class="n">bottom</span> <span class="p">(</span><span class="n">broadcast</span><span class="p">)</span><span class="o">.</span> <span class="n">Future</span><span class="p">:</span> <span class="n">extends</span> <span class="n">to</span> <span class="n">bathymetry</span><span class="o">.</span>
 <span class="n">depth_per_sample_m</span>  <span class="n">absolute</span> <span class="n">water</span> <span class="n">depth</span> <span class="n">at</span> <span class="n">sample</span> <span class="n">location</span>
                     <span class="o">=</span> <span class="n">depth_m</span> <span class="o">+</span> <span class="n">altitude_m</span>
 </pre></div>
 </div>
-<dl class="simple">
+<dl>
 <dt>Sign conventions:</dt><dd><ul class="simple">
 <li><p>across_track_m: port channel negative, starboard positive</p></li>
-<li><p>along_track_m: positive forward of nadir (pitch-up reflects forward)</p></li>
+<li><p>along_track_m: positive forward of nadir (nose up puts samples forward)</p></li>
 </ul>
 </dd>
-<dt>Pitch-correction math:</dt><dd><p>across_track_m = ±ground_range_m * cos(pitch_rad)
-along_track_m  = +ground_range_m * sin(pitch_rad)</p>
+<dt>Pitch model (flat bottom, fan beam perpendicular to the body x-axis):</dt><dd><p>With the vehicle pitched by theta (positive nose up) at vertical
+altitude h, the fan plane tilts forward by theta. A sample at slant
+range R hits the seafloor at</p>
+<blockquote>
+<div><p>along_track_m  = h * tan(theta)                (every sample of the ping)
+across_track_m = ±sqrt(R^2 - (h / cos(theta))^2)</p>
+</div></blockquote>
+<p>and is on the seafloor only when R &gt; h / cos(theta); nearer samples
+are water column and NaN in across_track_m and along_track_m. The
+horizontal distance from nadir, sqrt(along^2 + across^2), equals
+sqrt(R^2 - h^2) = ground_range_m. Pitch therefore shifts the whole
+ping forward or aft by a constant and shortens the across-track
+distance slightly; it does not rotate the swath.</p>
+<p>NaN pitch_deg is treated as 0 (no pitch correction) with a warning,
+as NaN sound velocity falls back to 1500 m/s.</p>
 </dd>
 </dl>
 <p>Roll’s effect on altitude is intentionally not modeled here. Future
@@ -654,12 +669,23 @@ derive altitude_m.</p>
 <p class="rubric">Contents</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.geometric.compute_geometric_ranges" title="sidescanpy.processing.geometric.compute_geometric_ranges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_geometric_ranges</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.geometric.PITCH_MODEL" title="sidescanpy.processing.geometric.PITCH_MODEL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PITCH_MODEL</span></code></a></p></td>
+<td><p>Recorded in the <code class="docutils literal notranslate"><span class="pre">geometric</span></code> history record.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.geometric.compute_geometric_ranges" title="sidescanpy.processing.geometric.compute_geometric_ranges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_geometric_ranges</span></code></a></p></td>
 <td><p>Attach per-sample geometric variables to the dataset.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<dl class="py data">
+<dt class="sig sig-object py" id="sidescanpy.processing.geometric.PITCH_MODEL">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.geometric.</span></span><span class="sig-name descname"><span class="pre">PITCH_MODEL</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fan_beam_flat_bottom'</span></span><a class="headerlink" href="#sidescanpy.processing.geometric.PITCH_MODEL" title="Link to this definition">#</a></dt>
+<dd><p>Recorded in the <code class="docutils literal notranslate"><span class="pre">geometric</span></code> history record. Records without this key
+(sidescanpy 0.9.0 and earlier) were made by a model that rotated the
+ground vector by pitch (along = ground·sin θ), wrong for pitched pings.</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="sidescanpy.processing.geometric.compute_geometric_ranges">
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.geometric.</span></span><span class="sig-name descname"><span class="pre">compute_geometric_ranges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">expose_unmasked_z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.geometric.compute_geometric_ranges" title="Link to this definition">#</a></dt>
@@ -694,9 +720,13 @@ variables and a <code class="docutils literal notranslate"><span class="pre">&qu
 <li><p>NaN altitude_m for a ping → all per-sample geometry NaN for that
 ping (slant_range_m is unaffected; it’s altitude-independent).</p></li>
 <li><p>NaN sound_vel_ms for a ping → falls back to 1500 m/s with warning.</p></li>
-<li><p>Water-column samples (slant &lt;= altitude) → NaN in ground_range_m,
-across_track_m, along_track_m, and (by default) vertical_offset_m
-and depth_per_sample_m.</p></li>
+<li><p>NaN pitch_deg for a ping → taken as 0 with warning.</p></li>
+<li><p>Water-column samples (slant &lt;= altitude) → NaN in ground_range_m
+and (by default) vertical_offset_m and depth_per_sample_m.
+across_track_m and along_track_m use the pitched-fan limit
+slant &lt;= altitude / cos(pitch), so on pitched pings a few samples
+just past the altitude have a ground range but no across/along
+position.</p></li>
 </ul>
 </dd>
 </dl>
@@ -751,6 +781,7 @@ and depth_per_sample_m.</p></li>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.geometric.PITCH_MODEL"><code class="docutils literal notranslate"><span class="pre">PITCH_MODEL</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.geometric.compute_geometric_ranges"><code class="docutils literal notranslate"><span class="pre">compute_geometric_ranges()</span></code></a></li>
 </ul>
   </nav></div>

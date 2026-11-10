@@ -10,10 +10,13 @@ sidescanpy.grids.definition
 .. autosummary::
    :nosignatures:
 
+   CELL_COUNT_TOLERANCE
    GridDefinition
    utm_crs_for_lonlat
    utm_grid_from_wgs84_bbox
    bbox_from_channel_dataset
+
+.. autodata:: sidescanpy.grids.definition.CELL_COUNT_TOLERANCE
 
 .. autoclass:: sidescanpy.grids.definition.GridDefinition
    :members:

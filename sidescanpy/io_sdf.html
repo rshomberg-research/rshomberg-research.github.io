@@ -599,6 +599,11 @@ true length.</p></li>
 can change too. <code class="docutils literal notranslate"><span class="pre">read_and_convert_segments</span></code> splits the file into runs
 of constant sample interval (runs under 50 pings are dropped);
 <code class="docutils literal notranslate"><span class="pre">read_and_convert</span></code> keeps it whole and uses the first page’s rate.</p></li>
+<li><p><strong>Pitch sign.</strong> The specification available here does not state the
+sign of the pitch field. The reader passes it through, and the
+geometric step treats positive as nose up, as for JSF and XTF. If a
+recording logs nose down as positive, its along-track offsets have the
+wrong sign.</p></li>
 <li><p><strong>Aux fields with variable units.</strong> Header fields for auxiliary
 pitch, roll, depth and altitude sensors carry whatever units the
 sensor reports and are exposed without conversion.</p></li>

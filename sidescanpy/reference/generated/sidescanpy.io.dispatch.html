@@ -516,6 +516,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.georeferencing.html">georeferencing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.interpolate.html">interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.inversion.html">inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.layback.html">layback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.navigation.html">navigation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.outliers.html">outliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sidescanpy.processing.profiles.html">profiles</a></li>
@@ -680,7 +681,7 @@ catalogs, dispatched on the catalog directory’s own contents.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>input_paths</strong><span class="classifier">list[Path]</span></dt><dd><p>Candidate sonar files. All must share the same extension — this
+<dt><strong>input_paths</strong><span class="classifier">path or list of paths</span></dt><dd><p>Candidate sonar files (str or Path). All must share the same extension — this
 function is for the “merge these into one survey” case; batch
 callers processing files independently should call it once per
 file instead of once for a whole directory.</p>
@@ -705,16 +706,20 @@ supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sidescanpy.io.dispatch.read_and_convert">
-<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.dispatch.</span></span><span class="sig-name descname"><span class="pre">read_and_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">survey_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.dispatch.read_and_convert" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.dispatch.</span></span><span class="sig-name descname"><span class="pre">read_and_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">survey_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">nav_crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.dispatch.read_and_convert" title="Link to this definition">#</a></dt>
 <dd><p>Read sonar files and convert to a SideScanSurvey.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>input_paths</strong><span class="classifier">list[Path]</span></dt><dd><p>Paths to .jsf, .sdf or .xtf files (all same format).</p>
+<dt><strong>input_paths</strong><span class="classifier">path or list of paths</span></dt><dd><p>Paths (str or Path) to .jsf, .sdf or .xtf files (all same format);
+a single path is one file.</p>
 </dd>
 <dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>“jsf”, “sdf” or “xtf”.</p>
 </dd>
 <dt><strong>survey_name</strong><span class="classifier">str, optional</span></dt><dd><p>Survey name. Defaults to first input file’s stem.</p>
+</dd>
+<dt><strong>nav_crs</strong><span class="classifier">int, str or pyproj.CRS, optional</span></dt><dd><p>XTF only: projected CRS of files with <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0 (see
+<a class="reference internal" href="sidescanpy.io.xtf.converter.html#sidescanpy.io.xtf.converter.convert" title="sidescanpy.io.xtf.converter.convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">sidescanpy.io.xtf.convert()</span></code></a>). Ignored for JSF and SDF.</p>
 </dd>
 </dl>
 </dd>
@@ -736,7 +741,7 @@ supported.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sidescanpy.io.dispatch.read_and_convert_segments">
-<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.dispatch.</span></span><span class="sig-name descname"><span class="pre">read_and_convert_segments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">survey_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_pings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.dispatch.read_and_convert_segments" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.dispatch.</span></span><span class="sig-name descname"><span class="pre">read_and_convert_segments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">survey_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_pings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nav_crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.dispatch.read_and_convert_segments" title="Link to this definition">#</a></dt>
 <dd><p>Read one raw sonar file into one survey per constant-range segment.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">.jsf</span></code> file gives one survey, exactly as <a class="reference internal" href="#sidescanpy.io.dispatch.read_and_convert" title="sidescanpy.io.dispatch.read_and_convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_and_convert()</span></code></a>.
 <code class="docutils literal notranslate"><span class="pre">.xtf</span></code> and <code class="docutils literal notranslate"><span class="pre">.sdf</span></code> files are split at sample-rate (range-setting)
@@ -754,6 +759,9 @@ attribute).</p>
 <dt><strong>survey_name</strong><span class="classifier">str, optional</span></dt><dd><p>Base name; defaults to <code class="docutils literal notranslate"><span class="pre">path.stem</span></code>.</p>
 </dd>
 <dt><strong>min_pings</strong><span class="classifier">int, default 50</span></dt><dd><p>XTF and SDF: shortest run kept when a file is split.</p>
+</dd>
+<dt><strong>nav_crs</strong><span class="classifier">int, str or pyproj.CRS, optional</span></dt><dd><p>XTF only: projected CRS of a file with <code class="docutils literal notranslate"><span class="pre">NavUnits</span></code> 0 (see
+<a class="reference internal" href="sidescanpy.io.xtf.converter.html#sidescanpy.io.xtf.converter.convert" title="sidescanpy.io.xtf.converter.convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">sidescanpy.io.xtf.convert()</span></code></a>). Ignored for JSF and SDF.</p>
 </dd>
 </dl>
 </dd>

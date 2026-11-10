@@ -13,6 +13,7 @@ sidescanpy.core.history
    STEP_CROP_FARRANGE
    STEP_INTERPOLATE_AUX
    STEP_BOTTOM_TRACK
+   STEP_LAYBACK
    STEP_TVG
    STEP_GEOMETRIC
    STEP_RANGE_CORRECTION
@@ -36,6 +37,8 @@ sidescanpy.core.history
 .. autodata:: sidescanpy.core.history.STEP_INTERPOLATE_AUX
 
 .. autodata:: sidescanpy.core.history.STEP_BOTTOM_TRACK
+
+.. autodata:: sidescanpy.core.history.STEP_LAYBACK
 
 .. autodata:: sidescanpy.core.history.STEP_TVG
 

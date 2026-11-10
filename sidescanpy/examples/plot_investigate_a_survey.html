@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Investigating an unknown survey &#8212; sidescanpy 0.9.0</title>
+    <title>Investigating an unknown survey &#8212; sidescanpy 0.10.0</title>
   
   
   
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
 
-    <script src="../_static/documentation_options.js?v=39bb1c6d"></script>
+    <script src="../_static/documentation_options.js?v=82662543"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -57,7 +57,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.9.0" />
+  <meta name="docsearch:version" content="0.10.0" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -125,7 +125,7 @@
   
   
   
-    <p class="title logo__title">sidescanpy 0.9.0</p>
+    <p class="title logo__title">sidescanpy 0.10.0</p>
   
 </a></div>
     
@@ -595,12 +595,12 @@ records no altitude, so the bottom track supplies it first.</p>
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">var</span></a> <span class="o">=</span> <span class="s2">&quot;</span><span class="s2">backscatter_intensity</span><span class="s2">&quot;</span><span class="w">
 </span><a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">channels</span></a><span class="p">[</span><span class="s2">&quot;</span><span class="s2">hz_218740</span><span class="s2">&quot;</span><span class="p">]</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>23:13:26 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-23:13:26 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
-23:13:26 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-23:13:26 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-23:13:26 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-23:13:27 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>23:31:58 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+23:31:58 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
+23:31:58 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+23:31:58 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+23:31:58 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+23:31:59 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 </pre></div>
 </div>
 <section id="what-are-the-samples">
@@ -680,10 +680,10 @@ the corrected level is over the same window.</p>
 </span><span class="k">for</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">col</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">fk</span></a> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">channels</span></a><span class="p">)</span><span class="p">:</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-sidescanpy-viz sphx-glr-backref-type-py-function reference internal" href="../reference/generated/sidescanpy.viz.tvg.html#sidescanpy.viz.tvg.plot_tvg_fit" title="sidescanpy.viz.plot_tvg_fit"><span class="n">plot_tvg_fit</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">fits</span></a><span class="p">[</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">fk</span></a><span class="p">]</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">checks</span></a><span class="p">[</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">fk</span></a><span class="p">]</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">axes</span></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">col</span></a><span class="p">]</span><span class="p">,</span> <span class="n">ax_check</span><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">axes</span></a><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">col</span></a><span class="p">]</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img src="../_images/sphx_glr_plot_investigate_a_survey_004.png" srcset="../_images/sphx_glr_plot_investigate_a_survey_004.png, ../_images/sphx_glr_plot_investigate_a_survey_004_2_00x.png 2.00x" alt="230 kHz, best 30 log R + abs, 548 kHz, best 30 log R + abs" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>23:13:35 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+<img src="../_images/sphx_glr_plot_investigate_a_survey_004.png" srcset="../_images/sphx_glr_plot_investigate_a_survey_004.png, ../_images/sphx_glr_plot_investigate_a_survey_004_2_00x.png 2.00x" alt="230 kHz, best 30 log R + abs, 548 kHz, best 30 log R + abs" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>23:32:07 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 hz_218740: window 28.5-160.5 m, best 30 log R + abs (TVG status none), free n 26.6; RMS in dB: flat 9.92, absorption only 5.52, 20 log R 5.85, 20 log R + abs 1.69, 30 log R 3.83, 30 log R + abs 1.23, 40 log R 1.83, 40 log R + abs 2.91
    after TVG: spread 1.23 dB, trend +0.23 dB per 10 m
-23:13:37 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+23:32:09 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 hz_521000: window 27.5-88.5 m, best 30 log R + abs (TVG status none), free n 34.0; RMS in dB: flat 9.91, absorption only 4.94, 20 log R 7.03, 20 log R + abs 2.09, 30 log R 5.60, 30 log R + abs 0.79, 40 log R 4.18, 40 log R + abs 1.02
    after TVG: spread 0.80 dB, trend -0.32 dB per 10 m
 units: raw_counts
@@ -702,7 +702,7 @@ needs <a class="reference internal" href="../reference/generated/sidescanpy.proc
 (<code class="docutils literal notranslate"><span class="pre">fits[fk].tvg_params</span></code>), and anything past the noise knee is noise to
 crop or mask, not seabed. What TVG leaves near the start of the window
 is the beam pattern, for the empirical range correction.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 11.800 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 11.886 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-investigate-a-survey-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/458b5198bbc16451188be16c5e2244b5/plot_investigate_a_survey.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_investigate_a_survey.ipynb</span></code></a></p>

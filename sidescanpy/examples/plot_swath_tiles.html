@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Swath tiles for annotation, and boxes back to targets &#8212; sidescanpy 0.9.0</title>
+    <title>Swath tiles for annotation, and boxes back to targets &#8212; sidescanpy 0.10.0</title>
   
   
   
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
 
-    <script src="../_static/documentation_options.js?v=39bb1c6d"></script>
+    <script src="../_static/documentation_options.js?v=82662543"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -57,7 +57,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.9.0" />
+  <meta name="docsearch:version" content="0.10.0" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -125,7 +125,7 @@
   
   
   
-    <p class="title logo__title">sidescanpy 0.9.0</p>
+    <p class="title logo__title">sidescanpy 0.10.0</p>
   
 </a></div>
     
@@ -598,10 +598,10 @@ shows the pattern (changes 1 entry apart, then 6 to 7).</p>
 </span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a> <span class="o">=</span> <span class="n">compute_georeferencing</span><span class="p">(</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="o">.</span><span class="n">get_frequency</span><span class="p">(</span><span class="s2">&quot;</span><span class="s2">hz_100000</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">dataset</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>23:16:10 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-23:16:10 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-23:16:10 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;pitch_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-23:16:10 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;roll_deg&#39;]: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>23:34:43 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+23:34:43 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+23:34:43 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;pitch_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+23:34:43 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;roll_deg&#39;]: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
 </pre></div>
 </div>
 <p>Tiles 30 m along track with 0.1 m pixels, overlapping by 5 m so an
@@ -678,7 +678,7 @@ scored against a catalog with <a class="reference internal" href="../reference/g
 grand_bay_150602205800_hz_100000_0002_001: reef     ping 208, port, sample 3317, lat 30.362860 lon -88.360015, 12.0 x 12.0 m
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.688 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.692 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-swath-tiles-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/b377aa50e0e362a31094f5a1b7ec1ef9/plot_swath_tiles.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_swath_tiles.ipynb</span></code></a></p>

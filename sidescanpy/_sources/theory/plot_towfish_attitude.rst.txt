@@ -953,7 +953,7 @@ themselves, and :doc:`/examples/plot_navigation` the course over ground.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 16.941 seconds)
+   **Total running time of the script:** (0 minutes 16.989 seconds)
 
 
 .. _sphx_glr_download_theory_plot_towfish_attitude.py:

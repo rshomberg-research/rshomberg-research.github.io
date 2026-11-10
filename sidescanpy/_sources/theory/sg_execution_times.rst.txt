@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**03:28.942** total execution time for 12 files **from theory**:
+**03:30.414** total execution time for 12 files **from theory**:
 
 .. container::
 
@@ -33,38 +33,38 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_theory_plot_common_artifacts.py` (``plot_common_artifacts.py``)
-     - 01:05.624
+     - 01:06.275
      - 0.0
    * - :ref:`sphx_glr_theory_plot_ping_spacing_and_coverage.py` (``plot_ping_spacing_and_coverage.py``)
-     - 00:30.920
+     - 00:31.009
      - 0.0
    * - :ref:`sphx_glr_theory_plot_navigation_and_position.py` (``plot_navigation_and_position.py``)
-     - 00:24.108
+     - 00:24.242
      - 0.0
    * - :ref:`sphx_glr_theory_plot_towfish_attitude.py` (``plot_towfish_attitude.py``)
-     - 00:16.941
+     - 00:16.989
      - 0.0
    * - :ref:`sphx_glr_theory_plot_slant_to_ground_range.py` (``plot_slant_to_ground_range.py``)
-     - 00:13.399
+     - 00:13.339
      - 0.0
    * - :ref:`sphx_glr_theory_plot_sonar_equation_and_tvg.py` (``plot_sonar_equation_and_tvg.py``)
-     - 00:12.003
+     - 00:12.056
      - 0.0
    * - :ref:`sphx_glr_theory_plot_amplitude_and_db.py` (``plot_amplitude_and_db.py``)
-     - 00:10.046
+     - 00:10.137
      - 0.0
    * - :ref:`sphx_glr_theory_plot_range_limits.py` (``plot_range_limits.py``)
-     - 00:09.821
-     - 0.0
-   * - :ref:`sphx_glr_theory_plot_how_sidescan_sees.py` (``plot_how_sidescan_sees.py``)
-     - 00:08.503
+     - 00:09.999
      - 0.0
    * - :ref:`sphx_glr_theory_plot_slopes_and_layover.py` (``plot_slopes_and_layover.py``)
-     - 00:08.395
+     - 00:08.585
+     - 0.0
+   * - :ref:`sphx_glr_theory_plot_how_sidescan_sees.py` (``plot_how_sidescan_sees.py``)
+     - 00:08.493
      - 0.0
    * - :ref:`sphx_glr_theory_plot_frequency_and_resolution.py` (``plot_frequency_and_resolution.py``)
-     - 00:05.540
+     - 00:05.616
      - 0.0
    * - :ref:`sphx_glr_theory_plot_shadow_height.py` (``plot_shadow_height.py``)
-     - 00:03.644
+     - 00:03.675
      - 0.0

@@ -74,7 +74,7 @@ Usage: ``python examples/gallery/plot_target_chips.py [output_dir]``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-57
+.. GENERATED FROM PYTHON SOURCE LINES 49-58
 
 Convert and correct one line, and save it: the chip builder reads
 ``.ss.h5`` files, so one catalog can span many lines.
@@ -86,7 +86,7 @@ update becomes two fixes 65 ms apart and the interpolated track stalls
 for one ping in seven. :func:`~sidescanpy.processing.aux_update_events`
 shows the pattern (changes 1 entry apart, then 6 to 7).
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-67
+.. GENERATED FROM PYTHON SOURCE LINES 58-68
 
 .. code-block:: Python
 
@@ -108,15 +108,15 @@ shows the pattern (changes 1 entry apart, then 6 to 7).
 
  .. code-block:: none
 
-    14:42:13 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    14:42:13 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    14:42:13 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    14:42:13 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:19:59 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:19:59 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:19:59 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:19:59 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-75
+.. GENERATED FROM PYTHON SOURCE LINES 69-76
 
 The catalog. Each target has a position, the side (0 port, 1 starboard),
 the ping and sample where it was picked, a class, and how far its
@@ -126,7 +126,7 @@ default. A catalog from acquisition software is read into the same
 (:func:`sidescanpy.io.read_target_catalog`), and
 :func:`~sidescanpy.targets.write_targets_json` keeps it as a plain file.
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-90
+.. GENERATED FROM PYTHON SOURCE LINES 76-91
 
 .. code-block:: Python
 
@@ -152,7 +152,7 @@ default. A catalog from acquisition software is read into the same
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-101
+.. GENERATED FROM PYTHON SOURCE LINES 92-102
 
 One chip per target at each correction level. ``uncorrected`` and
 ``radiometric`` (after TVG) are cut from the native ping x sample grid,
@@ -165,7 +165,7 @@ the chip keeps detail and along track it interpolates between pings:
 no resampling adds along-track resolution. The short black ticks are
 dropout samples in the recording.
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-124
+.. GENERATED FROM PYTHON SOURCE LINES 102-125
 
 .. code-block:: Python
 
@@ -213,12 +213,12 @@ dropout samples in the recording.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-127
+.. GENERATED FROM PYTHON SOURCE LINES 137-139
 
 The same targets at three pixel sizes. A list of resolutions builds one
 dataset per size, under ``res_<m>m/``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-139
+.. GENERATED FROM PYTHON SOURCE LINES 139-151
 
 .. code-block:: Python
 
@@ -246,7 +246,7 @@ dataset per size, under ``res_<m>m/``.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-150
+.. GENERATED FROM PYTHON SOURCE LINES 152-162
 
 Window styles: a square ``chip`` around the target; the ``single-swath``
 strip of its side, which keeps the context of neighbouring targets (here
@@ -259,7 +259,7 @@ every style, so the dual-swath view, which must fit the whole swath
 builder. The line is shorter than that window, hence the black bands
 above and below.
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-171
+.. GENERATED FROM PYTHON SOURCE LINES 162-183
 
 .. code-block:: Python
 
@@ -305,7 +305,7 @@ above and below.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 24.036 seconds)
+   **Total running time of the script:** (0 minutes 55.036 seconds)
 
 
 .. _sphx_glr_download_examples_plot_target_chips.py:

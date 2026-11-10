@@ -37,7 +37,7 @@ Data: USGS Grand Bay, U.S. public domain (see :doc:`/example_data`).
 
 Usage: ``python examples/gallery/plot_swath_tiles.py [output_dir]``
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-46
+.. GENERATED FROM PYTHON SOURCE LINES 21-47
 
 .. code-block:: Python
 
@@ -49,6 +49,7 @@ Usage: ``python examples/gallery/plot_swath_tiles.py [output_dir]``
     from pathlib import Path
 
     import matplotlib.pyplot as plt
+    import numpy as np
     from PIL import Image
 
     from sidescanpy import datasets
@@ -73,7 +74,7 @@ Usage: ``python examples/gallery/plot_swath_tiles.py [output_dir]``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-57
+.. GENERATED FROM PYTHON SOURCE LINES 49-59
 
 Convert and correct. Georeferencing is only needed to give the targets
 a latitude and longitude at the end; the tiles themselves are cut from
@@ -86,7 +87,7 @@ update becomes two fixes 65 ms apart and the interpolated track stalls
 for one ping in seven. :func:`~sidescanpy.processing.aux_update_events`
 shows the pattern (changes 1 entry apart, then 6 to 7).
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-65
+.. GENERATED FROM PYTHON SOURCE LINES 59-67
 
 .. code-block:: Python
 
@@ -106,15 +107,15 @@ shows the pattern (changes 1 entry apart, then 6 to 7).
 
  .. code-block:: none
 
-    14:42:10 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    14:42:11 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    14:42:11 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    14:42:11 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:19:58 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:19:58 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:19:58 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:19:58 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-71
+.. GENERATED FROM PYTHON SOURCE LINES 68-73
 
 Tiles 30 m along track with 0.1 m pixels, overlapping by 5 m so an
 object on a tile edge appears whole in one of them. Each line and
@@ -122,7 +123,7 @@ frequency adds its tiles to the same folder and index. The 8-bit stretch
 runs from the 5th to the 99.7th percentile of each tile, so the dark
 water column under the towfish does not wash out the seabed.
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-78
+.. GENERATED FROM PYTHON SOURCE LINES 73-80
 
 .. code-block:: Python
 
@@ -147,7 +148,7 @@ water column under the towfish does not wash out the seabed.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-98
+.. GENERATED FROM PYTHON SOURCE LINES 81-100
 
 Annotate the tiles. Any tool that exports COCO works. With
 `FiftyOne <https://docs.voxel51.com/>`_ and its CVAT annotation
@@ -169,7 +170,7 @@ and a person drawing boxes):
 Here a small COCO file stands in for that export: one box on each of two
 objects in the third tile.
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-114
+.. GENERATED FROM PYTHON SOURCE LINES 100-116
 
 .. code-block:: Python
 
@@ -202,14 +203,14 @@ objects in the third tile.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-119
+.. GENERATED FROM PYTHON SOURCE LINES 117-121
 
 Read the boxes back and turn them into targets. Each target records the
 ``.ss.h5`` file and ping it came from, so it can be rendered as chips
 straight away (see :ref:`sphx_glr_examples_plot_target_chips.py`) or
 scored against a catalog with :func:`~sidescanpy.targets.match_targets`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-136
+.. GENERATED FROM PYTHON SOURCE LINES 121-138
 
 .. code-block:: Python
 
@@ -252,7 +253,7 @@ scored against a catalog with :func:`~sidescanpy.targets.match_targets`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.082 seconds)
+   **Total running time of the script:** (0 minutes 1.202 seconds)
 
 
 .. _sphx_glr_download_examples_plot_swath_tiles.py:

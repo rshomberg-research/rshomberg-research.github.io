@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Three formats, one model &#8212; sidescanpy 0.9.0</title>
+    <title>Comparing results across sonars and file formats &#8212; sidescanpy 0.9.0</title>
   
   
   
@@ -48,12 +48,12 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/plot_three_formats';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/plot_compare_sonars_and_formats';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="A training dataset with background images" href="plot_training_dataset.html" />
-    <link rel="prev" title="Target chips at several corrections and resolutions" href="plot_target_chips.html" />
+    <link rel="next" title="Grid to a map" href="plot_grid_to_a_map.html" />
+    <link rel="prev" title="Correct a line" href="plot_correct_a_line.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -408,12 +408,15 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_read_a_file.html">Read a file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_whats_in_a_file.html">What’s in a file: metadata and aux streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_navigation.html">Navigation: held fixes, interpolation and the track</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_investigate_a_survey.html">Investigating an unknown survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Comparing results across sonars and file formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_swath_tiles.html">Swath tiles for annotation, and boxes back to targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_target_chips.html">Target chips at several corrections and resolutions</a></li>
-<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Three formats, one model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_training_dataset.html">A training dataset with background images</a></li>
 </ul>
 </div>
@@ -458,7 +461,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">Examples</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Three formats, one model</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Comparing results across sonars and file formats</span></li>
   </ul>
 </nav>
 </div>
@@ -477,20 +480,26 @@
                   
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p><a class="reference internal" href="#sphx-glr-download-examples-plot-three-formats-py"><span class="std std-ref">Go to the end</span></a>
+<p><a class="reference internal" href="#sphx-glr-download-examples-plot-compare-sonars-and-formats-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code.</p>
 </div>
-<section class="sphx-glr-example-title" id="three-formats-one-model">
-<span id="sphx-glr-examples-plot-three-formats-py"></span><h1>Three formats, one model<a class="headerlink" href="#three-formats-one-model" title="Link to this heading">#</a></h1>
-<p>Three sonars, three file formats or writers, the same code. Each line is
-read with <a class="reference internal" href="../reference/generated/sidescanpy.io.dispatch.html#sidescanpy.io.dispatch.read_and_convert" title="sidescanpy.io.dispatch.read_and_convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_and_convert()</span></code></a>, TVG-corrected with
+<section class="sphx-glr-example-title" id="comparing-results-across-sonars-and-file-formats">
+<span id="sphx-glr-examples-plot-compare-sonars-and-formats-py"></span><h1>Comparing results across sonars and file formats<a class="headerlink" href="#comparing-results-across-sonars-and-file-formats" title="Link to this heading">#</a></h1>
+<p>Recordings from different sonars, written in different file formats,
+become the same data model, so one piece of code processes and compares
+them all. Each line here is read with
+<a class="reference internal" href="../reference/generated/sidescanpy.io.dispatch.html#sidescanpy.io.dispatch.read_and_convert" title="sidescanpy.io.dispatch.read_and_convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_and_convert()</span></code></a>, TVG-corrected with
 <a class="reference internal" href="../reference/generated/sidescanpy.processing.radiometric.html#sidescanpy.processing.radiometric.apply_tvg" title="sidescanpy.processing.radiometric.apply_tvg"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_tvg()</span></code></a> and plotted with
-<a class="reference internal" href="../reference/generated/sidescanpy.viz.waterfall.html#sidescanpy.viz.waterfall.plot_waterfall" title="sidescanpy.viz.waterfall.plot_waterfall"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_waterfall()</span></code></a>; only the file name and format string
-change.</p>
+<a class="reference internal" href="../reference/generated/sidescanpy.viz.waterfall.html#sidescanpy.viz.waterfall.plot_waterfall" title="sidescanpy.viz.waterfall.plot_waterfall"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_waterfall()</span></code></a>; only the file name and format
+string change. What still differs between the panels (texture, contrast,
+speckle) comes from the sonar, its frequency and the seabed, not from
+the processing.</p>
+<p>The last part checks the readers against each other: one EdgeTech line
+was written both as JSF and as XTF, and the two give identical samples.</p>
 <p>Data: JNCC Wight-Barfleur Reef and mid-Irish Sea (Open Government
 Licence v3.0) and USGS Grand Bay (U.S. public domain); see
 <a class="reference internal" href="../example_data.html"><span class="doc">Example data</span></a>.</p>
-<p>Usage: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/gallery/plot_three_formats.py</span> <span class="pre">[output_dir]</span></code></p>
+<p>Usage: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/gallery/plot_compare_sonars_and_formats.py</span> <span class="pre">[output_dir]</span></code></p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span class="c1"># 2026 rshomberg&#64;uri.edu</span><span class="w">
 </span><span class="w">
 </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="w">
@@ -518,20 +527,22 @@ slant range.</p>
 </span>    <span class="p">(</span><span class="s2">&quot;</span><span class="s2">usgs_grand_bay_150602205800.xtf</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s2">xtf</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s2">hz_100000</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s2">Klein XTF (SonarPro)</span><span class="s2">&quot;</span><span class="p">)</span><span class="p">,</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span><span class="n">fig</span><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">axes</span></a> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="w">
+</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">shown</span></a> <span class="o">=</span> <span class="p">[</span><span class="p">]</span><span class="w">
 </span><span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">name</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">fmt</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">freq_key</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">label</span></a><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">axes</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">lines</span></a><span class="p">)</span><span class="p">:</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a> <span class="o">=</span> <span class="n">read_and_convert</span><span class="p">(</span><span class="p">[</span><a class="sphx-glr-backref-module-sidescanpy-datasets sphx-glr-backref-type-py-function reference internal" href="../reference/generated/sidescanpy.datasets.html#sidescanpy.datasets.fetch" title="sidescanpy.datasets.fetch"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch</span></a><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">name</span></a><span class="p">)</span><span class="p">]</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">fmt</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">fmt</span></a><span class="p">)</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a> <span class="o">=</span> <span class="n">apply_tvg</span><span class="p">(</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="p">)</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a> <span class="o">=</span> <span class="n">compute_geometric_ranges</span><span class="p">(</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="o">.</span><span class="n">get_frequency</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">freq_key</span></a><span class="p">)</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span><span class="w">
 </span>    <span class="c1"># apply_tvg returns dB; average samples to about 1000 per side for display.</span><span class="w">
 </span>    <a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-xarray sphx-glr-backref-type-py-method reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.coarsen.html#xarray.Dataset.coarsen" title="xarray.Dataset.coarsen"><span class="n">ds</span><span class="o">.</span><span class="n">coarsen</span></a><span class="p">(</span><span class="n">sample</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <a class="sphx-glr-backref-module-xarray sphx-glr-backref-type-py-property reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.sizes.html#xarray.Dataset.sizes" title="xarray.Dataset.sizes"><span class="n">ds</span><span class="o">.</span><span class="n">sizes</span></a><span class="p">[</span><span class="s2">&quot;</span><span class="s2">sample</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">/</span><span class="o">/</span> <span class="mi">1000</span><span class="p">)</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">trim</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="p">)</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">shown</span></a><span class="o">.</span><span class="n">append</span><span class="p">(</span><a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a><span class="p">)</span><span class="w">
 </span>    <span class="n">plot_waterfall</span><span class="p">(</span><a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">slant_range</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">vmin_pct</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">vmax_pct</span><span class="o">=</span><span class="mf">99.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="w">
 </span>                   <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">label</span></a><span class="si">}</span><span class="s2">, </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">freq_key</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
-</span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">three_formats.png</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span><span class="w">
+</span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">compare_sonars_and_formats.png</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img src="../_images/sphx_glr_plot_three_formats_001.png" srcset="../_images/sphx_glr_plot_three_formats_001.png, ../_images/sphx_glr_plot_three_formats_001_2_00x.png 2.00x" alt="EdgeTech JSF (Discover), hz_218740, Benthos XTF (Isis), hz_100000, Klein XTF (SonarPro), hz_100000" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>14:43:37 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-14:43:37 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
-14:43:37 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-14:43:37 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m &lt;= 0 (ground range = slant range); the &#39;bottom_track&#39; step can fill them from the first bottom return
+<img src="../_images/sphx_glr_plot_compare_sonars_and_formats_001.png" srcset="../_images/sphx_glr_plot_compare_sonars_and_formats_001.png, ../_images/sphx_glr_plot_compare_sonars_and_formats_001_2_00x.png 2.00x" alt="EdgeTech JSF (Discover), hz_218740, Benthos XTF (Isis), hz_100000, Klein XTF (SonarPro), hz_100000" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>15:19:20 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+15:19:20 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
+15:19:21 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+15:19:21 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m &lt;= 0 (ground range = slant range); the &#39;bottom_track&#39; step can fill them from the first bottom return
 </pre></div>
 </div>
 <p>The same pings, written by EdgeTech Discover once as JSF and once as
@@ -546,21 +557,21 @@ XTF. The two readers return identical samples.</p>
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">b</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">b</span><span class="o">.</span><span class="n">isel</span></a><span class="p">(</span><span class="n">ping</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">n_ping</span></a><span class="p">)</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">n_sample</span></a><span class="p">)</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="w">
 </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="s2">JSF vs XTF, </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">n_ping</span></a><span class="si">}</span><span class="s2"> pings: max |difference| = </span><span class="si">{</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmax.html#numpy.nanmax" title="numpy.nanmax"><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">a</span></a><span class="w"> </span><span class="o">-</span><span class="w"> </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">b</span></a><span class="p">)</span><span class="p">)</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>14:43:46 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-14:43:46 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>15:19:26 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+15:19:26 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
 JSF vs XTF, 288 pings: max |difference| = 0
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 8.853 seconds)</p>
-<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-three-formats-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 5.989 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-compare-sonars-and-formats-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/bc7f19d28ce9532a5eca14b114a7d960/plot_three_formats.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_three_formats.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/76b8e8e3f5165d81c5722c0dd68a3d50/plot_compare_sonars_and_formats.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_compare_sonars_and_formats.ipynb</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/a9e5f37a583916187af993d75727f6eb/plot_three_formats.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_three_formats.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/cfa54906e7b3e502dbaaae217a2fd386/plot_compare_sonars_and_formats.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_compare_sonars_and_formats.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-zip docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/a6bca4869275d74a9edf40dfef48c96c/plot_three_formats.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_three_formats.zip</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/5c19c335cabc4c17fbffc2a95c48aedc/plot_compare_sonars_and_formats.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_compare_sonars_and_formats.zip</span></code></a></p>
 </div>
 </div>
 </section>
@@ -576,20 +587,20 @@ JSF vs XTF, 288 pings: max |difference| = 0
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="plot_target_chips.html"
+       href="plot_correct_a_line.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Target chips at several corrections and resolutions</p>
+        <p class="prev-next-title">Correct a line</p>
       </div>
     </a>
     <a class="right-next"
-       href="plot_training_dataset.html"
+       href="plot_grid_to_a_map.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">A training dataset with background images</p>
+        <p class="prev-next-title">Grid to a map</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

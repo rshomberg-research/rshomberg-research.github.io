@@ -52,7 +52,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Correct a line" href="plot_correct_a_line.html" />
+    <link rel="next" title="Read a file" href="plot_read_a_file.html" />
     <link rel="prev" title="Getting started" href="../getting_started.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -408,12 +408,15 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_read_a_file.html">Read a file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_whats_in_a_file.html">What’s in a file: metadata and aux streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_navigation.html">Navigation: held fixes, interpolation and the track</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_investigate_a_survey.html">Investigating an unknown survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_compare_sonars_and_formats.html">Comparing results across sonars and file formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_swath_tiles.html">Swath tiles for annotation, and boxes back to targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_target_chips.html">Target chips at several corrections and resolutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_three_formats.html">Three formats, one model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_training_dataset.html">A training dataset with background images</a></li>
 </ul>
 </div>
@@ -488,24 +491,33 @@ recordings, their sizes and licences are listed in <a class="reference internal"
 <p>The two-stage target recognition examples (detector, classifier, review,
 evaluation) need a GPU and extra packages, so they are not in this
 gallery: see <a class="reference internal" href="../atr/index.html"><span class="doc">Two-stage target recognition, step by step</span></a>.</p>
-<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Each correction is one function call on the survey. Every call is recorded with its parameters in each frequency&#x27;s processing_history, so a corrected file says how it was made; leave a call out to skip that correction, or put your own function in the chain."><img alt="" src="../_images/sphx_glr_plot_correct_a_line_thumb.png" />
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Convert one raw EdgeTech JSF line to sidescanpy&#x27;s data model, save it as .ss.h5, and look at it. read_and_convert reads JSF, Klein SDF and XTF into the same structure: a SideScanSurvey holding one xarray.Dataset per frequency, with backscatter shaped (ping, channel, sample) (channel 0 is port, 1 starboard) plus the navigation and attitude records."><img alt="" src="../_images/sphx_glr_plot_read_a_file_thumb.png" />
+<p><a class="reference internal" href="plot_read_a_file.html"><span class="doc">Read a file</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Read a file</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Before correcting anything, find out what a recording holds: which frequencies, at what sample rate and range, which per-ping fields are real and which are empty, and how often each sensor actually reported. Everything here is plain xarray on the converted survey, plus aux_update_events for the update rates."><img alt="" src="../_images/sphx_glr_plot_whats_in_a_file_thumb.png" />
+<p><a class="reference internal" href="plot_whats_in_a_file.html"><span class="doc">What’s in a file: metadata and aux streams</span></a></p>
+  <div class="sphx-glr-thumbnail-title">What's in a file: metadata and aux streams</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Sidescan positions come from a GPS (or the towfish&#x27;s own navigation) that updates far less often than the sonar pings. Recorders log each fix and repeat it until the next one arrives, so before computing any geometry the positions have to be rebuilt between the real fixes. This page looks at two public lines where that goes wrong in different ways, and shows how to see it and fix it:"><img alt="" src="../_images/sphx_glr_plot_navigation_thumb.png" />
+<p><a class="reference internal" href="plot_navigation.html"><span class="doc">Navigation: held fixes, interpolation and the track</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Navigation: held fixes, interpolation and the track</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A survey arrives with no notes. Before choosing corrections, measure what the recording is: what the samples are, where the seabed starts under the towfish, how far the sonar sees before the signal sinks into noise, and whether the recorder already applied a time-varying gain. Each answer comes from one sidescanpy.analysis function that returns a result you can print, save and compare between surveys, and each has a plot in sidescanpy.viz.analysis."><img alt="" src="../_images/sphx_glr_plot_investigate_a_survey_thumb.png" />
+<p><a class="reference internal" href="plot_investigate_a_survey.html"><span class="doc">Investigating an unknown survey</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Investigating an unknown survey</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Each correction is one function call on the survey. Every call is recorded with its parameters in each frequency&#x27;s processing_history, so a corrected file says how it was made; leave a call out to skip that correction, or put your own function in the chain."><img alt="" src="../_images/sphx_glr_plot_correct_a_line_thumb.png" />
 <p><a class="reference internal" href="plot_correct_a_line.html"><span class="doc">Correct a line</span></a></p>
   <div class="sphx-glr-thumbnail-title">Correct a line</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Recordings from different sonars, written in different file formats, become the same data model, so one piece of code processes and compares them all. Each line here is read with read_and_convert, TVG-corrected with apply_tvg and plotted with plot_waterfall; only the file name and format string change. What still differs between the panels (texture, contrast, speckle) comes from the sonar, its frequency and the seabed, not from the processing."><img alt="" src="../_images/sphx_glr_plot_compare_sonars_and_formats_thumb.png" />
+<p><a class="reference internal" href="plot_compare_sonars_and_formats.html"><span class="doc">Comparing results across sonars and file formats</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Comparing results across sonars and file formats</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Once every sample has a latitude and longitude (the georef step), grid_channel resamples a channel onto a regular UTM grid and to_geotiff writes it for a GIS."><img alt="" src="../_images/sphx_glr_plot_grid_to_a_map_thumb.png" />
 <p><a class="reference internal" href="plot_grid_to_a_map.html"><span class="doc">Grid to a map</span></a></p>
   <div class="sphx-glr-thumbnail-title">Grid to a map</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Convert one raw EdgeTech JSF line to sidescanpy&#x27;s data model, save it as .ss.h5, and look at it. read_and_convert reads JSF, Klein SDF and XTF into the same structure: a SideScanSurvey holding one xarray.Dataset per frequency, with backscatter shaped (ping, channel, sample) (channel 0 is port, 1 starboard) plus the navigation and attitude records."><img alt="" src="../_images/sphx_glr_plot_read_a_file_thumb.png" />
-<p><a class="reference internal" href="plot_read_a_file.html"><span class="doc">Read a file</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Read a file</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="The first step of training an object detector on sidescan data is images a person can annotate. write_swath_tiles cuts a corrected line into dual-swath tiles (port mirrored on the left, starboard on the right) with square pixels in metres, writes them as PNG, and records in tiles.json where each tile sits in the sonar data."><img alt="" src="../_images/sphx_glr_plot_swath_tiles_thumb.png" />
 <p><a class="reference internal" href="plot_swath_tiles.html"><span class="doc">Swath tiles for annotation, and boxes back to targets</span></a></p>
   <div class="sphx-glr-thumbnail-title">Swath tiles for annotation, and boxes back to targets</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A target catalog (here five picks made by eye, a stand-in for an acquisition-software catalog or an analyst&#x27;s list) rendered as image chips with build_target_dataset: at four correction levels, at three pixel sizes, and in three window styles. Every run also writes COCO and YOLO labels, so any of these chip sets can train an image classifier."><img alt="" src="../_images/sphx_glr_plot_target_chips_thumb.png" />
 <p><a class="reference internal" href="plot_target_chips.html"><span class="doc">Target chips at several corrections and resolutions</span></a></p>
   <div class="sphx-glr-thumbnail-title">Target chips at several corrections and resolutions</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Three sonars, three file formats or writers, the same code. Each line is read with read_and_convert, TVG-corrected with apply_tvg and plotted with plot_waterfall; only the file name and format string change."><img alt="" src="../_images/sphx_glr_plot_three_formats_thumb.png" />
-<p><a class="reference internal" href="plot_three_formats.html"><span class="doc">Three formats, one model</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Three formats, one model</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="A classifier that only ever sees targets learns nothing about what is not a target. build_target_dataset adds background images (windows whose footprint holds no catalog target), splits targets and backgrounds into training and validation sets, and writes the result in the folder layout Ultralytics YOLO reads, with COCO files alongside."><img alt="" src="../_images/sphx_glr_plot_training_dataset_thumb.png" />
 <p><a class="reference internal" href="plot_training_dataset.html"><span class="doc">A training dataset with background images</span></a></p>
   <div class="sphx-glr-thumbnail-title">A training dataset with background images</div>
@@ -533,11 +545,11 @@ gallery: see <a class="reference internal" href="../atr/index.html"><span class=
       </div>
     </a>
     <a class="right-next"
-       href="plot_correct_a_line.html"
+       href="plot_read_a_file.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Correct a line</p>
+        <p class="prev-next-title">Read a file</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

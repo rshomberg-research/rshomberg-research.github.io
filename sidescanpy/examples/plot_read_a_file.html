@@ -52,8 +52,8 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Swath tiles for annotation, and boxes back to targets" href="plot_swath_tiles.html" />
-    <link rel="prev" title="Grid to a map" href="plot_grid_to_a_map.html" />
+    <link rel="next" title="What’s in a file: metadata and aux streams" href="plot_whats_in_a_file.html" />
+    <link rel="prev" title="Examples" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -408,12 +408,15 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
 <li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Read a file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_whats_in_a_file.html">What’s in a file: metadata and aux streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_navigation.html">Navigation: held fixes, interpolation and the track</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_investigate_a_survey.html">Investigating an unknown survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_compare_sonars_and_formats.html">Comparing results across sonars and file formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_swath_tiles.html">Swath tiles for annotation, and boxes back to targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_target_chips.html">Target chips at several corrections and resolutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_three_formats.html">Three formats, one model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_training_dataset.html">A training dataset with background images</a></li>
 </ul>
 </div>
@@ -518,8 +521,8 @@ altitude in.</p>
 </span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a> <span class="o">=</span> <span class="n">read_and_convert</span><span class="p">(</span><span class="p">[</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">path</span></a><span class="p">]</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">jsf</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span><span class="n">write_survey</span><span class="p">(</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">wight_barfleur.ss.h5</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>14:41:45 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-14:41:45 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>15:18:19 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+15:18:19 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode=&#39;nan_pad&#39;
 </pre></div>
 </div>
 <p>One xarray Dataset per frequency: backscatter is (ping, channel, sample),
@@ -543,13 +546,13 @@ A linear seabed feature runs along the starboard side at about 50 m.</p>
 </span>                   <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">freq_key</span></a><span class="si">}</span><span class="s2">: raw, slant range</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">read_a_file.png</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img src="../_images/sphx_glr_plot_read_a_file_001.png" srcset="../_images/sphx_glr_plot_read_a_file_001.png, ../_images/sphx_glr_plot_read_a_file_001_2_00x.png 2.00x" alt="hz_218740: raw, slant range, hz_521000: raw, slant range" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>14:41:47 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-14:41:47 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m &lt;= 0 (ground range = slant range); the &#39;bottom_track&#39; step can fill them from the first bottom return
-14:41:48 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-14:41:48 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m &lt;= 0 (ground range = slant range); the &#39;bottom_track&#39; step can fill them from the first bottom return
+<img src="../_images/sphx_glr_plot_read_a_file_001.png" srcset="../_images/sphx_glr_plot_read_a_file_001.png, ../_images/sphx_glr_plot_read_a_file_001_2_00x.png 2.00x" alt="hz_218740: raw, slant range, hz_521000: raw, slant range" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>15:18:21 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+15:18:21 WARNING sidescanpy.processing.geometric: 0 of 287 pings have NaN altitude_m (their ground range is NaN) and 287 have altitude_m &lt;= 0 (ground range = slant range); the &#39;bottom_track&#39; step can fill them from the first bottom return
+15:18:21 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+15:18:21 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m &lt;= 0 (ground range = slant range); the &#39;bottom_track&#39; step can fill them from the first bottom return
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 25.490 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 19.752 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-read-a-file-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/b6f9ec46024886295ad1491e8f3fc077/plot_read_a_file.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_read_a_file.ipynb</span></code></a></p>
@@ -574,20 +577,20 @@ A linear seabed feature runs along the starboard side at about 50 m.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="plot_grid_to_a_map.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Grid to a map</p>
+        <p class="prev-next-title">Examples</p>
       </div>
     </a>
     <a class="right-next"
-       href="plot_swath_tiles.html"
+       href="plot_whats_in_a_file.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Swath tiles for annotation, and boxes back to targets</p>
+        <p class="prev-next-title">What’s in a file: metadata and aux streams</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

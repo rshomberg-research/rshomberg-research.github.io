@@ -71,7 +71,7 @@ Usage: ``python examples/gallery/plot_grid_to_a_map.py [output_dir]``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-50
+.. GENERATED FROM PYTHON SOURCE LINES 46-51
 
 Navigation in this file is sample-and-hold: each position repeats for
 several pings until the next fix arrives.
@@ -79,7 +79,7 @@ several pings until the next fix arrives.
 between the real fixes, not the repeated entries, which
 puts the pings about 0.65 m apart.
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-57
+.. GENERATED FROM PYTHON SOURCE LINES 51-58
 
 .. code-block:: Python
 
@@ -97,7 +97,7 @@ puts the pings about 0.65 m apart.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-63
+.. GENERATED FROM PYTHON SOURCE LINES 59-64
 
 Grid each frequency at 1 m, leaving out the water column. Heading
 jitter and a few longer jumps between fixes leave empty cells;
@@ -105,7 +105,7 @@ inverse-distance weighting with a 4 m search radius fills them from the
 nearest samples. North is up; the dark stripe is the nadir under the
 towfish.
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-72
+.. GENERATED FROM PYTHON SOURCE LINES 64-73
 
 .. code-block:: Python
 
@@ -133,7 +133,7 @@ towfish.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 42.395 seconds)
+   **Total running time of the script:** (0 minutes 31.060 seconds)
 
 
 .. _sphx_glr_download_examples_plot_grid_to_a_map.py:

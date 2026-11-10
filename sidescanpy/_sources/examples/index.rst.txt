@@ -34,6 +34,74 @@ gallery: see :doc:`/atr/index`.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Convert one raw EdgeTech JSF line to sidescanpy&#x27;s data model, save it as .ss.h5, and look at it. read_and_convert reads JSF, Klein SDF and XTF into the same structure: a SideScanSurvey holding one xarray.Dataset per frequency, with backscatter shaped (ping, channel, sample) (channel 0 is port, 1 starboard) plus the navigation and attitude records.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_read_a_file_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_read_a_file`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Read a file</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Before correcting anything, find out what a recording holds: which frequencies, at what sample rate and range, which per-ping fields are real and which are empty, and how often each sensor actually reported. Everything here is plain xarray on the converted survey, plus aux_update_events for the update rates.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_whats_in_a_file_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_whats_in_a_file`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">What's in a file: metadata and aux streams</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Sidescan positions come from a GPS (or the towfish&#x27;s own navigation) that updates far less often than the sonar pings. Recorders log each fix and repeat it until the next one arrives, so before computing any geometry the positions have to be rebuilt between the real fixes. This page looks at two public lines where that goes wrong in different ways, and shows how to see it and fix it:">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_navigation_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_navigation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Navigation: held fixes, interpolation and the track</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A survey arrives with no notes. Before choosing corrections, measure what the recording is: what the samples are, where the seabed starts under the towfish, how far the sonar sees before the signal sinks into noise, and whether the recorder already applied a time-varying gain. Each answer comes from one sidescanpy.analysis function that returns a result you can print, save and compare between surveys, and each has a plot in sidescanpy.viz.analysis.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_investigate_a_survey_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_investigate_a_survey`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Investigating an unknown survey</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Each correction is one function call on the survey. Every call is recorded with its parameters in each frequency&#x27;s processing_history, so a corrected file says how it was made; leave a call out to skip that correction, or put your own function in the chain.">
 
 .. only:: html
@@ -51,6 +119,23 @@ gallery: see :doc:`/atr/index`.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Recordings from different sonars, written in different file formats, become the same data model, so one piece of code processes and compares them all. Each line here is read with read_and_convert, TVG-corrected with apply_tvg and plotted with plot_waterfall; only the file name and format string change. What still differs between the panels (texture, contrast, speckle) comes from the sonar, its frequency and the seabed, not from the processing.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_compare_sonars_and_formats_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_compare_sonars_and_formats`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Comparing results across sonars and file formats</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Once every sample has a latitude and longitude (the georef step), grid_channel resamples a channel onto a regular UTM grid and to_geotiff writes it for a GIS.">
 
 .. only:: html
@@ -63,23 +148,6 @@ gallery: see :doc:`/atr/index`.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Grid to a map</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Convert one raw EdgeTech JSF line to sidescanpy&#x27;s data model, save it as .ss.h5, and look at it. read_and_convert reads JSF, Klein SDF and XTF into the same structure: a SideScanSurvey holding one xarray.Dataset per frequency, with backscatter shaped (ping, channel, sample) (channel 0 is port, 1 starboard) plus the navigation and attitude records.">
-
-.. only:: html
-
-  .. image:: /examples/images/thumb/sphx_glr_plot_read_a_file_thumb.png
-    :alt:
-
-  :doc:`/examples/plot_read_a_file`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Read a file</div>
     </div>
 
 
@@ -119,23 +187,6 @@ gallery: see :doc:`/atr/index`.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Three sonars, three file formats or writers, the same code. Each line is read with read_and_convert, TVG-corrected with apply_tvg and plotted with plot_waterfall; only the file name and format string change.">
-
-.. only:: html
-
-  .. image:: /examples/images/thumb/sphx_glr_plot_three_formats_thumb.png
-    :alt:
-
-  :doc:`/examples/plot_three_formats`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Three formats, one model</div>
-    </div>
-
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="A classifier that only ever sees targets learns nothing about what is not a target. build_target_dataset adds background images (windows whose footprint holds no catalog target), splits targets and backgrounds into training and validation sets, and writes the result in the folder layout Ultralytics YOLO reads, with COCO files alongside.">
 
 .. only:: html
@@ -161,11 +212,14 @@ gallery: see :doc:`/atr/index`.
 .. toctree::
    :hidden:
 
-   /examples/plot_correct_a_line
-   /examples/plot_grid_to_a_map
    /examples/plot_read_a_file
+   /examples/plot_whats_in_a_file
+   /examples/plot_navigation
+   /examples/plot_investigate_a_survey
+   /examples/plot_correct_a_line
+   /examples/plot_compare_sonars_and_formats
+   /examples/plot_grid_to_a_map
    /examples/plot_swath_tiles
    /examples/plot_target_chips
-   /examples/plot_three_formats
    /examples/plot_training_dataset
 

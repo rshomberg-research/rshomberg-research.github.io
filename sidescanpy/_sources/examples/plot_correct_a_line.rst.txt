@@ -78,21 +78,21 @@ Usage: ``python examples/gallery/plot_correct_a_line.py [output_dir]``
 
  .. code-block:: none
 
-    14:40:50 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    14:40:50 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
-    14:40:50 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    14:40:50 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
-    14:40:51 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    15:19:13 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    15:19:13 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    15:19:13 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    15:19:13 WARNING sidescanpy.processing.geometric: 0 of 288 pings have NaN altitude_m (their ground range is NaN) and 288 have altitude_m <= 0 (ground range = slant range); the 'bottom_track' step can fill them from the first bottom return
+    15:19:13 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-53
+.. GENERATED FROM PYTHON SOURCE LINES 52-54
 
 The corrections, in order. Each returns a new survey and leaves its
 input unchanged.
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-62
+.. GENERATED FROM PYTHON SOURCE LINES 54-63
 
 .. code-block:: Python
 
@@ -113,19 +113,19 @@ input unchanged.
 
  .. code-block:: none
 
-    14:40:51 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
-    14:40:51 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
-    14:40:51 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    14:40:51 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    14:40:52 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    14:40:52 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    14:40:59 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    15:19:14 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
+    15:19:14 WARNING sidescanpy.processing.interpolate: Skipping 'heave_m': 'attitude.heave_m' source is all NaN. Preserving original per-ping value.
+    15:19:14 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    15:19:14 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    15:19:14 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    15:19:14 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    15:19:18 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
     altitude from bottom track: 17.5 m (median)
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-71
+.. GENERATED FROM PYTHON SOURCE LINES 64-72
 
 Left: raw amplitude against slant range. Right: after the bottom track,
 time-varying gain (spreading and absorption losses) and slant-to-ground
@@ -136,7 +136,7 @@ corrected panel plots it as it is. Both panels average samples down to
 about 1000 per side first, close to the figure's resolution, so fine
 texture is averaged rather than skipped.
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-84
+.. GENERATED FROM PYTHON SOURCE LINES 72-85
 
 .. code-block:: Python
 
@@ -165,7 +165,7 @@ texture is averaged rather than skipped.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-89
+.. GENERATED FROM PYTHON SOURCE LINES 98-102
 
 The default TVG uses 30 log R spreading and Francois-Garrison
 absorption. Whether a sonar already applied some gain in hardware
@@ -175,7 +175,7 @@ still needs (see ``examples/tvg_calibration.py``).
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 13.990 seconds)
+   **Total running time of the script:** (0 minutes 7.165 seconds)
 
 
 .. _sphx_glr_download_examples_plot_correct_a_line.py:

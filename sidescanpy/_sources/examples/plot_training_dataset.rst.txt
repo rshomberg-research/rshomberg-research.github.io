@@ -94,15 +94,15 @@ Usage: ``python examples/gallery/plot_training_dataset.py [output_dir]``
 
  .. code-block:: none
 
-    14:43:46 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    14:43:46 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    14:43:46 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    14:43:46 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:20:54 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:20:54 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:20:54 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    15:20:54 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-74
+.. GENERATED FROM PYTHON SOURCE LINES 68-75
 
 Eight background windows whose footprint holds no catalog target
 (``background_margin_m`` keeps them further away), and a validation
@@ -112,7 +112,7 @@ split; the shares are therefore only approximate. A real dataset has many
 more targets and lines; with five targets on one short line, the split is
 only there to show the layout.
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-88
+.. GENERATED FROM PYTHON SOURCE LINES 75-89
 
 .. code-block:: Python
 
@@ -149,14 +149,14 @@ only there to show the layout.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-93
+.. GENERATED FROM PYTHON SOURCE LINES 90-94
 
 ``data.yaml`` is what ``ultralytics`` reads (``YOLO("yolo11n.pt").train(
 data="dataset/chip/data.yaml")``); ``train.coco.json`` and
 ``val.coco.json`` describe the same images for other tools. A background
 image has no label lines.
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-107
+.. GENERATED FROM PYTHON SOURCE LINES 94-108
 
 .. code-block:: Python
 
@@ -199,7 +199,7 @@ image has no label lines.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-114
+.. GENERATED FROM PYTHON SOURCE LINES 120-126
 
 Look at the backgrounds before training. Here they come from the inner
 swath beside nadir and, after the per-image stretch, are brighter and
@@ -211,7 +211,7 @@ kinds of image make the two sets look alike apart from the targets.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (3 minutes 7.974 seconds)
+   **Total running time of the script:** (1 minutes 54.030 seconds)
 
 
 .. _sphx_glr_download_examples_plot_training_dataset.py:

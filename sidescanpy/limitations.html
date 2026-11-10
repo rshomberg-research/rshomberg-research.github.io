@@ -52,7 +52,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Formats" href="formats.html" />
+    <link rel="next" title="Data format" href="format/index.html" />
     <link rel="prev" title="Logging" href="logging.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
@@ -168,15 +168,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="format/index.html">
+    Data format
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="reference/index.html">
-    API reference
+  <a class="nav-link nav-internal" href="sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -189,15 +189,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="development.html">
-    Development
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API reference
   </a>
 </li>
 
 
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="status.html">
-    Project status
+    Stability
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="development.html">
+    Contributing
   </a>
 </li>
 
@@ -328,8 +335,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -342,15 +356,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="development.html">
-    Development
+  <a class="nav-link nav-internal" href="status.html">
+    Stability
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="status.html">
-    Project status
+  <a class="nav-link nav-internal" href="development.html">
+    Contributing
   </a>
 </li>
 
@@ -486,7 +500,7 @@
 <h1>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h1>
 <p>What sidescanpy does not do yet, and what is not settled. Each item says
 what to do in the meantime. Format-specific quirks are on the
-<a class="reference internal" href="io_jsf.html"><span class="std std-doc">JSF</span></a>, <a class="reference internal" href="io_sdf.html"><span class="std std-doc">SDF</span></a> and <a class="reference internal" href="io_xtf.html"><span class="std std-doc">XTF</span></a> pages.</p>
+<a class="reference internal" href="sources/jsf.html"><span class="std std-doc">JSF</span></a>, <a class="reference internal" href="sources/sdf.html"><span class="std std-doc">SDF</span></a> and <a class="reference internal" href="sources/xtf.html"><span class="std std-doc">XTF</span></a> pages.</p>
 <section id="radiometric-correction">
 <h2>Radiometric correction<a class="headerlink" href="#radiometric-correction" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -557,13 +571,13 @@ uses the most memory on large swath windows.</p></li>
 <h2>Files and performance<a class="headerlink" href="#files-and-performance" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>The <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> format is not frozen.</strong> See
-<a class="reference internal" href="status.html"><span class="std std-doc">Project status</span></a>. Keep the raw files.</p></li>
+<a class="reference internal" href="status.html"><span class="std std-doc">Stability</span></a>. Keep the raw files.</p></li>
 <li><p><strong>Re-correcting a georeferenced file is slow.</strong> Adding a step to a
 file that already has per-sample latitude and longitude takes minutes
 per few thousand pings, against seconds for every step in one pass on
 a freshly converted file. Run all the steps you need in one pass from a
 fresh conversion.</p></li>
-<li><p><strong>Formats not read.</strong> See <a class="reference internal" href="formats.html#not-supported"><span class="std std-ref">Formats</span></a>.</p></li>
+<li><p><strong>Formats not read.</strong> See <a class="reference internal" href="sources/index.html#not-read-yet"><span class="std std-ref">Source formats</span></a>.</p></li>
 </ul>
 </section>
 <section id="reporting-a-problem">
@@ -595,11 +609,11 @@ so you can share a few megabytes instead of a whole line.</p>
       </div>
     </a>
     <a class="right-next"
-       href="formats.html"
+       href="format/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Formats</p>
+        <p class="prev-next-title">Data format</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

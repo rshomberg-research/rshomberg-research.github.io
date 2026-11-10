@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Adding a source format &#8212; sidescanpy 0.9.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../_static/documentation_options.js?v=39bb1c6d"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sources/new_source';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API reference" href="../reference/index.html" />
+    <link rel="prev" title="XTF" href="xtf.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.9.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.9.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Source formats
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../status.html">
+    Stability
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development.html">
+    Contributing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/rshomberg-research/sidescanpy" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Source formats
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../status.html">
+    Stability
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development.html">
+    Contributing
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/rshomberg-research/sidescanpy" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="jsf.html">EdgeTech JSF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdf.html">Klein SDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xtf.html">XTF</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Adding a source format</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Source formats</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Adding a source format</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="adding-a-source-format">
+<h1>Adding a source format<a class="headerlink" href="#adding-a-source-format" title="Link to this heading">#</a></h1>
+<p>A new source needs one thing: a reader that converts its files into the
+<a class="reference internal" href="../format/index.html"><span class="std std-doc">data format</span></a>. Corrections, gridding, targets,
+exports and analysis then work on it unchanged. This page is the
+process the existing readers (JSF, SDF, XTF) followed, as a checklist
+for the next one.</p>
+<section id="understand-the-source-before-writing-code">
+<h2>1. Understand the source before writing code<a class="headerlink" href="#understand-the-source-before-writing-code" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Get the specification</strong> and at least one real file, and note which
+sonar and which acquisition software wrote it. Writers of the same
+format differ (the XTF page lists five), and most quirks belong to a
+writer, not to the format.</p></li>
+<li><p><strong>Look for a file you can share.</strong> An openly licensed recording lets
+the reader be tested in CI and shown in the examples. Note its source,
+licence and checksum.</p></li>
+<li><p><strong>Draft the “Channels and data streams” table first</strong>, as on the
+<a class="reference internal" href="jsf.html"><span class="std std-doc">JSF</span></a>, <a class="reference internal" href="sdf.html"><span class="std std-doc">SDF</span></a> and <a class="reference internal" href="xtf.html"><span class="std std-doc">XTF</span></a> pages: every sonar
+channel and sensor stream in the file, where it lands in the data
+format, and how often it arrives. Note where one quantity is recorded
+twice (JSF copies position into every ping and also logs NMEA), and
+which copy is a live sensor and which is held between updates.</p></li>
+</ul>
+</section>
+<section id="write-the-reader-and-the-converter">
+<h2>2. Write the reader and the converter<a class="headerlink" href="#write-the-reader-and-the-converter" title="Link to this heading">#</a></h2>
+<p>Code lives in <code class="docutils literal notranslate"><span class="pre">src/sidescanpy/io/&lt;format&gt;/</span></code>, in two layers:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Does</p></th>
+<th class="head"><p>Does not</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reader.py</span></code> (plus <code class="docutils literal notranslate"><span class="pre">messages.py</span></code>, <code class="docutils literal notranslate"><span class="pre">pages.py</span></code> or <code class="docutils literal notranslate"><span class="pre">structs.py</span></code> for record layouts)</p></td>
+<td><p>parses the file into typed records with the source’s own names and units</p></td>
+<td><p>convert units, pair channels or build datasets</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">converter.py</span></code></p></td>
+<td><p>builds a <code class="docutils literal notranslate"><span class="pre">SideScanSurvey</span></code> from those records</p></td>
+<td><p>correct anything: samples stay as recorded</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subset.py</span></code> (recommended)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">write_subset(src,</span> <span class="pre">dst,</span> <span class="pre">n_pings=,</span> <span class="pre">start_ping=)</span></code>: copies a run of pings byte for byte</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">split.py</span></code> (if the range can change mid-file)</p></td>
+<td><p>splits the pings into runs of constant sample rate</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">targets.py</span></code> (if the source has target catalogs)</p></td>
+<td><p>reads them into <code class="docutils literal notranslate"><span class="pre">Target</span></code> objects</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then register the extension in <code class="docutils literal notranslate"><span class="pre">io/dispatch.py</span></code> (<code class="docutils literal notranslate"><span class="pre">detect_format</span></code>,
+<code class="docutils literal notranslate"><span class="pre">read_and_convert</span></code>, and <code class="docutils literal notranslate"><span class="pre">read_and_convert_segments</span></code> if it splits), which
+also makes it available to <code class="docutils literal notranslate"><span class="pre">sidescan-convert</span></code>.</p>
+</section>
+<section id="meet-the-data-format-s-contract">
+<h2>3. Meet the data format’s contract<a class="headerlink" href="#meet-the-data-format-s-contract" title="Link to this heading">#</a></h2>
+<p>The converter’s output passes <code class="docutils literal notranslate"><span class="pre">ds.sidescan.validate()</span></code> for every
+frequency, and follows these rules:</p>
+<ul class="simple">
+<li><p><strong>Dimensions.</strong> <code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel,</span> <span class="pre">sample)</span></code> with <code class="docutils literal notranslate"><span class="pre">channel</span></code> always 2,
+<code class="docutils literal notranslate"><span class="pre">0</span></code> port and <code class="docutils literal notranslate"><span class="pre">1</span></code> starboard, and sample 0 nearest the sonar on both
+sides (reverse a side the source stores far to near). <code class="docutils literal notranslate"><span class="pre">sample</span></code> is an
+absolute index. One dataset per frequency, keyed <code class="docutils literal notranslate"><span class="pre">hz_&lt;Hz&gt;</span></code>, each with
+its own ping axis.</p></li>
+<li><p><strong>Samples.</strong> <code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> as float32, scaled only by what
+the format defines (a weighting exponent, a bit mask), never by a
+gain or TVG. Shorter pings are NaN-padded, with <code class="docutils literal notranslate"><span class="pre">valid_samples</span></code>
+holding each ping’s true length.</p></li>
+<li><p><strong>Required per-ping variables:</strong> <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code> (WGS84
+degrees), <code class="docutils literal notranslate"><span class="pre">heading_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">roll_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">pitch_deg</span></code> (nose up positive),
+<code class="docutils literal notranslate"><span class="pre">heave_m</span></code>, <code class="docutils literal notranslate"><span class="pre">depth_m</span></code>, <code class="docutils literal notranslate"><span class="pre">altitude_m</span></code>, <code class="docutils literal notranslate"><span class="pre">fathometer_reading_m</span></code>,
+<code class="docutils literal notranslate"><span class="pre">sound_vel_ms</span></code>, plus <code class="docutils literal notranslate"><span class="pre">time</span></code> (<code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code>) and <code class="docutils literal notranslate"><span class="pre">ping_number</span></code>.
+Units go in the name suffix. A value the source does not record, or
+flags invalid, is NaN, never 0.</p></li>
+<li><p><strong>Required attributes:</strong> <code class="docutils literal notranslate"><span class="pre">freq_hz_start</span></code>, <code class="docutils literal notranslate"><span class="pre">freq_hz_end</span></code>,
+<code class="docutils literal notranslate"><span class="pre">sample_rate_hz</span></code> (one per frequency; split the file if it changes),
+<code class="docutils literal notranslate"><span class="pre">pulse_length_us</span></code> (0 when not recorded).</p></li>
+<li><p><strong>Aux records</strong> on their own <code class="docutils literal notranslate"><span class="pre">obs</span></code> time axis: <code class="docutils literal notranslate"><span class="pre">navigation</span></code>,
+<code class="docutils literal notranslate"><span class="pre">attitude</span></code>, <code class="docutils literal notranslate"><span class="pre">dvl</span></code>, and <code class="docutils literal notranslate"><span class="pre">sensors[...]</span></code> for anything else, each with a
+<code class="docutils literal notranslate"><span class="pre">source</span></code> attribute. A stream the file lacks gets an empty record
+(<code class="docutils literal notranslate"><span class="pre">make_empty_navigation_record</span></code> and friends), not one filled from
+another stream.</p></li>
+<li><p><strong>Position source.</strong> Set <code class="docutils literal notranslate"><span class="pre">position_source</span></code> and
+<code class="docutils literal notranslate"><span class="pre">position_source_reason</span></code>: <code class="docutils literal notranslate"><span class="pre">towfish</span></code> or <code class="docutils literal notranslate"><span class="pre">ship</span></code> only when the file says
+so, otherwise <code class="docutils literal notranslate"><span class="pre">unknown</span></code>. Never guess <code class="docutils literal notranslate"><span class="pre">ship</span></code>: the <code class="docutils literal notranslate"><span class="pre">layback</span></code> step would
+then move positions that may already be the towfish’s.</p></li>
+<li><p><strong>Provenance.</strong> Reader-specific attributes carry the format’s prefix
+(<code class="docutils literal notranslate"><span class="pre">xtf_</span></code>, <code class="docutils literal notranslate"><span class="pre">sdf_</span></code>), such as the recording program and counts of skipped
+or repaired records.</p></li>
+<li><p><strong>Logging.</strong> DEBUG for routine decisions, WARNING for surprising
+data, and one summary warning per file for skipped record types. No
+<code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p></li>
+</ul>
+<p>If the source records something the data format cannot hold, say so in
+a <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/issues">GitHub issue</a>:
+that is exactly the feedback the format needs before 1.0.</p>
+</section>
+<section id="test-it">
+<h2>4. Test it<a class="headerlink" href="#test-it" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Synthetic files, byte for byte.</strong> <code class="docutils literal notranslate"><span class="pre">tests/unit/io/&lt;format&gt;/conftest.py</span></code>
+builds small files from the specification’s record layouts; the tests
+cover parsing, every mapping rule above, the quirks, and a round trip
+through <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code>. The XTF and JSF test folders are the models.</p></li>
+<li><p><strong>A public fixture.</strong> A cut of a real file made with <code class="docutils literal notranslate"><span class="pre">write_subset</span></code>,
+listed in <code class="docutils literal notranslate"><span class="pre">tests/data/public/SOURCES.md</span></code> with source, licence and
+checksum, and kept outside the repository (never commit survey data).</p></li>
+<li><p><strong>The gates.</strong> <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code> also checks the import direction, the
+logging policy and that every module imports.</p></li>
+</ul>
+</section>
+<section id="check-it-on-real-data">
+<h2>5. Check it on real data<a class="headerlink" href="#check-it-on-real-data" title="Link to this heading">#</a></h2>
+<p>Passing tests on synthetic files does not show the conversion is right.
+On real files:</p>
+<ul class="simple">
+<li><p>Plot a waterfall of each frequency and side: the seabed starts where
+the altitude says, port is on the left, and nothing is mirrored.</p></li>
+<li><p>Count real updates in every aux stream with
+<code class="docutils literal notranslate"><span class="pre">processing.aux_update_events</span></code>, and plot the track
+(<a class="reference internal" href="../examples/plot_whats_in_a_file.html"><span class="std std-doc">What’s in a file</span></a>,
+<a class="reference internal" href="../examples/plot_navigation.html"><span class="std std-doc">Navigation</span></a>).</p></li>
+<li><p>If the same pings exist in another format (Discover writes JSF and
+XTF), convert both and compare: the samples should be identical
+(<a class="reference internal" href="../examples/plot_compare_sonars_and_formats.html"><span class="std std-doc">Comparing results across sonars and file formats</span></a>).</p></li>
+<li><p>Measure whether the recorder applied a gain with
+<code class="docutils literal notranslate"><span class="pre">analysis.fit_range_decay</span></code> before choosing corrections
+(<a class="reference internal" href="../examples/plot_investigate_a_survey.html"><span class="std std-doc">Investigating an unknown survey</span></a>).</p></li>
+</ul>
+</section>
+<section id="document-it">
+<h2>6. Document it<a class="headerlink" href="#document-it" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A page in <code class="docutils literal notranslate"><span class="pre">docs/sources/</span></code> with the same sections as the others: file
+structure, channels and data streams, mapping to the data format,
+known quirks, reference.</p></li>
+<li><p>A row in the <a class="reference internal" href="index.html"><span class="std std-doc">Source formats</span></a> table, with what it was
+tested with.</p></li>
+<li><p>If the public file can be shared, register it in
+<code class="docutils literal notranslate"><span class="pre">sidescanpy.datasets</span></code> and list it in
+<a class="reference internal" href="../example_data.html"><span class="std std-doc">Example data</span></a>.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code> entry.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="xtf.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">XTF</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../reference/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understand-the-source-before-writing-code">1. Understand the source before writing code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-reader-and-the-converter">2. Write the reader and the converter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meet-the-data-format-s-contract">3. Meet the data format’s contract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-it">4. Test it</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-it-on-real-data">5. Check it on real data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-it">6. Document it</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -167,15 +167,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="format/index.html">
+    Data format
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="reference/index.html">
-    API reference
+  <a class="nav-link nav-internal" href="sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -188,15 +188,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="development.html">
-    Development
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API reference
   </a>
 </li>
 
 
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="status.html">
-    Project status
+    Stability
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="development.html">
+    Contributing
   </a>
 </li>
 
@@ -329,8 +336,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -343,15 +357,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="development.html">
-    Development
+  <a class="nav-link nav-internal" href="status.html">
+    Stability
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="status.html">
-    Project status
+  <a class="nav-link nav-internal" href="development.html">
+    Contributing
   </a>
 </li>
 
@@ -440,7 +454,7 @@ functions measure a dataset’s units, nadir, usable range and TVG state.</p>
 <p>Until 1.0, any 0.x release may change the <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file format, the
 API and the CLI. Keep your raw sonar files, pin the version you use,
 and expect to re-convert <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> files after an upgrade. See
-<a class="reference internal" href="status.html"><span class="std std-doc">Project status</span></a>.</p>
+<a class="reference internal" href="status.html"><span class="std std-doc">Stability</span></a>.</p>
 </div>
 <p><a class="reference internal" href="examples/plot_correct_a_line.html"><span class="std std-doc"><img alt="A raw and a corrected EdgeTech line" src="_images/correct_a_line.png" /></span></a></p>
 <p><em>A public EdgeTech recording, raw (left) and after the bottom track, TVG
@@ -488,8 +502,12 @@ openly licensed recordings you can download, plus
 <a class="reference internal" href="grids.html"><span class="std std-doc">Gridding</span></a>, <a class="reference internal" href="datasets.html"><span class="std std-doc">Targets and datasets</span></a>,
 <a class="reference internal" href="analysis.html"><span class="std std-doc">Analysis</span></a>, <a class="reference internal" href="viz.html"><span class="std std-doc">Visualization</span></a>,
 <a class="reference internal" href="cli.html"><span class="std std-doc">Command line</span></a>, <a class="reference internal" href="logging.html"><span class="std std-doc">Logging</span></a>, <a class="reference internal" href="limitations.html"><span class="std std-doc">Limitations</span></a>.</p></li>
-<li><p><strong>Formats:</strong> <a class="reference internal" href="formats.html"><span class="std std-doc">overview</span></a>, <a class="reference internal" href="io_jsf.html"><span class="std std-doc">JSF</span></a>, <a class="reference internal" href="io_sdf.html"><span class="std std-doc">SDF</span></a>, <a class="reference internal" href="io_xtf.html"><span class="std std-doc">XTF</span></a>, <a class="reference internal" href="io_hdf5.html"><span class="std std-doc">HDF5</span></a>,
-<a class="reference internal" href="io_netcdf.html"><span class="std std-doc">NetCDF</span></a>.</p></li>
+<li><p><strong>Data format:</strong> <a class="reference internal" href="format/index.html"><span class="std std-doc">the format every reader converts into</span></a>:
+<a class="reference internal" href="format/ss_h5.html"><span class="std std-doc">the .ss.h5 file</span></a> and <a class="reference internal" href="format/netcdf.html"><span class="std std-doc">NetCDF for one frequency</span></a>.
+A draft, open for comment.</p></li>
+<li><p><strong>Source formats:</strong> <a class="reference internal" href="sources/index.html"><span class="std std-doc">overview</span></a>, <a class="reference internal" href="sources/jsf.html"><span class="std std-doc">EdgeTech JSF</span></a>,
+<a class="reference internal" href="sources/sdf.html"><span class="std std-doc">Klein SDF</span></a>, <a class="reference internal" href="sources/xtf.html"><span class="std std-doc">XTF</span></a>, and
+<a class="reference internal" href="sources/new_source.html"><span class="std std-doc">adding a source format</span></a>.</p></li>
 <li><p><strong>Reference:</strong> <a class="reference internal" href="reference/index.html"><span class="std std-doc">API reference</span></a>, one page per module, generated from the docstrings.</p></li>
 </ul>
 <div class="toctree-wrapper compound">

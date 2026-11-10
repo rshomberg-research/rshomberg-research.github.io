@@ -168,15 +168,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="../format/index.html">
+    Data format
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../reference/index.html">
-    API reference
+  <a class="nav-link nav-internal" href="../sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -189,15 +189,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../development.html">
-    Development
+  <a class="nav-link dropdown-item nav-internal" href="../reference/index.html">
+    API reference
   </a>
 </li>
 
 
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="../status.html">
-    Project status
+    Stability
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development.html">
+    Contributing
   </a>
 </li>
 
@@ -324,8 +331,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="../format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -338,15 +352,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../development.html">
-    Development
+  <a class="nav-link nav-internal" href="../status.html">
+    Stability
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../status.html">
-    Project status
+  <a class="nav-link nav-internal" href="../development.html">
+    Contributing
   </a>
 </li>
 
@@ -427,6 +441,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plot_whats_in_a_file.html">What’s in a file: metadata and aux streams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_navigation.html">Navigation: held fixes, interpolation and the track</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_investigate_a_survey.html">Investigating an unknown survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_common_artifacts.html">Common sidescan artifacts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_compare_sonars_and_formats.html">Comparing results across sonars and file formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
@@ -530,6 +545,9 @@ recordings, their sizes and licences are listed in <a class="reference internal"
 </div><div class="sphx-glr-thumbcontainer" tooltip="A survey arrives with no notes. Before choosing corrections, measure what the recording is: what the samples are, where the seabed starts under the towfish, how far the sonar sees before the signal sinks into noise, and whether the recorder already applied a time-varying gain. Each answer comes from one sidescanpy.analysis function that returns a result you can print, save and compare between surveys, and each has a plot in sidescanpy.viz.analysis."><img alt="" src="../_images/sphx_glr_plot_investigate_a_survey_thumb.png" />
 <p><a class="reference internal" href="plot_investigate_a_survey.html"><span class="doc">Investigating an unknown survey</span></a></p>
   <div class="sphx-glr-thumbnail-title">Investigating an unknown survey</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Much of what a sidescan image shows is not seabed. The towfish moves, the recorder changes its gain, other sonars ping, the GPS updates slowly and the signal fades into noise at long range. Each leaves its own mark, and an analyst or a detector trained on images sees all of them. This page shows the common ones on public recordings, with what causes each, a number that tells it apart, and what sidescanpy offers for it."><img alt="" src="../_images/sphx_glr_plot_common_artifacts_thumb.png" />
+<p><a class="reference internal" href="plot_common_artifacts.html"><span class="doc">Common sidescan artifacts</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Common sidescan artifacts</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Each correction is one function call on the survey. Every call is recorded with its parameters in each frequency&#x27;s processing_history, so a corrected file says how it was made; leave a call out to skip that correction, or put your own function in the chain."><img alt="" src="../_images/sphx_glr_plot_correct_a_line_thumb.png" />
 <p><a class="reference internal" href="plot_correct_a_line.html"><span class="doc">Correct a line</span></a></p>
   <div class="sphx-glr-thumbnail-title">Correct a line</div>

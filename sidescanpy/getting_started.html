@@ -168,15 +168,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="format/index.html">
+    Data format
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="reference/index.html">
-    API reference
+  <a class="nav-link nav-internal" href="sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -189,15 +189,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="development.html">
-    Development
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API reference
   </a>
 </li>
 
 
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="status.html">
-    Project status
+    Stability
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="development.html">
+    Contributing
   </a>
 </li>
 
@@ -328,8 +335,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -342,15 +356,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="development.html">
-    Development
+  <a class="nav-link nav-internal" href="status.html">
+    Stability
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="status.html">
-    Project status
+  <a class="nav-link nav-internal" href="development.html">
+    Contributing
   </a>
 </li>
 
@@ -494,8 +508,10 @@ frequency, keyed <code class="docutils literal notranslate"><span class="pre">hz
 sensor records the file carried. Backscatter has dimensions
 <code class="docutils literal notranslate"><span class="pre">(ping,</span> <span class="pre">channel,</span> <span class="pre">sample)</span></code>, with channel 0 port and 1 starboard. Per-ping
 values (position, heading, attitude, altitude, sound velocity) are
-variables along <code class="docutils literal notranslate"><span class="pre">ping</span></code>. <a class="reference internal" href="core.html"><span class="std std-doc">Data model</span></a> describes the structure
-and <a class="reference internal" href="io_hdf5.html"><span class="std std-doc">HDF5</span></a> the <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file.</p>
+variables along <code class="docutils literal notranslate"><span class="pre">ping</span></code>. This is sidescanpy’s <a class="reference internal" href="format/index.html"><span class="std std-doc">data format</span></a>:
+every reader converts into it and everything else runs on it.
+<a class="reference internal" href="core.html"><span class="std std-doc">Data model</span></a> describes the structure and
+<a class="reference internal" href="format/ss_h5.html"><span class="std std-doc">The .ss.h5 file</span></a> the file.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file is a derived product. Keep the raw XTF: until 1.0 the
 file format may change and you may need to convert again.</p>
 </section>
@@ -633,7 +649,8 @@ sidescan-export<span class="w"> </span>grid<span class="w"> </span>--help
 <ul class="simple">
 <li><p><a class="reference internal" href="workflow.html"><span class="std std-doc">Building a workflow</span></a>: one script per step and one config
 per survey, for real surveys.</p></li>
-<li><p><a class="reference internal" href="formats.html"><span class="std std-doc">Formats</span></a>: what each reader supports.</p></li>
+<li><p><a class="reference internal" href="format/index.html"><span class="std std-doc">Data format</span></a>: the format every reader converts into.</p></li>
+<li><p><a class="reference internal" href="sources/index.html"><span class="std std-doc">Source formats</span></a>: what each reader supports.</p></li>
 <li><p><a class="reference internal" href="reference/index.html"><span class="std std-doc">API reference</span></a>: every function and its parameters.</p></li>
 </ul>
 <p>Data: JNCC mid-Irish Sea, Open Government Licence v3.0 (see

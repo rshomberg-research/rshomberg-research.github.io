@@ -168,15 +168,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="../format/index.html">
+    Data format
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../reference/index.html">
-    API reference
+  <a class="nav-link nav-internal" href="../sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -189,15 +189,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../development.html">
-    Development
+  <a class="nav-link dropdown-item nav-internal" href="../reference/index.html">
+    API reference
   </a>
 </li>
 
 
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="../status.html">
-    Project status
+    Stability
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development.html">
+    Contributing
   </a>
 </li>
 
@@ -324,8 +331,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="../format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -338,15 +352,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../development.html">
-    Development
+  <a class="nav-link nav-internal" href="../status.html">
+    Stability
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../status.html">
-    Project status
+  <a class="nav-link nav-internal" href="../development.html">
+    Contributing
   </a>
 </li>
 
@@ -427,6 +441,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plot_whats_in_a_file.html">What’s in a file: metadata and aux streams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_navigation.html">Navigation: held fixes, interpolation and the track</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_investigate_a_survey.html">Investigating an unknown survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_common_artifacts.html">Common sidescan artifacts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_correct_a_line.html">Correct a line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_compare_sonars_and_formats.html">Comparing results across sonars and file formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
@@ -556,10 +571,10 @@ shows the pattern (changes 1 entry apart, then 6 to 7).</p>
 </span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a> <span class="o">=</span> <span class="n">compute_georeferencing</span><span class="p">(</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="p">)</span><span class="w">
 </span><a class="sphx-glr-backref-module-xarray-core-dataset sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="xarray.core.dataset.Dataset"><span class="n">ds</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="o">.</span><span class="n">get_frequency</span><span class="p">(</span><span class="s2">&quot;</span><span class="s2">hz_100000</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">dataset</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>18:25:31 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-18:25:31 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-18:25:31 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;pitch_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-18:25:31 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;roll_deg&#39;]: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>18:58:22 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+18:58:22 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+18:58:22 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;pitch_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+18:58:22 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;roll_deg&#39;]: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
 </pre></div>
 </div>
 <p>Tiles 30 m along track with 0.1 m pixels, overlapping by 5 m so an
@@ -636,7 +651,7 @@ scored against a catalog with <a class="reference internal" href="../reference/g
 grand_bay_150602205800_hz_100000_0002_001: reef     ping 208, port, sample 3317, lat 30.362860 lon -88.360015, 12.0 x 12.0 m
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.023 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.945 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-swath-tiles-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/b377aa50e0e362a31094f5a1b7ec1ef9/plot_swath_tiles.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_swath_tiles.ipynb</span></code></a></p>

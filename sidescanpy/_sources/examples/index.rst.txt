@@ -114,6 +114,23 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Much of what a sidescan image shows is not seabed. The towfish moves, the recorder changes its gain, other sonars ping, the GPS updates slowly and the signal fades into noise at long range. Each leaves its own mark, and an analyst or a detector trained on images sees all of them. This page shows the common ones on public recordings, with what causes each, a number that tells it apart, and what sidescanpy offers for it.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_common_artifacts_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_common_artifacts`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Common sidescan artifacts</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Each correction is one function call on the survey. Every call is recorded with its parameters in each frequency&#x27;s processing_history, so a corrected file says how it was made; leave a call out to skip that correction, or put your own function in the chain.">
 
 .. only:: html
@@ -279,6 +296,7 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
    /examples/plot_whats_in_a_file
    /examples/plot_navigation
    /examples/plot_investigate_a_survey
+   /examples/plot_common_artifacts
    /examples/plot_correct_a_line
    /examples/plot_compare_sonars_and_formats
    /examples/plot_grid_to_a_map

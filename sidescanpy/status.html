@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Project status &#8212; sidescanpy 0.9.0</title>
+    <title>Stability &#8212; sidescanpy 0.9.0</title>
   
   
   
@@ -52,7 +52,8 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Development" href="development.html" />
+    <link rel="next" title="Contributing" href="development.html" />
+    <link rel="prev" title="sidescanpy.viz.waterfall" href="reference/generated/sidescanpy.viz.waterfall.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
@@ -167,15 +168,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="format/index.html">
+    Data format
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="reference/index.html">
-    API reference
+  <a class="nav-link nav-internal" href="sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -188,15 +189,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="development.html">
-    Development
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API reference
   </a>
 </li>
 
 
 <li class=" current active">
   <a class="nav-link dropdown-item nav-internal" href="#" aria-current="page">
-    Project status
+    Stability
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="development.html">
+    Contributing
   </a>
 </li>
 
@@ -327,8 +335,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -340,16 +355,16 @@
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="development.html">
-    Development
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#" aria-current="page">
+    Stability
   </a>
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#" aria-current="page">
-    Project status
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="development.html">
+    Contributing
   </a>
 </li>
 
@@ -432,7 +447,7 @@
         <i class="fa-solid fa-house"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Project status</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Stability</span></li>
   </ul>
 </nav>
 </div>
@@ -449,15 +464,14 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="project-status">
-<h1>Project status<a class="headerlink" href="#project-status" title="Link to this heading">#</a></h1>
-<p>sidescanpy is beta software. It is used on real surveys, but until
-version 1.0, any 0.x release can change:</p>
+  <section id="stability">
+<h1>Stability<a class="headerlink" href="#stability" title="Link to this heading">#</a></h1>
+<p>sidescanpy is beta software. Until version 1.0, any release can change:</p>
 <ul class="simple">
-<li><p><strong>The <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> file format.</strong> Group layout, variable names, attributes
-and encodings are not frozen. A file written by one 0.x version may not
-read, or may read differently, in a later one. There is no migration
-tool yet.</p></li>
+<li><p><strong>The <a class="reference internal" href="format/index.html"><span class="std std-doc">data format</span></a>.</strong> The <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> layout, variable
+names, attributes and encodings are a draft (format version 0.1). A
+file written by one version may not read, or may read differently, in
+a later one.</p></li>
 <li><p><strong>The Python API and the CLI.</strong> Functions, parameters, defaults, flags
 and config keys can be renamed or removed.</p></li>
 <li><p><strong>Default processing parameters</strong>, such as the TVG spreading term, and
@@ -473,10 +487,10 @@ under the release that makes them.</p>
 re-convert after an upgrade.</p></li>
 <li><p><strong>Pin the version</strong> your project uses (a release tag, see
 <a class="reference internal" href="install.html"><span class="std std-doc">Install</span></a>), and upgrade on purpose.</p></li>
-<li><p><strong>Check which version wrote a file.</strong> Each <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> records the layout
-version in the root attribute <code class="docutils literal notranslate"><span class="pre">format_version</span></code> (from 0.9.0) and the
-writer in <code class="docutils literal notranslate"><span class="pre">sidescanpy_version</span></code> (from 0.8.0), and every processing step
-records its version in <code class="docutils literal notranslate"><span class="pre">processing_history</span></code>:</p></li>
+<li><p><strong>Check which version wrote a file.</strong> Each <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> records the format
+version in the root attribute <code class="docutils literal notranslate"><span class="pre">format_version</span></code> and the writer in
+<code class="docutils literal notranslate"><span class="pre">sidescanpy_version</span></code>, and every processing step records its version in
+<code class="docutils literal notranslate"><span class="pre">processing_history</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">h5netcdf</span>
 
@@ -484,35 +498,9 @@ records its version in <code class="docutils literal notranslate"><span class="p
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;format_version&quot;</span><span class="p">),</span> <span class="n">f</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sidescanpy_version&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-</section>
-<section id="documentation-for-a-release">
-<h2>Documentation for a release<a class="headerlink" href="#documentation-for-a-release" title="Link to this heading">#</a></h2>
-<p>This site follows <code class="docutils literal notranslate"><span class="pre">main</span></code>. For the docs of a release, build them from a
-clone of that tag (<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-serve</span></code>, then open <a class="reference external" href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>).</p>
-</section>
-<section id="test-and-example-data">
-<h2>Test and example data<a class="headerlink" href="#test-and-example-data" title="Link to this heading">#</a></h2>
-<p>The repository holds code only, no survey data.</p>
-<ul class="simple">
-<li><p><strong>Examples.</strong> The <a class="reference internal" href="examples/index.html"><span class="std std-doc">worked examples</span></a> download public
-recordings with <code class="docutils literal notranslate"><span class="pre">sidescanpy.datasets.fetch()</span></code>; see
-<a class="reference internal" href="example_data.html"><span class="std std-doc">Example data</span></a>. The other scripts in <code class="docutils literal notranslate"><span class="pre">examples/</span></code> run
-on synthetic data.</p></li>
-<li><p><strong>Test fixtures.</strong> <code class="docutils literal notranslate"><span class="pre">tests/unit/io/test_public_fixtures.py</span></code> runs on five
-small cuts (4.1 MB) of the same kind of openly licensed recordings:
-EdgeTech JSF, and XTF from three writers. Their sources, licences and
-checksums are in <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/tests/data/public/SOURCES.md"><code class="docutils literal notranslate"><span class="pre">tests/data/public/SOURCES.md</span></code></a>.
-Until an archived copy is published, ask the maintainer for them. Point
-<code class="docutils literal notranslate"><span class="pre">SIDESCANPY_PUBLIC_DATA</span></code> at the folder to run those tests; without it
-they skip.</p></li>
-</ul>
-</section>
-<section id="feedback">
-<h2>Feedback<a class="headerlink" href="#feedback" title="Link to this heading">#</a></h2>
-<p>Open an issue on GitHub. For a reader problem, say which sonar and
-acquisition software wrote the file and attach the shortest file that
-shows it, or a cut made with <code class="docutils literal notranslate"><span class="pre">io.jsf.write_subset</span></code> /
-<code class="docutils literal notranslate"><span class="pre">io.xtf.write_subset</span></code>, if you can share it.</p>
+<p>This site follows the latest code. For the documentation of the version
+you pinned, build it from that release (<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-serve</span></code> in a clone of
+the tag).</p>
 </section>
 </section>
 
@@ -527,13 +515,22 @@ shows it, or a cut made with <code class="docutils literal notranslate"><span cl
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="development.html"
+       href="reference/generated/sidescanpy.viz.waterfall.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Development</p>
+        <p class="prev-next-title">sidescanpy.viz.waterfall</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="development.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Contributing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -555,9 +552,6 @@ shows it, or a cut made with <code class="docutils literal notranslate"><span cl
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protecting-your-work">Protecting your work</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-for-a-release">Documentation for a release</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-and-example-data">Test and example data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">Feedback</a></li>
 </ul>
   </nav></div>
 

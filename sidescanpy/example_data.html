@@ -168,15 +168,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="format/index.html">
+    Data format
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="reference/index.html">
-    API reference
+  <a class="nav-link nav-internal" href="sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -189,15 +189,22 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="development.html">
-    Development
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API reference
   </a>
 </li>
 
 
 <li class=" ">
   <a class="nav-link dropdown-item nav-internal" href="status.html">
-    Project status
+    Stability
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="development.html">
+    Contributing
   </a>
 </li>
 
@@ -328,8 +335,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="formats.html">
-    Formats
+  <a class="nav-link nav-internal" href="format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sources/index.html">
+    Source formats
   </a>
 </li>
 
@@ -342,15 +356,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="development.html">
-    Development
+  <a class="nav-link nav-internal" href="status.html">
+    Stability
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="status.html">
-    Project status
+  <a class="nav-link nav-internal" href="development.html">
+    Contributing
   </a>
 </li>
 
@@ -431,6 +445,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/plot_whats_in_a_file.html">What’s in a file: metadata and aux streams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/plot_navigation.html">Navigation: held fixes, interpolation and the track</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/plot_investigate_a_survey.html">Investigating an unknown survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/plot_common_artifacts.html">Common sidescan artifacts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/plot_correct_a_line.html">Correct a line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/plot_compare_sonars_and_formats.html">Comparing results across sonars and file formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/plot_grid_to_a_map.html">Grid to a map</a></li>
@@ -567,11 +582,21 @@ going online.</p>
 <td><p>28 MB</p></td>
 <td><p>Klein 400 kHz, XTF (SonarPro, 2008): the Aisha wreck</p></td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bgs_london_gateway_aisha_15.xtf</span></code>, <code class="docutils literal notranslate"><span class="pre">_16</span></code></p></td>
+<td><p>12 and 8 MB</p></td>
+<td><p>the same 2008 survey: towfish motion stripes, and a turn</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bgs_london_gateway_ash_34.xtf</span></code></p></td>
+<td><p>16 MB</p></td>
+<td><p>Klein 400 kHz, XTF (GeoDAS, 2007): data dropouts on port</p></td>
+</tr>
 </tbody>
 </table>
 </div>
-<p>The London Gateway files store navigation as UTM zone 31N easting and
-northing without saying so: convert them with <code class="docutils literal notranslate"><span class="pre">nav_crs=&quot;EPSG:32631&quot;</span></code>.
+<p>The 2007 London Gateway files (GeoDAS) store navigation as UTM zone 31N
+easting and northing without saying so: convert them with
+<code class="docutils literal notranslate"><span class="pre">nav_crs=&quot;EPSG:32631&quot;</span></code>. The 2008 Aisha lines (KleinXlt) record latitude
+and longitude, and <code class="docutils literal notranslate"><span class="pre">nav_crs</span></code> is ignored for them.
 They record no heading (use the course over ground), their samples
 already carry the recorder’s TVG, and their <code class="docutils literal notranslate"><span class="pre">Weight</span></code> fields are garbage,
 which the reader ignores with a warning. Their positions jump back by 1

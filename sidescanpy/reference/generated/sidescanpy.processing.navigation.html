@@ -624,6 +624,9 @@ from per-ping latitude/longitude, optionally with short navigation
 stalls filled.</p></li>
 <li><p><a class="reference internal" href="#sidescanpy.processing.navigation.fill_nav_stalls" title="sidescanpy.processing.navigation.fill_nav_stalls"><code class="xref py py-func docutils literal notranslate"><span class="pre">fill_nav_stalls()</span></code></a> – replace short runs of stalled position
 steps with the local median ping step.</p></li>
+<li><p><a class="reference internal" href="#sidescanpy.processing.navigation.course_over_ground" title="sidescanpy.processing.navigation.course_over_ground"><code class="xref py py-func docutils literal notranslate"><span class="pre">course_over_ground()</span></code></a> – per-ping course (degrees true) from the
+positions a few seconds before and after each ping, for use as the
+heading when a towfish compass is unreliable.</p></li>
 </ul>
 <p>Pure array/dataset functions; no plotting.</p>
 <p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
@@ -635,6 +638,9 @@ steps with the local median ping step.</p></li>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.processing.navigation.fill_nav_stalls" title="sidescanpy.processing.navigation.fill_nav_stalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_nav_stalls</span></code></a></p></td>
 <td><p>Replace short navigation stalls with the local median ping step.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.processing.navigation.course_over_ground" title="sidescanpy.processing.navigation.course_over_ground"><code class="xref py py-obj docutils literal notranslate"><span class="pre">course_over_ground</span></code></a></p></td>
+<td><p>Per-ping course over ground, degrees true (compass bearing, [0, 360)).</p></td>
 </tr>
 </tbody>
 </table>
@@ -668,6 +674,41 @@ step within <code class="docutils literal notranslate"><span class="pre">window_
 <code class="docutils literal notranslate"><span class="pre">max_stall_pings</span></code> stalled steps with moving steps on both sides
 are filled – a longer run, or one at the window edge, is treated as
 the vessel really stopping and left as is.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.processing.navigation.course_over_ground">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.navigation.</span></span><span class="sig-name descname"><span class="pre">course_over_ground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">half_window_s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.navigation.course_over_ground" title="Link to this definition">#</a></dt>
+<dd><p>Per-ping course over ground, degrees true (compass bearing, [0, 360)).</p>
+<p>The bearing from the ping’s position <code class="docutils literal notranslate"><span class="pre">half_window_s</span></code> earlier to its
+position <code class="docutils literal notranslate"><span class="pre">half_window_s</span></code> later (WGS84 geodesic), taken from the
+per-ping <code class="docutils literal notranslate"><span class="pre">latitude</span></code>/<code class="docutils literal notranslate"><span class="pre">longitude</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code>. Near the ends of the
+dataset the window is cut short. Pings without a finite position, or
+whose window has no movement, get the course interpolated from their
+neighbours (on the unwrapped angle, so no jump at north).</p>
+<p>Use it in place of <code class="docutils literal notranslate"><span class="pre">heading_deg</span></code> when the towfish compass is not
+trusted, e.g. a heading-dependent compass deviation that shears the
+georeferenced swath. It assumes the towfish follows the vessel track
+(no crab angle), and it lags in tight turns by about <code class="docutils literal notranslate"><span class="pre">half_window_s</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ds</strong><span class="classifier">xr.Dataset</span></dt><dd><p>Frequency-channel dataset with per-ping <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and
+<code class="docutils literal notranslate"><span class="pre">longitude</span></code>, pings in time order.</p>
+</dd>
+<dt><strong>half_window_s</strong><span class="classifier">float, default 4.0</span></dt><dd><p>Half the time window over which the course is measured. Longer
+smooths GPS noise; shorter follows turns more closely.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd><p>Course in degrees, one per ping; all NaN when fewer than two pings
+have distinct finite positions.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -721,6 +762,7 @@ the vessel really stopping and left as is.</p>
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.navigation.along_track_distance_m"><code class="docutils literal notranslate"><span class="pre">along_track_distance_m()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.navigation.fill_nav_stalls"><code class="docutils literal notranslate"><span class="pre">fill_nav_stalls()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.processing.navigation.course_over_ground"><code class="docutils literal notranslate"><span class="pre">course_over_ground()</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -637,17 +637,20 @@ lat/lon arrays; <code class="docutils literal notranslate"><span class="pre">sid
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="sidescanpy.processing.track.SurveyTrack">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.track.</span></span><span class="sig-name descname"><span class="pre">SurveyTrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">track_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">track_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_port_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_port_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_stbd_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_stbd_lon</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.track.SurveyTrack" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.track.</span></span><span class="sig-name descname"><span class="pre">SurveyTrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">track_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">track_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_port_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_port_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_stbd_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_stbd_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_nadir_lat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_nadir_lon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.track.SurveyTrack" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Nadir track and scan-line endpoints for one frequency (WGS84 degrees).</p>
 <p><code class="docutils literal notranslate"><span class="pre">track_*</span></code> arrays have one entry per ping across every file, in time
 order. <code class="docutils literal notranslate"><span class="pre">scan_*</span></code> arrays are index-aligned port/starboard swath-edge
-positions at every <code class="docutils literal notranslate"><span class="pre">scanline_stride</span></code>-th ping of each file.</p>
+positions at every <code class="docutils literal notranslate"><span class="pre">scanline_stride</span></code>-th ping of each file.
+<code class="docutils literal notranslate"><span class="pre">scan_nadir_*</span></code> is the nadir position at those same pings, where
+each rung splits into its port and starboard halves (None when not
+known).</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sidescanpy.processing.track.build_survey_track">
-<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.track.</span></span><span class="sig-name descname"><span class="pre">build_survey_track</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surveys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_key</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">scanline_stride</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.track.build_survey_track" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.processing.track.</span></span><span class="sig-name descname"><span class="pre">build_survey_track</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surveys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_key</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">scanline_stride</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heading</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'compass'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.processing.track.build_survey_track" title="Link to this definition">#</a></dt>
 <dd><p>Nadir track + strided port/starboard scan-line endpoints for one
 frequency, across every file that has it, in time order.</p>
 <p>Cheap by design, but <em>not</em> by slicing the sample axis down to one
@@ -675,6 +678,11 @@ rung — while staying correct.</p>
 <dt><strong>freq_key</strong><span class="classifier">str</span></dt><dd><p>e.g. <code class="docutils literal notranslate"><span class="pre">&quot;hz_1495000&quot;</span></code>.</p>
 </dd>
 <dt><strong>scanline_stride</strong><span class="classifier">int</span></dt><dd><p>Draw a scan-line rung every Nth ping.</p>
+</dd>
+<dt><strong>heading</strong><span class="classifier">{“compass”, “course”}, default “compass”</span></dt><dd><p>Heading used to place the swath edges: the recorded
+<code class="docutils literal notranslate"><span class="pre">heading_deg</span></code>, or the GPS course over ground
+(<code class="docutils literal notranslate"><span class="pre">sidescanpy.processing.navigation.course_over_ground</span></code>) for a
+towfish whose compass is not trusted.</p>
 </dd>
 </dl>
 </dd>

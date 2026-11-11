@@ -854,7 +854,7 @@ navigation and turns do to a map.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 38.779 seconds)
+   **Total running time of the script:** (0 minutes 38.683 seconds)
 
 
 .. _sphx_glr_download_theory_plot_ping_spacing_and_coverage.py:

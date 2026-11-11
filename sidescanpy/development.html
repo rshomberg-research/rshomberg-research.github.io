@@ -557,7 +557,9 @@ so the plotting, GeoTIFF and docs code is tested too.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span> <span class="pre">pytest</span> <span class="pre">tests/integration</span> <span class="pre">--slow</span></code> runs the integration tests,
 which need real survey files that are not in the repository and skip
-without them. The public test fixtures are listed in
+without them: put a JSF file at <code class="docutils literal notranslate"><span class="pre">tests/data/jsf/sample.jsf</span></code> and a Klein
+SDF file at <code class="docutils literal notranslate"><span class="pre">tests/data/sdf/sample.sdf</span></code>. A local <code class="docutils literal notranslate"><span class="pre">data/</span></code> folder for
+survey files is ignored by git; the library never reads from it. The public test fixtures are listed in
 <code class="docutils literal notranslate"><span class="pre">tests/data/public/SOURCES.md</span></code>; set <code class="docutils literal notranslate"><span class="pre">SIDESCANPY_PUBLIC_DATA</span></code> to the
 folder holding them to run <code class="docutils literal notranslate"><span class="pre">tests/unit/io/test_public_fixtures.py</span></code>.</p>
 </section>

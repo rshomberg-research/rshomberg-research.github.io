@@ -852,7 +852,7 @@ measures shadow heights for small objects.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 10.840 seconds)
+   **Total running time of the script:** (0 minutes 10.007 seconds)
 
 
 .. _sphx_glr_download_theory_plot_slopes_and_layover.py:

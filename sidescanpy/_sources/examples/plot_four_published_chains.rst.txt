@@ -521,7 +521,7 @@ deliberately made differently.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 26.740 seconds)
+   **Total running time of the script:** (1 minutes 30.019 seconds)
 
 
 .. _sphx_glr_download_examples_plot_four_published_chains.py:

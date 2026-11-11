@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**04:22.767** total execution time for 12 files **from theory**:
+**04:25.930** total execution time for 12 files **from theory**:
 
 .. container::
 
@@ -33,38 +33,38 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_theory_plot_common_artifacts.py` (``plot_common_artifacts.py``)
-     - 01:23.846
+     - 01:22.000
      - 0.0
    * - :ref:`sphx_glr_theory_plot_ping_spacing_and_coverage.py` (``plot_ping_spacing_and_coverage.py``)
-     - 00:38.683
+     - 00:39.076
      - 0.0
    * - :ref:`sphx_glr_theory_plot_navigation_and_position.py` (``plot_navigation_and_position.py``)
-     - 00:28.795
+     - 00:30.133
      - 0.0
    * - :ref:`sphx_glr_theory_plot_towfish_attitude.py` (``plot_towfish_attitude.py``)
-     - 00:21.557
-     - 0.0
-   * - :ref:`sphx_glr_theory_plot_sonar_equation_and_tvg.py` (``plot_sonar_equation_and_tvg.py``)
-     - 00:16.079
+     - 00:22.376
      - 0.0
    * - :ref:`sphx_glr_theory_plot_slant_to_ground_range.py` (``plot_slant_to_ground_range.py``)
-     - 00:15.769
+     - 00:16.900
      - 0.0
-   * - :ref:`sphx_glr_theory_plot_range_limits.py` (``plot_range_limits.py``)
-     - 00:13.292
+   * - :ref:`sphx_glr_theory_plot_sonar_equation_and_tvg.py` (``plot_sonar_equation_and_tvg.py``)
+     - 00:15.494
      - 0.0
    * - :ref:`sphx_glr_theory_plot_amplitude_and_db.py` (``plot_amplitude_and_db.py``)
-     - 00:12.855
+     - 00:12.954
      - 0.0
-   * - :ref:`sphx_glr_theory_plot_how_sidescan_sees.py` (``plot_how_sidescan_sees.py``)
-     - 00:10.615
+   * - :ref:`sphx_glr_theory_plot_range_limits.py` (``plot_range_limits.py``)
+     - 00:12.492
      - 0.0
    * - :ref:`sphx_glr_theory_plot_slopes_and_layover.py` (``plot_slopes_and_layover.py``)
-     - 00:10.007
+     - 00:11.067
+     - 0.0
+   * - :ref:`sphx_glr_theory_plot_how_sidescan_sees.py` (``plot_how_sidescan_sees.py``)
+     - 00:10.856
      - 0.0
    * - :ref:`sphx_glr_theory_plot_frequency_and_resolution.py` (``plot_frequency_and_resolution.py``)
-     - 00:06.758
+     - 00:07.772
      - 0.0
    * - :ref:`sphx_glr_theory_plot_shadow_height.py` (``plot_shadow_height.py``)
-     - 00:04.511
+     - 00:04.809
      - 0.0

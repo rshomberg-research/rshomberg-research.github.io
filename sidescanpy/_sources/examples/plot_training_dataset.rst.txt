@@ -35,7 +35,7 @@ Data: USGS Grand Bay, U.S. public domain (see :doc:`/example_data`).
 
 Usage: ``python examples/gallery/plot_training_dataset.py [output_dir]``
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-66
+.. GENERATED FROM PYTHON SOURCE LINES 19-67
 
 .. code-block:: Python
 
@@ -46,6 +46,7 @@ Usage: ``python examples/gallery/plot_training_dataset.py [output_dir]``
     from pathlib import Path
 
     import matplotlib.pyplot as plt
+    import yaml
     from PIL import Image
 
     from sidescanpy import datasets
@@ -94,15 +95,15 @@ Usage: ``python examples/gallery/plot_training_dataset.py [output_dir]``
 
  .. code-block:: none
 
-    00:39:09 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    00:39:09 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    00:39:09 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    00:39:09 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    01:27:25 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    01:27:25 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    01:27:25 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    01:27:25 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-75
+.. GENERATED FROM PYTHON SOURCE LINES 69-76
 
 Eight background windows whose footprint holds no catalog target
 (``background_margin_m`` keeps them further away), and a validation
@@ -112,7 +113,7 @@ split; the shares are therefore only approximate. A real dataset has many
 more targets and lines; with five targets on one short line, the split is
 only there to show the layout.
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-89
+.. GENERATED FROM PYTHON SOURCE LINES 76-93
 
 .. code-block:: Python
 
@@ -124,6 +125,9 @@ only there to show the layout.
         layout="ultralytics", seed=0,
     )
     result = build_target_dataset(ss_dir, catalog, spec, out / "dataset")
+    # The spec round-trips through YAML, so a project can keep it in its config.
+    (out / "dataset_spec.yaml").write_text(yaml.safe_dump(spec.to_dict()))
+    assert DatasetSpec.from_yaml(out / "dataset_spec.yaml") == spec
     chip = result.styles["chip"]
     print(f"{chip.n_target_images} target and {chip.n_background_images} background images, "
           f"{chip.n_annotations} boxes, split {chip.split_counts}")
@@ -149,14 +153,14 @@ only there to show the layout.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-94
+.. GENERATED FROM PYTHON SOURCE LINES 94-98
 
 ``data.yaml`` is what ``ultralytics`` reads (``YOLO("yolo11n.pt").train(
 data="dataset/chip/data.yaml")``); ``train.coco.json`` and
 ``val.coco.json`` describe the same images for other tools. A background
 image has no label lines.
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-108
+.. GENERATED FROM PYTHON SOURCE LINES 98-112
 
 .. code-block:: Python
 
@@ -199,7 +203,7 @@ image has no label lines.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-126
+.. GENERATED FROM PYTHON SOURCE LINES 124-130
 
 Look at the backgrounds before training. Here they come from the inner
 swath beside nadir and, after the per-image stretch, are brighter and
@@ -211,7 +215,7 @@ kinds of image make the two sets look alike apart from the targets.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (3 minutes 4.354 seconds)
+   **Total running time of the script:** (3 minutes 27.090 seconds)
 
 
 .. _sphx_glr_download_examples_plot_training_dataset.py:

@@ -577,9 +577,10 @@ far range. <code class="docutils literal notranslate"><span class="pre">analysis
 absorption) to the median level against range:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit_tvg_models</span>
 
+<span class="n">fits</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">survey</span><span class="o">.</span><span class="n">frequencies</span><span class="p">):</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">compute_geometric_ranges</span><span class="p">(</span><span class="n">survey</span><span class="o">.</span><span class="n">get_frequency</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
-    <span class="n">fit</span> <span class="o">=</span> <span class="n">fit_tvg_models</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+    <span class="n">fits</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">fit</span> <span class="o">=</span> <span class="n">fit_tvg_models</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">fit</span><span class="o">.</span><span class="n">best</span><span class="p">,</span> <span class="n">fit</span><span class="o">.</span><span class="n">tvg_status</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -622,20 +623,23 @@ frequency’s <code class="docutils literal notranslate"><span class="pre">proce
 </pre></div>
 </div>
 <p>Leave a call out to skip that correction. To follow the gain check above
-instead, start again from the converted file and turn off the terms the
-recorder already applied, per frequency (a term set to 0 is not
-applied):</p>
+instead, start again from the converted file and apply the model each
+fit found, per frequency: <code class="docutils literal notranslate"><span class="pre">fit.tvg_params</span></code> holds its spreading and
+absorption terms, and a term of 0 is not applied. Here that is no TVG at
+100 kHz and 20 log R without absorption at 400 kHz:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy.io.hdf5</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_survey</span>
 
 <span class="n">survey</span> <span class="o">=</span> <span class="n">interpolate_aux_onto_pings</span><span class="p">(</span><span class="n">read_survey</span><span class="p">(</span><span class="s2">&quot;MIS11_0.ss.h5&quot;</span><span class="p">))</span>
-<span class="n">tvg</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;hz_100000&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;spreading_loss_db&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">},</span>
-    <span class="s2">&quot;hz_400000&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;spreading_loss_db&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;absorption_db_per_m&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">},</span>
-<span class="p">}</span>
-<span class="k">for</span> <span class="n">freq_key</span><span class="p">,</span> <span class="n">terms</span> <span class="ow">in</span> <span class="n">tvg</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">freq_key</span><span class="p">,</span> <span class="n">fit</span> <span class="ow">in</span> <span class="n">fits</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">tvg_params</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">freq_key</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">spreading_loss_db</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">absorption_db_per_m</span><span class="p">)</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">survey</span><span class="o">.</span><span class="n">get_frequency</span><span class="p">(</span><span class="n">freq_key</span><span class="p">)</span><span class="o">.</span><span class="n">dataset</span>
-    <span class="n">survey</span><span class="o">.</span><span class="n">add_frequency</span><span class="p">(</span><span class="n">freq_key</span><span class="p">,</span> <span class="n">apply_tvg</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="o">**</span><span class="n">terms</span><span class="p">))</span>
+    <span class="n">survey</span><span class="o">.</span><span class="n">add_frequency</span><span class="p">(</span><span class="n">freq_key</span><span class="p">,</span> <span class="n">apply_tvg</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">params</span><span class="p">))</span>
 <span class="n">survey</span> <span class="o">=</span> <span class="n">compute_georeferencing</span><span class="p">(</span><span class="n">compute_geometric_ranges</span><span class="p">(</span><span class="n">survey</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hz_100000</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+<span class="n">hz_400000</span> <span class="mf">20.0</span> <span class="mf">0.0</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">apply_tvg</span></code> refuses to run twice on the same data, so gains never stack;
@@ -655,7 +659,7 @@ files.</p>
 <span class="n">to_geotiff</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="s2">&quot;MIS11_0_400khz.tif&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SideScanGriddedRaster</span><span class="p">(</span><span class="n">channel_name</span><span class="o">=</span><span class="s1">&#39;400 kHz&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1048</span><span class="p">,</span> <span class="mi">544</span><span class="p">),</span> <span class="n">coverage</span><span class="o">=</span><span class="mf">55.9</span><span class="o">%</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">32630</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SideScanGriddedRaster</span><span class="p">(</span><span class="n">channel_name</span><span class="o">=</span><span class="s1">&#39;400 kHz&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1057</span><span class="p">,</span> <span class="mi">545</span><span class="p">),</span> <span class="n">coverage</span><span class="o">=</span><span class="mf">55.6</span><span class="o">%</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">32630</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">grid_channel</span></code> picks the UTM zone of the data (zone 30N here, EPSG:32630)

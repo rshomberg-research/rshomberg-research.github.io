@@ -662,14 +662,18 @@
 <span id="sidescanpy-viz-gridded"></span><h1>sidescanpy.viz.gridded<a class="headerlink" href="#module-sidescanpy.viz.gridded" title="Link to this heading">#</a></h1>
 <p>Plot a gridded raster (<a class="reference internal" href="sidescanpy.grids.raster.html#sidescanpy.grids.raster.SideScanGriddedRaster" title="sidescanpy.grids.raster.SideScanGriddedRaster"><code class="xref py py-class docutils literal notranslate"><span class="pre">SideScanGriddedRaster</span></code></a>).</p>
 <p><a class="reference internal" href="#sidescanpy.viz.gridded.plot_gridded_raster" title="sidescanpy.viz.gridded.plot_gridded_raster"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_gridded_raster()</span></code></a> draws one raster on one Axes and returns
-<code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>. Multi-raster comparisons and coverage views are recipes in
-<code class="docutils literal notranslate"><span class="pre">examples/figures/</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">(fig,</span> <span class="pre">ax)</span></code>; <a class="reference internal" href="#sidescanpy.viz.gridded.plot_grid_coverage" title="sidescanpy.viz.gridded.plot_grid_coverage"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_grid_coverage()</span></code></a> draws the same raster with each
+cell’s opacity set by how many samples fell in it. Comparisons of several
+rasters are the caller’s layout (see the <em>Grid to a map</em> example).</p>
 <p>2026 <a class="reference external" href="mailto:rshomberg&#37;&#52;&#48;uri&#46;edu">rshomberg<span>&#64;</span>uri<span>&#46;</span>edu</a></p>
 <p class="rubric">Contents</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#sidescanpy.viz.gridded.plot_gridded_raster" title="sidescanpy.viz.gridded.plot_gridded_raster"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_gridded_raster</span></code></a></p></td>
 <td><p>Plot a gridded raster as a 2D heatmap.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sidescanpy.viz.gridded.plot_grid_coverage" title="sidescanpy.viz.gridded.plot_grid_coverage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_grid_coverage</span></code></a></p></td>
+<td><p>Plot a gridded raster with each cell's opacity set by its sample count.</p></td>
 </tr>
 </tbody>
 </table>
@@ -756,6 +760,53 @@ including the CRS (see <code class="docutils literal notranslate"><span class="p
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="sidescanpy.viz.gridded.plot_grid_coverage">
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.viz.gridded.</span></span><span class="sig-name descname"><span class="pre">plot_grid_coverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin_pct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax_pct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_opacity_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.viz.gridded.plot_grid_coverage" title="Link to this definition">#</a></dt>
+<dd><p>Plot a gridded raster with each cell’s opacity set by its sample count.</p>
+<p>The color is the backscatter, as in <a class="reference internal" href="#sidescanpy.viz.gridded.plot_gridded_raster" title="sidescanpy.viz.gridded.plot_gridded_raster"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_gridded_raster()</span></code></a>; the
+opacity is <code class="docutils literal notranslate"><span class="pre">n_contributing_samples</span></code> divided by
+<code class="docutils literal notranslate"><span class="pre">full_opacity_count</span></code> (capped at 1), so cells built from few samples
+fade into the background. A diagnostic
+view, not a data product: at resolutions finer than the ping spacing
+it shows thin streaks fanning out from the track, which are the normal
+variation of samples per cell, not misplaced data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>raster</strong><span class="classifier">SideScanGriddedRaster</span></dt><dd><p>Gridded raster. Without an <code class="docutils literal notranslate"><span class="pre">n_contributing_samples</span></code> variable
+(e.g. a raster read back from a GeoTIFF), every finite cell is
+opaque and every empty one transparent.</p>
+</dd>
+<dt><strong>fig</strong><span class="classifier">matplotlib.figure.Figure, optional</span></dt><dd><p>Existing figure. If None, create new.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes.Axes, optional</span></dt><dd><p>Existing axes. If None, create new.</p>
+</dd>
+<dt><strong>cmap</strong><span class="classifier">str, default “viridis”</span></dt><dd><p>Colormap name.</p>
+</dd>
+<dt><strong>vmin, vmax</strong><span class="classifier">float, optional</span></dt><dd><p>Color range. If None, the <code class="docutils literal notranslate"><span class="pre">vmin_pct</span></code>/<code class="docutils literal notranslate"><span class="pre">vmax_pct</span></code> percentiles of
+the finite, non-floor-clipped cells.</p>
+</dd>
+<dt><strong>vmin_pct, vmax_pct</strong><span class="classifier">float, default 1.0 and 99.0</span></dt><dd><p>Percentiles for the automatic color range.</p>
+</dd>
+<dt><strong>full_opacity_count</strong><span class="classifier">float, optional</span></dt><dd><p>Sample count drawn fully opaque. If None, the 95th percentile of
+the counts of cells with data, so a few very busy cells do not
+make every other cell faint.</p>
+</dd>
+<dt><strong>title</strong><span class="classifier">str, optional</span></dt><dd><p>Plot title. If None, the channel name and the share of cells with
+data.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>fig</strong><span class="classifier">matplotlib.figure.Figure</span></dt><dd></dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes.Axes</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -806,6 +857,7 @@ including the CRS (see <code class="docutils literal notranslate"><span class="p
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.viz.gridded.plot_gridded_raster"><code class="docutils literal notranslate"><span class="pre">plot_gridded_raster()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidescanpy.viz.gridded.plot_grid_coverage"><code class="docutils literal notranslate"><span class="pre">plot_grid_coverage()</span></code></a></li>
 </ul>
   </nav></div>
 

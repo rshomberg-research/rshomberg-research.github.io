@@ -180,10 +180,10 @@ window there joins real fixes and collapses the track.
 
  .. code-block:: none
 
-    00:34:30 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    00:34:30 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    00:34:30 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-    00:34:30 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    01:20:36 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    01:20:36 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['heading_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    01:20:36 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['pitch_deg']: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+    01:20:36 WARNING sidescanpy.processing.aux_fixes: held_value_fixes ['roll_deg']: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
     as recorded                        median step 0.00 m, steps under 0.1 m: 256 of 296
     interpolated                       median step 0.36 m, steps under 0.1 m: 20 of 296
     interpolated, merge_window_s=0.3   median step 0.33 m, steps under 0.1 m: 1 of 296
@@ -241,10 +241,10 @@ angle), which holds on a straight line.
 
  .. code-block:: none
 
-    00:34:30 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_90.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
-    00:34:30 WARNING sidescanpy.io.xtf.converter: bgs_london_gateway_dynamo_90.xtf: SensorX/Y is ShipX/Y shifted by a fixed -1.8 m east, -12.5 m north (an offset rotated by heading 0); using the Ship positions. Set heading_deg (e.g. course over ground) before the layback step
-    00:34:30 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_90.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 789 of 789 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
-    00:34:30 WARNING sidescanpy.io.xtf.converter: hz_400000: 1578 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
+    01:20:37 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_90.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
+    01:20:37 WARNING sidescanpy.io.xtf.converter: bgs_london_gateway_dynamo_90.xtf: SensorX/Y is ShipX/Y shifted by a fixed -1.8 m east, -12.5 m north (an offset rotated by heading 0); using the Ship positions. Set heading_deg (e.g. course over ground) before the layback step
+    01:20:37 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_90.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 789 of 789 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
+    01:20:37 WARNING sidescanpy.io.xtf.converter: hz_400000: 1578 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
     recorded heading: [0.]; course over ground: 143 to 153 deg
 
 
@@ -308,10 +308,10 @@ stale positions some lines have, like the line above).
 
  .. code-block:: none
 
-    00:34:31 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_80.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
-    00:34:31 WARNING sidescanpy.io.xtf.converter: bgs_london_gateway_dynamo_80.xtf: SensorX/Y is ShipX/Y shifted by a fixed -1.8 m east, -12.5 m north (an offset rotated by heading 0); using the Ship positions. Set heading_deg (e.g. course over ground) before the layback step
-    00:34:31 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_80.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 966 of 966 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
-    00:34:31 WARNING sidescanpy.io.xtf.converter: hz_400000: 1932 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
+    01:20:37 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_80.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
+    01:20:37 WARNING sidescanpy.io.xtf.converter: bgs_london_gateway_dynamo_80.xtf: SensorX/Y is ShipX/Y shifted by a fixed -1.8 m east, -12.5 m north (an offset rotated by heading 0); using the Ship positions. Set heading_deg (e.g. course over ground) before the layback step
+    01:20:37 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_80.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 966 of 966 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
+    01:20:37 WARNING sidescanpy.io.xtf.converter: hz_400000: 1932 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
     interpolated             along-track error: 1.28 m (standard deviation)
     smooth_navigation, 5 s   along-track error: 0.08 m (standard deviation)
 
@@ -321,7 +321,7 @@ stale positions some lines have, like the line above).
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.729 seconds)
+   **Total running time of the script:** (0 minutes 2.016 seconds)
 
 
 .. _sphx_glr_download_examples_plot_navigation.py:

@@ -546,10 +546,13 @@ so the plotting, GeoTIFF and docs code is tested too.</p>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-fast</span></code></p></td>
 <td><p>the same without running the example scripts (no figures)</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-serve</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-code</span></code></p></td>
+<td><p>runs the Python blocks of <a class="reference internal" href="getting_started.html"><span class="std std-doc">Getting started</span></a> and the quickstart on the home page, and checks the output Getting started shows (downloads the 41 MB recording they use if needed; CI runs it after <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-serve</span></code></p></td>
 <td><p>builds the site, then serves it at <a class="reference external" href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-clean</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs-clean</span></code></p></td>
 <td><p>removes the build and the generated API and example pages</p></td>
 </tr>
 </tbody>
@@ -632,10 +635,10 @@ API or the <code class="docutils literal notranslate"><span class="pre">.ss.h5</
 <ul class="simple">
 <li><p><strong>Examples.</strong> The <a class="reference internal" href="examples/index.html"><span class="std std-doc">worked examples</span></a> download public
 recordings with <code class="docutils literal notranslate"><span class="pre">sidescanpy.datasets.fetch()</span></code>; see
-<a class="reference internal" href="example_data.html"><span class="std std-doc">Example data</span></a>. The other scripts in <code class="docutils literal notranslate"><span class="pre">examples/</span></code> run
-on synthetic data. The gallery scripts run during <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs</span></code> (locally
-and in CI), and the unit suite checks offline that every dataset name
-a script fetches is registered.</p></li>
+<a class="reference internal" href="example_data.html"><span class="std std-doc">Example data</span></a>. <code class="docutils literal notranslate"><span class="pre">examples/project_template/</span></code> runs on
+synthetic data in <code class="docutils literal notranslate"><span class="pre">tests/examples</span></code>. The gallery and Theory scripts run
+during <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs</span></code> (locally and in CI), and the unit suite checks
+offline that every dataset name a script fetches is registered.</p></li>
 <li><p><strong>Public fixtures.</strong> <code class="docutils literal notranslate"><span class="pre">tests/unit/io/test_public_fixtures.py</span></code> runs on
 small cuts of openly licensed recordings (EdgeTech JSF, and XTF from
 three writers), listed with source, licence and checksum in

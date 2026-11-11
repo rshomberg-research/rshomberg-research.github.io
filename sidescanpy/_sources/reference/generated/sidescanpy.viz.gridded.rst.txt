@@ -11,5 +11,8 @@ sidescanpy.viz.gridded
    :nosignatures:
 
    plot_gridded_raster
+   plot_grid_coverage
 
 .. autofunction:: sidescanpy.viz.gridded.plot_gridded_raster
+
+.. autofunction:: sidescanpy.viz.gridded.plot_grid_coverage

@@ -30,21 +30,21 @@ returns a result you can print, save and compare between surveys, and
 each has a plot in :mod:`sidescanpy.viz.analysis`.
 
 ``sidescan-analyze investigate`` runs the same steps from the command
-line, and ``examples/investigate_dataset.py`` writes them all to a
-folder with a ``metrics.json``.
+line and writes every plot and a ``metrics.json`` to a folder.
 
 Data: JNCC Wight-Barfleur Reef, EdgeTech JSF, Open Government Licence
 v3.0 (see :doc:`/example_data`).
 
 Usage: ``python examples/gallery/plot_investigate_a_survey.py [output_dir]``
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-45
+.. GENERATED FROM PYTHON SOURCE LINES 21-45
 
 .. code-block:: Python
 
 
     # 2026 rshomberg@uri.edu
 
+    import json
     import sys
     from pathlib import Path
 
@@ -99,12 +99,12 @@ records no altitude, so the bottom track supplies it first.
 
  .. code-block:: none
 
-    00:34:32 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    00:34:32 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
-    00:34:32 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    00:34:32 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    00:34:32 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    00:34:33 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    01:20:38 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    01:20:38 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    01:20:38 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    01:20:38 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    01:20:39 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    01:20:39 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 
 
 
@@ -273,10 +273,10 @@ the corrected level is over the same window.
 
  .. code-block:: none
 
-    00:34:43 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    01:20:50 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
     hz_218740: window 28.5-160.5 m, best 30 log R + abs (TVG status none), free n 26.6; RMS in dB: flat 9.92, absorption only 5.52, 20 log R 5.85, 20 log R + abs 1.69, 30 log R 3.83, 30 log R + abs 1.23, 40 log R 1.83, 40 log R + abs 2.91
        after TVG: spread 1.23 dB, trend +0.23 dB per 10 m
-    00:34:45 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    01:20:52 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
     hz_521000: window 27.5-88.5 m, best 30 log R + abs (TVG status none), free n 34.0; RMS in dB: flat 9.91, absorption only 4.94, 20 log R 7.03, 20 log R + abs 2.09, 30 log R 5.60, 30 log R + abs 0.79, 40 log R 4.18, 40 log R + abs 1.02
        after TVG: spread 0.80 dB, trend -0.32 dB per 10 m
     units: raw_counts
@@ -284,7 +284,39 @@ the corrected level is over the same window.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 145-157
+.. GENERATED FROM PYTHON SOURCE LINES 145-149
+
+Keeping the numbers
+-------------------
+Every result has a ``to_dict()``, so one JSON file holds the whole
+investigation, to compare with the next survey or a later run.
+
+.. GENERATED FROM PYTHON SOURCE LINES 149-157
+
+.. code-block:: Python
+
+
+    results = {"values": values, "nadir": nadirs["hz_218740"], "usable_range": usable["hz_218740"],
+               "tvg_fit": fits["hz_218740"], "tvg_check": checks["hz_218740"], "units": units}
+    metrics = {"freq_key": "hz_218740", **{k: r.to_dict() for k, r in results.items()}}
+    (out / "metrics.json").write_text(json.dumps(metrics, indent=2, default=str))
+    print(f"metrics.json: {len(metrics) - 1} results, best TVG {metrics['tvg_fit']['best']}, "
+          f"usable range {metrics['usable_range']['usable_range_m']:.0f} m")
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    metrics.json: 6 results, best TVG 30 log R + abs, usable range 161 m
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 158-170
 
 The answer
 ----------
@@ -302,7 +334,7 @@ is the beam pattern, for the empirical range correction.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 15.144 seconds)
+   **Total running time of the script:** (0 minutes 14.986 seconds)
 
 
 .. _sphx_glr_download_examples_plot_investigate_a_survey.py:

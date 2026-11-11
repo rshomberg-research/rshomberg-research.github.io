@@ -585,7 +585,8 @@
 power-law display stretch without changing the colorbar’s units. The
 default colormap is <code class="docutils literal notranslate"><span class="pre">copper</span></code>; NaN cells render in a neutral colour.</p>
 <p>Also: <code class="docutils literal notranslate"><span class="pre">plot_survey_overview</span></code> (whole survey compressed),
-<code class="docutils literal notranslate"><span class="pre">plot_gridded_raster</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_track_and_scanlines</span></code>,
+<code class="docutils literal notranslate"><span class="pre">plot_gridded_raster</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_grid_coverage</span></code> (cell opacity set by samples
+per cell), <code class="docutils literal notranslate"><span class="pre">plot_track_and_scanlines</span></code>,
 <code class="docutils literal notranslate"><span class="pre">plot_track_with_targets</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_target_position_scatter</span></code>,
 <code class="docutils literal notranslate"><span class="pre">contact_sheet</span></code>, <code class="docutils literal notranslate"><span class="pre">render_target_context</span></code>. Basemaps behind georeferenced
 plots need the <code class="docutils literal notranslate"><span class="pre">[maps]</span></code> extra.</p>
@@ -602,7 +603,8 @@ plots need the <code class="docutils literal notranslate"><span class="pre">[map
 result). Deprecated, removed in 0.12: <code class="docutils literal notranslate"><span class="pre">plot_candidate_fit</span></code>,
 <code class="docutils literal notranslate"><span class="pre">plot_range_decay_fit</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_range_decay_residuals</span></code>,
 <code class="docutils literal notranslate"><span class="pre">set_fit_window_limits</span></code>.</p>
-<p>Multi-panel figure layouts are in <code class="docutils literal notranslate"><span class="pre">examples/figures/</span></code>.</p>
+<p>Multi-panel figure layouts are the caller’s; the
+<a class="reference internal" href="examples/index.html"><span class="std std-doc">Examples</span></a> build them from these functions.</p>
 </section>
 </section>
 

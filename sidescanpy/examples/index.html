@@ -473,6 +473,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plot_grid_to_a_map.html">Grid to a map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_wreck_gallery.html">Eight wrecks at one scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_four_passes.html">Four passes over one wreck: native and north-up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_look_consistency.html">Does an object look the same from every pass?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_swath_tiles.html">Swath tiles for annotation, and boxes back to targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_target_chips.html">Target chips at several corrections and resolutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_training_dataset.html">A training dataset with background images</a></li>
@@ -586,6 +587,9 @@ recordings, their sizes and licences are listed in <a class="reference internal"
 </div><div class="sphx-glr-thumbcontainer" tooltip="The same wreck seen on four lines run in three directions. In the native view (ping by slant range) each pass looks different: the wreck is lit from a different side, its shadow points away from the track, and near nadir it is compressed in range. Georeferenced north-up onto one map grid, the four views agree on where the wreck is and what shape it has, but only once the navigation is right. Here that takes four steps:"><img alt="" src="../_images/sphx_glr_plot_four_passes_thumb.png" />
 <p><a class="reference internal" href="plot_four_passes.html"><span class="doc">Four passes over one wreck: native and north-up</span></a></p>
   <div class="sphx-glr-thumbnail-title">Four passes over one wreck: native and north-up</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="An object detector trained on sidescan images sees each object from several directions and ranges. In slant range the across-track axis is compressed near nadir and stretched far out, so the same object changes shape with range; in ground range it keeps its size. If that matters, image chips of one object cut from different passes should agree better in ground range than in slant range."><img alt="" src="../_images/sphx_glr_plot_look_consistency_thumb.png" />
+<p><a class="reference internal" href="plot_look_consistency.html"><span class="doc">Does an object look the same from every pass?</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Does an object look the same from every pass?</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="The first step of training an object detector on sidescan data is images a person can annotate. write_swath_tiles cuts a corrected line into dual-swath tiles (port mirrored on the left, starboard on the right) with square pixels in metres, writes them as PNG, and records in tiles.json where each tile sits in the sonar data."><img alt="" src="../_images/sphx_glr_plot_swath_tiles_thumb.png" />
 <p><a class="reference internal" href="plot_swath_tiles.html"><span class="doc">Swath tiles for annotation, and boxes back to targets</span></a></p>
   <div class="sphx-glr-thumbnail-title">Swath tiles for annotation, and boxes back to targets</div>

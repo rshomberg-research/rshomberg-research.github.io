@@ -662,7 +662,7 @@
 when none is given) and returns the Axes or <code class="docutils literal notranslate"><span class="pre">(Figure,</span> <span class="pre">Axes)</span></code> so callers
 can compose or customize it. Nothing here saves files or runs
 corrections: saving, multi-panel layouts and workflow belong to the
-caller (see <code class="docutils literal notranslate"><span class="pre">examples/</span></code> and <code class="docutils literal notranslate"><span class="pre">examples/figures/</span></code>). Requires the
+caller (see the examples in <code class="docutils literal notranslate"><span class="pre">examples/</span></code>). Requires the
 <code class="docutils literal notranslate"><span class="pre">viz</span></code> extra (matplotlib).</p>
 <section id="public-functions">
 <h2>Public functions<a class="headerlink" href="#public-functions" title="Link to this heading">#</a></h2>
@@ -676,6 +676,8 @@ step set (geometric corrections always render in real-world distance).</p></li>
 (strided ping axis) with optional break markers at caller-supplied
 ping indices, e.g. file boundaries in a multi-file concatenated survey.</p></li>
 <li><p><a class="reference internal" href="sidescanpy.viz.gridded.html#sidescanpy.viz.gridded.plot_gridded_raster" title="sidescanpy.viz.gridded.plot_gridded_raster"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_gridded_raster()</span></code></a> — 2D heatmap of one gridded raster.</p></li>
+<li><p><a class="reference internal" href="sidescanpy.viz.gridded.html#sidescanpy.viz.gridded.plot_grid_coverage" title="sidescanpy.viz.gridded.plot_grid_coverage"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_grid_coverage()</span></code></a> — the same raster, each cell’s opacity set
+by how many samples fell in it.</p></li>
 <li><p><a class="reference internal" href="sidescanpy.viz.track.html#sidescanpy.viz.track.plot_track_and_scanlines" title="sidescanpy.viz.track.plot_track_and_scanlines"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_track_and_scanlines()</span></code></a> — full-survey nadir track plus
 periodic port/starboard scan-line rungs, in a projected (UTM by
 default) coordinate system. Geometry/coverage only, no backscatter.

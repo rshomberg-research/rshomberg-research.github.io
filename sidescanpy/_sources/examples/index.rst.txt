@@ -197,6 +197,23 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="An object detector trained on sidescan images sees each object from several directions and ranges. In slant range the across-track axis is compressed near nadir and stretched far out, so the same object changes shape with range; in ground range it keeps its size. If that matters, image chips of one object cut from different passes should agree better in ground range than in slant range.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_look_consistency_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_look_consistency`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Does an object look the same from every pass?</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="The first step of training an object detector on sidescan data is images a person can annotate. write_swath_tiles cuts a corrected line into dual-swath tiles (port mirrored on the left, starboard on the right) with square pixels in metres, writes them as PNG, and records in tiles.json where each tile sits in the sonar data.">
 
 .. only:: html
@@ -299,6 +316,7 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
    /examples/plot_grid_to_a_map
    /examples/plot_wreck_gallery
    /examples/plot_four_passes
+   /examples/plot_look_consistency
    /examples/plot_swath_tiles
    /examples/plot_target_chips
    /examples/plot_training_dataset

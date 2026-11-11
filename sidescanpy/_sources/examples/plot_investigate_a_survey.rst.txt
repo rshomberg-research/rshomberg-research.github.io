@@ -99,12 +99,12 @@ records no altitude, so the bottom track supplies it first.
 
  .. code-block:: none
 
-    01:20:38 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
-    01:20:38 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
-    01:20:38 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    01:20:38 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    01:20:39 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    01:20:39 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    19:47:22 WARNING sidescanpy.io.jsf.reader: jncc_wight_barfleur_20130321174522.jsf: skipped 910 message(s) of unsupported type(s) (type: count) 2000: 910
+    19:47:22 WARNING sidescanpy.io.jsf.converter: 1 incomplete ping(s) detected; repair_mode='nan_pad'
+    19:47:22 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    19:47:23 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    19:47:23 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    19:47:24 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
 
 
 
@@ -273,10 +273,10 @@ the corrected level is over the same window.
 
  .. code-block:: none
 
-    01:20:50 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    19:47:34 WARNING sidescanpy.processing.sample_axis: 287 of 287 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
     hz_218740: window 28.5-160.5 m, best 30 log R + abs (TVG status none), free n 26.6; RMS in dB: flat 9.92, absorption only 5.52, 20 log R 5.85, 20 log R + abs 1.69, 30 log R 3.83, 30 log R + abs 1.23, 40 log R 1.83, 40 log R + abs 2.91
        after TVG: spread 1.23 dB, trend +0.23 dB per 10 m
-    01:20:52 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    19:47:36 WARNING sidescanpy.processing.sample_axis: 288 of 288 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
     hz_521000: window 27.5-88.5 m, best 30 log R + abs (TVG status none), free n 34.0; RMS in dB: flat 9.91, absorption only 4.94, 20 log R 7.03, 20 log R + abs 2.09, 30 log R 5.60, 30 log R + abs 0.79, 40 log R 4.18, 40 log R + abs 1.02
        after TVG: spread 0.80 dB, trend -0.32 dB per 10 m
     units: raw_counts
@@ -334,7 +334,7 @@ is the beam pattern, for the empirical range correction.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 14.986 seconds)
+   **Total running time of the script:** (0 minutes 14.970 seconds)
 
 
 .. _sphx_glr_download_examples_plot_investigate_a_survey.py:

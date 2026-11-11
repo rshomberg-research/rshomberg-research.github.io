@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**04:07.351** total execution time for 12 files **from theory**:
+**03:29.790** total execution time for 12 files **from theory**:
 
 .. container::
 
@@ -33,38 +33,38 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_theory_plot_common_artifacts.py` (``plot_common_artifacts.py``)
-     - 01:21.256
+     - 01:05.278
      - 0.0
    * - :ref:`sphx_glr_theory_plot_ping_spacing_and_coverage.py` (``plot_ping_spacing_and_coverage.py``)
-     - 00:34.703
+     - 00:30.925
      - 0.0
    * - :ref:`sphx_glr_theory_plot_navigation_and_position.py` (``plot_navigation_and_position.py``)
-     - 00:26.161
+     - 00:24.347
      - 0.0
    * - :ref:`sphx_glr_theory_plot_towfish_attitude.py` (``plot_towfish_attitude.py``)
-     - 00:20.232
-     - 0.0
-   * - :ref:`sphx_glr_theory_plot_sonar_equation_and_tvg.py` (``plot_sonar_equation_and_tvg.py``)
-     - 00:15.978
+     - 00:16.980
      - 0.0
    * - :ref:`sphx_glr_theory_plot_slant_to_ground_range.py` (``plot_slant_to_ground_range.py``)
-     - 00:14.520
+     - 00:13.515
      - 0.0
-   * - :ref:`sphx_glr_theory_plot_range_limits.py` (``plot_range_limits.py``)
-     - 00:12.740
+   * - :ref:`sphx_glr_theory_plot_sonar_equation_and_tvg.py` (``plot_sonar_equation_and_tvg.py``)
+     - 00:11.904
      - 0.0
    * - :ref:`sphx_glr_theory_plot_amplitude_and_db.py` (``plot_amplitude_and_db.py``)
-     - 00:12.208
+     - 00:10.154
+     - 0.0
+   * - :ref:`sphx_glr_theory_plot_range_limits.py` (``plot_range_limits.py``)
+     - 00:10.041
      - 0.0
    * - :ref:`sphx_glr_theory_plot_how_sidescan_sees.py` (``plot_how_sidescan_sees.py``)
-     - 00:09.786
+     - 00:08.536
      - 0.0
    * - :ref:`sphx_glr_theory_plot_slopes_and_layover.py` (``plot_slopes_and_layover.py``)
-     - 00:09.246
+     - 00:08.527
      - 0.0
    * - :ref:`sphx_glr_theory_plot_frequency_and_resolution.py` (``plot_frequency_and_resolution.py``)
-     - 00:06.341
+     - 00:05.882
      - 0.0
    * - :ref:`sphx_glr_theory_plot_shadow_height.py` (``plot_shadow_height.py``)
-     - 00:04.179
+     - 00:03.702
      - 0.0

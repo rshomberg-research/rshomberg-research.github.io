@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Navigation: held fixes, interpolation and the track &#8212; sidescanpy 0.10.0</title>
+    <title>Navigation: held fixes, interpolation and the track &#8212; sidescanpy 0.10.1</title>
   
   
   
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
 
-    <script src="../_static/documentation_options.js?v=82662543"></script>
+    <script src="../_static/documentation_options.js?v=261ea15a"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -57,7 +57,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.10.0" />
+  <meta name="docsearch:version" content="0.10.1" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -125,7 +125,7 @@
   
   
   
-    <p class="title logo__title">sidescanpy 0.10.0</p>
+    <p class="title logo__title">sidescanpy 0.10.1</p>
   
 </a></div>
     
@@ -670,10 +670,10 @@ window there joins real fixes and collapses the track.</p>
 </span><span class="n">ax_step</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="s2">ping spacing, first 100 pings</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">navigation_held_fixes.png</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img src="../_images/sphx_glr_plot_navigation_001.png" srcset="../_images/sphx_glr_plot_navigation_001.png, ../_images/sphx_glr_plot_navigation_001_2_00x.png 2.00x" alt="pings 20 to 45, ping spacing, first 100 pings" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>19:47:21 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-19:47:21 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-19:47:21 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;pitch_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-19:47:21 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;roll_deg&#39;]: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+<img src="../_images/sphx_glr_plot_navigation_001.png" srcset="../_images/sphx_glr_plot_navigation_001.png, ../_images/sphx_glr_plot_navigation_001_2_00x.png 2.00x" alt="pings 20 to 45, ping spacing, first 100 pings" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>21:09:54 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+21:09:54 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+21:09:54 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;pitch_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+21:09:54 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;roll_deg&#39;]: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
 as recorded                        median step 0.00 m, steps under 0.1 m: 256 of 296
 interpolated                       median step 0.36 m, steps under 0.1 m: 20 of 296
 interpolated, merge_window_s=0.3   median step 0.33 m, steps under 0.1 m: 1 of 296
@@ -709,10 +709,10 @@ angle), which holds on a straight line.</p>
 </span>                         <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">Track and swath (scan lines every 60 pings, placed by course)</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">navigation_course.png</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img src="../_images/sphx_glr_plot_navigation_002.png" srcset="../_images/sphx_glr_plot_navigation_002.png, ../_images/sphx_glr_plot_navigation_002_2_00x.png 2.00x" alt="Track and swath (scan lines every 60 pings, placed by course)" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>19:47:21 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_90.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
-19:47:21 WARNING sidescanpy.io.xtf.converter: bgs_london_gateway_dynamo_90.xtf: SensorX/Y is ShipX/Y shifted by a fixed -1.8 m east, -12.5 m north (an offset rotated by heading 0); using the Ship positions. Set heading_deg (e.g. course over ground) before the layback step
-19:47:21 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_90.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 789 of 789 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
-19:47:21 WARNING sidescanpy.io.xtf.converter: hz_400000: 1578 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
+<img src="../_images/sphx_glr_plot_navigation_002.png" srcset="../_images/sphx_glr_plot_navigation_002.png, ../_images/sphx_glr_plot_navigation_002_2_00x.png 2.00x" alt="Track and swath (scan lines every 60 pings, placed by course)" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>21:09:54 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_90.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
+21:09:54 WARNING sidescanpy.io.xtf.converter: bgs_london_gateway_dynamo_90.xtf: SensorX/Y is ShipX/Y shifted by a fixed -1.8 m east, -12.5 m north (an offset rotated by heading 0); using the Ship positions. Set heading_deg (e.g. course over ground) before the layback step
+21:09:54 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_90.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 789 of 789 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
+21:09:54 WARNING sidescanpy.io.xtf.converter: hz_400000: 1578 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
 recorded heading: [0.]; course over ground: 143 to 153 deg
 </pre></div>
 </div>
@@ -755,15 +755,15 @@ stale positions some lines have, like the line above).</p>
 </span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="p">)</span><span class="w">
 </span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">out</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">navigation_sawtooth.png</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img src="../_images/sphx_glr_plot_navigation_003.png" srcset="../_images/sphx_glr_plot_navigation_003.png, ../_images/sphx_glr_plot_navigation_003_2_00x.png 2.00x" alt="plot navigation" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>19:47:22 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_80.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
-19:47:22 WARNING sidescanpy.io.xtf.converter: bgs_london_gateway_dynamo_80.xtf: SensorX/Y is ShipX/Y shifted by a fixed -1.8 m east, -12.5 m north (an offset rotated by heading 0); using the Ship positions. Set heading_deg (e.g. course over ground) before the layback step
-19:47:22 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_80.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 966 of 966 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
-19:47:22 WARNING sidescanpy.io.xtf.converter: hz_400000: 1932 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
+<img src="../_images/sphx_glr_plot_navigation_003.png" srcset="../_images/sphx_glr_plot_navigation_003.png, ../_images/sphx_glr_plot_navigation_003_2_00x.png 2.00x" alt="plot navigation" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>21:09:55 WARNING sidescanpy.io.xtf.reader: bgs_london_gateway_dynamo_80.xtf: ChanInfo SampleFormat 255 is not an XTF sample format; treated as unset (legacy), so samples are read by BytesPerSample
+21:09:55 WARNING sidescanpy.io.xtf.converter: bgs_london_gateway_dynamo_80.xtf: SensorX/Y is ShipX/Y shifted by a fixed -1.8 m east, -12.5 m north (an offset rotated by heading 0); using the Ship positions. Set heading_deg (e.g. course over ground) before the layback step
+21:09:55 WARNING sidescanpy.io.xtf.converter: /home/runner/work/sidescanpy/sidescanpy/.sidescanpy-data/bgs_london_gateway_dynamo_80.xtf: sound velocity disagrees by more than 5% with 2*SlantRange/TimeDuration in 966 of 966 pings (median 1500.0 vs 1333.6 m/s); kept the ping-header value
+21:09:55 WARNING sidescanpy.io.xtf.converter: hz_400000: 1932 channel block(s) have an implausible Weight (-8408 to -4584, beyond +-30); their samples are left unscaled
 interpolated             along-track error: 1.28 m (standard deviation)
 smooth_navigation, 5 s   along-track error: 0.08 m (standard deviation)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.564 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.486 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-navigation-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/de0763dd2e3afa9e35977f0f12e9f6a1/plot_navigation.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_navigation.ipynb</span></code></a></p>

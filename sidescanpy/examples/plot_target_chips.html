@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Target chips at several corrections and resolutions &#8212; sidescanpy 0.10.0</title>
+    <title>Target chips at several corrections and resolutions &#8212; sidescanpy 0.10.1</title>
   
   
   
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
 
-    <script src="../_static/documentation_options.js?v=82662543"></script>
+    <script src="../_static/documentation_options.js?v=261ea15a"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -57,7 +57,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.10.0" />
+  <meta name="docsearch:version" content="0.10.1" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -125,7 +125,7 @@
   
   
   
-    <p class="title logo__title">sidescanpy 0.10.0</p>
+    <p class="title logo__title">sidescanpy 0.10.1</p>
   
 </a></div>
     
@@ -614,10 +614,10 @@ shows the pattern (changes 1 entry apart, then 6 to 7).</p>
 </span><a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-method reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir" title="pathlib.Path.mkdir"><span class="n">ss_dir</span><span class="o">.</span><span class="n">mkdir</span></a><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="w">
 </span><span class="n">write_survey</span><span class="p">(</span><a class="sphx-glr-backref-module-sidescanpy-core sphx-glr-backref-type-py-class sphx-glr-backref-instance reference internal" href="../reference/generated/sidescanpy.core.survey.html#sidescanpy.core.survey.SideScanSurvey" title="sidescanpy.core.SideScanSurvey"><span class="n">survey</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath"><span class="n">ss_dir</span></a> <span class="o">/</span> <span class="s2">&quot;</span><span class="s2">grand_bay_150602205800.ss.h5</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>19:52:12 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-19:52:12 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-19:52:12 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;pitch_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
-19:52:12 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;roll_deg&#39;]: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>21:14:20 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+21:14:20 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;heading_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+21:14:20 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;pitch_deg&#39;]: 4 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
+21:14:20 WARNING sidescanpy.processing.aux_fixes: held_value_fixes [&#39;roll_deg&#39;]: 2 update events combine more than 5 changes; the stream may update faster than merge_window_s=0.3 s
 </pre></div>
 </div>
 <p>The catalog. Each target has a position, the side (0 port, 1 starboard),
@@ -726,7 +726,7 @@ above and below.</p>
 <img src="../_images/sphx_glr_plot_target_chips_003.png" srcset="../_images/sphx_glr_plot_target_chips_003.png, ../_images/sphx_glr_plot_target_chips_003_2_00x.png 2.00x" alt="c2, chip, c2, single-swath, c2, dual-swath" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;styles/chip/targets.coco.json&#39;, &#39;styles/dual-swath/targets.coco.json&#39;, &#39;styles/single-swath/targets.coco.json&#39;]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 22.623 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 14.592 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plot-target-chips-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/d6c0b4b2d953770da6a99b2435de588d/plot_target_chips.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_target_chips.ipynb</span></code></a></p>

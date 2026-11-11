@@ -630,7 +630,7 @@ correction chain.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 12.056 seconds)
+   **Total running time of the script:** (0 minutes 15.324 seconds)
 
 
 .. _sphx_glr_download_theory_plot_sonar_equation_and_tvg.py:

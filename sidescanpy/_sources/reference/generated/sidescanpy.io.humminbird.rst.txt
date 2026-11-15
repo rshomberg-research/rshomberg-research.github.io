@@ -1,0 +1,13 @@
+sidescanpy.io.humminbird
+========================
+
+.. automodule:: sidescanpy.io.humminbird
+
+.. rubric:: Modules
+
+.. toctree::
+   :maxdepth: 1
+
+   converter <sidescanpy.io.humminbird.converter>
+   reader <sidescanpy.io.humminbird.reader>
+   subset <sidescanpy.io.humminbird.subset>

@@ -603,6 +603,10 @@ going online.</p>
 <td><p>16 MB</p></td>
 <td><p>Klein 400 kHz, XTF (GeoDAS, 2007): data dropouts on port</p></td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">usfws_chena_R00013.DAT</span></code></p></td>
+<td><p>17 MB with its two <code class="docutils literal notranslate"><span class="pre">.SON</span></code> files</p></td>
+<td><p>Humminbird Helix 15, 405 kHz side imaging, a river 1 to 5 m deep (USFWS, U.S. public domain)</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -622,6 +626,12 @@ Dynamo passes together.
 <code class="docutils literal notranslate"><span class="pre">datasets.BGS_LONDON_GATEWAY_WRECKS</span></code> holds the catalogued centre of each
 wreck from the BGS record (UTM 31N meters); a line can show its wreck
 tens of meters from that centre along track.</p>
+<p>A Humminbird recording is a <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> header and a directory of <code class="docutils literal notranslate"><span class="pre">.SON</span></code>
+files. Fetching <code class="docutils literal notranslate"><span class="pre">usfws_chena_R00013.DAT</span></code> also fetches
+<code class="docutils literal notranslate"><span class="pre">usfws_chena_R00013/B002.SON</span></code> and <code class="docutils literal notranslate"><span class="pre">B003.SON</span></code> (the two side imaging
+beams) into the directory beside it, which is where the reader looks;
+pass the <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> path to <code class="docutils literal notranslate"><span class="pre">read_and_convert(...,</span> <span class="pre">fmt=&quot;humminbird&quot;)</span></code>. The
+files record no sample interval: see <a class="reference internal" href="sources/humminbird.html"><span class="std std-doc">Humminbird</span></a>.</p>
 <section id="published-products-and-their-recordings">
 <h3>Published products and their recordings<a class="headerlink" href="#published-products-and-their-recordings" title="Link to this heading">#</a></h3>
 <p>Two examples compare sidescanpy with mosaics that other software

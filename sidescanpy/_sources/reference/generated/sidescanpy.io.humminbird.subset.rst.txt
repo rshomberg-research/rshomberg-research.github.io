@@ -1,0 +1,15 @@
+sidescanpy.io.humminbird.subset
+===============================
+
+.. automodule:: sidescanpy.io.humminbird.subset
+
+.. currentmodule:: sidescanpy.io.humminbird.subset
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   write_subset
+
+.. autofunction:: sidescanpy.io.humminbird.subset.write_subset

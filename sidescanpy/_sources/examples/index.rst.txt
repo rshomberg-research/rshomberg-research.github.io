@@ -146,6 +146,23 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Recreational fishfinders with side imaging record far more sidescan than survey sonars do. A Humminbird recording is a small .DAT header and a directory of the same name with one .SON file per beam; read_and_convert takes the .DAT file and converts the two side imaging beams into the same structure as a JSF, SDF or XTF file, so every correction and export works on it unchanged.">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_plot_read_a_humminbird_recording_thumb.png
+    :alt:
+
+  :doc:`/examples/plot_read_a_humminbird_recording`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Read a Humminbird recording</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Once every sample has a latitude and longitude (the georef step), grid_channel resamples a channel onto a regular UTM grid and to_geotiff writes it for a GIS.">
 
 .. only:: html
@@ -313,6 +330,7 @@ recordings, their sizes and licences are listed in :doc:`/example_data`.
    /examples/plot_investigate_a_survey
    /examples/plot_correct_a_line
    /examples/plot_compare_sonars_and_formats
+   /examples/plot_read_a_humminbird_recording
    /examples/plot_grid_to_a_map
    /examples/plot_wreck_gallery
    /examples/plot_four_passes

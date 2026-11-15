@@ -532,6 +532,12 @@
 <li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.hdf5.writer.html">writer</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.humminbird.html">humminbird</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.humminbird.converter.html">converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.humminbird.reader.html">reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.humminbird.subset.html">subset</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="sidescanpy.io.jsf.html">jsf</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.converter.html">converter</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sidescanpy.io.jsf.messages.html">messages</a></li>
@@ -681,7 +687,7 @@ or caller that wants “just give me a survey from these files” without
 hand-rolling the .jsf/.sdf/.xtf branch itself.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#sidescanpy.io.dispatch.detect_format" title="sidescanpy.io.dispatch.detect_format"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_format()</span></code></a>, <a class="reference internal" href="#sidescanpy.io.dispatch.read_and_convert" title="sidescanpy.io.dispatch.read_and_convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_and_convert()</span></code></a> – raw <code class="docutils literal notranslate"><span class="pre">.jsf</span></code>/<code class="docutils literal notranslate"><span class="pre">.sdf</span></code>/
-<code class="docutils literal notranslate"><span class="pre">.xtf</span></code>.</p></li>
+<code class="docutils literal notranslate"><span class="pre">.xtf</span></code>, and Humminbird recordings by their <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> file.</p></li>
 <li><p><a class="reference internal" href="#sidescanpy.io.dispatch.read_and_convert_segments" title="sidescanpy.io.dispatch.read_and_convert_segments"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_and_convert_segments()</span></code></a> – one raw file into one or more
 surveys, each with its output stem (XTF files are split at
 range-setting changes).</p></li>
@@ -734,7 +740,9 @@ catalogs, dispatched on the catalog directory’s own contents.</p></li>
 <dt class="sig sig-object py" id="sidescanpy.io.dispatch.detect_format">
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.io.dispatch.</span></span><span class="sig-name descname"><span class="pre">detect_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.dispatch.detect_format" title="Link to this definition">#</a></dt>
 <dd><p>Detect sonar file format from extension; raise on mixed extensions.</p>
-<p>Extensions are compared case-insensitively (<code class="docutils literal notranslate"><span class="pre">.XTF</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;xtf&quot;</span></code>).</p>
+<p>Extensions are compared case-insensitively (<code class="docutils literal notranslate"><span class="pre">.XTF</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;xtf&quot;</span></code>). A
+<code class="docutils literal notranslate"><span class="pre">.DAT</span></code> file is a Humminbird recording (<code class="docutils literal notranslate"><span class="pre">&quot;humminbird&quot;</span></code>): the
+header next to a directory of <code class="docutils literal notranslate"><span class="pre">.SON</span></code> files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -747,7 +755,7 @@ file instead of once for a whole directory.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>str</dt><dd><p>One of: “jsf”, “sdf”, “xtf”.</p>
+<dt>str</dt><dd><p>One of: “jsf”, “sdf”, “xtf”, “humminbird”.</p>
 </dd>
 </dl>
 </dd>
@@ -768,10 +776,10 @@ supported.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>input_paths</strong><span class="classifier">path or list of paths</span></dt><dd><p>Paths (str or Path) to .jsf, .sdf or .xtf files (all same format);
-a single path is one file.</p>
+<dt><strong>input_paths</strong><span class="classifier">path or list of paths</span></dt><dd><p>Paths (str or Path) to .jsf, .sdf or .xtf files, or Humminbird
+.DAT files (all same format); a single path is one file.</p>
 </dd>
-<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>“jsf”, “sdf” or “xtf”.</p>
+<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>“jsf”, “sdf”, “xtf” or “humminbird”.</p>
 </dd>
 <dt><strong>survey_name</strong><span class="classifier">str, optional</span></dt><dd><p>Survey name. Defaults to first input file’s stem.</p>
 </dd>
@@ -800,7 +808,8 @@ a single path is one file.</p>
 <dt class="sig sig-object py" id="sidescanpy.io.dispatch.read_and_convert_segments">
 <span class="sig-prename descclassname"><span class="pre">sidescanpy.io.dispatch.</span></span><span class="sig-name descname"><span class="pre">read_and_convert_segments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">survey_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_pings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nav_crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidescanpy.io.dispatch.read_and_convert_segments" title="Link to this definition">#</a></dt>
 <dd><p>Read one raw sonar file into one survey per constant-range segment.</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">.jsf</span></code> file gives one survey, exactly as <a class="reference internal" href="#sidescanpy.io.dispatch.read_and_convert" title="sidescanpy.io.dispatch.read_and_convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_and_convert()</span></code></a>.
+<p>A <code class="docutils literal notranslate"><span class="pre">.jsf</span></code> file or a Humminbird <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> recording gives one survey,
+exactly as <a class="reference internal" href="#sidescanpy.io.dispatch.read_and_convert" title="sidescanpy.io.dispatch.read_and_convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_and_convert()</span></code></a>.
 <code class="docutils literal notranslate"><span class="pre">.xtf</span></code> and <code class="docutils literal notranslate"><span class="pre">.sdf</span></code> files are split at sample-rate (range-setting)
 changes (<a class="reference internal" href="sidescanpy.io.xtf.split.html#sidescanpy.io.xtf.split.split_by_sample_rate" title="sidescanpy.io.xtf.split.split_by_sample_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">split_by_sample_rate()</span></code></a>,
 <a class="reference internal" href="sidescanpy.io.sdf.split.html#sidescanpy.io.sdf.split.split_by_sample_rate" title="sidescanpy.io.sdf.split.split_by_sample_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">split_by_sample_rate()</span></code></a>) and each kept
@@ -811,7 +820,7 @@ attribute).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>path</strong><span class="classifier">Path</span></dt><dd><p>One <code class="docutils literal notranslate"><span class="pre">.jsf</span></code>, <code class="docutils literal notranslate"><span class="pre">.sdf</span></code> or <code class="docutils literal notranslate"><span class="pre">.xtf</span></code> file.</p>
+<dt><strong>path</strong><span class="classifier">Path</span></dt><dd><p>One <code class="docutils literal notranslate"><span class="pre">.jsf</span></code>, <code class="docutils literal notranslate"><span class="pre">.sdf</span></code> or <code class="docutils literal notranslate"><span class="pre">.xtf</span></code> file, or a Humminbird <code class="docutils literal notranslate"><span class="pre">.DAT</span></code>.</p>
 </dd>
 <dt><strong>survey_name</strong><span class="classifier">str, optional</span></dt><dd><p>Base name; defaults to <code class="docutils literal notranslate"><span class="pre">path.stem</span></code>.</p>
 </dd>
@@ -843,7 +852,7 @@ than <code class="docutils literal notranslate"><span class="pre">min_pings</spa
 
 <dl class="py data">
 <dt class="sig sig-object py" id="sidescanpy.io.dispatch.SONAR_FORMATS">
-<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.dispatch.</span></span><span class="sig-name descname"><span class="pre">SONAR_FORMATS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('jsf',</span> <span class="pre">'sdf',</span> <span class="pre">'xtf')</span></span><a class="headerlink" href="#sidescanpy.io.dispatch.SONAR_FORMATS" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sidescanpy.io.dispatch.</span></span><span class="sig-name descname"><span class="pre">SONAR_FORMATS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('jsf',</span> <span class="pre">'sdf',</span> <span class="pre">'xtf',</span> <span class="pre">'humminbird')</span></span><a class="headerlink" href="#sidescanpy.io.dispatch.SONAR_FORMATS" title="Link to this definition">#</a></dt>
 <dd><p>Raw formats <a class="reference internal" href="#sidescanpy.io.dispatch.read_and_convert" title="sidescanpy.io.dispatch.read_and_convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_and_convert()</span></code></a> reads.</p>
 </dd></dl>
 
@@ -884,9 +893,11 @@ errors defaults to ‘strict’.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>input_dir</strong><span class="classifier">path</span></dt><dd><p>Directory to search.</p>
 </dd>
-<dt><strong>input_format</strong><span class="classifier">{“auto”, “jsf”, “sdf”, “xtf”}, default “auto”</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code> returns <code class="docutils literal notranslate"><span class="pre">*.jsf</span></code>, <code class="docutils literal notranslate"><span class="pre">*.sdf</span></code> and <code class="docutils literal notranslate"><span class="pre">*.xtf</span></code> files.
-<code class="docutils literal notranslate"><span class="pre">.xtf</span></code> matches in any letter case (<code class="docutils literal notranslate"><span class="pre">.XTF</span></code> is common);
-<code class="docutils literal notranslate"><span class="pre">.jsf</span></code> and <code class="docutils literal notranslate"><span class="pre">.sdf</span></code> match lower case only.</p>
+<dt><strong>input_format</strong><span class="classifier">{“auto”, “jsf”, “sdf”, “xtf”, “humminbird”}, default “auto”</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code> returns <code class="docutils literal notranslate"><span class="pre">*.jsf</span></code>, <code class="docutils literal notranslate"><span class="pre">*.sdf</span></code> and <code class="docutils literal notranslate"><span class="pre">*.xtf</span></code> files and
+Humminbird <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> files. <code class="docutils literal notranslate"><span class="pre">.xtf</span></code> and <code class="docutils literal notranslate"><span class="pre">.dat</span></code> match in any
+letter case (<code class="docutils literal notranslate"><span class="pre">.XTF</span></code> and <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> are common); <code class="docutils literal notranslate"><span class="pre">.jsf</span></code> and
+<code class="docutils literal notranslate"><span class="pre">.sdf</span></code> match lower case only. A <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> file counts only when
+a directory of the same name (its <code class="docutils literal notranslate"><span class="pre">.SON</span></code> files) sits next to it.</p>
 </dd>
 </dl>
 </dd>
@@ -905,7 +916,7 @@ errors defaults to ‘strict’.</p>
 <dd><p>Read <code class="docutils literal notranslate"><span class="pre">path</span></code> as a survey, whatever it is.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">.ss.h5</span></code> (or <code class="docutils literal notranslate"><span class="pre">.h5</span></code>/<code class="docutils literal notranslate"><span class="pre">.hdf5</span></code>) file is read with
 <a class="reference internal" href="sidescanpy.io.hdf5.reader.html#sidescanpy.io.hdf5.reader.read_survey" title="sidescanpy.io.hdf5.reader.read_survey"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_survey()</span></code></a> (<code class="docutils literal notranslate"><span class="pre">chunks</span></code> passed through);
-a raw <code class="docutils literal notranslate"><span class="pre">.jsf</span></code>/<code class="docutils literal notranslate"><span class="pre">.sdf</span></code>/<code class="docutils literal notranslate"><span class="pre">.xtf</span></code> file is converted in memory with
+a raw <code class="docutils literal notranslate"><span class="pre">.jsf</span></code>/<code class="docutils literal notranslate"><span class="pre">.sdf</span></code>/<code class="docutils literal notranslate"><span class="pre">.xtf</span></code> file or Humminbird <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> is converted in memory with
 <a class="reference internal" href="#sidescanpy.io.dispatch.read_and_convert" title="sidescanpy.io.dispatch.read_and_convert"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_and_convert()</span></code></a> (<code class="docutils literal notranslate"><span class="pre">chunks</span></code> ignored).</p>
 </dd></dl>
 

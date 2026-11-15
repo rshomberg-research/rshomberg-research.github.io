@@ -1,0 +1,22 @@
+sidescanpy.io.humminbird.converter
+==================================
+
+.. automodule:: sidescanpy.io.humminbird.converter
+
+.. currentmodule:: sidescanpy.io.humminbird.converter
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   HUMMINBIRD_SAMPLE_RATE_HZ
+   PAIR_TOLERANCE_MS
+   convert
+
+.. autodata:: sidescanpy.io.humminbird.converter.HUMMINBIRD_SAMPLE_RATE_HZ
+   :no-value:
+
+.. autodata:: sidescanpy.io.humminbird.converter.PAIR_TOLERANCE_MS
+
+.. autofunction:: sidescanpy.io.humminbird.converter.convert

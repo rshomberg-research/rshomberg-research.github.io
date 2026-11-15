@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**11:53.804** total execution time for 15 files **from examples**:
+**13:19.576** total execution time for 16 files **from examples**:
 
 .. container::
 
@@ -33,47 +33,50 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_examples_plot_training_dataset.py` (``plot_training_dataset.py``)
-     - 02:58.108
+     - 02:55.822
      - 0.0
    * - :ref:`sphx_glr_examples_plot_vendor_chain.py` (``plot_vendor_chain.py``)
-     - 01:37.024
+     - 01:38.179
+     - 0.0
+   * - :ref:`sphx_glr_examples_plot_read_a_humminbird_recording.py` (``plot_read_a_humminbird_recording.py``)
+     - 01:33.381
      - 0.0
    * - :ref:`sphx_glr_examples_plot_target_chips.py` (``plot_target_chips.py``)
-     - 01:14.592
+     - 01:13.007
      - 0.0
    * - :ref:`sphx_glr_examples_plot_four_published_chains.py` (``plot_four_published_chains.py``)
-     - 01:11.381
+     - 01:09.876
      - 0.0
    * - :ref:`sphx_glr_examples_plot_wreck_gallery.py` (``plot_wreck_gallery.py``)
-     - 01:04.491
+     - 01:02.797
      - 0.0
    * - :ref:`sphx_glr_examples_plot_grid_to_a_map.py` (``plot_grid_to_a_map.py``)
-     - 00:49.650
+     - 00:48.578
      - 0.0
    * - :ref:`sphx_glr_examples_plot_look_consistency.py` (``plot_look_consistency.py``)
-     - 00:46.811
+     - 00:46.747
      - 0.0
    * - :ref:`sphx_glr_examples_plot_correct_a_line.py` (``plot_correct_a_line.py``)
-     - 00:43.149
+     - 00:42.633
      - 0.0
    * - :ref:`sphx_glr_examples_plot_four_passes.py` (``plot_four_passes.py``)
-     - 00:36.924
+     - 00:37.503
      - 0.0
    * - :ref:`sphx_glr_examples_plot_read_a_file.py` (``plot_read_a_file.py``)
-     - 00:27.402
+     - 00:27.031
      - 0.0
    * - :ref:`sphx_glr_examples_plot_investigate_a_survey.py` (``plot_investigate_a_survey.py``)
-     - 00:11.911
+     - 00:11.686
      - 0.0
    * - :ref:`sphx_glr_examples_plot_compare_sonars_and_formats.py` (``plot_compare_sonars_and_formats.py``)
-     - 00:08.277
+     - 00:08.323
      - 0.0
    * - :ref:`sphx_glr_examples_plot_swath_tiles.py` (``plot_swath_tiles.py``)
-     - 00:01.711
+     - 00:01.708
      - 0.0
    * - :ref:`sphx_glr_examples_plot_navigation.py` (``plot_navigation.py``)
-     - 00:01.486
+     - 00:01.438
      - 0.0
    * - :ref:`sphx_glr_examples_plot_whats_in_a_file.py` (``plot_whats_in_a_file.py``)
-     - 00:00.888
+     - 00:00.865
      - 0.0

@@ -10,6 +10,7 @@ sidescanpy.io
 
    dispatch <sidescanpy.io.dispatch>
    hdf5 <sidescanpy.io.hdf5>
+   humminbird <sidescanpy.io.humminbird>
    jsf <sidescanpy.io.jsf>
    netcdf <sidescanpy.io.netcdf>
    sdf <sidescanpy.io.sdf>

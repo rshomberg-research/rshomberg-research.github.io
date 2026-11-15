@@ -1,0 +1,78 @@
+sidescanpy.io.humminbird.reader
+===============================
+
+.. automodule:: sidescanpy.io.humminbird.reader
+
+.. currentmodule:: sidescanpy.io.humminbird.reader
+
+.. rubric:: Contents
+
+.. autosummary::
+   :nosignatures:
+
+   FRAME_MAGIC
+   HEADER_END
+   TAG_N_SAMPLES
+   BEAM_PORT
+   BEAM_STARBOARD
+   BEAM_NAMES
+   MERCATOR_RADIUS_M
+   TAG_NAMES
+   SPLIT_TAGS
+   SIGNED_TAGS
+   HumDat
+   HumBeam
+   HumRecording
+   son_directory
+   read_dat
+   read_son
+   read_humminbird
+   humminbird_to_lonlat
+   lonlat_to_humminbird
+
+.. autodata:: sidescanpy.io.humminbird.reader.FRAME_MAGIC
+
+.. autodata:: sidescanpy.io.humminbird.reader.HEADER_END
+
+.. autodata:: sidescanpy.io.humminbird.reader.TAG_N_SAMPLES
+
+.. autodata:: sidescanpy.io.humminbird.reader.BEAM_PORT
+
+.. autodata:: sidescanpy.io.humminbird.reader.BEAM_STARBOARD
+
+.. autodata:: sidescanpy.io.humminbird.reader.BEAM_NAMES
+   :no-value:
+
+.. autodata:: sidescanpy.io.humminbird.reader.MERCATOR_RADIUS_M
+
+.. autodata:: sidescanpy.io.humminbird.reader.TAG_NAMES
+   :no-value:
+
+.. autodata:: sidescanpy.io.humminbird.reader.SPLIT_TAGS
+   :no-value:
+
+.. autodata:: sidescanpy.io.humminbird.reader.SIGNED_TAGS
+
+.. autoclass:: sidescanpy.io.humminbird.reader.HumDat
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.humminbird.reader.HumBeam
+   :members:
+   :show-inheritance:
+
+.. autoclass:: sidescanpy.io.humminbird.reader.HumRecording
+   :members:
+   :show-inheritance:
+
+.. autofunction:: sidescanpy.io.humminbird.reader.son_directory
+
+.. autofunction:: sidescanpy.io.humminbird.reader.read_dat
+
+.. autofunction:: sidescanpy.io.humminbird.reader.read_son
+
+.. autofunction:: sidescanpy.io.humminbird.reader.read_humminbird
+
+.. autofunction:: sidescanpy.io.humminbird.reader.humminbird_to_lonlat
+
+.. autofunction:: sidescanpy.io.humminbird.reader.lonlat_to_humminbird

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Humminbird &#8212; sidescanpy 0.10.1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../_static/documentation_options.js?v=261ea15a"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sources/humminbird';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Adding a source format" href="new_source.html" />
+    <link rel="prev" title="XTF" href="xtf.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.10.1" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sidescanpy 0.10.1</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../theory/index.html">
+    Theory
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../example_data.html">
+    Example data
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../public_datasets.html">
+    Public datasets
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guide.html">
+    Guide
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="index.html">
+    Source formats
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../status.html">
+    Stability
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development.html">
+    Contributing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/rshomberg-research/sidescanpy" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../install.html">
+    Install
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../theory/index.html">
+    Theory
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../example_data.html">
+    Example data
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../public_datasets.html">
+    Public datasets
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guide.html">
+    Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../format/index.html">
+    Data format
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Source formats
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../status.html">
+    Stability
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development.html">
+    Contributing
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/rshomberg-research/sidescanpy" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="jsf.html">EdgeTech JSF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdf.html">Klein SDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xtf.html">XTF</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Humminbird</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_source.html">Adding a source format</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Source formats</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Humminbird</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="humminbird">
+<h1>Humminbird<a class="headerlink" href="#humminbird" title="Link to this heading">#</a></h1>
+<p>Humminbird fishfinders with side imaging (Helix, Solix, Apex and older
+units) record each recording as a small <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> header and a directory of
+the same name with one <code class="docutils literal notranslate"><span class="pre">.SON</span></code> file per beam. sidescanpy converts the
+side imaging beams into the <a class="reference internal" href="../format/index.html"><span class="std std-doc">data format</span></a>.
+Humminbird publishes no specification; the layout follows the open
+readers PyHum and PINGVerter (PING-Mapper), and the reader has been
+checked on Helix recordings: a public USFWS recording (Helix 15, 405 kHz)
+and PING-Mapper’s test recording (455 kHz).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_and_convert</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sidescanpy.io.humminbird</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span><span class="p">,</span> <span class="n">read_humminbird</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">read_and_convert</span><span class="p">([</span><span class="s2">&quot;R00013.DAT&quot;</span><span class="p">],</span> <span class="s2">&quot;humminbird&quot;</span><span class="p">)</span>   <span class="c1"># the .DAT file</span>
+<span class="c1"># or, step by step:</span>
+<span class="n">recording</span> <span class="o">=</span> <span class="n">read_humminbird</span><span class="p">(</span><span class="s2">&quot;R00013.DAT&quot;</span><span class="p">)</span>                  <span class="c1"># finds R00013/B00n.SON</span>
+<span class="n">survey</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">recording</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pass the <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> file; its <code class="docutils literal notranslate"><span class="pre">.SON</span></code> files are found in the directory of the
+same name next to it (<code class="docutils literal notranslate"><span class="pre">R00013.DAT</span></code> → <code class="docutils literal notranslate"><span class="pre">R00013/</span></code>). <code class="docutils literal notranslate"><span class="pre">sidescan-convert</span> <span class="pre">survey</span></code> picks up every <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> that has such a directory. <code class="docutils literal notranslate"><span class="pre">read_dat</span></code>,
+<code class="docutils literal notranslate"><span class="pre">read_son</span></code> and <code class="docutils literal notranslate"><span class="pre">read_humminbird</span></code> give the header and each beam’s frames
+with their fields as recorded. <code class="docutils literal notranslate"><span class="pre">write_subset(src,</span> <span class="pre">dst,</span> <span class="pre">n_pings=,</span> <span class="pre">start_ping=)</span></code> copies the <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> and a run of ping frames of every beam to
+a new recording, byte for byte (for making small test files).</p>
+<section id="file-structure">
+<h2>File structure<a class="headerlink" href="#file-structure" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">.DAT</span></code></strong>: one header for the recording. 64 bytes, big-endian, on
+Helix and older units: water type, start time (Unix seconds, UTC),
+first position, recording name, ping count and duration. Solix units
+write 96 or 100 bytes, little-endian, with the same leading fields
+(read as PINGVerter lays them out; not tested on real files). Onix
+units write an XML header, which is not read.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">.SON</span></code></strong>: one per beam (<code class="docutils literal notranslate"><span class="pre">B000.SON</span></code> … <code class="docutils literal notranslate"><span class="pre">B004.SON</span></code>), a sequence of ping
+frames. A frame starts with the bytes <code class="docutils literal notranslate"><span class="pre">C0</span> <span class="pre">DE</span> <span class="pre">AB</span> <span class="pre">21</span></code>, then tagged
+big-endian fields: a 1-byte tag, then a 1-byte value when the tag’s top
+bit is clear (tags 80-87) or a 4-byte value when it is set (tags
+128-160). Tag 160 is the sample count, the byte <code class="docutils literal notranslate"><span class="pre">0x21</span></code> ends the
+header, and that many 8-bit samples follow. The header is 67 bytes on
+older Helix files and 72 or 152 bytes on newer ones; the encoding is
+the same, so tags are decoded one by one, and unknown ones are kept
+as <code class="docutils literal notranslate"><span class="pre">tag_&lt;n&gt;</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">.IDX</span></code></strong>: per-beam index of frame times and offsets. Not needed; the
+reader walks the frames.</p></li>
+</ul>
+</section>
+<section id="channels-and-data-streams">
+<h2>Channels and data streams<a class="headerlink" href="#channels-and-data-streams" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stream</p></th>
+<th class="head"><p>Humminbird source</p></th>
+<th class="head"><p>In the data format</p></th>
+<th class="head"><p>Rate</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Side imaging, port and starboard</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B002.SON</span></code> (port), <code class="docutils literal notranslate"><span class="pre">B003.SON</span></code> (starboard), paired by ping time</p></td>
+<td><p>one <code class="docutils literal notranslate"><span class="pre">frequencies/hz_&lt;Hz&gt;</span></code> per recorded frequency (tag 146)</p></td>
+<td><p>every ping</p></td>
+</tr>
+<tr class="row-odd"><td><p>Position</p></td>
+<td><p>tags 130, 131: Mercator easting, northing (m)</p></td>
+<td><p>per-ping <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code>; <code class="docutils literal notranslate"><span class="pre">navigation</span></code> record</p></td>
+<td><p>every ping (held between GPS fixes)</p></td>
+</tr>
+<tr class="row-even"><td><p>Heading, speed</p></td>
+<td><p>tag 132 (tenths of a degree), tag 133 (dm/s)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">heading_deg</span></code>; <code class="docutils literal notranslate"><span class="pre">navigation</span></code> record (<code class="docutils literal notranslate"><span class="pre">speed_knots</span></code>)</p></td>
+<td><p>every ping</p></td>
+</tr>
+<tr class="row-odd"><td><p>Depth below the transducer</p></td>
+<td><p>tag 135 (dm)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">altitude_m</span></code>, <code class="docutils literal notranslate"><span class="pre">fathometer_reading_m</span></code></p></td>
+<td><p>every ping</p></td>
+</tr>
+<tr class="row-even"><td><p>2D sonar, down imaging</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B000.SON</span></code>, <code class="docutils literal notranslate"><span class="pre">B001.SON</span></code>, <code class="docutils literal notranslate"><span class="pre">B004.SON</span></code> (one channel each)</p></td>
+<td><p>not converted; named in a warning and <code class="docutils literal notranslate"><span class="pre">humminbird_beams_skipped</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Attitude, sound velocity, DVL</p></td>
+<td><p>none</p></td>
+<td><p>NaN per-ping values, empty <code class="docutils literal notranslate"><span class="pre">attitude</span></code> and <code class="docutils literal notranslate"><span class="pre">dvl</span></code> records</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Every frame repeats the latest GPS position and heading, so they change
+only when the GPS updates (about once a second); count the real changes
+with <code class="docutils literal notranslate"><span class="pre">processing.aux_update_events</span></code> before trusting a track
+(<a class="reference internal" href="../examples/plot_navigation.html"><span class="std std-doc">Navigation</span></a>).</p>
+</section>
+<section id="mapping-to-the-data-format">
+<h2>Mapping to the data format<a class="headerlink" href="#mapping-to-the-data-format" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Survey</p></th>
+<th class="head"><p>Humminbird source</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>frequency key <code class="docutils literal notranslate"><span class="pre">hz_&lt;Hz&gt;</span></code></p></td>
+<td><p>tag 146 (Hz) of the side imaging frames</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">backscatter_intensity</span></code> (ping, channel, sample)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B002</span></code> (port) and <code class="docutils literal notranslate"><span class="pre">B003</span></code> (starboard) samples, the 8-bit values as float32; both stored near to far, so neither is reversed</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">valid_samples</span></code></p></td>
+<td><p>tag 160; pings hold slightly different counts, padding beyond it is NaN</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>tags 131, 130 on a sphere of radius 6 378 388 m (International 1924), inverted as PyHum and PINGVerter do</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">heading_deg</span></code></p></td>
+<td><p>tag 132, low 16 bits / 10</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">altitude_m</span></code>, <code class="docutils literal notranslate"><span class="pre">fathometer_reading_m</span></code></p></td>
+<td><p>tag 135 / 10; 0 is NaN</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">depth_m</span></code>, <code class="docutils literal notranslate"><span class="pre">roll_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">pitch_deg</span></code>, <code class="docutils literal notranslate"><span class="pre">heave_m</span></code>, <code class="docutils literal notranslate"><span class="pre">sound_vel_ms</span></code></p></td>
+<td><p>not recorded: NaN (downstream steps use 1500 m/s)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sample_rate_hz</span></code></p></td>
+<td><p>not recorded: 38 594 Hz by default (see below)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">time</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.DAT</span></code> start time + tag 129 (ms since the start)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ping_number</span></code></p></td>
+<td><p>tag 128 of the port frame</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">position_source</span></code> attribute</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unknown</span></code>: the position is the GPS antenna’s, and the file does not say where the transducer is</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pulse_length_us</span></code> is not recorded and is 0.0. Dataset attributes
+prefixed <code class="docutils literal notranslate"><span class="pre">humminbird_</span></code> record the recording name, sonar id, water type
+and SON header size, which beams were skipped, how the sample rate was
+chosen, pings recorded on one side only, and counts of truncated frames
+and resyncs.</p>
+</section>
+<section id="conventions-and-caveats">
+<h2>Conventions and caveats<a class="headerlink" href="#conventions-and-caveats" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Sample interval is assumed.</strong> The files record neither the range
+nor the sample interval. Humminbird samples at a fixed rate whatever
+the range setting, which only changes how many samples a ping holds.
+Two checks on real Helix files agree: the first bottom return sits at
+about 1.9 cm per sample of recorded depth, and the time between pings
+grows by 26.3 µs per sample (a straight line, r = 1.000, over range
+settings from 1168 to 3058 samples), which is a sample rate of about
+38 050 Hz. <code class="docutils literal notranslate"><span class="pre">sample_rate_hz</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">HUMMINBIRD_SAMPLE_RATE_HZ</span></code>
+= 38 594 Hz, the rate implied by the pixel size PyHum and PING-Mapper
+use (<code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">asin(c</span> <span class="pre">/</span> <span class="pre">(L</span> <span class="pre">f))</span> <span class="pre">/</span> <span class="pre">π</span></code> with <code class="docutils literal notranslate"><span class="pre">L</span></code> = 0.108 m, <code class="docutils literal notranslate"><span class="pre">f</span></code> = 455 kHz, which
+is <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">/</span> <span class="pre">(2</span> <span class="pre">fs)</span></code> with <code class="docutils literal notranslate"><span class="pre">fs</span> <span class="pre">=</span> <span class="pre">π</span> <span class="pre">L</span> <span class="pre">f</span> <span class="pre">/</span> <span class="pre">4</span></code>). At 1500 m/s that is 1.94 cm
+per sample, within 2 % of both estimates. Pass
+<code class="docutils literal notranslate"><span class="pre">sample_rate_hz=</span></code> to <code class="docutils literal notranslate"><span class="pre">io.humminbird.convert</span></code> to use another value;
+<code class="docutils literal notranslate"><span class="pre">humminbird_sample_rate_source</span></code> records the choice.</p></li>
+<li><p><strong>Port and starboard pairing.</strong> The unit writes both sides of a ping
+at the same millisecond, or the starboard one 1 ms later. Frames within
+<code class="docutils literal notranslate"><span class="pre">PAIR_TOLERANCE_MS</span></code> (5 ms) pair; a ping recorded on one side only keeps
+NaN on the other and is counted in <code class="docutils literal notranslate"><span class="pre">humminbird_pings_one_side</span></code>.</p></li>
+<li><p><strong>Port and starboard orientation.</strong> Both beams store samples nearest
+first. On the recordings checked, the water column and the first
+bottom return are mirror images on the two sides and match the
+recorded depth. Which beam is port comes from the beam numbering in
+PyHum and PINGVerter; it has not been checked against a shoreline.</p></li>
+<li><p><strong>Time.</strong> The <code class="docutils literal notranslate"><span class="pre">.DAT</span></code> start time is taken as UTC (on the public
+recordings it gives daylight local times; read as local time one would
+fall at night).</p></li>
+<li><p><strong>Unit gain.</strong> The samples are 8-bit display values after the unit’s
+own gain and contrast settings, which are not recorded. Measure what
+the unit applied with <code class="docutils literal notranslate"><span class="pre">analysis.fit_tvg_models</span></code> before correcting
+(<a class="reference internal" href="../limitations.html#radiometric-correction"><span class="std std-ref">Limitations</span></a>).</p></li>
+<li><p><strong>Recorded depth can be wrong.</strong> The depth comes from the unit’s own
+sounder and is not checked. One public recording reads 8 to 18 m for
+its first few thousand pings in a river 1 to 5 m deep; those pings get
+the wrong slant-to-ground conversion. Plot the depth over a waterfall
+first, and use the <code class="docutils literal notranslate"><span class="pre">bottom_track</span></code> step where it does not follow the
+first bottom return.</p></li>
+<li><p><strong>Heading</strong> is the GPS course over ground unless a compass is
+connected to the unit; the file does not say which.</p></li>
+<li><p><strong>Down-looking beams</strong> (2D sonar, down imaging) have one channel each
+and do not fit the port/starboard model; they are skipped.</p></li>
+</ul>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
+<p>Humminbird publishes no specification. The file layout, the meaning of
+the header tags and the position formula used here were worked out by
+PyHum and PINGVerter, and sidescanpy’s reader follows their description
+(its code is its own):</p>
+<ul class="simple">
+<li><p>PyHum: Buscombe, D. (2017), Shallow water benthic imaging and substrate
+characterization using recreational-grade sidescan-sonar,
+<em>Environmental Modelling &amp; Software</em> 89, 1-18,
+<a class="reference external" href="https://doi.org/10.1016/j.envsoft.2016.12.003">doi:10.1016/j.envsoft.2016.12.003</a>;
+<a class="github reference external" href="https://github.com/dbuscombe-usgs/PyHum">dbuscombe-usgs/PyHum</a> (U.S. public domain).</p></li>
+<li><p>PINGVerter and PING-Mapper: Bodine, C. S., et al.,
+<a class="github reference external" href="https://github.com/CameronBodine/PINGVerter">CameronBodine/PINGVerter</a>,
+<a class="github reference external" href="https://github.com/CameronBodine/PINGMapper">CameronBodine/PINGMapper</a> (MIT licence). Bodine et
+al. (2022), PING-Mapper: open-source software for automated benthic
+imaging and mapping using recreation-grade sonar, <em>Earth and Space
+Science</em> 9, e2022EA002469,
+<a class="reference external" href="https://doi.org/10.1029/2022EA002469">doi:10.1029/2022EA002469</a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="xtf.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">XTF</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="new_source.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Adding a source format</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-structure">File structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channels-and-data-streams">Channels and data streams</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-to-the-data-format">Mapping to the data format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventions-and-caveats">Conventions and caveats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Russ Shomberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

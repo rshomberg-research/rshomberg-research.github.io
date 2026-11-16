@@ -694,29 +694,32 @@ to the archive and cite it.</p>
 </section>
 <section id="sample-outputs">
 <h2>Sample outputs<a class="headerlink" href="#sample-outputs" title="Link to this heading">#</a></h2>
-<p>Every figure below comes from one script,
-<code class="docutils literal notranslate"><span class="pre">docs/_scripts/public_datasets_figures.py</span></code>, with the same chain and the
-same layout; only the file, the format and a navigation CRS the archive
-leaves unstated change. The chain:</p>
-<ol class="arabic simple">
-<li><p>read, navigation onto the pings, 20 s navigation smoothing
-(<a class="reference internal" href="reference/generated/sidescanpy.processing.navigation.html#sidescanpy.processing.navigation.smooth_navigation" title="sidescanpy.processing.navigation.smooth_navigation"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth_navigation()</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bottom_track</span></code>, <code class="docutils literal notranslate"><span class="pre">tvg</span></code> (library defaults), <code class="docutils literal notranslate"><span class="pre">geometric</span></code> (flat seabed)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">range_correction</span></code> fitted on the same line, which flattens the level
-against range that TVG leaves (a recorder’s own TVG, beam pattern)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">georef</span></code></p></li>
-</ol>
-<p>Left: a ground-range waterfall one swath width long, from the stretch
-of the line with the steadiest positions. Right: three swath widths
-around it, gridded on UTM (about 300 cells across the swath,
-inverse-distance weighting), north up. Both in dB, copper colormap,
-2 to 98 % stretch, highest frequency in the file. Nothing is tuned per
-dataset, so the panels show what the default chain gives, not the best
-each dataset can look; the <a class="reference internal" href="examples/index.html"><span class="std std-doc">examples</span></a> tune the
-chain for several of them.</p>
+<p>Each dataset below gets the same three panels, all over the same stretch
+of pings, made by one script,
+<a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/docs/_scripts/public_datasets_figures.py"><code class="docutils literal notranslate"><span class="pre">docs/_scripts/public_datasets_figures.py</span></code></a>
+(<code class="docutils literal notranslate"><span class="pre">--only</span> <span class="pre">&lt;name&gt;</span></code> remakes one):</p>
+<ul class="simple">
+<li><p><strong>As stored:</strong> the samples exactly as the file holds them (units
+inferred by <a class="reference internal" href="reference/generated/sidescanpy.analysis.characterize.html#sidescanpy.analysis.characterize.infer_units" title="sidescanpy.analysis.characterize.infer_units"><code class="xref py py-func docutils literal notranslate"><span class="pre">infer_units()</span></code></a>),
+against slant range, linear 2–98 % stretch.</p></li>
+<li><p><strong>Corrected:</strong> the same pings after the library chain: navigation
+smoothing, altitude from bottom track, TVG, flat-seabed slant to
+ground range, and a range correction fitted on the line. dB, against
+across-track ground range.</p></li>
+<li><p><strong>Georeferenced:</strong> the same pings gridded on UTM, north up, at the
+finest useful cell (<a class="reference internal" href="reference/generated/sidescanpy.grids.resolution.html#sidescanpy.grids.resolution.recommend_resolution" title="sidescanpy.grids.resolution.recommend_resolution"><code class="xref py py-func docutils literal notranslate"><span class="pre">recommend_resolution()</span></code></a>:
+half the finer native spacing, at least 5 cm).</p></li>
+</ul>
+<p>The stretch is picked to show something: centred on a catalogued target
+where the record has one, otherwise the most textured straight stretch
+with no navigation jumps. The line under each figure lists the exact
+corrections and parameters, read from the processing history. Nothing
+is tuned per dataset, so the panels show what the default chain gives;
+the <a class="reference internal" href="examples/index.html"><span class="std std-doc">examples</span></a> tune the chain for several of them.</p>
 <section id="bgs-london-gateway">
 <h3>BGS London Gateway<a class="headerlink" href="#bgs-london-gateway" title="Link to this heading">#</a></h3>
-<p><img alt="BGS London Gateway, Klein 400 kHz, waterfall and grid" src="_images/bgs_london_gateway.png" /></p>
+<p><img alt="BGS London Gateway, Klein 400 kHz, raw, corrected and georeferenced" src="_images/bgs_london_gateway.png" /></p>
+<p><strong>Raw:</strong> raw counts, as stored, slant range. <strong>Corrected:</strong> navigation smoothed (20 s); heading from course over ground (file records none); altitude from bottom track; TVG 30 log R + 96 dB/km absorption; flat-seabed slant to ground range; range correction fitted on this line. <strong>Georeferenced:</strong> UTM zone 31N, 5 cm cells, linear interpolation. <strong>Section:</strong> pings 947-1995 of 2339, centred on the Dynamo wreck. <strong>Code:</strong> <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/docs/_scripts/public_datasets_figures.py"><code class="docutils literal notranslate"><span class="pre">public_datasets_figures.py</span></code></a> <code class="docutils literal notranslate"><span class="pre">--only</span> <span class="pre">bgs_london_gateway</span></code>.</p>
 <ul class="simple">
 <li><p><strong>Provider:</strong> British Geological Survey, National Geoscience Data
 Centre, item 140325,
@@ -741,7 +744,8 @@ Details in <a class="reference internal" href="example_data.html"><span class="s
 </section>
 <section id="usgs-grand-bay">
 <h3>USGS Grand Bay<a class="headerlink" href="#usgs-grand-bay" title="Link to this heading">#</a></h3>
-<p><img alt="USGS Grand Bay, Klein 100 kHz, waterfall and grid" src="_images/usgs_grand_bay.png" /></p>
+<p><img alt="USGS Grand Bay, Klein 100 kHz, raw, corrected and georeferenced" src="_images/usgs_grand_bay.png" /></p>
+<p><strong>Raw:</strong> raw counts, as stored, slant range. <strong>Corrected:</strong> navigation smoothed (20 s); altitude from bottom track; TVG 30 log R + 34 dB/km absorption; flat-seabed slant to ground range; range correction fitted on this line. <strong>Georeferenced:</strong> UTM zone 16N, 5 cm cells, linear interpolation. <strong>Section:</strong> pings 0-296 of 297, most textured straight, jump-free window. <strong>Code:</strong> <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/docs/_scripts/public_datasets_figures.py"><code class="docutils literal notranslate"><span class="pre">public_datasets_figures.py</span></code></a> <code class="docutils literal notranslate"><span class="pre">--only</span> <span class="pre">usgs_grand_bay</span></code>.</p>
 <ul class="simple">
 <li><p><strong>Provider:</strong> U.S. Geological Survey data release,
 <a class="reference external" href="https://doi.org/10.5066/P9374DKQ">doi:10.5066/P9374DKQ</a>.</p></li>
@@ -763,7 +767,8 @@ and Alabama</em>: U.S. Geological Survey data release,
 </section>
 <section id="jncc-wight-barfleur-reef">
 <h3>JNCC Wight-Barfleur Reef<a class="headerlink" href="#jncc-wight-barfleur-reef" title="Link to this heading">#</a></h3>
-<p><img alt="JNCC Wight-Barfleur Reef, EdgeTech 521 kHz, waterfall and grid" src="_images/jncc_wight_barfleur.png" /></p>
+<p><img alt="JNCC Wight-Barfleur Reef, EdgeTech 521 kHz, raw, corrected and georeferenced" src="_images/jncc_wight_barfleur.png" /></p>
+<p><strong>Raw:</strong> raw counts, as stored, slant range. <strong>Corrected:</strong> navigation smoothed (20 s); altitude from bottom track; TVG 30 log R + 140 dB/km absorption; flat-seabed slant to ground range; range correction fitted on this line. <strong>Georeferenced:</strong> UTM zone 30N, 5 cm cells, linear interpolation. <strong>Section:</strong> pings 0-287 of 288, middle of the line (no straight, jump-free window). <strong>Code:</strong> <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/docs/_scripts/public_datasets_figures.py"><code class="docutils literal notranslate"><span class="pre">public_datasets_figures.py</span></code></a> <code class="docutils literal notranslate"><span class="pre">--only</span> <span class="pre">jncc_wight_barfleur</span></code>.</p>
 <ul class="simple">
 <li><p><strong>Provider:</strong> Joint Nature Conservation Committee, <em>Raw side scan sonar
 data from Wight-Barfleur Reef SCI</em> (CEND 03/13, 2013),
@@ -780,7 +785,8 @@ and XTF readers; no recorded altitude.</p></li>
 </section>
 <section id="jncc-mid-irish-sea">
 <h3>JNCC mid-Irish Sea<a class="headerlink" href="#jncc-mid-irish-sea" title="Link to this heading">#</a></h3>
-<p><img alt="JNCC mid-Irish Sea, Benthos 400 kHz, waterfall and grid" src="_images/jncc_mid_irish_sea.png" /></p>
+<p><img alt="JNCC mid-Irish Sea, Benthos 400 kHz, raw, corrected and georeferenced" src="_images/jncc_mid_irish_sea.png" /></p>
+<p><strong>Raw:</strong> raw counts, as stored, slant range. <strong>Corrected:</strong> navigation smoothed (20 s); altitude from bottom track; TVG 30 log R + 96 dB/km absorption; flat-seabed slant to ground range; range correction fitted on this line. <strong>Georeferenced:</strong> UTM zone 30N, 5 cm cells, linear interpolation. <strong>Section:</strong> pings 329-909 of 1234, middle of the line (no straight, jump-free window). <strong>Code:</strong> <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/docs/_scripts/public_datasets_figures.py"><code class="docutils literal notranslate"><span class="pre">public_datasets_figures.py</span></code></a> <code class="docutils literal notranslate"><span class="pre">--only</span> <span class="pre">jncc_mid_irish_sea</span></code>.</p>
 <ul class="simple">
 <li><p><strong>Provider:</strong> JNCC, <em>Raw sidescan sonar data from Submarine structures
 in the mid-Irish Sea Area of Search</em> (CEND 11/08, 2008),
@@ -797,7 +803,8 @@ enough; used in <a class="reference internal" href="getting_started.html"><span 
 </section>
 <section id="jncc-solan-bank">
 <h3>JNCC Solan Bank<a class="headerlink" href="#jncc-solan-bank" title="Link to this heading">#</a></h3>
-<p><img alt="JNCC Solan Bank, Benthos 200 kHz, waterfall and grid" src="_images/jncc_solan_bank.png" /></p>
+<p><img alt="JNCC Solan Bank, Benthos 200 kHz, raw, corrected and georeferenced" src="_images/jncc_solan_bank.png" /></p>
+<p><strong>Raw:</strong> raw counts, as stored, slant range. <strong>Corrected:</strong> navigation smoothed (20 s); altitude from bottom track; TVG 30 log R + 54 dB/km absorption; flat-seabed slant to ground range; range correction fitted on this line. <strong>Georeferenced:</strong> UTM zone 30N, 5 cm cells, linear interpolation. <strong>Section:</strong> pings 2580-3033 of 9189, most textured straight, jump-free window. <strong>Code:</strong> <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/docs/_scripts/public_datasets_figures.py"><code class="docutils literal notranslate"><span class="pre">public_datasets_figures.py</span></code></a> <code class="docutils literal notranslate"><span class="pre">--only</span> <span class="pre">jncc_solan_bank</span></code>.</p>
 <ul class="simple">
 <li><p><strong>Provider:</strong> JNCC, <em>Raw sidescan sonar data from Solan Bank Area of
 Search</em> (CEND 11/08, 2008),
@@ -818,7 +825,8 @@ on this line).</p></li>
 </section>
 <section id="jncc-east-rockall-bank">
 <h3>JNCC East Rockall Bank<a class="headerlink" href="#jncc-east-rockall-bank" title="Link to this heading">#</a></h3>
-<p><img alt="JNCC East Rockall Bank, EdgeTech 410 kHz, waterfall and grid" src="_images/jncc_east_rockall.png" /></p>
+<p><img alt="JNCC East Rockall Bank, EdgeTech 410 kHz, raw, corrected and georeferenced" src="_images/jncc_east_rockall.png" /></p>
+<p><strong>Raw:</strong> raw counts, as stored, slant range. <strong>Corrected:</strong> navigation smoothed (20 s); altitude from bottom track; TVG 30 log R + 99 dB/km absorption; flat-seabed slant to ground range; range correction fitted on this line. <strong>Georeferenced:</strong> UTM zone 28N, 7 cm cells, linear interpolation. <strong>Section:</strong> pings 1230-1694 of 8717, most textured straight, jump-free window. <strong>Code:</strong> <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/docs/_scripts/public_datasets_figures.py"><code class="docutils literal notranslate"><span class="pre">public_datasets_figures.py</span></code></a> <code class="docutils literal notranslate"><span class="pre">--only</span> <span class="pre">jncc_east_rockall</span></code>.</p>
 <ul class="simple">
 <li><p><strong>Provider:</strong> JNCC, <em>Raw side scan data from Anton Dohrn and East
 Rockall Bank</em> (MV Franklin, 2009),
@@ -840,7 +848,8 @@ remove; the grid shows it.</p></li>
 </section>
 <section id="awi-ofobs-ps124">
 <h3>AWI OFOBS, PS124<a class="headerlink" href="#awi-ofobs-ps124" title="Link to this heading">#</a></h3>
-<p><img alt="AWI OFOBS PS124, EdgeTech 2205 488 kHz, waterfall and grid" src="_images/awi_ofobs_ps124.png" /></p>
+<p><img alt="AWI OFOBS PS124, EdgeTech 2205 488 kHz, raw, corrected and georeferenced" src="_images/awi_ofobs_ps124.png" /></p>
+<p><strong>Raw:</strong> raw counts, as stored, slant range. <strong>Corrected:</strong> navigation smoothed (20 s); altitude from bottom track; TVG 30 log R + 131 dB/km absorption; flat-seabed slant to ground range; range correction fitted on this line. <strong>Georeferenced:</strong> UTM zone 25S, 5 cm cells, linear interpolation. <strong>Section:</strong> pings 0-1371 of 1372, most textured straight, jump-free window. <strong>Code:</strong> <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/docs/_scripts/public_datasets_figures.py"><code class="docutils literal notranslate"><span class="pre">public_datasets_figures.py</span></code></a> <code class="docutils literal notranslate"><span class="pre">--only</span> <span class="pre">awi_ofobs_ps124</span></code>.</p>
 <ul class="simple">
 <li><p><strong>Provider:</strong> PANGAEA,
 <a class="reference external" href="https://doi.org/10.1594/PANGAEA.939172">doi:10.1594/PANGAEA.939172</a>
@@ -864,7 +873,8 @@ PANGAEA, <a class="reference external" href="https://doi.org/10.1594/PANGAEA.939
 </section>
 <section id="benthicat-raw">
 <h3>BenthiCat-Raw<a class="headerlink" href="#benthicat-raw" title="Link to this heading">#</a></h3>
-<p><img alt="BenthiCat-Raw, Klein 3000H, waterfall and grid" src="_images/benthicat.png" /></p>
+<p><img alt="BenthiCat-Raw, Klein 3000H, raw, corrected and georeferenced" src="_images/benthicat.png" /></p>
+<p><strong>Raw:</strong> raw counts, as stored, slant range. <strong>Corrected:</strong> navigation smoothed (20 s); altitude from bottom track; TVG 30 log R + no absorption (frequency not recorded); flat-seabed slant to ground range; range correction fitted on this line. <strong>Georeferenced:</strong> UTM zone 31N, 5 cm cells, linear interpolation. <strong>Section:</strong> pings 2675-3213 of 10721, most textured straight, jump-free window. <strong>Code:</strong> <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/docs/_scripts/public_datasets_figures.py"><code class="docutils literal notranslate"><span class="pre">public_datasets_figures.py</span></code></a> <code class="docutils literal notranslate"><span class="pre">--only</span> <span class="pre">benthicat</span></code>.</p>
 <ul class="simple">
 <li><p><strong>Provider:</strong> University of Girona, Harvard Dataverse,
 <a class="reference external" href="https://doi.org/10.7910/DVN/UMABNT">doi:10.7910/DVN/UMABNT</a>; collection
@@ -887,7 +897,7 @@ speed of 0. Positions are in the ship fields and no layback is
 recorded; the release does not say whether they are the towfish’s.
 Not registered in <code class="docutils literal notranslate"><span class="pre">datasets.fetch</span></code>: the archive cannot be read one
 file at a time.</p></li>
-<li><p><strong>Figure:</strong> <code class="docutils literal notranslate"><span class="pre">N01/N01_05_220731124500_xtf-CH12.xtf</span></code>.</p></li>
+<li><p><strong>Figure:</strong> <code class="docutils literal notranslate"><span class="pre">N02/N02_SS_04_220807105300_xtf-CH12.xtf</span></code>.</p></li>
 <li><p><strong>Cite:</strong> Rajani, H. (2026). <em>BenthiCat - Raw</em>. Harvard Dataverse, V1.1,
 <a class="reference external" href="https://doi.org/10.7910/DVN/UMABNT">https://doi.org/10.7910/DVN/UMABNT</a>; and Rajani, H., et al. (2025).
 <em>BenthiCat: An opti-acoustic dataset for advancing benthic
@@ -896,7 +906,8 @@ classification and habitat mapping</em>. arXiv:2510.04876.</p></li>
 </section>
 <section id="usfws-chena-river">
 <h3>USFWS Chena River<a class="headerlink" href="#usfws-chena-river" title="Link to this heading">#</a></h3>
-<p><img alt="USFWS Chena River, Humminbird 405 kHz, waterfall and grid" src="_images/usfws_chena.png" /></p>
+<p><img alt="USFWS Chena River, Humminbird 405 kHz, raw, corrected and georeferenced" src="_images/usfws_chena.png" /></p>
+<p><strong>Raw:</strong> raw counts, as stored, slant range. <strong>Corrected:</strong> navigation smoothed (20 s); altitude from bottom track; TVG 30 log R + 97 dB/km absorption; flat-seabed slant to ground range; range correction fitted on this line. <strong>Georeferenced:</strong> UTM zone 6N, 5 cm cells, linear interpolation. <strong>Section:</strong> pings 3152-3547 of 6559, centred on the river bank of the Humminbird example. <strong>Code:</strong> <a class="reference external" href="https://github.com/rshomberg-research/sidescanpy/blob/main/docs/_scripts/public_datasets_figures.py"><code class="docutils literal notranslate"><span class="pre">public_datasets_figures.py</span></code></a> <code class="docutils literal notranslate"><span class="pre">--only</span> <span class="pre">usfws_chena</span></code>.</p>
 <ul class="simple">
 <li><p><strong>Provider:</strong> U.S. Fish and Wildlife Service, “Raw side-scan sonar
 data relating to Chena River habitat mapping in 2022”,

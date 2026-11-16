@@ -105,8 +105,8 @@ where the reader looks for them.
 
  .. code-block:: none
 
-    23:29:18 WARNING sidescanpy.processing.sample_axis: 6559 of 6559 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    23:29:18 WARNING sidescanpy.processing.geometric: 6559 of 6559 pings have NaN pitch_deg; their pitch is taken as 0 (no along-track offset)
+    14:39:46 WARNING sidescanpy.processing.sample_axis: 6559 of 6559 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    14:39:46 WARNING sidescanpy.processing.geometric: 6559 of 6559 pings have NaN pitch_deg; their pitch is taken as 0 (no along-track offset)
     {'ping': 6559, 'channel': 2, 'sample': 1261}
     humminbird_recording: R00013.SON
     humminbird_water_type: fresh
@@ -146,7 +146,7 @@ the spreading loss, so only absorption is left to correct; the default
 
  .. code-block:: none
 
-    23:29:19 WARNING sidescanpy.processing.sample_axis: 6559 of 6559 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    14:39:48 WARNING sidescanpy.processing.sample_axis: 6559 of 6559 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
     best absorption only (TVG status spreading_only); RMS in dB: flat 1.42, absorption only 0.65, 20 log R 0.97, 20 log R + abs 1.71, 30 log R 2.08, 30 log R + abs 2.85, 40 log R 3.22, 40 log R + abs 3.99
     after TVG: spread 0.64 dB, trend -1.52 dB per 10 m
 
@@ -179,9 +179,9 @@ file has no sound velocity or attitude, so the steps log that they use
 
  .. code-block:: none
 
-    23:29:20 WARNING sidescanpy.processing.interpolate: Skipping ['heave_m', 'pitch_deg', 'roll_deg']: aux record 'attitude' is empty
-    23:29:20 WARNING sidescanpy.processing.sample_axis: 6559 of 6559 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
-    23:29:20 WARNING sidescanpy.processing.geometric: 6559 of 6559 pings have NaN pitch_deg; their pitch is taken as 0 (no along-track offset)
+    14:39:50 WARNING sidescanpy.processing.interpolate: Skipping ['heave_m', 'pitch_deg', 'roll_deg']: aux record 'attitude' is empty
+    14:39:50 WARNING sidescanpy.processing.sample_axis: 6559 of 6559 pings have invalid sound_vel_ms (NaN or non-positive); falling back to 1500.0 m/s
+    14:39:50 WARNING sidescanpy.processing.geometric: 6559 of 6559 pings have NaN pitch_deg; their pitch is taken as 0 (no along-track offset)
 
 
 
@@ -338,7 +338,7 @@ differ most.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 33.381 seconds)
+   **Total running time of the script:** (1 minutes 23.904 seconds)
 
 
 .. _sphx_glr_download_examples_plot_read_a_humminbird_recording.py:
